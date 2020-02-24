@@ -9,7 +9,8 @@
          Augustine Hyunwoo Lee     :      z5061885  
          Patrick Church            :      z5161379
          Jack Callander            :      z5207123
-         Rich Liu                  :      z5165455
+         Richard Liu               :      z5165455
+         Negar Bolourchi           :      z5160635
 
   # Mentor
   Ben Delaney
@@ -18,7 +19,7 @@
   https://docs.google.com/document/d/1z8fmU1vFMbWtIVLr96GGhO4SbKdmgxnC0WcSRXRpbtw/edit
 
   ## Deliverable 1 - 03/03/2020
-  The initial development and planning of our API
+  Design Details & Management Information Due.
 
   ## Deliverable 2
   API done in Swagger

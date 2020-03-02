@@ -10,7 +10,7 @@
          Patrick Church            :      z5161379
          Jack Callander            :      z5207123
          Richard Liu               :      z5165455
-         Negar Bolourchi           :      z5160635
+         Negar (Niki) Bolourchi    :      z5160635
 
   # Mentor
   Ben Delaney
@@ -18,11 +18,11 @@
   # Google Link
   https://docs.google.com/document/d/1z8fmU1vFMbWtIVLr96GGhO4SbKdmgxnC0WcSRXRpbtw/edit
 
-  ## Deliverable 1 - 03/03/2020
+  ## Deliverable 1 - Week 3
   Design Details & Management Information Due.
 
-  ## Deliverable 2
-  API done in Swagger
+  ## Deliverable 2 - Week 5 & 6
+  Swagger Documentation, Working API Endpoint, API Documentation/Implementation/Report Due.
 
   ## Deliverable 3
   Demo

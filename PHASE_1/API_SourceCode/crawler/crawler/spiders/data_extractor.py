@@ -1,5 +1,7 @@
+#!/bin/usr/env python
+from __future__ import division
+from find import find_disease, find_syndrome
 import scrapy
-
 
 class QuotesSpider(scrapy.Spider):
     name = "spider"
@@ -15,9 +17,15 @@ class QuotesSpider(scrapy.Spider):
         if primary is not None:
                 header = primary.css("h1.headline::text").get()
                 content = primary.css("p span::text").getall()
+                disease = []
+                syndrome = []
+                disease = find.find_disease(content)
+                syndrome = find.find_syndrome(content)
                 yield {
                     'url': response.request.url,
                     'header': header,
+                    'disease': disease,
+                    'syndrome': syndrome,
                     'date': date_of_content,
                     'content': content,
                 }

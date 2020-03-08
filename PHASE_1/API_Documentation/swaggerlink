@@ -1,3 +1,7 @@
 https://app.swaggerhub.com/apis/nikibl22/niki/1.0.0#/Pet
 
-sample API documentation
+Sample API documentation for GET response involving status codes:
+200
+400
+404
+

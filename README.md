@@ -15,15 +15,21 @@
   # Mentor
   Ben Delaney
 
-  # Google Link
-  https://docs.google.com/document/d/1z8fmU1vFMbWtIVLr96GGhO4SbKdmgxnC0WcSRXRpbtw/edit
+  # API Link
+  https://asia-northeast1-seng3011-api.cloudfunctions.net/report
+
+  # API Documentation - Swagger Link
+  https://app.swaggerhub.com/apis-docs/nikibl22/API/1.0.0#/ApiResponse
 
   ## Deliverable 1 - Week 3
-  Design Details & Management Information Due. 
+  Design Details & Management Information Due.
   An outline of the entire project fully analysed and thought out in preparation for the development of the API, and later the website.
 
-  ## Deliverable 2 - Week 5 & 6
-  Swagger Documentation, Working API Endpoint, API Documentation/Implementation/Report Due.
+  ## Deliverable 2 - Week 5
+  Working API Endpoint & Swagger Documentation Due.
+
+  # Deliverable 2 - Week 6
+  API Documentation/Implementation/Report Due.
 
   ## Deliverable 3
   Demo

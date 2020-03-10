@@ -33,6 +33,7 @@ build/
 *.pyc
 
 # Other source repository archive directories (protects when importing)
+bs4/
 .hg
 .svn
 CVS

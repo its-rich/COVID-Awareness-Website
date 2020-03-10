@@ -1,85 +1,72 @@
 import re
 def isBefore(time1, time2):
-    time1 = re.sub('x','9',time1)
-    time2 = re.sub('x','9',time2)
-    print(time1,time2)
-    #requires both times to be in the format DD-MM-YYYY_HH:MM:SS
-    #returns true if time1 is before or equal to time2
-    #splitting the date and the time
-    stime1 = time1.split('_')
-    stime2 = time2.split('_')
-    #splitting the date into DD-MM-YYYY
-    date1 = stime1[0].split('-')
-    date2 = stime2[0].split('-')
-    #Splitting the time into HH:MM:SS
-    day1 = stime1[1].split(':')
-    day2 = stime2[1].split(':')
-    #Finding if time1 is before time2
-    if (int(date1[2]) < int(date2[2])):
-        return True
-    if (date1[2] == date2[2]):
+    #replacing all x's with 0 as it is assumed that any missing dates are the lowest possible values, as it should return false if it is ambiguous which date came first
+    time1 = re.sub('x','0',time1)
+    time2 = re.sub('x','0',time2)
+    #splitting the times into months,days,hours,etc
+    time1 = re.split('\:|\-|T', time1)
+    time2 = re.split('\:|\-|T', time2)
     
-        if (int(date1[1]) < int(date2[1])):
+    #Finding if time1 is before time2
+    if (int(time1[0]) < int(time2[0])):
+        return True
+    if (time1[0] == time2[0]):
+    
+        if (int(time1[1]) < int(time2[1])):
             return True
-        if (date1[1] == date2[1]):
+        if (time1[1] == time2[1]):
         
-            if (int(date1[0]) < int(date2[0])):
+            if (int(time1[2]) < int(time2[2])):
                 return True
-            if (date1[0] == date2[0]):
+            if (time1[2] == time2[2]):
             
-                if (int(day1[0]) < int( day2[0])):
+                if (int(time1[3]) < int( time2[3])):
                     return True
-                if (day1[0] == day2[0]):
+                if (time1[3] == time2[3]):
                 
-                    if (int(day1[1]) < int(day2[1])):
+                    if (int(time1[4]) < int(time2[4])):
                         return True
-                    if (day1[1] == day2[1]):
+                    if (time1[4] == time2[4]):
                     
-                        if (int(day1[2]) <= int(day2[2])):
+                        if (int(time1[5]) <= int(time2[5])):
                             return True
                         else:
                             return False
     return False
                             
 def isAfter(time1, time2):
-    re.sub('x','9',time1)
-    re.sub('x','9',time2)
-    #requires both times to be in the format DD-MM-YYYY_HH:MM:SS
-    #Returns true if time1 is after or equal to time2
-    #splitting the date and the time
-    stime1 = time1.split('_')
-    stime2 = time2.split('_')
-    #splitting the date into DD-MM-YYYY
-    date1 = stime1[0].split('-')
-    date2 = stime2[0].split('-')
-    #Splitting the time into HH:MM:SS
-    day1 = stime1[1].split(':')
-    day2 = stime2[1].split(':')
-    #Finding if time1 is after time2
-    if (int(date1[2]) > int(date2[2])):
-        return True
-    if (date1[2] == date2[2]):
+    #replacing all x's with 9 as it is assumed that any missing dates are the highest possible values, as it should return false if it is ambiguous which date came first
+    time1 = re.sub('x','9',time1)
+    time2 = re.sub('x','9',time2)
+    #splitting the times into months,days,hours,etc
+    time1 = re.split('\:|\-|T', time1)
+    time2 = re.split('\:|\-|T', time2)
     
-        if (int(date1[1]) > int(date2[1])):
+    #Finding if time1 is after time2
+    if (int(time1[0]) > int(time2[0])):
+        return True
+    if (time1[0] == time2[0]):
+    
+        if (int(time1[1]) > int(time2[1])):
             return True
-        if (date1[1] == date2[1]):
+        if (time1[1] == time2[1]):
         
-            if (int(date1[0]) > int(date2[0])):
+            if (int(time1[2]) > int(time2[2])):
                 return True
-            if (date1[0] == date2[0]):
+            if (time1[2] == time2[2]):
             
-                if (int(day1[0]) > int( day2[0])):
+                if (int(time1[3]) > int( time2[3])):
                     return True
-                if (day1[0] == day2[0]):
+                if (time1[3] == time2[3]):
                 
-                    if (int(day1[1]) > int(day2[1])):
+                    if (int(time1[4]) > int(time2[4])):
                         return True
-                    if (day1[1] == day2[1]):
+                    if (time1[4] == time2[4]):
                     
-                        if (int(day1[2]) >= int(day2[2])):
+                        if (int(time1[5]) >= int(time2[5])):
                             return True
                         else:
                             return False
     return False
-    
+                            
     

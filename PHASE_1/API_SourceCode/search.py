@@ -1,14 +1,13 @@
 #!/bin/usr/env python
-from __future__ import absolute_import
 
 def find_disease(sentence):
-    diseases = [ "unknown", "other", "anthrax cutaneous", "anthrax gastrointestinous", "anthrax inhalation",
-            "botulism", "brucellosis", "chikungunya", "cholera", "cryptococcosis", "cryptosporidiosis", 
-            "crimean-congo haemorrhagic fever", "dengue", "diphteria", "ebola haemorrhagic fever", "ehec",
-            "e.coli", "enterovirus 71 infection", "influenza a/h5n1", "h5n1", "influenza a/h7n9", "h7n9",
-            "influenza a/h9n2", "h9n2", "influenza a/h1n1", "h1n1", "influenza a/h1n2", "h1n2", "influenza a/h3n5",
-            "h3n5", "influenza a/h3n2", "h3n2", "influenza a/h2n2", "h2n2", "hand, foot and mouth disease", 
-            "hand disease", "foot disease", "mouth disease", "hantavirus", "hepatitis a", "hepatitis b",
+    diseases = [ "Unknown", "Other", "Anthrax cutaneous", "Anthrax gastrointestinous", "Anthrax inhalation",
+            "Botulism", "Brucellosis", "Chikungunya", "Cholera", "Cryptococcosis", "Cryptosporidiosis", 
+            "Crimean-congo haemorrhagic fever", "Dengue", "Diphteria", "Ebola haemorrhagic Fever", "ebola virus", "Ehec",
+            "E.coli", "Enterovirus 71 infection", "Influenza a/h5n1", "h5n1", "Influenza a/h7n9", "h7n9",
+            "Influenza a/h9n2", "h9n2", "Influenza a/h1n1", "h1n1", "Influenza a/h1n2", "h1n2", "Influenza a/h3n5",
+            "h3n5", "Influenza a/h3n2", "h3n2", "Influenza a/h2n2", "h2n2", "hand, foot and mouth disease", 
+            "Hand disease", "Foot disease", "Mouth disease", "Hantavirus", "hepatitis a", "hepatitis b",
             "hepatitis c", "hepatitis d", "hepatitis e", "histoplasmosis", "hiv/aids", "hiv", "aids", "lassa fever",
             "malaria", "marburg virus disease", "measles", "mers-cov", "mumps", "nipah virus", "norovirus infection",
             "pertussis", "plague", "pneumococcus pneumonia", "poliomyelitis", "q fever", "rabies", "rift valley fever",
@@ -18,11 +17,12 @@ def find_disease(sentence):
             "COVID-19", "coronavirus"]
 
     found_word = []
-
-    for word in diseases:
-        if word in sentence:
-            found_word.append(word)
-    
+    if sentence is not None:
+        word_sentence = sentence.lower()
+        for word in diseases:
+            if word.lower() in word_sentence:
+                found_word.append(word)
+        
     return found_word
 
 def find_syndrome(text):

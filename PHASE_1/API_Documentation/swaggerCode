@@ -1,0 +1,158 @@
+swagger: '2.0'
+info:
+  description: |
+    Api doumentation 
+    
+  version: 1.0.0
+  title: Swagger SENG3011
+  
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+# host: petstore.swagger.io
+# basePath: /v2
+tags:
+- name: API Responce
+  
+
+  
+# schemes:
+# - http
+paths:
+  
+  /report:
+    get:
+      tags:
+      - report
+     
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findPetsByStatus
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: status
+        in: query
+        description: Status values that need to be considered for filter
+        required: true
+        type: array
+        items:
+          type: string
+          enum:
+          - Successful Operation
+          - Bad request
+          - No reports were found
+          default: available
+        collectionFormat: multi
+      
+      responses:
+      
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              title: hey
+              $ref: '#/definitions/ApiResponse200'
+        400:
+          description: Bad Request
+          schema:
+            type: array
+            items:
+              title: hey
+              $ref: '#/definitions/ApiResponse400'
+        404:
+          description: No reports were found
+          schema:
+            type: array
+            items:
+              title: hey
+              $ref: '#/definitions/ApiResponse404'
+     
+ 
+    
+
+definitions:
+
+  
+  ApiResponse200:
+    type: object
+    required:
+    - disease
+    - location
+    properties:
+      url:
+        type: string
+        format: website
+        example: "https://www.who.int/csr/don/17-january-2020-novel-coronavirus-japan-exchina/en/"
+      date_of_publication:
+        type: string
+        format: date
+        example: "2020-01-17 xx:xx:xx"
+      headline:
+        type: string
+        example: "Novel Coronavirus- Japan (ex-China)"
+      main_text:
+        type: string
+        example: "On 15 January 2020, the Ministry of Health, Labour and Welfare, Japan (MHLW) reported an imported case laboratory-confirmed 2019-novel Coronavirus (2019-nCov) from Wuhan"
+      event_date:
+        type: string
+        format: date
+        example: "2020-01-03 xx:xx:xx to 2020-01-15"
+      locations:
+        type: object
+        example: [
+          { "country":"china",
+            "location" : "Wuhan, Hubei Province"
+            
+          },
+          {
+            "country" : "Japan",
+            "location" : ""
+            
+          }
+        ]
+      diseases:
+        type: string
+        example: "2019-nCoV"
+      syndromes:
+        type: string
+        example: "Fever of unknown Origin"
+      
+        
+      
+       
+    
+  ApiResponse400:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        example: 400
+      message:
+        type: string
+        example: Bad Request
+      errortype:
+        type: string
+        example: Bad Request
+        
+  ApiResponse404:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        example: 404
+      message:
+        type: string
+        example: No Reports were found
+      errortype:
+        type: string
+        example: No Reports were found
+schemes:
+ - https
+host: asia-northeast1-seng3011-api.cloudfunctions.net
+basePath: /

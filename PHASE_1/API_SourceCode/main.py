@@ -23,6 +23,7 @@ functions-framework --target handle_request
 '''
 
 from google.cloud import firestore
+from timeit import default_timer as timer
 import json
 import datetime
 import re
@@ -99,18 +100,20 @@ def isAfter(time1, time2):
                             return False
     return False
 
+def valid_string(string):
+    list = ['~','!','@','#','$','%','^','&','*','(',')','_','=','+','[',']','{','}','|','\'',';',':','"','<','>',',','/','?']
+    for l in list:
+        if l in string:
+            return False
+    return True
+
 def handle_request(request):
     time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    start_timer = timer()
+
     db = firestore.Client()
 
     ref = db.collection(u'logs').document(u'{}'.format(time))
-    # ref.set({
-    #     u'Request Method': u'{}'.format(request.method),
-    #     u'Query String': u'{}'.format(request.full_path[1:]),
-    #     u'Date of Request': u'{}'.format(time),
-    #     u'Response Status': u'{}'.format(400),
-    #     u'JSON Response': u'{}'.format(resp_json)
-    # })
 
     headers = {
         'Content-Type': 'application/json',
@@ -123,28 +126,38 @@ def handle_request(request):
         resp_json = {
             'message': 'This API can only handle GET requests'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 400, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     # There should only be a certain amount of search parameters
     if len(request.args) != 4:
         resp_json = {
             'message': 'There should be 4 search parameters passed with the query'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 400, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     # Check the given parameters are all correct and not empty
     parameters = ['key', 'location', 'start_date', 'end_date']
@@ -153,84 +166,166 @@ def handle_request(request):
             resp_json = {
                 'message': '{} is not an accepted parameter'.format(arg)
             }
+            end_timer = timer()
             ref.set({
                 u'Request Method': u'{}'.format(request.method),
-                u'Query String': u'{}'.format(request.full_path[1:]),
-                u'Date of Request': u'{}'.format(time),
+                u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+                u'Access Time': u'{}'.format(time),
+                u'Team Name': u'Emperor_Augustus',
+                u'Data Source': u'WHO',
+                u'Request Path': u'/report',
                 u'Response Status': u'{}'.format(400),
-                u'JSON Response': u'{}'.format(resp_json)
+                u'Remote Address': u'{}'.format(request.remote_addr),
+                u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
             })
-            return (json.dumps(resp_json), 400, headers)
+            return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
         if len(request.args.get(arg)) == 0:
             resp_json = {
                 'message': 'The search parameters cannot be empty. {} is empty'.format(arg)
             }
+            end_timer = timer()
             ref.set({
                 u'Request Method': u'{}'.format(request.method),
-                u'Query String': u'{}'.format(request.full_path[1:]),
-                u'Date of Request': u'{}'.format(time),
+                u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+                u'Access Time': u'{}'.format(time),
+                u'Team Name': u'Emperor_Augustus',
+                u'Data Source': u'WHO',
+                u'Request Path': u'/report',
                 u'Response Status': u'{}'.format(400),
-                u'JSON Response': u'{}'.format(resp_json)
+                u'Remote Address': u'{}'.format(request.remote_addr),
+                u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
             })
-            return (json.dumps(resp_json), 400, headers)
+            return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     if len(request.args.get('key')) < 2:
         resp_json = {
             'message': 'The key should at least be 2 characters long'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 400, headers)
-
-    # if valid_location(request.args('location')) == True:
-    #     resp_json = {
-    #         'message': 'The location should only accept characters'
-    #     }
-    #     ref.set({
-    #         u'Request Method': u'{}'.format(request.method),
-    #         u'Query String': u'{}'.format(request.full_path[1:]),
-    #         u'Date of Request': u'{}'.format(time),
-    #         u'Response Status': u'{}'.format(400),
-    #         u'JSON Response': u'{}'.format(resp_json)
-    #     })
-    #     return (json.dumps(resp_json), 400, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     # CHECK THAT THE START DATE & END DATE IS PROPER ISO FORMAT
+    # DOESNT CHECK IF ALPHABET IN THERE
 
     start = request.args.get('start_date')
     end = request.args.get('end_date')
+
+    if len(start) != 19:
+        resp_json = {
+            'message': 'The start_date is not in the proper ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
+        }
+        end_timer = timer()
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+    elif len(end) != 19:
+        resp_json = {
+            'message': 'The end_date is not in the proper ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
+        }
+        end_timer = timer()
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+    elif valid_string(start):
+        resp_json = {
+            'message': 'The start_date should only have digits and conform to the ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
+        }
+        end_timer = timer()
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+    elif valid_string(end):
+        resp_json = {
+            'message': 'The end_date should only have digits and conform to the ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
+        }
+        end_timer = timer()
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     now = time[:10] + 'T' + time[11:]
     # start_date < end_date
     if isBefore(end, start):
         resp_json = {
-            'message': 'The end date should not be before the start date'
+            'message': 'The end_date should not be before the start_date'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 400, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
     elif isAfter(end, now):
         resp_json = {
             'message': 'The end date is past the current date & time, so anything nothing can be found'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 400, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     # break up key terms into list
     terms = request.args.get('key').split(',')
@@ -245,21 +340,52 @@ def handle_request(request):
 
     # check the location is real
     location = request.args.get('location').strip()
+
+    invalid = False
+
+    for letter in location:
+        if letter.isdigit() == True:
+            invalid = True
+            break
+
+    if invalid == False:
+        if valid_string(location) == False:
+            invalid = True
+
+    if invalid == True:
+        resp_json = {
+            'message': 'There should only be letters in the location'
+        }
+        end_timer = timer()
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+
     if term == False:
-        query = db.collection(u'world').where(u'city', u'>=', u'{}'.format(location)).stream()
+        query = db.collection(u'world').where(u'city', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
             term = True
 
     if term == False:
-        query = db.collection(u'world').where(u'country', u'>=', u'{}'.format(location)).stream()
+
+        query = db.collection(u'world').where(u'country', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
             country = True
             term = True
 
     if term == False:
-        query = db.collection(u'world').where(u'state', u'>=', u'{}'.format(location)).stream()
+        query = db.collection(u'world').where(u'state', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
             term = True
@@ -277,16 +403,21 @@ def handle_request(request):
 
     if term == False:
         resp_json = {
-            'message': 'The location was misspelt'
+            'message': 'The location did not match a real location. This is case sensitive and all states must be completely spelt out'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 400, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
     list = []
 
@@ -309,23 +440,25 @@ def handle_request(request):
             if len(docs) != 0:
                 found_loc.extend(docs)
 
-    # query = db.collection(u'Coronavirus').where(u'date_of_publication', u'>=', u'aa').stream()
-    # query = db.collection(u'reports').where(u'date_of_publication', u'>=', u'2020').stream()
-
     docs = [doc for doc in found_loc]
 
     if len(docs) == 0:
         resp_json = {
             'message': 'There are no reports which matched the provided location'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
-            u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(404),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 404, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 404, headers)
 
     response = []
 
@@ -360,25 +493,33 @@ def handle_request(request):
 
     if len(response) is 0:
         resp_json = {
-            'message': 'There are no reports which match the provided search parameters'
+            'message': 'There are no reports which matched the provided search parameters'
         }
+        end_timer = timer()
         ref.set({
             u'Request Method': u'{}'.format(request.method),
-            u'Query String': u'{}'.format(request.full_path[1:]),
-            u'Date of Request': u'{}'.format(time),
-            u'Response Status': u'{}'.format(400),
-            u'JSON Response': u'{}'.format(resp_json)
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(404),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
         })
-        return (json.dumps(resp_json), 404, headers)
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 404, headers)
 
+    end_timer = timer()
     ref.set({
         u'Request Method': u'{}'.format(request.method),
-        u'Query String': u'{}'.format(request.full_path[1:]),
-        u'Date of Request': u'{}'.format(time),
+        u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+        u'Access Time': u'{}'.format(time),
+        u'Team Name': u'Emperor_Augustus',
+        u'Data Source': u'WHO',
+        u'Request Path': u'/report',
         u'Response Status': u'{}'.format(200),
-        u'JSON Response': u'{}'.format('success')
+        u'Remote Address': u'{}'.format(request.remote_addr),
+        u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
     })
 
-    # str = ', '.join(list)
-    # return str
-    return (json.dumps(response), 200, headers)
+    return (json.dumps(response, ensure_ascii=False).encode('utf8'), 200, headers)

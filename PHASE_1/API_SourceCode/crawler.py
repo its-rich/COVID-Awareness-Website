@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 from google.cloud import firestore
+import re
 
 def get_years(url):
     r = requests.get(url)
@@ -62,6 +63,8 @@ def get_document(url):
         #
         # found_loc = []
         #
+        # countries = []
+        #
         # for l in loc:
         #     if l.split(', ')[0] in main_text:
         #         found_loc.append(l)
@@ -73,6 +76,7 @@ def get_document(url):
         #     if "[country]" in term:
         #         word = term.split(" ")[0]
         #         if word not in found_loc:
+        #             countries.append(word)
         #             found_loc.append('_' + word)
         #
         # for l in found_loc:
@@ -81,33 +85,24 @@ def get_document(url):
         #         u'location': u'{}'.format(l.split('_')[0])
         #     }
         #     locations.append(temp)
+        #     countries.append(l.split('_')[1])
         #
-
-        # diseases to fix
-        # Different names for 1 diseases should only have 1 name show up
-
-        # all_diseases = [ "Anthrax cutaneous", "Anthrax gastrointestinous", "Anthrax inhalation",
-        #             "Botulism", "Brucellosis", "Chikungunya", "Cholera", "Cryptococcosis", "Cryptosporidiosis",
-        #             "Crimean-congo haemorrhagic fever", "Dengue", "Diphteria", "Ebola haemorrhagic Fever", "ebola virus", "Ehec",
-        #             "E.coli", "Enterovirus 71 infection", "Influenza a/h5n1", "h5n1", "Influenza a/h7n9", "h7n9",
-        #             "Influenza a/h9n2", "h9n2", "Influenza a/h1n1", "h1n1", "Influenza a/h1n2", "h1n2", "Influenza a/h3n5",
-        #             "h3n5", "Influenza a/h3n2", "h3n2", "Influenza a/h2n2", "h2n2", "hand, foot and mouth disease",
-        #             "Hand disease", "Foot disease", "Mouth disease", "Hantavirus", "hepatitis a", "hepatitis b",
-        #             "hepatitis c", "hepatitis d", "hepatitis e", "histoplasmosis", "hiv/aids", "hiv", "aids", "lassa fever",
-        #             "malaria", "marburg virus disease", "measles", "mers-cov", "mumps", "nipah virus", "norovirus infection",
-        #             "pertussis", "plague", "pneumococcus pneumonia", "poliomyelitis", "q fever", "rabies", "rift valley fever",
-        #             "rotavirus infection", "rubella", "salmonellosis", "sars", "shigellosis", "smallpox", "staphylococcal enterotoxin b",
-        #             "thypoid fever", "tuberculosis", "tularemia", "vaccinia and cowpox", "vaccinia", "cowpox", "varicella",
-        #             "west nile virus", "yellow fever", "yersiniosis", "zika", "legionares", "listeriosis", "monkeypox", "2019-nCoV",
-        #             "COVID-19", "coronavirus"]
-        # "Unknown", "Other",
-
+        #
         # diseases = []
         #
-        # for d in all_diseases:
-        #     if d.lower() in main_text.lower():
-        #         diseases.append(d)
-
+        # query = db.collection(u'diseases').stream()
+        # for q in query:
+        #     d = q.get('diseases')
+        #     for word in d:
+        #         if re.search(' {} '.format(word.lower().strip()), main_text.lower()) is not None:
+        #             diseases.append(d[0].strip())
+        #             break
+        #
+        # if len(diseases) != 1:
+        #     if 'other' in diseases:
+        #         diseases.remove('other')
+        #     if 'unknown' in diseases:
+        #         diseases.remove('unknown')
         #
         # ref = db.collection(u'reports').document(u'{}'.format(headline))
         # ref.set({
@@ -118,9 +113,10 @@ def get_document(url):
         #     u'event_date': u'{}'.format(soup.find("meta", attrs={'name':"webit_cover_date"})["content"]),
         #     u'locations': locations,
         #     u'diseases': diseases,
-        #     u'syndromes': u'{}'.format(found_symp)
+        #     u'syndromes': u'{}'.format(found_symp),
+        #     u'countries': countries
         # })
-        print("done")
+        # print("done")
 
     else:
         print("ERROR ACCESSING: ", url)
@@ -161,4 +157,6 @@ def export_json(d):
 # contents = get_links_in_year(years[0])
 # for x in contents:
 #     print(x)
-get_document("https://www.who.int/csr/don/17-january-2020-novel-coronavirus-japan-ex-china/en/")
+#     # get_document(x)
+
+# get_document("https://www.who.int/csr/don/17-january-2020-novel-coronavirus-japan-ex-china/en/")

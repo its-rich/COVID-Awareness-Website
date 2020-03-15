@@ -51,8 +51,11 @@ def get_document(url):
         # found_symp = []
         #
         # for s in symptoms:
-        #     if s.lower() in main_text.lower():
+        #     if re.search(' {}[, ]'.format(s.lower().strip()), main_text.lower()) is not None:
         #         found_symp.append(s)
+        #
+        # if len(found_symp) == 0:
+        #     found_symp.append('unknown')
         #
         # query = db.collection(u'world').stream()
         #
@@ -66,27 +69,55 @@ def get_document(url):
         # countries = []
         #
         # for l in loc:
-        #     if l.split(', ')[0] in main_text:
+        #     if re.search(' {}[, ]'.format(l.split(', ')[0].strip()), main_text) is not None:
         #         found_loc.append(l)
+        #     exists = False
+        #     for full_loc in found_loc:
+        #         if l.split('_')[1].strip() in full_loc:
+        #             exists = True
+        #     if exists == True:
+        #         continue
+        #     elif re.search(' {}[, ]'.format(l.split('_')[1].strip()), main_text) is not None:
+        #         found_loc.append("+_" + l.split('_')[1])
         #
         # locations = []
+        #
+        # for l in found_loc:
+        #     if l[0] == '+' and l[1] == '_':
+        #         exists = False
+        #         for c in found_loc:
+        #             if c is l:
+        #                 continue
+        #             if l[2:] in c:
+        #                 exists = True
+        #                 break
+        #         if exists == True:
+        #             found_loc.remove(l)
         #
         # keywords = soup.find("meta", attrs={'name':"DC.keywords"})["content"].strip().split(", ")
         # for term in keywords:
         #     if "[country]" in term:
-        #         word = term.split(" ")[0]
-        #         if word not in found_loc:
-        #             countries.append(word)
+        #         word = term.split("[country]")[0]
+        #         word = word.strip()
+        #         exists = False
+        #         for full_loc in found_loc:
+        #             if word in full_loc:
+        #                 exists = True
+        #                 break
+        #         if exists == False:
         #             found_loc.append('_' + word)
         #
         # for l in found_loc:
+        #     lo = l.split('_')[0]
+        #     if len(lo) == 1:
+        #         lo = ''
         #     temp = {
         #         u'country': u'{}'.format(l.split('_')[1]),
-        #         u'location': u'{}'.format(l.split('_')[0])
+        #         u'location': u'{}'.format(lo)
         #     }
         #     locations.append(temp)
-        #     countries.append(l.split('_')[1])
-        #
+        #     if l.split('_')[1] not in countries:
+        #         countries.append(l.split('_')[1])
         #
         # diseases = []
         #
@@ -94,17 +125,17 @@ def get_document(url):
         # for q in query:
         #     d = q.get('diseases')
         #     for word in d:
-        #         if re.search(' {} '.format(word.lower().strip()), main_text.lower()) is not None:
+        #         if re.search(' {}[, ]'.format(word.lower().strip()), main_text.lower()) is not None:
         #             diseases.append(d[0].strip())
         #             break
         #
-        # if len(diseases) != 1:
+        # if len(diseases) > 1:
         #     if 'other' in diseases:
         #         diseases.remove('other')
         #     if 'unknown' in diseases:
         #         diseases.remove('unknown')
         #
-        # ref = db.collection(u'reports').document(u'{}'.format(headline))
+        # ref = db.collection(u'reports').document(headline + " " + soup.find("meta", attrs={'name':"webit_cover_date"})["content"])
         # ref.set({
         #     u'url': u'{}'.format(url),
         #     u'date_of_publication': u'{}'.format(date),
@@ -113,7 +144,7 @@ def get_document(url):
         #     u'event_date': u'{}'.format(soup.find("meta", attrs={'name':"webit_cover_date"})["content"]),
         #     u'locations': locations,
         #     u'diseases': diseases,
-        #     u'syndromes': u'{}'.format(found_symp),
+        #     u'syndromes': found_symp,
         #     u'countries': countries
         # })
         # print("done")
@@ -159,4 +190,4 @@ def export_json(d):
 #     print(x)
 #     # get_document(x)
 
-# get_document("https://www.who.int/csr/don/17-january-2020-novel-coronavirus-japan-ex-china/en/")
+# get_document("https://www.who.int/csr/don/20-february-2020-lassa-fever-nigeria/en/")

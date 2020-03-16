@@ -21,6 +21,8 @@
   # API Documentation - Swagger Link
   https://app.swaggerhub.com/apis-docs/nikibl22/API/1.0.0#/ApiResponse
 
+  # API Log File
+
   ## Deliverable 1 - Week 3
   Design Details & Management Information Due.
   An outline of the entire project fully analysed and thought out in preparation for the development of the API, and later the website.

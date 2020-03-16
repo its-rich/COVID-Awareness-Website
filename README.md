@@ -21,7 +21,7 @@
   # API Documentation - Swagger Link
   https://app.swaggerhub.com/apis-docs/nikibl22/API/1.0.0#/ApiResponse
 
-  # API Log File
+  # API Logs Link
 
   ## Deliverable 1 - Week 3
   Design Details & Management Information Due.
@@ -30,7 +30,7 @@
   ## Deliverable 2 - Week 5
   Working API Endpoint & Swagger Documentation Due.
 
-  # Deliverable 2 - Week 6
+  ## Deliverable 2 - Week 6
   API Documentation/Implementation/Report Due.
 
   ## Deliverable 3

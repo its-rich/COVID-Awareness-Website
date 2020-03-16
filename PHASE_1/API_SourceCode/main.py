@@ -24,6 +24,7 @@ functions-framework --target handle_request
 
 from google.cloud import firestore
 from timeit import default_timer as timer
+from datetime import timedelta
 import json
 import datetime
 import re
@@ -107,18 +108,23 @@ def valid_string(string):
             return False
     return True
 
+def get_time():
+    copy = datetime.datetime.now() + timedelta(hours=11)
+    return copy
+
 def handle_request(request):
-    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    start_timer = timer()
-
     db = firestore.Client()
+    start_timer = timer()
+    copy = get_time()
+    time = copy.strftime('%Y-%m-%d %H:%M:%S')
 
-    ref = db.collection(u'logs').document(u'{}'.format(time))
+    ref = db.collection(u'logs').document(time)
 
     headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type'
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET'
     }
 
     # Check that the request is a GET request
@@ -127,6 +133,8 @@ def handle_request(request):
             'message': 'This API can only handle GET requests'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -136,7 +144,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
@@ -146,6 +154,8 @@ def handle_request(request):
             'message': 'There should be 4 search parameters passed with the query'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -155,7 +165,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
@@ -167,6 +177,8 @@ def handle_request(request):
                 'message': '{} is not an accepted parameter'.format(arg)
             }
             end_timer = timer()
+            timestr = str((end_timer - start_timer))
+            ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
             ref.set({
                 u'Request Method': u'{}'.format(request.method),
                 u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -176,7 +188,7 @@ def handle_request(request):
                 u'Request Path': u'/report',
                 u'Response Status': u'{}'.format(400),
                 u'Remote Address': u'{}'.format(request.remote_addr),
-                u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+                u'Execution Time': u'{}'.format(ms)
             })
             return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
         if len(request.args.get(arg)) == 0:
@@ -184,6 +196,8 @@ def handle_request(request):
                 'message': 'The search parameters cannot be empty. {} is empty'.format(arg)
             }
             end_timer = timer()
+            timestr = str((end_timer - start_timer))
+            ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
             ref.set({
                 u'Request Method': u'{}'.format(request.method),
                 u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -193,7 +207,7 @@ def handle_request(request):
                 u'Request Path': u'/report',
                 u'Response Status': u'{}'.format(400),
                 u'Remote Address': u'{}'.format(request.remote_addr),
-                u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+                u'Execution Time': u'{}'.format(ms)
             })
             return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
@@ -202,6 +216,8 @@ def handle_request(request):
             'message': 'The key should at least be 2 characters long'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -211,7 +227,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
@@ -226,6 +242,8 @@ def handle_request(request):
             'message': 'The start_date is not in the proper ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -235,7 +253,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
     elif len(end) != 19:
@@ -243,6 +261,8 @@ def handle_request(request):
             'message': 'The end_date is not in the proper ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -252,51 +272,94 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
-        })
-        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
-    elif valid_string(start):
-        resp_json = {
-            'message': 'The start_date should only have digits and conform to the ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
-        }
-        end_timer = timer()
-        ref.set({
-            u'Request Method': u'{}'.format(request.method),
-            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
-            u'Access Time': u'{}'.format(time),
-            u'Team Name': u'Emperor_Augustus',
-            u'Data Source': u'WHO',
-            u'Request Path': u'/report',
-            u'Response Status': u'{}'.format(400),
-            u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
-        })
-        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
-    elif valid_string(end):
-        resp_json = {
-            'message': 'The end_date should only have digits and conform to the ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
-        }
-        end_timer = timer()
-        ref.set({
-            u'Request Method': u'{}'.format(request.method),
-            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
-            u'Access Time': u'{}'.format(time),
-            u'Team Name': u'Emperor_Augustus',
-            u'Data Source': u'WHO',
-            u'Request Path': u'/report',
-            u'Response Status': u'{}'.format(400),
-            u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
-    now = time[:10] + 'T' + time[11:]
+    correct = True
+
+    try:
+        newDate = datetime.datetime(int(start[:4]),int(start[5:7]),int(start[8:10]),int(start[11:13]),int(start[14:16]),int(start[14:16]))
+        correct = True
+    except ValueError:
+        correct = False
+
+    if correct == False:
+        resp_json = {
+            'message': 'The start_date is not in the proper ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
+        }
+        end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{}'.format(ms)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+
+    correct = True
+
+    try:
+        newDate = datetime.datetime(int(end[:4]),int(end[5:7]),int(end[8:10]),int(end[11:13]),int(end[14:16]),int(end[14:16]))
+        correct = True
+    except ValueError:
+        correct = False
+
+    if correct == False:
+        resp_json = {
+            'message': 'The end_date is not in the proper ISO 8601 date and format; YYYY-MM-DDTHH:MM:SS'
+        }
+        end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{}'.format(ms)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+
+    now = copy.strftime('%Y-%m-%dT%H:%M:%S')
     # start_date < end_date
+    if isBefore(start, '1996-01-01T00:00:00'):
+        resp_json = {
+            'message': 'The earliest the start_date can be is 1st of January 1996 as WHO started releasing reports in 1996'
+        }
+        end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
+        ref.set({
+            u'Request Method': u'{}'.format(request.method),
+            u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
+            u'Access Time': u'{}'.format(time),
+            u'Team Name': u'Emperor_Augustus',
+            u'Data Source': u'WHO',
+            u'Request Path': u'/report',
+            u'Response Status': u'{}'.format(400),
+            u'Remote Address': u'{}'.format(request.remote_addr),
+            u'Execution Time': u'{}'.format(ms)
+        })
+        return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
     if isBefore(end, start):
         resp_json = {
             'message': 'The end_date should not be before the start_date'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -306,14 +369,16 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
-    elif isAfter(end, now):
+    elif isBefore(now, end):
         resp_json = {
-            'message': 'The end date is past the current date & time, so anything nothing can be found'
+            'message': 'The end_date is past the current date & time, so nothing can be found'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -323,7 +388,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
@@ -337,6 +402,9 @@ def handle_request(request):
     term = False
     docs = []
     country = False
+    iso2 = False
+    iso3 = False
+    state = False
 
     # check the location is real
     location = request.args.get('location').strip()
@@ -357,6 +425,8 @@ def handle_request(request):
             'message': 'There should only be letters in the location'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -366,9 +436,12 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
+
+    if location == 'United States of America':
+        location = 'United States'
 
     if term == False:
         query = db.collection(u'world').where(u'city', u'==', u'{}'.format(location)).stream()
@@ -377,7 +450,6 @@ def handle_request(request):
             term = True
 
     if term == False:
-
         query = db.collection(u'world').where(u'country', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
@@ -388,17 +460,20 @@ def handle_request(request):
         query = db.collection(u'world').where(u'state', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
+            state = True
             term = True
 
     if term == False and len(location) == 3:
         query = db.collection(u'world').where(u'iso3', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
+            iso3 = True
             term = True
     elif term == False and len(location) == 2:
         query = db.collection(u'world').where(u'iso2', u'==', u'{}'.format(location)).stream()
         docs = [doc for doc in query]
         if len(docs) != 0:
+            iso2 = True
             term = True
 
     if term == False:
@@ -406,6 +481,8 @@ def handle_request(request):
             'message': 'The location did not match a real location. This is case sensitive and all states must be completely spelt out'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -415,7 +492,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(400),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 400, headers)
 
@@ -433,6 +510,21 @@ def handle_request(request):
         docs = [doc for doc in query]
         if len(docs) != 0:
             found_loc.extend(docs)
+    elif iso2 == True:
+        query = db.collection(u'reports').where(u'iso2', u'array_contains', u'{}'.format(location)).stream()
+        docs = [doc for doc in query]
+        if len(docs) != 0:
+            found_loc.extend(docs)
+    elif iso3 == True:
+        query = db.collection(u'reports').where(u'iso3', u'array_contains', u'{}'.format(location)).stream()
+        docs = [doc for doc in query]
+        if len(docs) != 0:
+            found_loc.extend(docs)
+    elif state == True:
+        query = db.collection(u'reports').where(u'state', u'array_contains', u'{}'.format(location)).stream()
+        docs = [doc for doc in query]
+        if len(docs) != 0:
+            found_loc.extend(docs)
     else:
         for w in world:
             query = db.collection(u'reports').where(u'locations', u'array_contains', {u"country": u"{}".format(w.split('_')[1]), "location": "{}".format(w.split('_')[0])}).stream()
@@ -447,6 +539,8 @@ def handle_request(request):
             'message': 'There are no reports which matched the provided location'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -456,7 +550,7 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(404),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 404, headers)
 
@@ -464,14 +558,15 @@ def handle_request(request):
 
     for q in docs:
         key_exists = False
-        date = q.get('date_of_publication')
+        t_date = q.get('date_of_publication')
+        date = t_date.split(' ')[0] + 'T' +t_date.split(' ')[1]
         if isAfter(date, end):
             continue
         elif isBefore(date, start):
             continue
         main_text = q.get('main_text')
         for key in key_list:
-            if key.lower() in main_text.lower():
+            if re.search('{}'.format(key.lower().strip()), main_text.lower()) is not None:
                 key_exists = True
                 break
         if key_exists == False:
@@ -496,6 +591,8 @@ def handle_request(request):
             'message': 'There are no reports which matched the provided search parameters'
         }
         end_timer = timer()
+        timestr = str((end_timer - start_timer))
+        ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
         ref.set({
             u'Request Method': u'{}'.format(request.method),
             u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -505,11 +602,13 @@ def handle_request(request):
             u'Request Path': u'/report',
             u'Response Status': u'{}'.format(404),
             u'Remote Address': u'{}'.format(request.remote_addr),
-            u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+            u'Execution Time': u'{}'.format(ms)
         })
         return (json.dumps(resp_json, ensure_ascii=False).encode('utf8'), 404, headers)
 
     end_timer = timer()
+    timestr = str((end_timer - start_timer))
+    ms = timestr.split('.')[0] + '{}'.format(timestr.split('.')[1][:3]) + ' ms'
     ref.set({
         u'Request Method': u'{}'.format(request.method),
         u'Query Parameters (String)': u'{}'.format(request.full_path[1:]),
@@ -519,7 +618,7 @@ def handle_request(request):
         u'Request Path': u'/report',
         u'Response Status': u'{}'.format(200),
         u'Remote Address': u'{}'.format(request.remote_addr),
-        u'Execution Time': u'{:.2f}s'.format(end_timer - start_timer)
+        u'Execution Time': u'{}'.format(ms)
     })
 
     return (json.dumps(response, ensure_ascii=False).encode('utf8'), 200, headers)

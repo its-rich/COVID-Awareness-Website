@@ -34,7 +34,7 @@
   ## Deliverable 2 - Week 6
   API Documentation/Implementation & API Testing Due.
 
-  ## Deliverable 3
+  ## Deliverable 3 - Week 8
   Demo
 
   ## Deliverable 4

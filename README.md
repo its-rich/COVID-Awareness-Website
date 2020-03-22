@@ -33,7 +33,7 @@
 
   ## Deliverable 2 - Week 6
   API Documentation/Implementation & API Testing Due.
-  A fully functional API
+  A fully functional API with full
 
   ## Deliverable 3 - Week 8
   Demo

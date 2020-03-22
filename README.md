@@ -37,5 +37,5 @@
   ## Deliverable 3 - Week 8
   Demo
 
-  ## Deliverable 4
+  ## Deliverable 4 - Week 10
   Final Product

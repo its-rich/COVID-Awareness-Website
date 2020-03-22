@@ -33,7 +33,7 @@
 
   ## Deliverable 2 - Week 6
   API Documentation/Implementation & API Testing Due.
-  A fully functional API with full swagger documentation and an API logs website to display
+  A fully functional API with full swagger documentation and an API logs website to display the success of a request. All      testing conducted on the API and 
 
   ## Deliverable 3 - Week 8
   Demo

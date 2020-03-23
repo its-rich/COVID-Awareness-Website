@@ -19,7 +19,7 @@
   https://asia-northeast1-seng3011-api.cloudfunctions.net/report
 
   # API Documentation - Swagger Link
-  https://app.swaggerhub.com/apis-docs/nikibl22/API/1.0.0#/ApiResponse
+  https://app.swaggerhub.com/apis-docs/nikibl22/API/3.0.0
 
   # API Logs Link
   https://asia-northeast1-seng3011-api.cloudfunctions.net/logs

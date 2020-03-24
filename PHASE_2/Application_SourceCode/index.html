@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Epidemic API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="searchBar" class="text">
+            <div id="keyTerm" class="row">
+                <h3>Key Word(s):</h3>
+                <input id="keyTermInput" class="textbox" type="search"/>
+            </div>
+            <div id="location" class="row">
+                <h3>Location:</h3>
+                <input id="locationInput" class="textbox" type="search"/>
+            </div>
+            <div id="startDate" class="row">
+                <h3>Start Date:</h3>
+                <input id="startDateInput" class="textbox" type="search"/>
+            </div>
+            <div id="endDate" class="row">
+                <h3>End Date:</h3>
+                <input id="endDateInput" class="textbox" type="search"/>
+            </div>
+            <div id="submit" class="row">
+                <button id="submitButton" class="button" type="button">Go!</button>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <script>
+        function initMap() {
+            // Inital map settings
+            let options = {
+                zoom:3,
+                center:{lat:30.5928,lng:114.3055},
+                mapTypeId: 'terrain'
+            }
+            // Initialise the map
+            let map = new google.maps.Map(document.getElementById('map'), options);
+            document.getElementById('map').style.height = (window.innerHeight - 50) + "px";
+
+            addMarker(map, {
+                coords:{lat:30.5928,lng:114.3055},
+                map:map,
+                icon:"https://img.icons8.com/cotton/32/document-1.png",
+                content:"<p>First try</p>"
+            });
+        }
+        function addMarker(map, data) {
+            let marker = new google.maps.Marker({
+                position:data.coords,
+                map:map,
+                icon:"https://img.icons8.com/cotton/32/document-1.png"
+            });
+
+            let infoWindow = new google.maps.InfoWindow({
+                content:data.content
+            });
+            marker.addListener('click', () => {
+                infoWindow.open(map, marker);
+            });
+            return marker;
+        }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik&callback=initMap">
+    </script>
+    <script>
+        let searchButton = document.getElementById("submitButton");
+        searchButton.addEventListener('click', ()=>{
+            let key = document.getElementById("keyTermInput").value;
+            let sd = document.getElementById("startDateInput").value;
+            let ed = document.getElementById("endDateInput").value;
+            let loc = document.getElementById("locationInput").value;
+            console.log(key,sd,ed,loc);
+            fetch(`https://asia-northeast1-seng3011-api.cloudfunctions.net/report?start_date=${sd}&end_date=${ed}&key=${key}&location=${loc}`, {
+                Accept: "application/json"
+            })
+                .then((response) => {
+                    console.log(`STATUS: ${response.status}`);
+                    if (response.status == 200) {
+                        return response.json();
+                    } else {
+                        return null;
+                    }
+                })
+                .then((data) => {
+                    if (data==null) {
+                        return;
+                    }
+                    console.log(data);
+                    data.forEach((item, i) => {
+                        item.reports.forEach((rep, j) => {
+                            rep.locations.forEach((loc, k) => {
+                                console.log(loc);
+                            });
+                        });
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

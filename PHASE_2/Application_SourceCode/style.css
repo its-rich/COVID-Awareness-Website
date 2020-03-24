@@ -1,0 +1,53 @@
+#container {
+    width: 100%;
+    height: 100%;
+}
+#map {
+    width: 100%;
+}
+#searchBar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: #ff5454;
+}
+.textbox {
+    margin: 0px 10px;
+}
+.button {
+    background-color: #FFFFFF;
+    border: none;
+    color: #ff5454;
+    padding: 5px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Arial";
+    font-size: 20px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #DDDDDD;
+}
+.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.text {
+    font-family: "Arial";
+    color: #ffffff;
+}
+div {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}

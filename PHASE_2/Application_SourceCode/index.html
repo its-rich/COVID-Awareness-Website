@@ -46,11 +46,16 @@
 
             addMarker(map, {
                 coords:{lat:30.5928,lng:114.3055},
-                map:map,
                 icon:"https://img.icons8.com/cotton/32/document-1.png",
-                content:"<p>First try</p>"
+                content:"<h3>Title Here</h3><p>example descption here...</p>"
             });
         }
+		
+		// Use this functions to add a marker to the map
+		// dataExample = {
+		//   coords:{lat:30.5928,lng:114.3055},
+		//	 content:"<h3>Title Here</h3><p>example descption here...</p>"
+		// }
         function addMarker(map, data) {
             let marker = new google.maps.Marker({
                 position:data.coords,

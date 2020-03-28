@@ -1,4 +1,5 @@
 import React from 'react';
+import MapContainer from './MapContainer';
 
 function NavBar() {
   return (
@@ -27,6 +28,9 @@ function NavBar() {
 }
 
 function QueryApi() {
+
+    //MapContainer.setMarkers([{lat: 30.5928, lng: 114.3055}]);
+
     let key = document.getElementById("keyTermInput").value;
     let sd = document.getElementById("startDateInput").value + "T00:00:00";
     let ed = document.getElementById("endDateInput").value + "T00:00:00";
@@ -49,6 +53,7 @@ function QueryApi() {
             return;
         }
         console.log(data);
+        // Add the markers
     });
 }
 

@@ -10,6 +10,17 @@ const mapStyles = {
 };
 
 class MapContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            markers: [{lat: 30.5928, lng: 114.3055}],
+        }
+    }
+
+    setMarkers(markers) {
+        this.state.markers = markers;
+    }
+
     render() {
         return (
             <div className="MapContainer">
@@ -17,13 +28,23 @@ class MapContainer extends React.Component {
                     google={this.props.google}
                     zoom={4}
                     style={mapStyles}
-                    initialCenter={{ lat: 47.444, lng: -122.176}}
-                />
+                    initialCenter={{lat: 30.5928, lng: 114.3055}}
+                >
+                    {this.state.markers.map((marker, i) => {
+                        return(
+                            <Marker
+                            lat={marker.lat}
+                            lng={marker.lng}
+                            icon="https://img.icons8.com/metro/26/000000/document.png"
+                            />
+                        )
+                    })} 
+                </Map>
             </div>
         );
     }
 }
-  
+
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik'
 })(MapContainer);

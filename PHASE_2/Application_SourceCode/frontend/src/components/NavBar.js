@@ -31,8 +31,9 @@ function QueryApi() {
     let sd = document.getElementById("startDateInput").value + "T00:00:00";
     let ed = document.getElementById("endDateInput").value + "T00:00:00";
     let loc = document.getElementById("locationInput").value;
+    let MAX = 10; // 10 reports
     console.log(key,sd,ed,loc);
-    fetch(`https://asia-northeast1-seng3011-api.cloudfunctions.net/report?start_date=${sd}&end_date=${ed}&key=${key}&location=${loc}`, {
+    fetch(`http://sengine.online/article?start=${sd}&end=${ed}&n=${MAX}&terms=${key}&loc=${loc}`, {
         Accept: "application/json"
     })
     .then((response) => {
@@ -48,13 +49,6 @@ function QueryApi() {
             return;
         }
         console.log(data);
-        data.forEach((item, i) => {
-            item.reports.forEach((rep, j) => {
-                rep.locations.forEach((loc, k) => {
-                    console.log(loc);
-                });
-            });
-        });
     });
 }
 

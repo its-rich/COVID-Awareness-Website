@@ -62,3 +62,6 @@ Button:hover {
     cursor: pointer;
 }
 
+input {
+    font-family: Arial, Helvetica, sans-serif;
+}

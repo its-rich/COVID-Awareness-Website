@@ -28,6 +28,8 @@ class MapContainer extends React.Component {
                     google={this.props.google}
                     zoom={4}
                     style={mapStyles}
+                    fullscreenControl={false}
+                    disableDefaultUI={true}
                     initialCenter={{lat: 30.5928, lng: 114.3055}}
                 >
                     {this.state.markers.map((marker, i) => {

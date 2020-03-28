@@ -1,31 +1,34 @@
 import React from 'react';
 import MapContainer from './MapContainer';
 
-function NavBar() {
-  return (
-    <div className="NavBar">
-        <div id="keyTerm" className="Box">
-            <h3>Key Word(s):</h3>
-            <input id="keyTermInput" type="search"/>
-        </div>
-        <div id="location" className="Box">
-            <h3>Location:</h3>
-            <input id="locationInput" type="search"/>
-        </div>
-        <div id="startDate" className="Box">
-            <h3>Start Date:</h3>
-            <input id="startDateInput" type="date"/>
-        </div>
-        <div id="endDate" className="Box">
-            <h3>End Date:</h3>
-            <input id="endDateInput" type="date"/>
-        </div>
-        <div id="submit" className="Box">
-            <button id="submitButton" onClick={QueryApi} type="button">Go!</button>
-        </div>
-    </div>
-  );
+class NavBar extends React.Component {
+    ChangePage = (e) => {
+        this.props.changePage(e.target.innerText);
+    }
+
+    render() {
+        return (
+            <div className="NavBar">
+                <div className="Title">
+                    <img src="https://img.icons8.com/metro/52/000000/document.png" />
+                    <h1>Title of our App</h1>
+                </div>
+                <div className="Links">
+                    <div className="PageLink" onClick={this.ChangePage}>
+                        <h3>Map</h3>
+                    </div>
+                    <div className="PageLink" onClick={this.ChangePage}>
+                        <h3>Country</h3>
+                    </div>
+                    <div className="PageLink" onClick={this.ChangePage}>
+                        <h3>Disease</h3>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
+
 
 function QueryApi() {
 

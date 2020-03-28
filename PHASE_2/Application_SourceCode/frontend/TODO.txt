@@ -1,0 +1,38 @@
+Front Page = Map
+---------------------
+Map should have a filter to discern which disease you want the map to show information for
+Map should have a slider to go from Earliest date (not sure when) to 1 year in the future - not sure if this should be yearly
+
+Clicking on a continent's name will redirect the user to the continent's page
+Underneath the continent's name should be (in full):
+- Continent name
+- Total number of reports/cases
+- % of population infected
+- % of infected dead or % of population dead (not sure which is better)
+
+A continent should become more redder as the % of people who are infected increase and vice versa
+A continent should become more black as the % of mortality increases and vice versa
+
+
+Continent Page
+---------------------
+Shows a breakdown of all countries underneath their respective continent
+Clicking on a continent or country will lead the user to that page
+
+Continent/Country page should list all reports from our database
+Continent/Country page should have a graphs for % infected/ % dead and maybe a word graph for most commonly associated words across all reports in relation to this country
+
+user can search/filter the reports
+
+clicking a report will bring the user to a page for that specific report - should have interesting stuff here
+
+Disease Page
+---------------------
+very statistic heavy
+graphs for % infected/ % dead - world wide
+show numbers for actual continents or countries
+-- could show symptoms and specific disease related information here
+
+Reports Page?
+---------------------
+News Timeline as per |  https://covid-19-au.com/   | -> news

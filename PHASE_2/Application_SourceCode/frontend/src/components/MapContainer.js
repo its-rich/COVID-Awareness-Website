@@ -6,8 +6,15 @@ class MapContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ausInf: 0,
-            ausDead: 0
+            data: [
+                ['Country', '% Infected', '% Dead'],
+                ['Germany', 200, 100],
+                ['United States', 300, 100],
+                ['Brazil', 400, 100],
+                ['Canada', 500, 100],
+                ['France', 600, 100],
+                ['RU', 700, 100],
+            ],
         }
     }
 
@@ -19,21 +26,26 @@ class MapContainer extends React.Component {
                 chartType="GeoChart"
                 options={{
                     colorAxis : {
-                        colors: ['orange', 'purple']
+                        colors: ['red']
                     }
                 }}
-                data={[
-                    ['Country', '% Infected', '% Fatality'],
-                    ['Germany', 200, 100],
-                    ['United States', 300, 100],
-                    ['Brazil', 400, 100],
-                    ['Canada', 500, 100],
-                    ['France', 600, 100],
-                    ['RU', 700, 100],
-                    ['Australia', this.state.ausInf, this.state.ausDead],
-                ]}
+                data={this.state.data}
                 mapsApiKey="AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik"
                 rootProps={{ 'data-testid': '1' }}
+                
+                chartEvents={[
+                    {
+                      eventName: 'select',
+                      callback: ({ chartWrapper }) => {
+                        const chart = chartWrapper.getChart();
+                        const selection = chart.getSelection();
+                        if (selection.length !== 0)
+                            console.log(this.state.data[selection[0].row + 1][0]);
+                      },
+                    },
+                  ]}
+
+
             />
         )
     }

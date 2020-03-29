@@ -1,29 +1,41 @@
 import React from 'react';
 
-function SearchBar() {
-  return (
-    <div className="SearchBar">
-        <div id="keyTerm" className="Box">
-            <h3>Key Word(s):</h3>
-            <input id="keyTermInput" type="search"/>
-        </div>
-        <div id="location" className="Box">
-            <h3>Location:</h3>
-            <input id="locationInput" type="search"/>
-        </div>
-        <div id="startDate" className="Box">
-            <h3>Start Date:</h3>
-            <input id="startDateInput" type="date"/>
-        </div>
-        <div id="endDate" className="Box">
-            <h3>End Date:</h3>
-            <input id="endDateInput" type="date"/>
-        </div>
-        <div id="submit" className="Box">
-            <button id="submitButton" type="button">Go!</button>
-        </div>
-    </div>
-  );
+class SearchBar extends React.Component {
+    
+    state = {
+        disease: "",
+        dateRange: 201900
+    }
+
+    updateSlider = (e) => {
+        this.setState({dateRange: e.target.value});
+    }
+
+    updateDisease = (e) => {
+        this.setState({disease: e.target.value});
+    }
+
+    // 0 <= NUM <= 1   !!!!
+    decimalToMonth(num) {
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return months[Math.floor(num * 12)];
+    }
+
+    render() {
+        return (
+            <div className="SearchBar">
+                <div id="keyTerm" className="Box">
+                    <h3>Disease:</h3>
+                    <input id="keyTermInput" type="search" onChange={this.updateDisease} />
+                </div>
+                <div id="startDate" className="Box">
+                    <h3>Since:</h3>
+                    <input type="range" min="201600" max="202100" defaultValue={this.state.dateRange} onChange={this.updateSlider} class="slider" id="DateRange" />
+                    <h3>{Math.floor(this.state.dateRange / 100) + " - " + this.decimalToMonth((this.state.dateRange % 100) / 100)}</h3>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default SearchBar;

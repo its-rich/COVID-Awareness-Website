@@ -13,7 +13,7 @@ class MapContainer extends React.Component {
                 ['Brazil', 400, 100],
                 ['Canada', 500, 100],
                 ['France', 600, 100],
-                ['RU', 700, 100],
+                ['Russia', 700, 100],
             ],
         }
     }

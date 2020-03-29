@@ -81,7 +81,21 @@ class MapContainer extends React.Component {
     setMarkers(markers) {
         this.state.markers = markers;
     }
-    
+
+    coordsToCountry = (e) => {
+        let lat = e.lat;
+        let lng = e.lng;
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=8d8c26c6b4bc4916a36e0e7646021d0e`)
+        .then((response) => {
+            if (response.status == 200) {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            console.log(data.results[0].components.country);
+        })
+    }
+
     render() {
         return (
             <div className="MapContainer">
@@ -100,6 +114,7 @@ class MapContainer extends React.Component {
                             lat={marker.lat}
                             lng={marker.lng}
                             icon="https://img.icons8.com/metro/26/000000/document.png"
+                            onClick={this.coordsToCountry}
                             />
                         )
                     })}

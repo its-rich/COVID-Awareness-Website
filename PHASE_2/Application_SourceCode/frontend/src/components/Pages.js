@@ -1,10 +1,16 @@
 import React from 'react';
 import MapContainer from './MapContainer';
+import SearchBar from './SearchBar';
 
 class Pages extends React.Component {
     render() {
         if (this.props.page === "Map") {
-            return (<MapContainer />);
+            return (
+                <div>
+                    <MapContainer />
+                    <SearchBar />
+                </div>
+            );
         } else if (this.props.page === "Country") {
             return (
                 <div>

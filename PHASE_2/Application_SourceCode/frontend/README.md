@@ -1,6 +1,12 @@
 ## Dependencies
-Install Google Maps React!
-npm install --save google-maps-react
+Install Google Maps React!<br />
+### npm install --save google-maps-react
+And Install Firebase!<br />
+### npm install firebase --save
+
+
+<br />
+<br />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

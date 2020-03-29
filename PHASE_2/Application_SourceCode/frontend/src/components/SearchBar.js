@@ -30,7 +30,7 @@ class SearchBar extends React.Component {
                 </div>
                 <div id="startDate" className="Box">
                     <h3>Since:</h3>
-                    <input type="range" min="201600" max="202100" defaultValue={this.state.dateRange} onChange={this.updateSlider} class="slider" id="DateRange" />
+                    <input type="range" min="201600" max="202100" defaultValue={this.state.dateRange} onChange={this.updateSlider} className="slider" id="DateRange" />
                     <h3>{Math.floor(this.state.dateRange / 100) + " - " + this.decimalToMonth((this.state.dateRange % 100) / 100)}</h3>
                 </div>
             </div>

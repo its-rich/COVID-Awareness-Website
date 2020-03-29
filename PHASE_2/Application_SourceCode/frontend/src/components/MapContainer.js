@@ -1,5 +1,24 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker, geocode } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import firebase from 'firebase';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik",
+    authDomain: "seng3011-api.firebaseapp.com",
+    databaseURL: "https://seng3011-api.firebaseio.com",
+    projectId: "seng3011-api",
+    storageBucket: "seng3011-api.appspot.com",
+    messagingSenderId: "916531218349",
+    appId: "1:916531218349:web:971ed15ea423d27ccb8324",
+    measurementId: "G-WE5K4RQ0G2"
+};
+firebase.initializeApp(firebaseConfig);
+
+
+const database = firebase.database();
+let ref = database.ref('world');
+ref.on('value', (snap) => console.log(snap.val()));
+
 
 // Change the map
 let windowHeight = window.innerHeight - 70 + 'px';
@@ -79,7 +98,7 @@ class MapContainer extends React.Component {
     }
 
     setMarkers(markers) {
-        this.state.markers = markers;
+        this.setState(markers);
     }
 
     coordsToCountry = (e) => {
@@ -87,7 +106,7 @@ class MapContainer extends React.Component {
         let lng = e.lng;
         fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=8d8c26c6b4bc4916a36e0e7646021d0e`)
         .then((response) => {
-            if (response.status == 200) {
+            if (response.status === 200) {
                 return response.json();
             }
         })

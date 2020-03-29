@@ -1,6 +1,6 @@
 ## Dependencies
-Install Google Maps React!<br />
-### npm install --save google-maps-react
+Install Google Charts React!<br />
+### npm install --save react-google-charts
 And Install Firebase!<br />
 ### npm install firebase --save
 

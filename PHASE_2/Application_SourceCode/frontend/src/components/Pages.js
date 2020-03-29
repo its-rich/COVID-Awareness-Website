@@ -7,8 +7,8 @@ class Pages extends React.Component {
         if (this.props.page === "Map") {
             return (
                 <div>
-                    <MapContainer />
                     <SearchBar />
+                    <MapContainer />
                 </div>
             );
         } else if (this.props.page === "Country") {

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import MapContainer from './MapContainer';
-import SearchBar from './SearchBar';
+import MapContainer from '../components/MapContainer';
+import SearchBar from '../components/SearchBar';
 
 function Home() {
     return (

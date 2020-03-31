@@ -15,6 +15,9 @@ function Nav() {
                 <Link to="/continents">
                 <li>Continents</li>
                 </Link>
+                <Link to="/reports">
+                <li>WHO Reports</li>
+                </Link>
             </ul>
         </nav>
     );

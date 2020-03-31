@@ -1,5 +1,9 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
+import { getCases } from './Firebase/database.js'
+import { db } from './Firebase/config.js'
+
+
 
 class MapContainer extends React.Component {
 
@@ -7,13 +11,12 @@ class MapContainer extends React.Component {
         super(props);
         this.state = {
             data: [
-                ['Country', '% Infected', '% Dead'],
-                ['Germany', 200, 100],
-                ['United States', 300, 100],
-                ['Brazil', 400, 100],
-                ['Canada', 500, 100],
-                ['France', 600, 100],
-                ['Russia', 700, 100],
+                ['Continent Code', 'Continent', '% Infected', '% Dead'],
+                ['002', 'Africa', 200, 100],
+                ['150', 'Europe', 300, 100],
+                ['019', 'America', 400, 100],
+                ['142', 'Asia', 500, 100],
+                ['009', 'Oceania', 100, 100],
             ],
         }
     }
@@ -27,12 +30,13 @@ class MapContainer extends React.Component {
                 options={{
                     colorAxis : {
                         colors: ['red']
-                    }
+                    },
+                    resolution: 'continents'
                 }}
                 data={this.state.data}
                 mapsApiKey="AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik"
                 rootProps={{ 'data-testid': '1' }}
-                
+
                 chartEvents={[
                     {
                       eventName: 'select',
@@ -40,7 +44,9 @@ class MapContainer extends React.Component {
                         const chart = chartWrapper.getChart();
                         const selection = chart.getSelection();
                         if (selection.length !== 0)
-                            console.log(this.state.data[selection[0].row + 1][0]);
+                            //window.location.href='/diseases' -> when click a continent redirect to the continent page
+
+                            console.log(this.state.data[selection[0].row + 1][1]);
                       },
                     },
                   ]}
@@ -50,5 +56,6 @@ class MapContainer extends React.Component {
         )
     }
 }
+
 
 export default MapContainer;

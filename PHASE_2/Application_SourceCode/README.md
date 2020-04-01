@@ -8,7 +8,7 @@ WHO REPORTS PAGE
 - This page has word graph of the top 10 commonly used words in the reports they searched for
 
 DISEASE PAGE
-- Lists all diseases
+- **Lists all diseases** (DONE)
 - Clicking a disease will lead to a disease specific page
 - Has all figures/graphs (disease specific?) information (Same information as the map in graph form)
 
@@ -20,8 +20,7 @@ COUNTRY/CONTINENT PAGE
 # Medium
 
 HOME PAGE
-- Slider by year from like 1990 to 2020
-- Slider by month from now to 1 year from now
+- Slider by year from 1996 to 2021
 - Moving the slider will dynamically update the map
 
 ILLNESS CHECKER PAGE
@@ -29,8 +28,8 @@ ILLNESS CHECKER PAGE
 
 # Hard
 
-- Disease data for fatalities
-- Disease data for infection
+- **Disease data for fatalities** (PARTIALLY DONE)
+- **Disease data for infection** (PARTIALLY DONE)
 - More unique ideas
 - CSS
 - Incorporate finance/stocks over time?

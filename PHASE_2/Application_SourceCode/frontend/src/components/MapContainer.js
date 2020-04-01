@@ -1,6 +1,5 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
-import { getCases } from './Firebase/database.js'
 import { db } from './Firebase/config.js'
 
 

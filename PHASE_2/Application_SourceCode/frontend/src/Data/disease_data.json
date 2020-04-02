@@ -36,13 +36,13 @@
                 "2006": [
                     {
                         "continent": "Asia",
-                        "infected": "1250000",
-                        "dead": "0"
+                        "infected": 1250000,
+                        "dead": 0
                     },
                     {
                         "continent": "Europe",
-                        "infected": "1722",
-                        "dead": "0"
+                        "infected": 1722,
+                        "dead": 0
                     }
                 ]
             },
@@ -67,9 +67,9 @@
             {
                 "2013": [
                     {
-                        "continent": "Americas",
-                        "infected": "2",
-                        "dead": "0"
+                        "continent": "North & South America",
+                        "infected": 2,
+                        "dead": 0
                     }
                 ]
             },
@@ -77,8 +77,8 @@
                 "2014": [
                     {
                         "continent": "Europe",
-                        "infected": "4",
-                        "dead": "0"
+                        "infected": 4,
+                        "dead": 0
                     }
                 ]
             },
@@ -86,8 +86,8 @@
                 "2015": [
                     {
                         "continent": "Africa",
-                        "infected": "10",
-                        "dead": "0"
+                        "infected": 10,
+                        "dead": 0
                     }
                 ]
             },
@@ -95,13 +95,13 @@
                 "2016": [
                     {
                         "continent": "Africa",
-                        "infected": "1792",
-                        "dead": "0"
+                        "infected": 1792,
+                        "dead": 0
                     },
                     {
-                        "continent": "Americas",
-                        "infected": "22",
-                        "dead": "0"
+                        "continent": "North & South America",
+                        "infected": 22,
+                        "dead": 0
                     }
                 ]
             },
@@ -109,8 +109,8 @@
                 "2017": [
                     {
                         "continent": "Europe",
-                        "infected": "113",
-                        "dead": "0"
+                        "infected": 113,
+                        "dead": 0
                     }
                 ]
             },
@@ -118,8 +118,8 @@
                 "2018": [
                     {
                         "continent": "Africa",
-                        "infected": "139810",
-                        "dead": "0"
+                        "infected": 139810,
+                        "dead": 0
                     }
                 ]
             },
@@ -127,8 +127,8 @@
                 "2019": [
                     {
                         "continent": "Africa",
-                        "infected": "6149",
-                        "dead": "0"
+                        "infected": 6149,
+                        "dead": 0
                     }
                 ]
             },
@@ -162,8 +162,8 @@
                 "2001": [
                     {
                         "continent": "Europe",
-                        "infected": "69",
-                        "dead": "6"
+                        "infected": 69,
+                        "dead": 6
                     }
                 ]
             },
@@ -174,8 +174,8 @@
                 "2003": [
                     {
                         "continent": "Africa",
-                        "infected": "35",
-                        "dead": "6"
+                        "infected": 35,
+                        "dead": 6
                     }
                 ]
             },
@@ -189,8 +189,8 @@
                 "2006": [
                     {
                         "continent": "Asia",
-                        "infected": "242",
-                        "dead": "20"
+                        "infected": 242,
+                        "dead": 20
                     }
                 ]
             },
@@ -207,8 +207,8 @@
                 "2010": [
                     {
                         "continent": "Asia",
-                        "infected": "26",
-                        "dead": "3"
+                        "infected": 26,
+                        "dead": 3
                     }
                 ]
             },
@@ -257,8 +257,8 @@
                 "1997": [
                     {
                         "continent": "Africa",
-                        "infected": "419",
-                        "dead": "5"
+                        "infected": 419,
+                        "dead": 5
                     }
                 ]
             },
@@ -320,8 +320,8 @@
                 "2016": [
                     {
                         "continent": "Africa",
-                        "infected": "26",
-                        "dead": "0"
+                        "infected": 26,
+                        "dead": 0
                     }
                 ]
             },
@@ -329,8 +329,8 @@
                 "2017": [
                     {
                         "continent": "Africa",
-                        "infected": "172",
-                        "dead": "1"
+                        "infected": 172,
+                        "dead": 1
                     }
                 ]
             },
@@ -338,8 +338,8 @@
                 "2018": [
                     {
                         "continent": "Africa",
-                        "infected": "285",
-                        "dead": "7"
+                        "infected": 285,
+                        "dead": 7
                     }
                 ]
             },
@@ -347,8 +347,8 @@
                 "2019": [
                     {
                         "continent": "Asia",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -376,8 +376,8 @@
                 "1999": [
                     {
                         "continent": "Africa",
-                        "infected": "15",
-                        "dead": "0"
+                        "infected": 15,
+                        "dead": 0
                     }
                 ]
             },
@@ -385,8 +385,8 @@
                 "2000": [
                     {
                         "continent": "Africa",
-                        "infected": "3",
-                        "dead": "0"
+                        "infected": 3,
+                        "dead": 0
                     }
                 ]
             },
@@ -406,8 +406,8 @@
                 "2005": [
                     {
                         "continent": "Africa",
-                        "infected": "374",
-                        "dead": "329"
+                        "infected": 374,
+                        "dead": 329
                     }
                 ]
             },
@@ -418,8 +418,8 @@
                 "2007": [
                     {
                         "continent": "Africa",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -427,8 +427,8 @@
                 "2008": [
                     {
                         "continent": "Europe",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -445,8 +445,8 @@
                 "2012": [
                     {
                         "continent": "Africa",
-                        "infected": "20",
-                        "dead": "9"
+                        "infected": 20,
+                        "dead": 9
                     }
                 ]
             },
@@ -457,8 +457,8 @@
                 "2014": [
                     {
                         "continent": "Africa",
-                        "infected": "1",
-                        "dead": "1"
+                        "infected": 1,
+                        "dead": 1
                     }
                 ]
             },
@@ -472,8 +472,8 @@
                 "2017": [
                     {
                         "continent": "Africa",
-                        "infected": "3",
-                        "dead": "3"
+                        "infected": 3,
+                        "dead": 3
                     }
                 ]
             },
@@ -522,8 +522,8 @@
                 "2004": [
                     {
                         "continent": "Asia",
-                        "infected": "30",
-                        "dead": "18"
+                        "infected": 30,
+                        "dead": 18
                     }
                 ]
             },
@@ -570,8 +570,8 @@
                 "2018": [
                     {
                         "continent": "Asia",
-                        "infected": "19",
-                        "dead": "17"
+                        "infected": 19,
+                        "dead": 17
                     }
                 ]
             },
@@ -605,8 +605,8 @@
                 "2000": [
                     {
                         "continent": "Europe",
-                        "infected": "699",
-                        "dead": "0"
+                        "infected": 699,
+                        "dead": 0
                     }
                 ]
             },
@@ -617,8 +617,8 @@
                 "2002": [
                     {
                         "continent": "Europe",
-                        "infected": "715",
-                        "dead": "0"
+                        "infected": 715,
+                        "dead": 0
                     }
                 ]
             },
@@ -744,14 +744,14 @@
             {
                 "2015": [
                     {
-                        "continent": "Americas",
-                        "infected": "39",
-                        "dead": "0"
+                        "continent": "North & South America",
+                        "infected": 39,
+                        "dead": 0
                     },
                     {
                         "continent": "Africa",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -759,23 +759,23 @@
                 "2016": [
                     {
                         "continent": "Oceania",
-                        "infected": "6",
-                        "dead": "0"
+                        "infected": 6,
+                        "dead": 0
                     },
                     {
-                        "continent": "Americas",
-                        "infected": "36",
-                        "dead": "0"
+                        "continent": "North & South America",
+                        "infected": 36,
+                        "dead": 0
                     },
                     {
                         "continent": "Asia",
-                        "infected": "3",
-                        "dead": "0"
+                        "infected": 3,
+                        "dead": 0
                     },
                     {
                         "continent": "Europe",
-                        "infected": "43",
-                        "dead": "0"
+                        "infected": 43,
+                        "dead": 0
                     }
                 ]
             },
@@ -783,8 +783,8 @@
                 "2017": [
                     {
                         "continent": "Asia",
-                        "infected": "3",
-                        "dead": "0"
+                        "infected": 3,
+                        "dead": 0
                     }
                 ]
             },
@@ -795,8 +795,8 @@
                 "2019": [
                     {
                         "continent": "Europe",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -827,8 +827,8 @@
                 "2000": [
                     {
                         "continent": "Asia",
-                        "infected": "1096",
-                        "dead": "165"
+                        "infected": 1096,
+                        "dead": 165
                     }
                 ]
             },
@@ -851,8 +851,8 @@
                 "2006": [
                     {
                         "continent": "Africa",
-                        "infected": "32",
-                        "dead": "19"
+                        "infected": 32,
+                        "dead": 19
                     }
                 ]
             },
@@ -860,8 +860,8 @@
                 "2007": [
                     {
                         "continent": "Africa",
-                        "infected": "1062",
-                        "dead": "315"
+                        "infected": 1062,
+                        "dead": 315
                     }
                 ]
             },
@@ -869,8 +869,8 @@
                 "2008": [
                     {
                         "continent": "Africa",
-                        "infected": "1116",
-                        "dead": "239"
+                        "infected": 1116,
+                        "dead": 239
                     }
                 ]
             },
@@ -881,8 +881,8 @@
                 "2010": [
                     {
                         "continent": "Africa",
-                        "infected": "186",
-                        "dead": "18"
+                        "infected": 186,
+                        "dead": 18
                     }
                 ]
             },
@@ -893,8 +893,8 @@
                 "2012": [
                     {
                         "continent": "Africa",
-                        "infected": "34",
-                        "dead": "17"
+                        "infected": 34,
+                        "dead": 17
                     }
                 ]
             },
@@ -911,13 +911,13 @@
                 "2016": [
                     {
                         "continent": "Asia",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     },
                     {
                         "continent": "Africa",
-                        "infected": "266",
-                        "dead": "32"
+                        "infected": 266,
+                        "dead": 32
                     }
                 ]
             },
@@ -928,8 +928,8 @@
                 "2018": [
                     {
                         "continent": "Africa",
-                        "infected": "27",
-                        "dead": "0"
+                        "infected": 27,
+                        "dead": 0
                     }
                 ]
             },
@@ -937,8 +937,8 @@
                 "2019": [
                     {
                         "continent": "Europe",
-                        "infected": "5",
-                        "dead": "0"
+                        "infected": 5,
+                        "dead": 0
                     }
                 ]
             },
@@ -969,8 +969,8 @@
                 "2000": [
                     {
                         "continent": "Africa",
-                        "infected": "426",
-                        "dead": "172"
+                        "infected": 426,
+                        "dead": 172
                     }
                 ]
             },
@@ -978,8 +978,8 @@
                 "2001": [
                     {
                         "continent": "Africa",
-                        "infected": "30",
-                        "dead": "22"
+                        "infected": 30,
+                        "dead": 22
                     }
                 ]
             },
@@ -987,8 +987,8 @@
                 "2002": [
                     {
                         "continent": "Africa",
-                        "infected": "32",
-                        "dead": "19"
+                        "infected": 32,
+                        "dead": 19
                     }
                 ]
             },
@@ -996,8 +996,8 @@
                 "2003": [
                     {
                         "continent": "Africa",
-                        "infected": "31",
-                        "dead": "29"
+                        "infected": 31,
+                        "dead": 29
                     }
                 ]
             },
@@ -1005,8 +1005,8 @@
                 "2004": [
                     {
                         "continent": "Africa",
-                        "infected": "52",
-                        "dead": "36"
+                        "infected": 52,
+                        "dead": 36
                     }
                 ]
             },
@@ -1014,8 +1014,8 @@
                 "2005": [
                     {
                         "continent": "Africa",
-                        "infected": "12",
-                        "dead": "9"
+                        "infected": 12,
+                        "dead": 9
                     }
                 ]
             },
@@ -1026,8 +1026,8 @@
                 "2007": [
                     {
                         "continent": "Africa",
-                        "infected": "118",
-                        "dead": "22"
+                        "infected": 118,
+                        "dead": 22
                     }
                 ]
             },
@@ -1038,13 +1038,13 @@
                 "2009": [
                     {
                         "continent": "Africa",
-                        "infected": "32",
-                        "dead": "15"
+                        "infected": 32,
+                        "dead": 15
                     },
                     {
                         "continent": "Asia",
-                        "infected": "6",
-                        "dead": "0"
+                        "infected": 6,
+                        "dead": 0
                     }
                 ]
             },
@@ -1055,8 +1055,8 @@
                 "2011": [
                     {
                         "continent": "Africa",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -1064,8 +1064,8 @@
                 "2012": [
                     {
                         "continent": "Africa",
-                        "infected": "59",
-                        "dead": "29"
+                        "infected": 59,
+                        "dead": 29
                     }
                 ]
             },
@@ -1076,23 +1076,23 @@
                 "2014": [
                     {
                         "continent": "Europe",
-                        "infected": "2",
-                        "dead": "0"
+                        "infected": 2,
+                        "dead": 0
                     },
                     {
-                        "continent": "Americas",
-                        "infected": "1",
-                        "dead": "0"
+                        "continent": "North & South America",
+                        "infected": 1,
+                        "dead": 0
                     },
                     {
                         "continent": "Africa",
-                        "infected": "3751",
-                        "dead": "1841"
+                        "infected": 3751,
+                        "dead": 1841
                     },
                     {
                         "continent": "Oceania",
-                        "infected": "112",
-                        "dead": "70"
+                        "infected": 112,
+                        "dead": 70
                     }
                 ]
             },
@@ -1100,8 +1100,8 @@
                 "2015": [
                     {
                         "continent": "Europe",
-                        "infected": "1",
-                        "dead": "0"
+                        "infected": 1,
+                        "dead": 0
                     }
                 ]
             },
@@ -1115,8 +1115,8 @@
                 "2018": [
                     {
                         "continent": "Africa",
-                        "infected": "591",
-                        "dead": "357"
+                        "infected": 591,
+                        "dead": 357
                     }
                 ]
             },
@@ -1124,8 +1124,8 @@
                 "2019": [
                     {
                         "continent": "Africa",
-                        "infected": "3351",
-                        "dead": "2217"
+                        "infected": 3351,
+                        "dead": 2217
                     }
                 ]
             },
@@ -1133,8 +1133,8 @@
                 "2020": [
                     {
                         "continent": "Africa",
-                        "infected": "3453",
-                        "dead": "2273"
+                        "infected": 3453,
+                        "dead": 2273
                     }
                 ]
             },

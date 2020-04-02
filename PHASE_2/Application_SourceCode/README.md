@@ -20,8 +20,8 @@ COUNTRY/CONTINENT PAGE
 # Medium
 
 HOME PAGE
-- Slider by year from 1996 to 2021
-- Moving the slider will dynamically update the map
+- **Slider by year from 1996 to 2021** (DONE)
+- **Moving the slider will dynamically update the map** (DONE)
 
 ILLNESS CHECKER PAGE
 - Set up so it calls the API

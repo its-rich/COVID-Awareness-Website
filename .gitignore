@@ -21,10 +21,13 @@ Thumbs.db
 project.xcworkspace/
 xcuserdata/
 
+# venv file
+env/
 
 # IDE
 *.idea
 *.iml
+.vscode
 
 # Generated files
 /web-app/WEB-INF

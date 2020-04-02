@@ -4,6 +4,9 @@
 *.sql
 *.sqlite
 
+###################### VSCODE
+.vscode
+
 # OS generated files #
 ######################
 .DS_Store?

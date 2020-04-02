@@ -3,23 +3,18 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
     return (
-        <nav>
-            <h3>Logo</h3>
-            <ul className="nav-links">
-                <Link to="/">
-                <li>Home</li>
-                </Link>
-                <Link to="/diseases">
-                <li>Diseases</li>
-                </Link>
-                <Link to="/continents">
-                <li>Continents</li>
-                </Link>
-                <Link to="/reports">
-                <li>WHO Reports</li>
-                </Link>
+        <nav className="nav-wrapper grey darken-3">
+            <div className="container">
+                <Link to='/' className="brand-logo">Epidemic Visualiser</Link>
+            </div>
+            <ul className="right">
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/diseases'>Diseases</Link></li>
+                <li><Link to='/continents'>Continents</Link></li>
+                <li><Link to='/reports'>WHO Reports</Link></li>
             </ul>
         </nav>
+        
     );
 }
 export default Nav;

@@ -6,6 +6,7 @@ import Continents from './Pages/Continents.js';
 import Diseases from './Pages/Diseases.js';
 import Home from './Pages/Home.js';
 import Reports from './Pages/Reports.js';
+import News from './Pages/News.js';
 
 function App () {
     return (
@@ -17,6 +18,7 @@ function App () {
                     <Route path="/diseases" exact component={Diseases} />
                     <Route path="/continents" exact component={Continents} />
                     <Route path="/reports" exact component={Reports} />
+                    <Route path="/latestnews" exact component={News} />
                 </Switch>
             </div>
         </Router>

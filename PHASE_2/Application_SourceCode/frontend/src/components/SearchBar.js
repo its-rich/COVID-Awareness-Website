@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
 
     updateDisease(e) {
         this.props.updateDisease(e.target.value);
-        if (e.target.value == "COVID-19") {
+        if (e.target.value === "COVID-19") {
             let input = document.getElementById('DateRange');
             input.setAttribute('min', '201912');
             input.setAttribute('max', '202100');
@@ -23,9 +23,20 @@ class SearchBar extends React.Component {
 
     updateSlider(e) {
         this.props.updateSlider(e.target.value);
-        if (this.props.disease == "COVID-19") {
+        if (this.props.disease === "COVID-19") {
             let dates = document.getElementById('dates');
             dates.textContent = Math.floor(this.props.dateRange / 100) + " - " + this.decimalToMonth((this.props.dateRange % 100) / 100);
+        }
+    }
+
+    updateSwitch(e) {
+        this.props.updateSwitch(e.target.checked);
+        if (e.target.checked === true) {
+            let header = document.getElementById('switchmap');
+            header.textContent = "Fatalities/Year";
+        } else {
+            let header = document.getElementById('switchmap');
+            header.textContent = "Infected/Year";
         }
     }
 
@@ -44,8 +55,13 @@ class SearchBar extends React.Component {
         return (
             <div className="SearchBar">
                 <div id="keyTerm" className="Box">
+                    <h3 id='switchmap'>Infected/Year</h3>
+                        <label class="switch">
+                      <input className="slider" type="checkbox" onChange={this.updateSwitch.bind(this)}/>
+                      <span class="slider round"></span>
+                      </label>
                     <h3>Disease:</h3>
-                    <select id="diseaseSelect" type="search" defaultValue={'DEFAULT'} onChange={this.updateDisease.bind(this)}>
+                    <select className="browser-default" id="diseaseSelect" defaultValue={'DEFAULT'} onChange={this.updateDisease.bind(this)}>
                     <option value="DEFAULT" disabled>Select A Disease</option>
                     <option key="COVID-19">COVID-19</option>
                     {item}
@@ -53,12 +69,16 @@ class SearchBar extends React.Component {
                 </div>
                 <div id="startDate" className="Box">
                     <h3>Since:</h3>
-                    <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="slider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
+                    <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
                     <h3 id="dates">{Math.floor(this.props.dateRange / 100)}</h3>
                 </div>
+                <div id="mapstats" className="Box">
+                    <h3>Total Infected: {this.props.infected}</h3>
+                    <h3>Total Fatalities: {this.props.deaths}</h3>
+                </div>
             </div>
-        );
-    }
+        )
+    };
 }
 
 export default SearchBar;

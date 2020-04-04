@@ -83,7 +83,7 @@ class MapContainer extends React.Component {
                 numbers.forEach((disease) => {
                     if (disease.disease === this.props.disease) {
                         disease.records.forEach((year, i) => {
-                            if (String(this.props.dateRange).slice(0,4) === Object.keys(year)[0]) {
+                            if (String(this.props.dateRange).slice(0,4) === Object.keys(year)[0]) {;
                                 year[String(this.props.dateRange).slice(0,4)].forEach((item, i) => {
                                     let temp = [];
                                     if (item.continent !== undefined) {

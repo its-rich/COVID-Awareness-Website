@@ -39,9 +39,9 @@ class Continents extends Component {
             console.log(this.state.country);
             return (<CountryPage country={this.state.country} />);
         }
-        
+
         return (
-            
+
             <div className="Continentwrapper">
                 <center className="Title"> Country Page </center>
                 <button align="centre" onClick={this.showDropdown}> {this.state.continent} </button>
@@ -79,7 +79,7 @@ class Continents extends Component {
             if (country.continent == this.state.continent) {
                 return (<button onClick={this.SendToCountry}>{country.country}</button>);
             }}
-            
+
 
         );
         return (
@@ -103,8 +103,8 @@ class Continents extends Component {
 //    //console.log(listObj);
 //    const continent = props.continent;
 //    const countryList = listCountries.map((country) =>
-//        <ListItem value={country} cont={continent} /> 
-        
+//        <ListItem value={country} cont={continent} />
+
 //    );
 //    return (
 //            <div class="divButtons">{countryList}</div>

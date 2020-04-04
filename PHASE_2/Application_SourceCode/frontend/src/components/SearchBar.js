@@ -56,9 +56,9 @@ class SearchBar extends React.Component {
             <div className="SearchBar">
                 <div id="keyTerm" className="Box">
                     <h3 id='switchmap'>Infected/Year</h3>
-                        <label class="switch">
+                        <label className="switch">
                       <input className="slider" type="checkbox" onChange={this.updateSwitch.bind(this)}/>
-                      <span class="slider round"></span>
+                      <span className="slider round"></span>
                       </label>
                     <h3>Disease:</h3>
                     <select className="browser-default" id="diseaseSelect" defaultValue={'DEFAULT'} onChange={this.updateDisease.bind(this)}>

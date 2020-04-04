@@ -20,7 +20,7 @@ let options = {
     colorAxis : {
         colors: ['#ffcccb', 'red']
     },
-    backgroundColor: '#abd7eb',
+    backgroundColor: '#a4cbeb',
     resolution: 'continents'
 }
 

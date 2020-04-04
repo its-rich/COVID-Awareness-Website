@@ -14,14 +14,15 @@ function getDiseasePage(e) {
 class Diseases extends Component {
     render(){
         let item = data.map(disease =>
-                <ul className="alldiseases" key={disease.name} onClick={getDiseasePage}>
+                <div className="alldiseases" key={disease.name} onClick={getDiseasePage}>
                 {disease.name}
-                </ul>
+                </div>
             );
         return (
             <div>
-                <center className="Title"> All Diseases </center>
-                <div id="disease-names">
+                
+                <center className="Title"> <h3>All Diseases</h3> </center>
+                <div className="diseaseList" id="disease-names">
                 {item}
                 </div>
             </div>

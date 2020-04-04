@@ -23,71 +23,20 @@ body {
     overflow: auto;
 }
 
+h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.FlexRow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
 .alldiseases {
     color: black;
-}
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
 }
 
 .vertical-timeline.vertical-timeline--two-columns:before {
@@ -143,8 +92,8 @@ a {
 }
 
 .SearchBar {
-    height: 200px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     z-index: 1;
     position: fixed;
     display: flex;
@@ -153,13 +102,21 @@ a {
     flex-direction: column;
     background-color: var(--theme-light-color);
     opacity: 0.9;
-    padding: 20px;
-    border-radius: 0% 0% 5% 5%;
+    padding: 15px;
+    border-radius: 0% 0% 15% 0%;
 }
 
 .Box {
-    margin: 10px;
+    margin-bottom: 5px;
     width: 100%;
+}
+
+/* Drop Down */
+.browser-default {
+    height: 32px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 Button {
@@ -182,10 +139,12 @@ input {
 .yearslider {
     -webkit-appearance: none;
     width: 100%;
-    height: 25px;
+    height: 0px;
     background: var(--theme-second-color);
-    outline: none;
+    border-style: none;
     opacity: 0.7;
+    padding:0;
+    margin:0;
 }
 
 .yearslider:hover {
@@ -199,7 +158,10 @@ input {
     height: 25px;
     background: var(--theme-color);
     cursor: pointer;
+    padding:0;
+    margin:0;
 }
+
 .Continentwrapper {
     text-align: center;
 }
@@ -209,3 +171,84 @@ input {
     margin-right: 30%;
     margin-left: 30%;
 }
+
+.alldiseases {
+    background-color: var(--theme-second-color);
+    width: 50%;
+    display: flex;
+    margin: 2px;
+    padding: 2px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.alldiseases:hover {
+    background-color: var(--theme-light-color);
+}
+
+.diseaseList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0px;
+    right: 0px;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .inputSlider:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  .inputSlider:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  .inputSlider:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }

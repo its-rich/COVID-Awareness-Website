@@ -13,9 +13,9 @@ DISEASE PAGE
 - Has all figures/graphs (disease specific?) information (Same information as the map in graph form)
 
 COUNTRY/CONTINENT PAGE
-- Lists all continents and their countries underneath
-- Clicking a country/continent will lead to a country specific page
-- Has all figures/graphs information (Same information as the map in graph form)
+- Lists all continents and their countries underneath (DONE, just have to edit css)
+- Clicking a country/continent will lead to a country specific page (DONE)
+- Has all figures/graphs information (Same information as the map in graph form) (In progress)
 
 # Medium
 

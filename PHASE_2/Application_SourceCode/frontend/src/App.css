@@ -20,7 +20,11 @@ body {
     line-height: 1.4;
     width: 100%;
     height: auto;
-    overflow: hidden;
+    overflow: auto;
+}
+
+.alldiseases {
+    color: black;
 }
 
 /* The switch - the box around the slider */

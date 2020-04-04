@@ -2,12 +2,21 @@ import React, {Component} from 'react';
 import '../App.css';
 import data from '../Data/disease_list';
 
+function getDiseasePage(e) {
+    console.log(e.target.textContent)
+    return(
+        <div>
+            <h3>hello</h3>
+        </div>
+    );
+}
+
 class Diseases extends Component {
     render(){
         let item = data.map(disease =>
-                <div id={disease.name}>
+                <ul className="alldiseases" key={disease.name} onClick={getDiseasePage}>
                 {disease.name}
-                </div>
+                </ul>
             );
         return (
             <div>

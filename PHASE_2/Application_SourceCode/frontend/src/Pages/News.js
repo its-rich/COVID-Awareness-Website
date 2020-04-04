@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useLayoutEffect, useState} from 'react';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import '../App.css';
 import 'react-vertical-timeline-component/style.min.css';
@@ -28,42 +28,27 @@ class News extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.disease != this.state.disease) {
-
-            // await newNews();
             let newdata = [];
-            let promise = fetch("https://newsapi.org/v2/everything?q=ebola&sortBy=popularity&apiKey=0e4bd5b156304119bd7aab6c7ba5ef8c")
-                // .then((resp) => resp.json())
-                // .then((json) => {
-                //     newdata.push(json);
-                // });
-
-            // console.log(this.state.data)
-            // let newdata = []
-            // data.map(disease => {
-            //     newdata.push(disease)
-            // })
-            // this.getNews().then((v) => {
-            //     this.setState({data: v});
-            // });
-            // let x = await this.newNews();
-            // console.log(x)
+            let promise = fetch("https://newsapi.org/v2/everything?sortBy=relevancy&language=en&qInTitle=ebola&apiKey=0e4bd5b156304119bd7aab6c7ba5ef8c")
             promise.then((resp) => resp.json())
                 .then((json) => {
                     newdata.push(json);
                 })
                 .then((a) => this.setState({data: newdata}));
-            // this.setState({data: newdata}, () => { console.log(this.state.data)});
-            // console.log(newdata.map(s=>console.log()))
         }
     }
 
     render() {
+        let item = data.map(disease =>
+                <option className="newsdiseases" key={disease.name}>
+                {disease.name}
+                </option>
+            );
         return (
             <div>
-            <select className="browser-default" id="t" defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
+            <select className="browser-default" defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
             <option value="DEFAULT" disabled>Select A Disease</option>
-            <option key="COVID-19">COVID-19</option>
-            <option key="CO">64</option>
+            {item}
             </select>
             <VerticalTimeline>
             {this.state.data.map(function(info, index) {

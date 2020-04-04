@@ -196,3 +196,12 @@ input {
     background: var(--theme-color);
     cursor: pointer;
 }
+.Continentwrapper {
+    text-align: center;
+}
+
+.divButtons {
+    text-align: center;
+    margin-right: 30%;
+    margin-left: 30%;
+}

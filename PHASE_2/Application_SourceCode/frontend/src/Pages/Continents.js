@@ -35,8 +35,6 @@ class Continents extends Component {
 
     render() {
         if (this.state.country != null) {
-            console.log('sending to new');
-            console.log(this.state.country);
             return (<CountryPage country={this.state.country} />);
         }
         
@@ -71,10 +69,7 @@ class Continents extends Component {
     }
     countries() {
         var listCountries = require("../Data/countries");
-        //console.log(listCountries);
-        //console.log(this.props)
-        //var listObj = JSON.parse(liststr);
-        //console.log(listObj);
+
         const countryList = listCountries.map((country) => {
             if (country.continent == this.state.continent) {
                 return (<button onClick={this.SendToCountry}>{country.country}</button>);
@@ -88,43 +83,11 @@ class Continents extends Component {
     }
     SendToCountry = (e) => {
         this.setState({country: e.target.innerText})
-        console.log(e.target.innerText);
-        console.log(this.state.country);
+
     }
 
 
 }
-//function Country(props) {
-//    var listCountries = require("../data/countries");
-//    //console.log(listCountries);
-//    //console.log("stop");
-//    //console.log(props)
-//    //var listObj = JSON.parse(liststr);
-//    //console.log(listObj);
-//    const continent = props.continent;
-//    const countryList = listCountries.map((country) =>
-//        <ListItem value={country} cont={continent} /> 
-        
-//    );
-//    return (
-//            <div class="divButtons">{countryList}</div>
-//    );
-//}
 
-//function ListItem(props) {
-
-
-//    if (props.cont == props.value.continent) {
-//        return (<button onClick={e => Countries.SendToCountry(e.target.innerText)}>{props.value.country}</button>);
-//    }
-//    return (null);
-
-//}
-
-////function SendToCountry(props) {
-////    //console.log(props)
-////    var country = props
-////    return(<CountryPage country={country} />);
-////}
 
 export default (Continents);

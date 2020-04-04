@@ -1,4 +1,4 @@
-import React, {useRef, useLayoutEffect, useState} from 'react';
+import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import '../App.css';
 import 'react-vertical-timeline-component/style.min.css';
@@ -27,19 +27,15 @@ class News extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.disease != this.state.disease) {
+        if (prevState.disease !== this.state.disease) {
             let newdata = [];
-            let promise = fetch("https://newsapi.org/v2/everything?sortBy=relevancy&language=en&qInTitle=ebola&apiKey=0e4bd5b156304119bd7aab6c7ba5ef8c")
+            let promise = fetch(`https://newsapi.org/v2/everything?sortBy=relevancy&language=en&qInTitle=${this.state.disease}&apiKey=0e4bd5b156304119bd7aab6c7ba5ef8c`)
             promise.then((resp) => resp.json())
                 .then((json) => {
                     newdata.push(json);
                 })
                 .then((a) => this.setState({data: newdata}));
         }
-    }
-
-    goToURL = (url) => {
-        window.location.replace(url);
     }
 
     render() {
@@ -65,8 +61,8 @@ class News extends React.Component {
                       contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                       date={date}
                       iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                      iconOnClick={() => {return(this.goToUrl(article.url))}}
-                      icon={<img src="https://image.flaticon.com/icons/svg/624/624824.svg" />} //touchapp from materialize article.urlToImage
+                      iconOnClick={() => {window.open(article.url, "_blank")}}
+                      icon={<img src="https://image.flaticon.com/icons/svg/624/624824.svg" alt="articlelink" />} //touchapp from materialize article.urlToImage
                     >
                     <h3 className="vertical-timeline-element-title">{article.title}</h3>
                     <p>{article.description}</p>

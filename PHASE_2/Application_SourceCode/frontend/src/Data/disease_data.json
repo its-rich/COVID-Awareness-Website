@@ -141,7 +141,7 @@
         ]
     },
     {
-        "disease": "Crimean-Conga Haemorrhagic Fever",
+        "disease": "Crimean-Congo Haemorrhagic Fever",
         "records": [
             {
                 "1996": []
@@ -356,7 +356,13 @@
                 "2020": []
             },
             {
-                "2021": []
+                "2021": [
+                    {
+                        "continent": "Africa",
+                        "infected": 100,
+                        "dead": 0
+                    }
+                ]
             }
         ]
     },
@@ -1133,8 +1139,8 @@
                 "2020": [
                     {
                         "continent": "Africa",
-                        "infected": 3453,
-                        "dead": 2273
+                        "infected": 102,
+                        "dead": 56
                     }
                 ]
             },

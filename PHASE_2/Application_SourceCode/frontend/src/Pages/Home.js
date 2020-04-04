@@ -48,27 +48,4 @@ class Home extends React.Component {
     )};
 }
 
-// const state = {
-//     disease: "",
-//     dateRange: 201900
-// }
-//
-// const reducer = (s = state, action) => {
-//     switch(action.type) {
-//         case 'DISEASE':
-//             console.log(this.state)
-//             return this.state;
-//         case 'DATE':
-//             return this.state;
-//     }
-// }
-//
-// const store = createStore(reducer)
-//
-// store.subscribe(() => console.log(store.getState()))
-//
-// store.dispatch({
-//     type: 'DISEASE'
-// });
-
 export default Home;

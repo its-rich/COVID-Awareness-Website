@@ -1,32 +1,28 @@
 import React, {Component} from 'react';
 import '../App.css';
-import data from '../Data/disease_list';
-
-function getDiseasePage(e) {
-    console.log(e.target.textContent)
-    return(
-        <div>
-            <h3>hello</h3>
-        </div>
-    );
-}
+import AllDiseases from './AllDiseases';
+import DiseasePage from './DiseasePage';
 
 class Diseases extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            disease: ''
+        }
+    }
+
+    changeDisease = (disease) => {
+        this.setState({disease: disease})
+    }
+
     render(){
-        let item = data.map(disease =>
-                <div className="alldiseases" key={disease.name} onClick={getDiseasePage}>
-                {disease.name}
-                </div>
-            );
         return (
             <div>
-                
-                <center className="Title"> <h3>All Diseases</h3> </center>
-                <div className="diseaseList" id="disease-names">
-                {item}
-                </div>
+            {this.state.disease === '' && <AllDiseases changeDisease={this.changeDisease.bind(this)}/>}
+            {this.state.disease !== '' && <DiseasePage disease={this.state.disease} changeDisease={this.changeDisease.bind(this)}/>}
             </div>
-        );
+        )
     }
 }
 

@@ -33,10 +33,10 @@ class SearchBar extends React.Component {
         this.props.updateSwitch(e.target.checked);
         if (e.target.checked === true) {
             let header = document.getElementById('switchmap');
-            header.textContent = "Fatalities/Year";
+            header.textContent = "Fatalities / Year";
         } else {
             let header = document.getElementById('switchmap');
-            header.textContent = "Infected/Year";
+            header.textContent = "Infected / Year";
         }
     }
 
@@ -57,7 +57,7 @@ class SearchBar extends React.Component {
                 <div id="keyTerm" className="Box">
                     <div className="FlexRow">
                         <h5 id='switchmap'>Infected/Year</h5>
-                        <label class="switch">
+                        <label className="switch">
                         <input className="inputSlider checkbox" type="checkbox" onChange={this.updateSwitch.bind(this)} />
                         <span className="slider round"></span>
                         </label>
@@ -78,6 +78,7 @@ class SearchBar extends React.Component {
                     <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
                 </div>
                 <div id="mapstats" className="Box">
+                    <h5>{String(this.props.dateRange).slice(0,4)} Stats</h5>
                     <h5>Total Infected: {this.props.infected}</h5>
                     <h5>Total Fatalities: {this.props.deaths}</h5>
                 </div>

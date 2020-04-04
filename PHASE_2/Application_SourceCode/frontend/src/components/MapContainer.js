@@ -40,7 +40,7 @@ class MapContainer extends React.Component {
     componentDidUpdate(prevState) {
         let world = [['Continent Code', 'Continent', 'Total Infected', 'Total Fatalities']];
         if (this.props.switch !== 'infected') {
-            let world = [['Continent Code', 'Continent', 'Total Fatalities', 'Total Infected']];
+            world = [['Continent Code', 'Continent', 'Total Fatalities', 'Total Infected']];
             options.colorAxis = {colors: ['#grey', 'black']};
         } else {
             options.colorAxis = {colors: ['#ffcccb', 'red']};

@@ -15,15 +15,15 @@ class CountryPage extends React.Component {
             disease: "COVID-19",
             loading: true
         };
-  
-        
+
+
     }
     changeState = (e) => {
         this.setState({ disease: "ebola haemorrhagic fever"});
         this.setState({loading : true});
         console.log(e.target.innerText);
     }
-    
+
     finish() {
         this.setState({loading : false});
     }
@@ -33,14 +33,14 @@ class CountryPage extends React.Component {
 //            if (country.continent == this.state.continent) {
 //                return (<button onClick={this.SendToCountry}>{country.country}</button>);
 //            }}
-//            
+//
 //
 //       );
 //        return (
 //            <div className="divButtons">{countryList}</div>
 //        );
 //    }
-    
+
     render() {
         if (this.state.loading == true) {
             let reportRef = db.collection('reports')
@@ -55,14 +55,14 @@ class CountryPage extends React.Component {
                         console.log(doc.id, '=>', doc.data());
                         this.reportList = doc.data().main_text;
                         console.log(this.reportList)
-                        
+
                     });
                     this.finish();
                 })
 
                 .catch(err => {
                     console.log('Error getting documents', err);
-           
+
             });
         }
 
@@ -71,7 +71,7 @@ class CountryPage extends React.Component {
                 <p> {this.props.country} </p>
 
                 <button onClick={this.changeState}> ebola </button>
-                
+
                 <p>{this.reportList}</p>
 
                 <p> The end </p>

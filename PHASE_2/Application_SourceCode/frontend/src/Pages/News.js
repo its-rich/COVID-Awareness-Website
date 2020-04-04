@@ -38,6 +38,10 @@ class News extends React.Component {
         }
     }
 
+    goToURL = (url) => {
+        window.location.replace(url);
+    }
+
     render() {
         let item = data.map(disease =>
                 <option className="newsdiseases" key={disease.name}>
@@ -61,7 +65,8 @@ class News extends React.Component {
                       contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                       date={date}
                       iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                      // icon={<img id='link' src='../' href={article.url}/>} //touchapp from materialize article.urlToImage
+                      iconOnClick={() => {return(this.goToUrl(article.url))}}
+                      icon={<img src="https://image.flaticon.com/icons/svg/624/624824.svg" />} //touchapp from materialize article.urlToImage
                     >
                     <h3 className="vertical-timeline-element-title">{article.title}</h3>
                     <p>{article.description}</p>

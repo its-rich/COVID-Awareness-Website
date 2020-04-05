@@ -4,7 +4,7 @@ import Draggable from 'react-draggable';
 
 class FilterBar extends React.Component {
 
-    updateDisease(e) {
+    updateDisease = (e) => {
         this.props.updateDisease(e.target.value);
         let sinput = document.getElementById('startDate');
         sinput.setAttribute('min', '199601');
@@ -18,10 +18,10 @@ class FilterBar extends React.Component {
         this.props.updateEndSlider(202004)
         sdates.textContent = Math.floor(this.props.startDate / 100) + " - " + this.decimalToMonth((this.props.startDate % 100) / 100);
         edates.textContent = Math.floor(this.props.endDate / 100) + " - " + this.decimalToMonth((this.props.endDate % 100) / 100);
-        
+
     }
 
-    updateStartSlider(e) {
+    updateStartSlider = (e) => {
         this.props.updateStartSlider(e.target.value);
         // if (this.props.disease === "COVID-19") {
             let sdates = document.getElementById('sdates');
@@ -29,7 +29,7 @@ class FilterBar extends React.Component {
         // }
     }
 
-    updateEndSlider(e) {
+    updateEndSlider = (e) => {
         this.props.updateEndSlider(e.target.value);
         // if (this.props.disease === "COVID-19") {
             let edates = document.getElementById('edates');
@@ -52,10 +52,10 @@ class FilterBar extends React.Component {
         e.preventDefault();
         let sdates = document.getElementById('sdates');
         console.log(sdates)
-        console.log(this.props.startDate)
+        // console.log(this.props.startDate)
         console.log("----")
         alert("test1")
-        
+
         alert("You are submitting" + this.state.startDate)
         alert("test2")
     }
@@ -122,7 +122,7 @@ class FilterBar extends React.Component {
                 <form ref="form" onSubmit={this.submitHandler}>
                     <button type="submit">Submit</button>
                 </form>
-                
+
             </div>
             </Draggable>
         )

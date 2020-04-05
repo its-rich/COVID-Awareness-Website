@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import RiskGraph from '../components/RiskGraph.js';
-
+import Submit from './submit.js'
 
 class Risk extends React.Component {
     constructor(props) {
@@ -20,26 +20,26 @@ class Risk extends React.Component {
     handleSubmit= (e) => {
         e.preventDefault();
     }
-    graph() {
-        return (<RiskGraph postcode={this.state.postcode}/>);
+
+    submit = (v) => {
+        this.setState({postcode: v});
     }
 
     render(){
-
         return(
-            <div className="title">
-                <p> COVID-19 Suburb Checker </p>
-                <form onSubmit={this.handleSubmit}>
-                    <label> Postcode:
-                    <input type="number" value={this.state.postcode} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                {this.graph()}
+            <div className="postcodepage">
+                <Submit submit={this.submit.bind(this)}/>
+                <RiskGraph postcode={this.state.postcode}/>
             </div>
-
-
         )
     }
 }
+
+// <form onSubmit={this.handleSubmit}>
+//     <label> Postcode:
+//     <input type="number" value={this.state.postcode} onChange={this.handleChange} />
+//     </label>
+//     <input type="submit" value="Submit" />
+// </form>
+
 export default (Risk);

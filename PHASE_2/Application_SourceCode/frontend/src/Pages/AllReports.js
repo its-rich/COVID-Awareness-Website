@@ -13,7 +13,7 @@ class AllReports extends Component {
     render () {
         return (
             <div>
-                <center className="Title"> WHO Outbreak Reports </center>
+                <center className="Title"> <h3>WHO Outbreak Reports</h3> </center>
                 {this.props.data.map((doc) => {
                     return (
                     <ul className="reportDocs" key={doc.url} onClick={this.changeUrl.bind(this)}>

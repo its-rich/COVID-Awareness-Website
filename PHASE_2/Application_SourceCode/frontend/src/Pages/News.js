@@ -46,7 +46,7 @@ class News extends React.Component {
             );
         return (
             <div>
-            <select className="browser-default" defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
+            <select className="select" defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
             <option value="DEFAULT" disabled>Select A Disease</option>
             {item}
             </select>

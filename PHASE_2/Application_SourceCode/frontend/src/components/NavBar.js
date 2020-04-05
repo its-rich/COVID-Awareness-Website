@@ -25,6 +25,9 @@ class NavBar extends React.Component {
                     <div className="PageLink" onClick={this.ChangePage}>
                         <h3>Latest Global News</h3>
                     </div>
+                    <div className="PageLink" onClick{this.ChangePage}>
+                        <h3>Check Yourself</h3>
+                    </div>
                 </div>
             </div>
         );

@@ -18,10 +18,10 @@ class RiskGraph extends React.Component {
 //
 //                if (totalCase[newCase.postcode] >= 0) {
 //                    totalCase[newCase.postcode] = totalCase[newCase.postcode] + 1;
-//                }else{ 
+//                }else{
  //                   totalCase[newCase.postcode] = 1;
  //               }
-//           
+//
 //            });
 //            let newData = [['Suburb', 'Cases']];
 //            for (var postcode in totalCase) {
@@ -29,10 +29,10 @@ class RiskGraph extends React.Component {
 //                temp = [postcode,totalCase[postcode]]
 //
 //                newData.push(temp);
-//                
+//
 //            }
-//            this.setState({data: newData});   
-//            console.log("api success");  
+//            this.setState({data: newData});
+//            console.log("api success");
 //        }else{
             let newData = [['Date','Cases']];
             var date = new Date(1577836800000);
@@ -53,12 +53,12 @@ class RiskGraph extends React.Component {
                         //console.log(temp);
                     }
                     i = i + 1;
-                    
+
                     let temp;
                     temp = [newCase.notification_date,i];
                     newData.push(temp);
                 }
-           
+
             });
             var today = new Date();
             while (date < today){

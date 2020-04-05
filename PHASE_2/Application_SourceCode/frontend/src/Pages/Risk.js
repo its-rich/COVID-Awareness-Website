@@ -18,7 +18,7 @@ class Risk extends React.Component {
     }
     handleSubmit(event) {
         this.setState({postcode: event.target.value});
-        
+
     }
     graph() {
         return (<RiskGraph postcode={this.state.postcode}/>);
@@ -38,7 +38,7 @@ class Risk extends React.Component {
                 {this.graph()}
             </div>
 
-                
+
         )
     }
 }

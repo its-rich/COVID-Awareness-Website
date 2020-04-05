@@ -13,6 +13,7 @@ function Nav() {
                 <li><Link to='/continents'>Continents</Link></li>
                 <li><Link to='/reports'>WHO Reports</Link></li>
                 <li><Link to='/latestnews'>Latest News</Link></li>
+                <li><Link to='/risk'>Check Yourself</Link></li>
             </ul>
         </nav>
 

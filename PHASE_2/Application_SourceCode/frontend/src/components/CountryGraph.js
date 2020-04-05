@@ -9,9 +9,21 @@ import month4 from '../Data/2020-04-01_2020-05-01.json';
 
 class Graph extends React.Component {
 
-    state = {
-        data: [['Year', 'Fatalities', 'Infected'], ["", 0, 0]]
+    constructor(props) {
+            super(props);
+        this.state = {
+            data: [['Year', 'Fatalities', 'Infected'], ["", 0, 0]]
+        }
+
     }
+    titleString(){
+        if (this.props.country){
+            return(this.props.disease + "'s impact on " + this.props.country + " over time");
+        }else{
+            return(this.titleString = this.props.disease + " Global Impact over Time");
+        }
+    }
+    
 
     componentDidMount() {
         if (this.props.disease === 'COVID-19') {
@@ -20,115 +32,55 @@ class Graph extends React.Component {
             let totalr = 0;
             let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
             Object.keys(month0.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
                 month0.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    totali += c.confirmed;
+                    totald += c.deaths;
+                    totalr += c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
             });
             newdata.push(['Dec 2019', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month1.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
                 month1.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    totali += c.confirmed;
+                    totald += c.deaths;
+                    totalr += c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
             });
             newdata.push(['Jan 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month2.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
                 month2.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    totali += c.confirmed;
+                    totald += c.deaths;
+                    totalr += c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
             });
             newdata.push(['Feb 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month3.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
                 month3.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    totali += c.confirmed;
+                    totald += c.deaths;
+                    totalr += c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
             });
             newdata.push(['Mar 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month4.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
                 month4.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    totali += c.confirmed;
+                    totald += c.deaths;
+                    totalr += c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
             });
             newdata.push(['Apr 2019', totald, totali, totalr]);
             this.setState({data: newdata});
@@ -164,7 +116,7 @@ class Graph extends React.Component {
               loader={<div>Loading Chart</div>}
               data={this.state.data}
               options={{
-                title: this.props.disease + "'s Global Impact Over Time",
+                title: this.titleString(),
                 hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
                 vAxis: { title: 'Number of Cases', minValue: 0 },
                 // For the legend to fit, we make the chart area smaller
@@ -180,4 +132,3 @@ class Graph extends React.Component {
 
 
 export default Graph;
-

@@ -14,8 +14,8 @@ class SubmitPostcode extends React.Component {
         return(
             <div className="postcodepage">
                 <div className="postcodeTitle"> COVID-19 Suburb Checker </div>
-                <input id="in"></input>
-                <button class="Button Button1" onClick={this.submit.bind(this)}>submit</button>
+                <input id="in" className="input-field col s6" style={{width: "5%"}} type="number" value={this.props.postcode}></input>
+                <button className="waves-effect waves-light btn" onClick={this.submit.bind(this)}>Submit</button>
             </div>
         )
     }

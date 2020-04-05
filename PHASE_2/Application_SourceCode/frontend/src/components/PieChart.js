@@ -21,6 +21,7 @@ class PieChart extends React.Component {
             let totald = 0;
             let totali = 0;
             let totalr = 0;
+            let newdata = [['Situation', 'Count']]
             // let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
             // tempd = 0;
             // tempi = 0;
@@ -65,14 +66,23 @@ class PieChart extends React.Component {
             //         totalr += c.recovered;
             //     });
             // });
-            // Object.keys(month4.result).map((item, i) => {
-            //     month4.result[item].forEach((c, i) => {
-            //         totali += c.confirmed;
-            //         totald += c.deaths;
-            //         totalr += c.recovered;
-            //     });
-            // });
-            // this.setState({data: newdata});
+            Object.keys(month4.result).map((item, i) => {
+                let confirm = 0;
+                let dead = 0;
+                let recover = 0;
+                month4.result[item].forEach((c, i) => {
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
+                });
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
+            });
+            newdata.push(['Total Infected', totali]);
+            newdata.push(['Total Fatalities', totald]);
+            newdata.push(['Total Recovered', totalr])
+            this.setState({data: newdata});
 
         } else {
             numbers.forEach((disease) => {

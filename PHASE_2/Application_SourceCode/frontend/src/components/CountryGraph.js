@@ -23,64 +23,97 @@ class Graph extends React.Component {
             return(this.titleString = this.props.disease + " Global Impact over Time");
         }
     }
-    
+
 
     componentDidMount() {
         if (this.props.disease === 'COVID-19') {
             let totald = 0;
             let totali = 0;
             let totalr = 0;
+            let confirm = 0;
+            let dead = 0;
+            let recover = 0;
             let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
             Object.keys(month0.result).map((item, i) => {
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month0.result[item].forEach((c, i) => {
-                    totali += c.confirmed;
-                    totald += c.deaths;
-                    totalr += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Dec 2019', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month1.result).map((item, i) => {
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month1.result[item].forEach((c, i) => {
-                    totali += c.confirmed;
-                    totald += c.deaths;
-                    totalr += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Jan 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month2.result).map((item, i) => {
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month2.result[item].forEach((c, i) => {
-                    totali += c.confirmed;
-                    totald += c.deaths;
-                    totalr += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Feb 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month3.result).map((item, i) => {
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month3.result[item].forEach((c, i) => {
-                    totali += c.confirmed;
-                    totald += c.deaths;
-                    totalr += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Mar 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month4.result).map((item, i) => {
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month4.result[item].forEach((c, i) => {
-                    totali += c.confirmed;
-                    totald += c.deaths;
-                    totalr += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Apr 2019', totald, totali, totalr]);
             this.setState({data: newdata});

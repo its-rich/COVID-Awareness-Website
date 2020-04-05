@@ -5,6 +5,7 @@ import parseISO from 'date-fns/parseISO';
 import AllReports from './AllReports.js';
 import ReportPage from './ReportPage.js';
 import DatePicker from '../components/DatePicker';
+import APIsearch from './APIsearch.js';
 
 class Reports extends React.Component {
 
@@ -36,9 +37,14 @@ class Reports extends React.Component {
         this.setState({url: url});
     }
 
+    changeData = (data) => {
+        this.setState({data: data});
+    }
+
     render () {
         return (
             <div>
+            {this.state.url == '' && <APIsearch changeData={this.changeData.bind(this)}/>}
             {this.state.url === '' && <AllReports data={this.state.data} changeUrl={this.changeUrl.bind(this)}/>}
             {this.state.url !== '' && <ReportPage data={this.state.data} u={this.u}report={this.state.report} url={this.state.url} changeUrl={this.changeUrl.bind(this)}/>}
             </div>

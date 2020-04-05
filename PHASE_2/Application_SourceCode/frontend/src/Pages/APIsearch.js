@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import DatePicker from "react-datepicker";
+import Draggable from 'react-draggable';
 
 import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
@@ -79,6 +80,11 @@ class APIsearch extends Component {
             });
     }
 
+    eventLogger = (e: MouseEvent, data: Object) => {
+        console.log('Event: ', e);
+        console.log('Data: ', data);
+    };
+
     render() {
         // console.log(this.state.startDate);
         // console.log(this.state.endDate);
@@ -86,6 +92,16 @@ class APIsearch extends Component {
         // console.log(this.state.key);
         // console.log("----------");
         return (
+            <Draggable
+                axis="both"
+                handle=".SearchSettings"
+                defaultPosition={{x: 0, y: 0}}
+                position={null}
+                grid={[1, 1]}
+                scale={1}
+                onStart={this.handleStart}
+                onDrag={this.handleDrag}
+                onStop={this.handleStop}>
             <div className="SearchSettings">
                 <div>{this.renderSelectionValue()}</div>
 
@@ -129,6 +145,7 @@ class APIsearch extends Component {
                     )}
                 </div>
             </div>
+            </Draggable>
         )
     }
 }

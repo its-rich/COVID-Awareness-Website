@@ -189,6 +189,7 @@ input {
 
 .Continentwrapper {
     text-align: center;
+    background-color: var(--theme-second-color);
 }
 
 .divButtons {
@@ -202,8 +203,9 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    margin-right: -700px;
+    margin-right: 800px;
     cursor: pointer;
+    text-colour: black;
 }
 
 .alldiseases:hover {
@@ -211,12 +213,26 @@ input {
 }
 
 .diseaseList {
-    display: table;
-    display: flex;
     
+    display: flex;
+     background-color: var(--theme-second-color);
+     justify-content: space-around;
+    border-radius: 15px 15px 15px 15px;
     align-items: center;
     flex-direction: column;
     width: 100%;
+
+    background: linear-gradient(to bottom right, #30273a, #0d92fd);
+  padding: 5px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  resize: none;
+  border:1px solid #30273a;
+  box-shadow: 0 0 10px #8d78a5;
+  border-radius: 15px 15px 15px 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .reportDocs {

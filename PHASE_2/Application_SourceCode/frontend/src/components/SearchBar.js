@@ -1,5 +1,6 @@
 import React from 'react';
 import data from '../Data/disease_data.json';
+import Draggable from 'react-draggable';
 
 class SearchBar extends React.Component {
 
@@ -46,6 +47,11 @@ class SearchBar extends React.Component {
         return months[Math.floor(num * 12)];
     }
 
+    eventLogger = (e: MouseEvent, data: Object) => {
+        console.log('Event: ', e);
+        console.log('Data: ', data);
+    };
+
     render() {
         let item = data.map(disease =>
                 <option key={disease.disease}>
@@ -53,6 +59,16 @@ class SearchBar extends React.Component {
                 </option>
             );
         return (
+            <Draggable
+                axis="both"
+                handle="#keyTerm"
+                defaultPosition={{x: 0, y: 0}}
+                position={null}
+                grid={[1, 1]}
+                scale={1}
+                onStart={this.handleStart}
+                onDrag={this.handleDrag}
+                onStop={this.handleStop}>
             <div className="SearchBar">
                 <div id="keyTerm" className="Box">
                     <div className="FlexRow">
@@ -71,7 +87,7 @@ class SearchBar extends React.Component {
                     </select>
                 </div>
                 <div id="startDate" className="Box">
-                    <div className="FlexRow">
+                    <div className="FlexRow" >
                         <h5>Since:</h5>
                         <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
                     </div>
@@ -83,6 +99,7 @@ class SearchBar extends React.Component {
                     <h5>Total Fatalities: {this.props.deaths}</h5>
                 </div>
             </div>
+            </Draggable>
         )
     };
 }

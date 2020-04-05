@@ -62,7 +62,7 @@ class AUSgraph extends React.Component {
     render() {
         return (
             <Chart
-              width={'1000px'}
+              width={'100%'}
               height={'600px'}
               chartType="ColumnChart"
               loader={<div>Loading Chart</div>}

@@ -81,8 +81,11 @@ class RiskGraph extends React.Component {
     render() {
         return (
             <Chart
-              width={'1000px'}
+              width={'100%'}
               height={'600px'}
+              display="block"
+              margin-left="auto"
+              margin-right="auto"
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
               data={this.state.data}

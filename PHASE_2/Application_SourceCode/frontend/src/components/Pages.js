@@ -1,7 +1,6 @@
 import React from 'react';
 import MapContainer from './MapContainer';
 import SearchBar from './SearchBar';
-import DatePicker from './DatePicker';
 
 class Pages extends React.Component {
     render() {
@@ -21,7 +20,6 @@ class Pages extends React.Component {
         } else if (this.props.page === "Disease") {
             return (
                 <div>
-                    <DatePicker />
                     <center className="Title"> Disease Page </center>
                 </div>
             );

@@ -1,6 +1,12 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
 import numbers from '../Data/disease_data.json';
+import {getCountry, getISO2} from '../Data/CountryConverter';
+import month0 from '../Data/2019-12-01_2020-01-01.json';
+import month1 from '../Data/2020-01-01_2020-02-01.json';
+import month2 from '../Data/2020-02-01_2020-03-01.json';
+import month3 from '../Data/2020-03-01_2020-04-01.json';
+import month4 from '../Data/2020-04-01_2020-05-01.json';
 
 function getCode(continent) {
     if (continent === 'Africa') {
@@ -49,35 +55,144 @@ class MapContainer extends React.Component {
             let totald = 0;
             let totali = 0;
             if (this.props.disease === 'COVID-19') {
+                world = [['Country', 'Total Infected', 'Total Fatalities']];
+                // options.resolution = 'countries';
+                options.resolution = 'countries';
                 if (this.props.dateRange > 201911) {
-
                     // let url = "";
-                    // if (this.props.dateRange === 201912) {
-                    //     url = 'https://covidapi.info/api/v1/global/timeseries/2019-12-01/2020-01-01';
-                    // } else if (this.props.dateRange === 202001) {
-                    //     url = 'https://covidapi.info/api/v1/global/timeseries/2020-01-01/2020-02-01';
-                    // } else if (this.props.dateRange === 202002) {
-                    //     url = 'https://covidapi.info/api/v1/global/timeseries/2020-02-01/2020-03-01';
-                    // } else if (this.props.dateRange === 202003) {
-                    //     url = 'https://covidapi.info/api/v1/global/timeseries/2020-03-01/2020-04-01';
-                    // } else if (this.props.dateRange === 202004) {
-                    //     url = 'https://covidapi.info/api/v1/global/timeseries/2020-04-01/2020-05-01';
-                    // }
-                    //
-                    // fetch('https://covidapi.info/api/v1/global/timeseries/2019-12-01/2020-01-01')
+                    console.log(this.props.dateRange);
+                    if (this.props.dateRange === 201912) {
+                        Object.keys(month0.result).map((item, i) => {
+                            let confirm = 0;
+                            let dead = 0;
+                            month0.result[item].forEach((c, i) => {
+                                confirm += c.confirmed;
+                                dead += c.deaths;
+                            });
+                            let temp = [];
+                            if (getCountry(item) !== undefined ) {
+                                if (confirm !== 0 || dead !== 0) {
+                                temp.push(getCountry(item));
+                                temp.push(confirm);
+                                temp.push(dead);
+                                totali += confirm;
+                                totald += dead;
+                                world.push(temp);
+                                }
+                            }
+                        });
+                    } else if (this.props.dateRange >= 202000 && this.props.dateRange < 202010) {
+                        Object.keys(month1.result).map((item, i) => {
+                            let confirm = 0;
+                            let dead = 0;
+                            month1.result[item].forEach((c, i) => {
+                                confirm += c.confirmed;
+                                dead += c.deaths;
+                            });
+                            let temp = [];
+                            if (getCountry(item) !== undefined ) {
+                                if (confirm !== 0 || dead !== 0) {
+                                temp.push(getCountry(item));
+                                temp.push(confirm);
+                                temp.push(dead);
+                                totali += confirm;
+                                totald += dead;
+                                world.push(temp);
+                                }
+                            }
+                        });
+                    } else if (this.props.dateRange >= 202010 && this.props.dateRange < 202020) {
+                        Object.keys(month2.result).map((item, i) => {
+                            let confirm = 0;
+                            let dead = 0;
+                            month2.result[item].forEach((c, i) => {
+                                confirm += c.confirmed;
+                                dead += c.deaths;
+                            });
+                            let temp = [];
+                            if (getCountry(item) !== undefined ) {
+                                if (confirm !== 0 || dead !== 0) {
+                                temp.push(getCountry(item));
+                                temp.push(confirm);
+                                temp.push(dead);
+                                totali += confirm;
+                                totald += dead;
+                                world.push(temp);
+                                }
+                            }
+                        });
+                    } else if (this.props.dateRange >= 202020 && this.props.dateRange < 202030) {
+                        Object.keys(month3.result).map((item, i) => {
+                            let confirm = 0;
+                            let dead = 0;
+                            month3.result[item].forEach((c, i) => {
+                                confirm += c.confirmed;
+                                dead += c.deaths;
+                            });
+                            let temp = [];
+                            if (getCountry(item) !== undefined ) {
+                                if (confirm !== 0 || dead !== 0) {
+                                temp.push(getCountry(item));
+                                temp.push(confirm);
+                                temp.push(dead);
+                                totali += confirm;
+                                totald += dead;
+                                world.push(temp);
+                                }
+                            }
+                        });
+                    } else if (this.props.dateRange >= 202030 && this.props.dateRange < 202040) {
+                        Object.keys(month4.result).map((item, i) => {
+                            let confirm = 0;
+                            let dead = 0;
+                            month4.result[item].forEach((c, i) => {
+                                confirm += c.confirmed;
+                                dead += c.deaths;
+                            });
+                            let temp = [];
+                            if (getCountry(item) !== undefined ) {
+                                if (confirm !== 0 || dead !== 0) {
+                                temp.push(getCountry(item));
+                                temp.push(confirm);
+                                temp.push(dead);
+                                totali += confirm;
+                                totald += dead;
+                                world.push(temp);
+                                }
+                            }
+                        });
+                    } else {
+                        world.push(["", 0, 0])
+                    }
+                    // fetch('https://covidapi.info/api/v1/global/timeseries/2020-01-01/2020-02-01')
                     // .then(resp => resp.json())
                     // .then(json => {
-                    //     Object.keys(json.result).forEach(c => {
-                    //         if (json.result[c].length != 0) {
-                    //             let temp = [];
-                    //             // temp.push()
-                    //             temp.push(json.result[c].confirmed)
-                    //             temp.push(json.result[c].deaths)
+                    //     // console.log(json);
+                    //     Object.keys(json.result).forEach(i => {
+                    //         let confirm = 0;
+                    //         let dead = 0;
+                    //         json.result[i].forEach((item, c) => {
+                    //             confirm += item.confirmed;
+                    //             dead += item.deaths;
+                    //         });
+                    //         let temp = [];
+                    //         if (getCountry(i) !== undefined ) {
+                    //             if (confirm !== 0 || dead !== 0) {
+                    //             // temp.push(getISO2(i));
+                    //             temp.push(getCountry(i));
+                    //             temp.push(confirm);
+                    //             // temp.push(dead);
                     //             world.push(temp);
+                    //             }
                     //         }
                     //     })
-                    //
                     // });
+                    // ddd.result.forEach((item) => {
+                    //     console.log(item);
+                    // });
+                    // console.log(ddd.result);
+                } else {
+                    world.push(["", 0, 0])
                 }
             } else {
                 numbers.forEach((disease) => {
@@ -105,9 +220,10 @@ class MapContainer extends React.Component {
                         });
                     }
                 });
-            }
-            if (world.length <= 2) {
-                world.push(["", "", 0, 0]);
+                if (world.length <= 2) {
+                    world.push(["", "", 0, 0]);
+                }
+                this.updateStats(totald, totali);
             }
             this.setState({data: world});
             this.updateStats(totald, totali);

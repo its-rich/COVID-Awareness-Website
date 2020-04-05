@@ -225,10 +225,8 @@ class MapContainer extends React.Component {
                 if (world.length <= 2) {
                     world.push(["", "", 0, 0]);
                 }
-                this.updateStats(totald, totali);
             }
             this.setState({data: world});
-            this.updateStats(totald, totali);
         }
     }
 

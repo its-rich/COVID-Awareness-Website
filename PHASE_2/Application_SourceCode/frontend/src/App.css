@@ -202,8 +202,9 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    margin-right: -700px;
+    margin-right: 800px;
     cursor: pointer;
+    text-colour: black;
 }
 
 .alldiseases:hover {

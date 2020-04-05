@@ -11,7 +11,7 @@ class AllDiseases extends Component {
     render() {
         let item = data.map(disease =>
                 <div className="alldiseases" key={disease.name} onClick={this.changeDisease.bind(this)}>
-                <button>{disease.name}</button>
+               <h4>{disease.name}</h4>
                 </div>
             );
         return (

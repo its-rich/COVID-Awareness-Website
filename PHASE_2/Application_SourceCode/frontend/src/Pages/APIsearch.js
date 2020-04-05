@@ -67,9 +67,10 @@ class APIsearch extends Component {
         const dateOffset = "start_date=" + startD.toISOString().split('T')[0] + "T00%3A00%3A00&end_date=" + endD.toISOString().split('T')[0] + "T00%3A00%3A00"
         // alert("date offset" + dateOffset)
         const url = "https://asia-northeast1-seng3011-api.cloudfunctions.net/report?" + dateOffset + "&key=" + this.state.key + "&location=" + this.state.country
-        // alert("searching " + url)
+        alert("searching... allow few seconds")
         fetch(url)
             .then((response) => {
+                alert("Done!")
                 return response.json();
             })
             .then((data) => {
@@ -85,7 +86,7 @@ class APIsearch extends Component {
         // console.log(this.state.key);
         // console.log("----------");
         return (
-            <>
+            <div className="SearchSettings">
                 <div>{this.renderSelectionValue()}</div>
 
                 <div>
@@ -98,7 +99,7 @@ class APIsearch extends Component {
                 <div>
                     {this.state.isOpen && (
                         <>
-                        <form onSubmit={this.submitHandler}>
+                        <form className="SearchSettingsExpand">
                             <DatePicker
                             selected={this.state.startDate}
                             onChange={this.setStartDate.bind(this)}
@@ -127,7 +128,7 @@ class APIsearch extends Component {
                         </>
                     )}
                 </div>
-                </>
+            </div>
         )
     }
 }

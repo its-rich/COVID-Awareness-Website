@@ -116,8 +116,55 @@ a {
     margin-top: 22%;
     margin-left: 20px;
 }
-
 .SearchBar:hover {
+    background-color: #6b6d6f;
+    opacity: 0.9;
+}
+
+.SearchSettings {
+    height: 100px;
+    width: 300px;
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #6b6d6f;
+    color: #FEED83;
+    opacity: 0.4;
+    padding: 15px;
+    border-radius: 0% 0% 15% 0%;
+    margin-top: 22%;
+    margin-left: 20px;
+}
+
+.SearchSettings:hover {
+    background-color: #6b6d6f;
+    opacity: 0.9;
+}
+
+.SearchSettingsExpand {
+    height: 350px;
+    width: 300px;
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #6b6d6f;
+    color: #FEED83;
+    opacity: 1;
+    padding: 15px;
+    padding-left: 15px;
+    left: 19px;
+    border-radius: 0% 0% 15% 0%;
+    margin-top: 0%;
+    /* margin-right:01100px; */
+}
+
+.SearchSettingsExpand:hover {
     background-color: #6b6d6f;
     opacity: 0.9;
 }

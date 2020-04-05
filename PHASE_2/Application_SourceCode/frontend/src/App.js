@@ -7,8 +7,8 @@ import Diseases from './Pages/Diseases.js';
 import Home from './Pages/Home.js';
 import Reports from './Pages/Reports.js';
 import News from './Pages/News.js';
-import DatePicker from './components/DatePicker.js';
 import Risk from './Pages/Risk.js';
+import SocialDistancing from './Pages/SocialDistancing.js';
 
 function App () {
     return (
@@ -22,6 +22,7 @@ function App () {
                     <Route path="/reports" exact component={Reports} />
                     <Route path="/latestnews" exact component={News} />
                     <Route path="/risk" exact component={Risk} />
+                    <Route path="/socialDistancing" exact component={SocialDistancing} />
                 </Switch>
             </div>
         </Router>

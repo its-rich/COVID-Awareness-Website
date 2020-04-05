@@ -96,7 +96,7 @@ a {
 
 .SearchBar {
     height: 350px;
-    width: 260px;
+    width: 300px;
     z-index: 1;
     position: fixed;
     display: flex;
@@ -207,7 +207,7 @@ input {
 }
 
 .alldiseases:hover {
-    background-color: var(--theme-light-color);
+    background-color: #2196f3;
 }
 
 .diseaseList {

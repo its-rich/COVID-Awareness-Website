@@ -127,6 +127,10 @@ a {
     width: 100%;
 }
 
+.doctitle {
+    text-align: center !important;
+}
+
 /* Drop Down */
 .browser-default {
     height: 40px;

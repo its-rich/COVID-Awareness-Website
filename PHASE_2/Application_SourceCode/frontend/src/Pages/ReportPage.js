@@ -20,10 +20,10 @@ class ReportPage extends Component {
                 {this.props.data.map((doc) => {
                     return (
                         this.props.data.map(function(info, index) {
-                            if (info.url === v) {
+                            if (v !== undefined && v !== '' && info.url === v) {
                                 return (
                                     <div key={info.url} className='reportDoc'>
-                                        <h2>{info.headline}</h2>
+                                        <h2 className="doctitle">{info.headline}</h2>
                                         <h3>{"Published on " + String(parseISO(info.event_date+"T00:00:00Z")).slice(0,15)}</h3>
                                         <div className="doc">{info.main_text}</div>
                                     </div>

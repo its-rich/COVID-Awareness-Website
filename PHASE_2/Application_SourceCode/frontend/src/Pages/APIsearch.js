@@ -20,13 +20,13 @@ class APIsearch extends Component {
     setStartDate = (date) => {
         this.setState({
         startDate: date
-        }, console.log(this.state.startDate));
+        });
     };
 
     setEndDate = (date) => {
         this.setState({
             endDate: date
-        }, console.log(this.state.endDate));
+        });
     };
 
     onToggle = () => {
@@ -52,12 +52,8 @@ class APIsearch extends Component {
         this.setState({key: event.target.value});
     }
 
-    changeData = (e) => {
-        // fetch here
-        // this.props.changeData(newdata);
-    }
-
     submitHandler = (event) => {
+
         const sYear = this.state.startDate.getUTCFullYear()
         const sMonth = this.state.startDate.getMonth()
         const sDate = this.state.startDate.getDate()
@@ -71,30 +67,27 @@ class APIsearch extends Component {
         const dateOffset = "start_date=" + startD.toISOString().split('T')[0] + "T00%3A00%3A00&end_date=" + endD.toISOString().split('T')[0] + "T00%3A00%3A00"
         // alert("date offset" + dateOffset)
         const url = "https://asia-northeast1-seng3011-api.cloudfunctions.net/report?" + dateOffset + "&key=" + this.state.key + "&location=" + this.state.country
-        alert("searching " + url)
+        // alert("searching " + url)
         fetch(url)
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
-                alert("Done!")
-                this.setState({results: data});
-                console.log(this.state.results);
+                this.props.changeData(data)
+                // console.log(this.state.results);
             });
-    
     }
 
     render() {
-        console.log(this.state.startDate);
-        console.log(this.state.endDate);
-        console.log(this.state.country);
-        console.log(this.state.key);
-        console.log("----------");
+        // console.log(this.state.startDate);
+        // console.log(this.state.endDate);
+        // console.log(this.state.country);
+        // console.log(this.state.key);
+        // console.log("----------");
         return (
             <>
                 <div>{this.renderSelectionValue()}</div>
-                
+
                 <div>
                 <input
                     type="button"
@@ -118,8 +111,8 @@ class APIsearch extends Component {
                             <input type='text' onChange={this.setCountry}/>
                             <p>key Search:</p>
                             <input type='text' onChange={this.setKey}/>
-                            <input 
-                            type='button' 
+                            <input
+                            type='button'
                             value="Search"
                             onClick={this.submitHandler}
                             />

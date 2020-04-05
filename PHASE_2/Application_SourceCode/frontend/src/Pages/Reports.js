@@ -19,7 +19,7 @@ class Reports extends React.Component {
     }
 
     componentDidMount() {
-        db.collection('reports').orderBy('event_date', 'desc').limit(1).get()
+        db.collection('reports').orderBy('event_date', 'desc').limit(10).get()
             .then(snapshot => {
                 if (snapshot.empty) {
                     console.log('No matching documents.');
@@ -38,6 +38,7 @@ class Reports extends React.Component {
     }
 
     changeData = (data) => {
+        // console.log(data);
         this.setState({data: data});
     }
 
@@ -46,7 +47,7 @@ class Reports extends React.Component {
             <div>
             {this.state.url == '' && <APIsearch changeData={this.changeData.bind(this)}/>}
             {this.state.url === '' && <AllReports data={this.state.data} changeUrl={this.changeUrl.bind(this)}/>}
-            {this.state.url !== '' && <ReportPage data={this.state.data} u={this.u}report={this.state.report} url={this.state.url} changeUrl={this.changeUrl.bind(this)}/>}
+            {this.state.url !== '' && <ReportPage data={this.state.data} report={this.state.report} url={this.state.url} changeUrl={this.changeUrl.bind(this)}/>}
             </div>
         )
     }

@@ -17,8 +17,8 @@ class AllReports extends Component {
                 {this.props.data.map((doc) => {
                     return (
                     <ul className="reportDocs" key={doc.url} onClick={this.changeUrl.bind(this)}>
-                        <h4 value={doc.url}>{doc.headline}</h4>
-                        <h5>{"Published on " + String(parseISO(doc.event_date+"T00:00:00Z")).slice(0,15)}</h5>
+                        <h4 className="doctitle" value={doc.url}>{doc.headline}</h4>
+                        <h5>{"Published on " + String(parseISO(String(doc.date_of_publication).slice(0,10)+"T00:00:00Z")).slice(0,15)}</h5>
                     </ul>
                     )
                 })}

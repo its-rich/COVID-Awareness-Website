@@ -8,9 +8,7 @@ import Home from './Pages/Home.js';
 import Reports from './Pages/Reports.js';
 import News from './Pages/News.js';
 import DatePicker from './components/DatePicker.js';
-import PickDate from './components/PickDate.js';
 import Risk from './Pages/Risk.js';
-import Users from './components/Users.js';
 
 function App () {
     return (
@@ -23,9 +21,7 @@ function App () {
                     <Route path="/continents" exact component={Continents} />
                     <Route path="/reports" exact component={Reports} />
                     <Route path="/latestnews" exact component={News} />
-                    <Route path="/dates" exact component={PickDate} />
                     <Route path="/risk" exact component={Risk} />
-                    <Route path="/users" exact component={Users} />
                 </Switch>
             </div>
         </Router>

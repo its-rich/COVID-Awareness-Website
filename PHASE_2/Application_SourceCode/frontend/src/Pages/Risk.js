@@ -7,7 +7,7 @@ class Risk extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            postcode: "2026"
+            postcode: "2228"
         };
     }
 
@@ -15,9 +15,11 @@ class Risk extends React.Component {
         this.setState({postcode: e.target.value});
         console.log(e.target.value);
         console.log("state = " + this.state.postcode);
+        e.preventDefault();
     }
-    handleSubmit(event) {
-        this.setState({postcode: event.target.value});
+    handleSubmit= (e) => {
+        alert(this.state.postcode);
+        e.preventDefault();
         
     }
     graph() {

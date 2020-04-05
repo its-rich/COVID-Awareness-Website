@@ -3,7 +3,8 @@ Install Google Charts React!<br />
 ### npm install --save react-google-charts
 And Install Firebase!<br />
 ### npm install firebase --save
-
+Install to apply draggable feature
+### npm install react-draggable
 
 <br />
 <br />

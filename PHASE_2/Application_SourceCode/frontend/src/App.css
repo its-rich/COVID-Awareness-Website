@@ -50,9 +50,13 @@ h5 {
 
 .vertical-timeline-element-date {
     color: white;
+    width: 200px !important;
     font-size: 150% !important;
 }
 
+.browser-default {
+    z-index: 2;
+}
 
 a {
     text-decoration: none;

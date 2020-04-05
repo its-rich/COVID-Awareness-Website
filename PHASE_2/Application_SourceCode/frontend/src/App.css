@@ -136,9 +136,9 @@ a {
 .continentfield {
     height: 70px;
     display: flex;
-
-
-
+   
+    
+    
     margin-left: 44.5%;
 
 
@@ -193,7 +193,7 @@ input {
 
 .divButtons {
     text-align: center;
-
+    
 }
 
 .alldiseases {
@@ -213,7 +213,7 @@ input {
 .diseaseList {
     display: table;
     display: flex;
-
+    
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -221,8 +221,16 @@ input {
 
 .reportDocs {
     color: black;
+    display: flex;
+    font-size: small;
+    
+    align-items: center;
+    flex-direction: column;
 }
-
+.reportDocs:hover {
+    background-color: #2196f3;
+    
+}
 
 
 .switch {
@@ -300,3 +308,4 @@ display: table;
     border-radius: 50% !important;
 
 }
+

@@ -210,7 +210,7 @@ a {
 
 Button {
     background-color: var(--theme-second-color);
-    color: var(--theme-color);
+    color: black;
     border: 2px solid var(--theme-color);
     width: 200px;
     font-size: large;

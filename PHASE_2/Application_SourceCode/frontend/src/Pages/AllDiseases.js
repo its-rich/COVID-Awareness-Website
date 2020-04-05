@@ -16,7 +16,7 @@ class AllDiseases extends Component {
             );
         return (
             <div>
-                <center className="Title"> <h3>All Diseases</h3> </center>
+                <center className="diseaseTitle"> <h3>All Diseases</h3> </center>
                 <div className="diseaseList" id="disease-names">
                 {item}
                 </div>

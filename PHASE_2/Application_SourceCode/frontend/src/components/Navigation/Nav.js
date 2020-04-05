@@ -5,7 +5,7 @@ function Nav() {
     return (
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
-                <Link to='/' className="brand-logo">Epidemic Visualiser</Link>
+                <Link to='/' className="brand-logo">Diseases Over Time</Link>
             </div>
             <ul className="right">
                 <li><Link to='/'>Home</Link></li>

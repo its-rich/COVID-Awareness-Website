@@ -18,9 +18,7 @@ class Risk extends React.Component {
         e.preventDefault();
     }
     handleSubmit= (e) => {
-        alert(this.state.postcode);
         e.preventDefault();
-        
     }
     graph() {
         return (<RiskGraph postcode={this.state.postcode}/>);

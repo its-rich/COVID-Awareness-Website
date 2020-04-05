@@ -46,7 +46,7 @@ class News extends React.Component {
             );
         return (
             <div>
-            <select className="select" defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
+            <select className="browser-default" style={{width:"auto", position: "absolute", right:"100px", top: "100px"}} defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
             <option value="DEFAULT" disabled>Select A Disease</option>
             {item}
             </select>
@@ -57,10 +57,10 @@ class News extends React.Component {
                     let date = String(result).slice(0,15);
                     return (<VerticalTimelineElement
                       className="newsblock"
-                      contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                      contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                      contentStyle={{ background: '#FEAE51FF', color: 'black' }}
+                      contentArrowStyle={{ borderRight: '7px solid  #FEAE51FF' }}
                       date={date}
-                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                      iconStyle={{ background: '#D21404', color: '#fff' }}
                       iconOnClick={() => {window.open(article.url, "_blank")}}
                       icon={<img src="https://image.flaticon.com/icons/svg/624/624824.svg" alt="articlelink" />} //touchapp from materialize article.urlToImage
                     >

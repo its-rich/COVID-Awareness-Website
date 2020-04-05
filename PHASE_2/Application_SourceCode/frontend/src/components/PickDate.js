@@ -11,7 +11,7 @@ class PickDate extends React.Component {
     endDate: new Date()
   };
 
-  setStartDate = date => {
+  setStartDate = (date) => {
     this.setState({
       startDate: date
     }, console.log(this.state.startDate));
@@ -19,7 +19,7 @@ class PickDate extends React.Component {
     // console.log(this.state.endDate)
   };
 
-  setEndDate = date => {
+  setEndDate = (date) => {
     this.setState({
       endDate: date
     }, console.log(this.state.endDate));
@@ -28,15 +28,18 @@ class PickDate extends React.Component {
   };
 
   render() {
+    console.log(1);
+    console.log(this.state.startDate);
+    console.log(this.state.endDate);
     return (
     <>
       <DatePicker
         selected={this.state.startDate}
-        onChange={this.setStartDate}
+        onChange={this.setStartDate.bind(this)}
       />
       <DatePicker
         selected={this.state.endDate}
-        onChange={this.setEndDate}
+        onChange={this.setEndDate.bind(this)}
       />
     </>
     );

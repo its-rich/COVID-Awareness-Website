@@ -62,82 +62,54 @@ class MapContainer extends React.Component {
                     // let url = "";
                     // console.log(this.props.dateRange);
                     if (this.props.dateRange === 201912) {
-                        Object.keys(month0.result).map((item, i) => {
-                            let confirm = 0;
-                            let dead = 0;
-                            if (confirm > totali) {
-                                temp.push(confirm);
-                                totali += confirm;
-                            }
-                            if (dead > totald) {
-                                temp.push(dead);
-                                totald += dead;
-                            }
-                            month0.result[item].forEach((c, i) => {
-                                confirm += c.confirmed;
-                                dead += c.deaths;
-                            });
-                            let temp = [];
-                            if (getCountry(item) !== undefined ) {
-                                if (confirm !== 0 || dead !== 0) {
-                                temp.push(getCountry(item));
-                                if (confirm > totali) {
-                                    temp.push(confirm);
-                                    totali += confirm;
-                                }
-                                if (dead > totald) {
-                                    temp.push(dead);
-                                    totald += dead;
-                                }
-                                world.push(temp);
-                                }
-                            }
-                        });
                     } else if (this.props.dateRange >= 202000 && this.props.dateRange < 202010) {
                         Object.keys(month1.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
                             month1.result[item].forEach((c, i) => {
-                                confirm += c.confirmed;
-                                dead += c.deaths;
+                                confirm = c.confirmed;
+                                dead = c.deaths;
                             });
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
-                                temp.push(getCountry(item));
-                                if (confirm > totali) {
-                                    temp.push(confirm);
+                                    temp.push(getCountry(item));
+                                    if (this.props.switch === 'infected') {
+                                        temp.push(confirm);
+                                        temp.push(dead);
+                                    } else {
+                                        temp.push(dead);
+                                        temp.push(confirm);
+                                    }
                                     totali += confirm;
-                                }
-                                if (dead > totald) {
-                                    temp.push(dead);
                                     totald += dead;
-                                }
-                                world.push(temp);
+                                    world.push(temp);
                                 }
                             }
                         });
+                        console.log(world);
                     } else if (this.props.dateRange >= 202010 && this.props.dateRange < 202020) {
                         Object.keys(month2.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
                             month2.result[item].forEach((c, i) => {
-                                confirm += c.confirmed;
-                                dead += c.deaths;
+                                confirm = c.confirmed;
+                                dead = c.deaths;
                             });
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
-                                temp.push(getCountry(item));
-                                if (confirm > totali) {
-                                    temp.push(confirm);
+                                    temp.push(getCountry(item));
+                                    if (this.props.switch === 'infected') {
+                                        temp.push(confirm);
+                                        temp.push(dead);
+                                    } else {
+                                        temp.push(dead);
+                                        temp.push(confirm);
+                                    }
                                     totali += confirm;
-                                }
-                                if (dead > totald) {
-                                    temp.push(dead);
                                     totald += dead;
-                                }
-                                world.push(temp);
+                                    world.push(temp);
                                 }
                             }
                         });
@@ -146,22 +118,23 @@ class MapContainer extends React.Component {
                             let confirm = 0;
                             let dead = 0;
                             month3.result[item].forEach((c, i) => {
-                                confirm += c.confirmed;
-                                dead += c.deaths;
+                                confirm = c.confirmed;
+                                dead = c.deaths;
                             });
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
-                                temp.push(getCountry(item));
-                                if (confirm > totali) {
-                                    temp.push(confirm);
+                                    temp.push(getCountry(item));
+                                    if (this.props.switch === 'infected') {
+                                        temp.push(confirm);
+                                        temp.push(dead);
+                                    } else {
+                                        temp.push(dead);
+                                        temp.push(confirm);
+                                    }
                                     totali += confirm;
-                                }
-                                if (dead > totald) {
-                                    temp.push(dead);
                                     totald += dead;
-                                }
-                                world.push(temp);
+                                    world.push(temp);
                                 }
                             }
                         });
@@ -170,22 +143,23 @@ class MapContainer extends React.Component {
                             let confirm = 0;
                             let dead = 0;
                             month4.result[item].forEach((c, i) => {
-                                confirm += c.confirmed;
-                                dead += c.deaths;
+                                confirm = c.confirmed;
+                                dead = c.deaths;
                             });
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
-                                temp.push(getCountry(item));
-                                if (confirm > totali) {
-                                    temp.push(confirm);
+                                    temp.push(getCountry(item));
+                                    if (this.props.switch === 'infected') {
+                                        temp.push(confirm);
+                                        temp.push(dead);
+                                    } else {
+                                        temp.push(dead);
+                                        temp.push(confirm);
+                                    }
                                     totali += confirm;
-                                }
-                                if (dead > totald) {
-                                    temp.push(dead);
                                     totald += dead;
-                                }
-                                world.push(temp);
+                                    world.push(temp);
                                 }
                             }
                         });

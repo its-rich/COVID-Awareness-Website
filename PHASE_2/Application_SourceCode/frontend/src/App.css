@@ -13,6 +13,7 @@
     --theme-color: #6754ff;
     --theme-light-color: #ff5e5e;
     --theme-second-color: #ffffff;
+    background: linear-gradient(to bottom right, #30273a, #0d92fd);
 }
 
 body {
@@ -38,10 +39,6 @@ h5 {
     flex-direction: row;
 }
 
-.alldiseases {
-    color: black;
-}
-
 .vertical-timeline.vertical-timeline--two-columns:before {
     background: black;
 }
@@ -51,7 +48,7 @@ h5 {
 }
 
 .vertical-timeline-element-date {
-    color: black;
+    color: white;
 }
 
 
@@ -73,7 +70,7 @@ a {
     align-items: center;
     margin: 50px;
     color: #070323;
-     background-color: #2196f3;
+     /* background-color: #2196f3; */
 }
 
 .Links {
@@ -115,7 +112,7 @@ a {
 }
 
 .SearchBar:hover {
-    background-color: #2196f3;
+    background-color: #6b6d6f;
     opacity: 0.9;
 }
 
@@ -144,11 +141,8 @@ a {
     display: flex;
     width: 100000000%;
     display: flex;
-   
-    align-items: center;
 
-   
-   
+    align-items: center;
 
 }
 
@@ -205,7 +199,7 @@ input {
 .Continentwrapper {
     text-align: center;
 
-   
+
 }
 
 
@@ -215,41 +209,41 @@ input {
 }
 
 .alldiseases {
-    background-color: var(--theme-second-color);
+    /* background-color: var(--theme-second-color); */
     width: 50%;
     display: flex;
     margin: 2px;
     padding: 2px;
-    margin-right: 800px;
+    justify-content: center;
     cursor: pointer;
     text-colour: black;
 }
 
-.alldiseases:hover {
+/* .alldiseases:hover {
     background-color: #2196f3;
-}
+} */
 
 .diseaseList {
 
     display: flex;
-     background-color: var(--theme-second-color);
+     /* background-color: var(--theme-second-color); */
      justify-content: space-around;
     border-radius: 15px 15px 15px 15px;
     align-items: center;
     flex-direction: column;
     width: 100%;
 
-    background: linear-gradient(to bottom right, #30273a, #0d92fd);
   padding: 5px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
   resize: none;
-  border:1px solid #30273a;
-  box-shadow: 0 0 10px #8d78a5;
-  border-radius: 15px 15px 15px 15px;
+  /* border:1px solid #30273a; */
+  /* box-shadow: 0 0 10px #8d78a5; */
+  /* border-radius: 15px 15px 15px 15px; */
   display: flex;
   justify-content: space-around;
+  color: yellow;
 }
 
 .continentList {
@@ -363,4 +357,9 @@ display: table;
 .dropdown{
     border-radius: 50% !important;
 
+}
+
+.reactgooglegraph-1 {
+    display: relative;
+    left: 500px;
 }

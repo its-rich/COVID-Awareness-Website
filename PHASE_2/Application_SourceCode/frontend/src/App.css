@@ -48,7 +48,7 @@ h5 {
 }
 
 .vertical-timeline-element-date {
-    color: black;
+    color: white;
 }
 
 
@@ -141,11 +141,8 @@ a {
     display: flex;
     width: 100000000%;
     display: flex;
-   
-    align-items: center;
 
-   
-   
+    align-items: center;
 
 }
 
@@ -202,7 +199,7 @@ input {
 .Continentwrapper {
     text-align: center;
 
-   
+
 }
 
 
@@ -217,7 +214,7 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    margin-right: 800px;
+    justify-content: center;
     cursor: pointer;
     text-colour: black;
 }
@@ -360,4 +357,9 @@ display: table;
 .dropdown{
     border-radius: 50% !important;
 
+}
+
+.reactgooglegraph-1 {
+    display: relative;
+    left: 500px;
 }

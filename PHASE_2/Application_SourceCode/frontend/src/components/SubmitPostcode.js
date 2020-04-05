@@ -1,10 +1,13 @@
 import React from 'react';
 
-class Submit extends React.Component {
+class SubmitPostcode extends React.Component {
 
     submit = () => {
-        console.log(document.getElementById("in").value);
-        this.props.submit(document.getElementById("in").value);
+        let code = document.getElementById("in").value;
+        if (code.length != 4) {
+            return;
+        }
+        this.props.submit(code);
     }
 
     render(){
@@ -18,4 +21,4 @@ class Submit extends React.Component {
     }
 }
 
-export default Submit
+export default SubmitPostcode;

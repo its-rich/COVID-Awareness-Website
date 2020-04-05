@@ -57,7 +57,7 @@ class News extends React.Component {
                     let date = String(result).slice(0,15);
                     return (<VerticalTimelineElement
                       className="newsblock"
-                      contentStyle={{ background: '#FEAE51FF', color: 'black' }}
+                      contentStyle={{ background: '#FEAE51FF', color: 'black'}}
                       contentArrowStyle={{ borderRight: '7px solid  #FEAE51FF' }}
                       date={date}
                       iconStyle={{ background: '#D21404', color: '#fff' }}

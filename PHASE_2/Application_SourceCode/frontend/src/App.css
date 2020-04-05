@@ -13,7 +13,8 @@
     --theme-color: #6754ff;
     --theme-light-color: #ff5e5e;
     --theme-second-color: #ffffff;
-    background: #0a356d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#30273a), to(#0d92fd)) fixed;
+    /* background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed; */
 }
 
 body {
@@ -48,7 +49,8 @@ h5 {
 }
 
 .vertical-timeline-element-date {
-    color: black;
+    color: white;
+    font-size: 150% !important;
 }
 
 
@@ -139,7 +141,7 @@ a {
 .continentfield {
     height: 70px;
     display: flex;
-    width: 100000000%;
+    width: 100%;
     display: flex;
 
     align-items: center;
@@ -217,13 +219,9 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    margin-right: 800px;
+    justify-content: center;
     cursor: pointer;
     text-colour: black;
-}
-
- .alldiseases:hover {
-    background-color: #2196f3;
 }
 
 .diseaseList {
@@ -253,20 +251,18 @@ input {
 .continentList {
 
     display: flex;
-     
+
      justify-content: space-around;
     border-radius: 15px 15px 15px 15px;
     align-items: center;
     flex-direction: column;
     width: 100%;
-
-    background: #0a356d;
   padding: 5px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
   resize: none;
-  
+
   border-radius: 15px 15px 15px 15px;
   display: flex;
   justify-content: space-around;
@@ -276,7 +272,6 @@ input {
     color: yellow;
     display: flex;
     font-size: small;
-    background: #0a356d;
     align-items: center;
     flex-direction: column;
 }
@@ -285,7 +280,9 @@ input {
     color: yellow;
     display: flex;
     font-size: large;
-
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
     align-items: center;
     flex-direction: column;
 }
@@ -293,10 +290,10 @@ input {
 /* .doc {
     height: 100%;
 } */
-.reportDocs:hover {
+/* .reportDocs:hover {
     background-color: #2196f3;
 
-} 
+}  */
 
 
 .switch {
@@ -374,6 +371,10 @@ display: table;
     border-radius: 50% !important;
 
 }
-.reportcomponent{
- background: #0a356d;
-  }
+
+.countryTitle {
+    font-size: 200%;
+    position: relative;
+    left: 50%;
+
+}

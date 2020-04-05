@@ -7,12 +7,14 @@ import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 class PickDate extends React.Component {
-  state = {
-    isOpen: false,
-    startDate: new Date("1996-01-01T00:00:00.000Z"),
-    endDate: new Date("2020-04-10T00:00:00.000Z"),
-    country: ""
-  };
+    state = {
+        isOpen: false,
+        startDate: new Date("1996-01-01T00:00:00.000Z"),
+        endDate: new Date("2020-04-05T00:00:00.000Z"),
+        country: "",
+        key: "",
+        url: ""
+    };
 
   setStartDate = (date) => {
       this.setState({
@@ -49,12 +51,35 @@ class PickDate extends React.Component {
   setCountry = (event) => {
       this.setState({country: event.target.value});
   }
+  setKey = (event) => {
+    this.setState({key: event.target.value});
+}
 
 submitHandler = (event) => {
-    
-    alert("Searching " + this.state.country + ", " + this.state.startDate.toDateString() + " - " + this.state.endDate.toDateString())
-    const resp = axios.get('https://jsonplaceholder.typicode.com/users');
-    alert(resp.data)
+    const sYear = this.state.startDate.getUTCFullYear()
+    const sMonth = this.state.startDate.getMonth()
+    const sDate = this.state.startDate.getDate()
+    const startD = new Date()
+    startD.setUTCFullYear(sYear, sMonth, sDate)
+    const eYear = this.state.endDate.getUTCFullYear()
+    const eMonth = this.state.endDate.getMonth()
+    const eDate = this.state.endDate.getDate()
+    const endD = new Date()
+    endD.setUTCFullYear(eYear, eMonth, eDate)
+    // alert("Searching " + this.state.country + " | " + this.state.key + " | " + startD.toISOString().split('T')[0] + " - " + endD.toISOString().split('T')[0])
+    const dateOffset = "start_date=" + startD.toISOString().split('T')[0] + "T00%3A00%3A00&end_date=" + endD.toISOString().split('T')[0] + "T00%3A00%3A00"
+    // alert("date offset" + dateOffset)
+    // const url = "https://asia-northeast1-seng3011-api.cloudfunctions.net/report?" + dateOffset + "&key=" + this.state.key + "&country=" + this.state.country
+    const url = "https://asia-northeast1-seng3011-api.cloudfunctions.net/report?" + dateOffset
+    alert("searching " + url)
+    fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            alert("asdsadsa")
+        });
 
 }
 
@@ -63,6 +88,7 @@ submitHandler = (event) => {
     console.log(this.state.startDate);
     console.log(this.state.endDate);
     console.log(this.state.country);
+    console.log(this.state.key);
     console.log("----------");
     return (
         <>
@@ -87,8 +113,15 @@ submitHandler = (event) => {
                     selected={this.state.endDate}
                     onChange={this.setEndDate.bind(this)}
                     />
+                    <p>name of country:</p>
                     <input type='text' onChange={this.setCountry}/>
-                    <input type='submit' />
+                    <p>key Search:</p>
+                    <input type='text' onChange={this.setKey}/>
+                    <input 
+                    type='button' 
+                    value="Search"
+                    onClick={this.submitHandler}
+                    />
                 </form>
                 </>
             )}

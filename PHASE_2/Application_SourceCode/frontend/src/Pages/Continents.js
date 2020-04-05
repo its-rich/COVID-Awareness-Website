@@ -78,7 +78,7 @@ class Continents extends Component {
 
         );
         return (
-            <div className="diseaseList">{countryList}</div>
+            <div className="continentList">{countryList}</div>
         );
     }
     SendToCountry = (e) => {

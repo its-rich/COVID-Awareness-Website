@@ -25,4 +25,5 @@ class Risk extends React.Component {
     }
 }
 
+
 export default Risk;

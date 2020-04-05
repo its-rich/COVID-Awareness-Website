@@ -42,7 +42,7 @@ class Continents extends Component {
 
             <div className="Continentwrapper">
                 <center className="Title"> <h3>Country Page</h3> </center>
-               <div className="continentfield"> <button align="centre" onClick={this.showDropdown}>  Continent</button> </div>
+               <div className="continentfield"> <button align="centre" onClick={this.showDropdown}>  Select Continent</button> </div>
                 {
                     this.state.showDropdown
                         ? (

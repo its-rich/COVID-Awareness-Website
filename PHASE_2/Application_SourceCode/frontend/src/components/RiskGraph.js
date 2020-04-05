@@ -9,6 +9,45 @@ class RiskGraph extends React.Component {
         data: [['Cases','Date']],
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.postcode != this.props.postcode) {
+            let newData = [['Date','Cases']];
+            var date = new Date(1577836800000);
+
+            let i = 0;
+
+            cases.forEach((newCase) => {
+                if (newCase.postcode == this.props.postcode){
+                    let newDate = new Date(newCase.notification_date);
+                    //console.log(date);
+                    //console.log(newDate);
+                    //console.log(date > newDate);
+                    while (date < newDate){
+                        let dateString = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+                        let temp = [dateString,i];
+                        newData.push(temp);
+                        date = new Date( date.getTime() + 86400000);
+                        //console.log(temp);
+                    }
+                    i = i + 1;
+
+                    let temp;
+                    temp = [newCase.notification_date,i];
+                    newData.push(temp);
+                }
+
+            });
+            var today = new Date();
+            while (date < today){
+                let dateString = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+                let temp = [dateString,i];
+                date = new Date( date.getTime() + 86400000);
+            }
+            //console.log(newData);
+            this.setState({data: newData});
+        }
+    }
+
     componentDidMount() {
 //        let response = await fetch("https://data.nsw.gov.au/data/api/3/action/datastore_search?resource_id=21304414-1ff1-4243-a5d2-f52778048b29");
 //        if (response.ok){
@@ -34,6 +73,7 @@ class RiskGraph extends React.Component {
 //            this.setState({data: newData});
 //            console.log("api success");
 //        }else{
+            console.log(this.props.postcode);
             let newData = [['Date','Cases']];
             var date = new Date(1577836800000);
 
@@ -72,48 +112,47 @@ class RiskGraph extends React.Component {
 //        }
 
     }
-
-    UNSAFE_componentWillReceiveProps(){
-            let newData = [['Date','Cases']];
-            var date = new Date(1577836800000);
-
-            let i = 0;
-
-            cases.forEach((newCase) => {
-                if (newCase.postcode == this.props.postcode){
-                    let newDate = new Date(newCase.notification_date);
-                    //console.log(date);
-                    //console.log(newDate);
-                    //console.log(date > newDate);
-                    while (date < newDate){
-                        let dateString = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
-                        let temp = [dateString,i];
-                        newData.push(temp);
-                        date = new Date( date.getTime() + 86400000);
-                        //console.log(temp);
-                    }
-                    i = i + 1;
-                    
-                    let temp;
-                    temp = [newCase.notification_date,i];
-                    newData.push(temp);
-                }
-           
-            });
-            var today = new Date();
-            while (date < today){
-                let dateString = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
-                let temp = [dateString,i];
-                date = new Date( date.getTime() + 86400000);
-            }
-            //console.log(newData);
-            this.setState({data: newData});
-//            console.log("Unable to connect to NSW gov, using stored statistics");
-//        }
-    }
+//
+//     UNSAFE_componentWillReceiveProps(){
+//             let newData = [['Date','Cases']];
+//             var date = new Date(1577836800000);
+//
+//             let i = 0;
+//
+//             cases.forEach((newCase) => {
+//                 if (newCase.postcode == this.props.postcode){
+//                     let newDate = new Date(newCase.notification_date);
+//                     //console.log(date);
+//                     //console.log(newDate);
+//                     //console.log(date > newDate);
+//                     while (date < newDate){
+//                         let dateString = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+//                         let temp = [dateString,i];
+//                         newData.push(temp);
+//                         date = new Date( date.getTime() + 86400000);
+//                         //console.log(temp);
+//                     }
+//                     i = i + 1;
+//
+//                     let temp;
+//                     temp = [newCase.notification_date,i];
+//                     newData.push(temp);
+//                 }
+//
+//             });
+//             var today = new Date();
+//             while (date < today){
+//                 let dateString = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+//                 let temp = [dateString,i];
+//                 date = new Date( date.getTime() + 86400000);
+//             }
+//             //console.log(newData);
+//             this.setState({data: newData});
+// //            console.log("Unable to connect to NSW gov, using stored statistics");
+// //        }
+//     }
 
     render() {
-        console.log(this.state.data)
         return (
             <Chart
               width={'1000px'}

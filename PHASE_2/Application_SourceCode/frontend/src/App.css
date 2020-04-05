@@ -10,7 +10,7 @@
 }
 
 :root {
-    --theme-color: #ff5454;
+    --theme-color: #6754ff;
     --theme-light-color: #ff5e5e;
     --theme-second-color: #ffffff;
 }
@@ -69,8 +69,9 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
-    color: var(--theme-color);
+    margin: 50px;
+    color: #070323;
+     background-color: #2196f3;
 }
 
 .Links {
@@ -106,7 +107,7 @@ a {
     opacity: 0.9;
     padding: 15px;
     border-radius: 0% 0% 15% 0%;
-    margin-top: 525px;
+    margin-top: 500px;
     margin-left: 20px;
 
 
@@ -137,7 +138,7 @@ Button {
     background-color: var(--theme-second-color);
     color: var(--theme-color);
     border: 2px solid var(--theme-color);
-    width: 100px;
+    width: 200px;
     font-size: large;
 }
 
@@ -182,8 +183,7 @@ input {
 
 .divButtons {
     text-align: center;
-    margin-right: 30%;
-    margin-left: 30%;
+    
 }
 
 .alldiseases {
@@ -201,7 +201,9 @@ input {
 }
 
 .diseaseList {
+    display: table;
     display: flex;
+    
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -273,3 +275,15 @@ input {
   .slider.round:before {
     border-radius: 50% !important;
   }
+
+  .resp-table {
+width: 100%;
+display: table;
+}
+
+.Table {
+  border-spacing: 0px;
+  background: #fff;
+  box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+}
+

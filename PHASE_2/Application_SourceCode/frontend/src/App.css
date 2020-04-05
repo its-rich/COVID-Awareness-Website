@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 .App {
     width: 100%;
 }
@@ -101,10 +102,14 @@ a {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: var(--theme-light-color);
+    background-color: #2196f3;
     opacity: 0.9;
     padding: 15px;
     border-radius: 0% 0% 15% 0%;
+    margin-top: 525px;
+    margin-left: 20px;
+
+
 }
 
 .Box {
@@ -114,7 +119,7 @@ a {
 
 /* Drop Down */
 .browser-default {
-    height: 70px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;

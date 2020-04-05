@@ -49,6 +49,7 @@ class FilterBar extends React.Component {
     // }
 
     submitHandler(e){
+        e.preventDefault();
         let sdates = document.getElementById('sdates');
         console.log(sdates)
         console.log(this.props.startDate)

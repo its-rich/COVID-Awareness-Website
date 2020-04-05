@@ -23,6 +23,17 @@ class DatePicker extends React.Component {
     console.log(this.state.value)
   };
 
+  submitHandler(e){
+    e.preventDefault();
+    let sdates = document.getElementById('sdates');
+    // console.log(sdates)
+    console.log("----")
+    alert("test1")
+    
+    // alert("You are submitting" + this.state.startDate)
+    alert("test2")
+  }
+
   onToggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
@@ -46,21 +57,29 @@ class DatePicker extends React.Component {
         <div>
           <input
             type="button"
-            value="Toggle date picker"
+            value="Search"
             onClick={this.onToggle}
           />
         </div>
-
-        {this.state.isOpen && (
-          <DateRangePicker
-            value={this.state.value}
-            onSelect={this.onSelect}
-            singleDateRange={false}
-            numberOfCalendars={2}
-            minimumDate={moment("1996-01-01", "YYYY-MM-DD")}
-            maximumDate={moment()}
-          />
-        )}
+        <div>
+          {this.state.isOpen && (
+            <>
+            <DateRangePicker
+              value={this.state.value}
+              onSelect={this.onSelect}
+              singleDateRange={false}
+              numberOfCalendars={2}
+              minimumDate={moment("1996-01-01", "YYYY-MM-DD")}
+              maximumDate={moment("2020-04-10", "YYYY-MM-DD")}
+            />
+            <input
+              type="button"
+              value="Search"
+              onSubmit
+            />
+            </>
+          )}
+        </div>
       </div>
     );
   }

@@ -22,7 +22,7 @@ function App () {
                     <Route path="/continents" exact component={Continents} />
                     <Route path="/reports" exact component={Reports} />
                     <Route path="/latestnews" exact component={News} />
-                    <Route path="/dates" exact component={DatePicker} />
+                    <Route path="/dates" exact component={PickDate} />
                     <Route path="/risk" exact component={Risk} />
                 </Switch>
             </div>

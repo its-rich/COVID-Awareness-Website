@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 class PickDate extends React.Component {
   state = {
+    isOpen: false,
     startDate: new Date(),
     endDate: new Date()
   };
@@ -27,20 +28,38 @@ class PickDate extends React.Component {
     // console.log(this.state.endDate)
   };
 
+  onToggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
   render() {
-    console.log(1);
+    // console.log(1);
     console.log(this.state.startDate);
     console.log(this.state.endDate);
+    console.log("----------");
     return (
-    <>
-      <DatePicker
-        selected={this.state.startDate}
-        onChange={this.setStartDate.bind(this)}
-      />
-      <DatePicker
-        selected={this.state.endDate}
-        onChange={this.setEndDate.bind(this)}
-      />
+        <>
+        <div>
+          <input
+            type="button"
+            value="Search"
+            onClick={this.onToggle}
+          />
+        </div>
+    <div>
+        {this.state.isOpen && (
+            <>
+            <DatePicker
+            selected={this.state.startDate}
+            onChange={this.setStartDate.bind(this)}
+            />
+            <DatePicker
+            selected={this.state.endDate}
+            onChange={this.setEndDate.bind(this)}
+            />
+            </>
+        )}
+    </div>
     </>
     );
   }

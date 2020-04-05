@@ -46,7 +46,7 @@ class Continents extends Component {
                 {
                     this.state.showDropdown
                         ? (
-                            <div className="dropdown">
+                            <div className="select">
                                 <button onClick={this.changeState}> Europe </button>
                                 <button onClick={this.changeState}> Asia </button>
                                 <button onClick={this.changeState}> South America </button>

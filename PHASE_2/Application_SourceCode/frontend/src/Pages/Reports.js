@@ -43,6 +43,9 @@ class Reports extends React.Component {
         return (
             <div>
                 <center className="Title"> WHO Outbreak Reports </center>
+                {/* <div class="iframe-container"> */}
+                    <iframe src="https://www.who.int/csr/don/archive/year/en/" frameborder='0' width="100%" height="900"></iframe>
+                {/* </div> */}
                 {this.state.showDoc === '' && this.state.data.map((doc) => {
                     return (
                     <ul className="reportDocs" key={doc.url} onClick={this.setDoc.bind(this)}>

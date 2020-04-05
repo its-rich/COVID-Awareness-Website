@@ -29,6 +29,11 @@ h5 {
     padding: 0;
 }
 
+.iframe-container{
+    position: relative;
+    padding-top:56.25%
+}
+
 .FlexRow {
     display: flex;
     justify-content: space-between;

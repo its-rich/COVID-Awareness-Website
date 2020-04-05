@@ -12,7 +12,7 @@ class Submit extends React.Component {
             <div className="postcodepage">
                 <div className="postcodeTitle"> COVID-19 Suburb Checker </div>
                 <input id="in"></input>
-                <button onClick={this.submit.bind(this)}>submit</button>
+                <button class="Button Button1" onClick={this.submit.bind(this)}>submit</button>
             </div>
         )
     }

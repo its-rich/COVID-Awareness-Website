@@ -28,7 +28,6 @@ class Risk extends React.Component {
     render(){
         return(
             <div className="postcodepage">
-                <div className="postcodeTitle"> COVID-19 Suburb Checker </div>
                 <Submit submit={this.submit.bind(this)}/>
                 <RiskGraph postcode={this.state.postcode}/>
             </div>
@@ -38,7 +37,7 @@ class Risk extends React.Component {
 
 // <form onSubmit={this.handleSubmit}>
 //     <label> Postcode:
-//     <input type="number" value={this.state.postcode} onChange={this.handleChange} />
+//     <input id="PostcodeInput" type="number" value={this.state.postcode} onChange={this.handleChange} />
 //     </label>
 //     <input type="submit" value="Submit" />
 // </form>

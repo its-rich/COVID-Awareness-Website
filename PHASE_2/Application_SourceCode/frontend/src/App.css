@@ -51,6 +51,7 @@ h5 {
     color: black;
 }
 
+
 a {
     text-decoration: none;
 }
@@ -113,10 +114,11 @@ a {
 
 /* Drop Down */
 .browser-default {
-    height: 32px;
-    margin-bottom: 10px;
-    opacity: 0.8;
-    cursor: pointer;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: var(--theme-second-color);
 }
 
 Button {

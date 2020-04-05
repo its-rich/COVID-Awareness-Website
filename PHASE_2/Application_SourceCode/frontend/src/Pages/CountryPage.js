@@ -12,8 +12,8 @@ class CountryPage extends React.Component {
         super(props);
         this.reportList = '';
         this.state = {
-            disease: "COVID-19",
-            loading: true
+            total: 0,
+            loading: ''
         };
 
 
@@ -44,6 +44,24 @@ class CountryPage extends React.Component {
 //            <div className="divButtons">{countryList}</div>
 //        );
 //    }
+
+    componentDidMount() {
+        db.collection('reports').where('countries', 'array-contains', this.props.country).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    console.log('No matching documents.');
+                    return
+                }
+                // console.log(snapshot.size); // count total amount -> don't use this
+                this.setState({total: snapshot.size})
+                snapshot.forEach(doc => {
+
+                    // console.log(doc.data().diseases.length);
+                });
+            })
+
+        // this.props.country;
+    }
 
 
     diseases() {
@@ -100,6 +118,7 @@ class CountryPage extends React.Component {
         return (
             <div >
                 <p className="countryTitle"> {this.props.country} </p>
+                <h2 className="countryTitle"> There are {this.state.total} WHO reports on which mention this country </h2>
             </div>
         );
     }

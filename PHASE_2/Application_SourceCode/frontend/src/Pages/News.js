@@ -35,6 +35,9 @@ class News extends React.Component {
                     newdata.push(json);
                 })
                 .then((a) => this.setState({data: newdata}));
+                if (newdata.length == 0) {
+                    alert('No new news about '+ this.state.disease)
+                }
         }
     }
 

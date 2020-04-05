@@ -6,7 +6,9 @@ import parseISO from 'date-fns/parseISO';
 class AllReports extends Component {
 
     changeUrl = (e) => {
-        // console.log(e.target.getAttribute("value"));
+        if (e.target.getAttribute("value") == null) {
+            return;
+        }
         this.props.changeUrl(e.target.getAttribute("value"));
     }
 

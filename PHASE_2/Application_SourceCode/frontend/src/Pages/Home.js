@@ -10,7 +10,7 @@ class Home extends React.Component {
         super(props)
         this.state = {
             disease: "",
-            dateRange: 202000,
+            dateRange: 201900,
             switch: "infected",
             deaths: 0,
             infected: 0

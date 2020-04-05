@@ -12,8 +12,9 @@ class CountryPage extends React.Component {
         super(props);
         this.reportList = '';
         this.state = {
-            disease: "COVID-19",
-            loading: true
+            total: 0,
+            loading: '',
+            list: ''
         };
 
 
@@ -45,6 +46,39 @@ class CountryPage extends React.Component {
 //        );
 //    }
 
+    componentDidMount() {
+        db.collection('reports').where('countries', 'array-contains', this.props.country).get()
+            .then(snapshot => {
+                if (snapshot.empty) {
+                    console.log('No matching documents.');
+                    return
+                }
+                // console.log(snapshot.size); // count total amount -> don't use this
+                this.setState({total: snapshot.size})
+                snapshot.forEach(doc => {
+                    let newdata = []
+                    snapshot.forEach(doc => {
+                        // if (doc.data().countries.length) {
+                            doc.data().diseases.map((e) => {
+                                if (newdata.includes(e) == false) {
+                                    newdata.push(e)
+                                }
+                            })
+                        // }
+                        // console.log(doc.countries);
+                    });
+                    let s = ''
+                    newdata.map(item => {
+                        s = s + item + ', '
+                    })
+                    this.setState({list: s})
+                    // console.log(doc.data().diseases.length);
+                });
+            })
+
+        // this.props.country;
+    }
+
 
     diseases() {
         var listOfDiseases = require("../Data/disease_list.json");
@@ -71,35 +105,37 @@ class CountryPage extends React.Component {
 
 
             //Reading Reports
-            let reportRef = db.collection('reports')
+            // let reportRef = db.collection('reports')
             //console.log(reportRef);
             //console.log(this.props.country);
-            let query = reportRef.where("countries", "array-contains", this.props.country).limit(1).get()
-                .then(snapshot => {
-
-                    if (snapshot.empty) {
-                        console.log('No matching documents.');
-                        return;
-                    }
-                    snapshot.forEach(doc => {
-
-                        //if (doc.data().diseases.includes(this.state.disease)){
-                            this.reportList = (doc.data().main_text);
-                            //console.log(this.reportList)
-                        //}
-                    });
-                    this.finish();
-                })
-
-                .catch(err => {
-                    console.log('Error getting documents', err);
-
-            });
+            // let query = reportRef.where("countries", "array-contains", this.props.country).limit(1).get()
+            //     .then(snapshot => {
+            //
+            //         if (snapshot.empty) {
+            //             console.log('No matching documents.');
+            //             return;
+            //         }
+            //         snapshot.forEach(doc => {
+            //
+            //             // if (doc.data().diseases.includes(this.state.disease)){
+            //                 this.reportList = (doc.data().main_text);
+            //                 //console.log(this.reportList)
+            //             //}
+            //         });
+            //         this.finish();
+            //     })
+            //
+            //     .catch(err => {
+            //         console.log('Error getting documents', err);
+            //
+            // });
         }
 
         return (
             <div >
                 <p className="countryTitle"> {this.props.country} </p>
+                <h2 className="countryTitle"> There are {this.state.total} WHO reports on which mention this country </h2>
+                <h2 className="countryTitle"> The diseases that have been reported in {this.props.country} are {this.state.list} </h2>
             </div>
         );
     }

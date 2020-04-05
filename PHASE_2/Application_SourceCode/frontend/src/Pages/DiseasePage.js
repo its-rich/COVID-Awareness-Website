@@ -12,7 +12,7 @@ class DiseasePage extends Component {
     render() {
         return (
             <div class="DiseaseGraph">
-                <button className="waves-effect waves-light btn" style={{width:"auto", position: "sticky", right:"35%", top: "12%"}} type="button" onClick={this.changeDisease.bind(this)}>Back</button>
+                <button className="waves-effect waves-light btn" style={{width:"auto", position:"absolute", right:"300px", top: "100px"}} type="button" onClick={this.changeDisease.bind(this)}>Back</button>
                 <Graph disease={this.props.disease}/>
                 <PieChart disease={this.props.disease} switch="dead"/>
                 <PieChart disease={this.props.disease} switch="infected"/>

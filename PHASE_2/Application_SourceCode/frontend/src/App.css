@@ -17,7 +17,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--theme-second-color);
+    color: var(--theme-color);
     line-height: 1.4;
     width: 100%;
     height: auto;
@@ -96,7 +96,7 @@ a {
 
 .SearchBar {
     height: 350px;
-    width: 260px;
+    width: 300px;
     z-index: 1;
     position: fixed;
     display: flex;
@@ -202,12 +202,13 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    padding-left: 25px;
+    margin-right: 800px;
     cursor: pointer;
+    text-colour: black;
 }
 
 .alldiseases:hover {
-    background-color: var(--theme-light-color);
+    background-color: #2196f3;
 }
 
 .diseaseList {
@@ -221,8 +222,16 @@ input {
 
 .reportDocs {
     color: black;
+    display: flex;
+    font-size: small;
+    
+    align-items: center;
+    flex-direction: column;
 }
-
+.reportDocs:hover {
+    background-color: #2196f3;
+    
+}
 
 
 .switch {

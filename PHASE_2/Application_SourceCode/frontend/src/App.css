@@ -13,7 +13,7 @@
     --theme-color: #6754ff;
     --theme-light-color: #ff5e5e;
     --theme-second-color: #ffffff;
-    background: linear-gradient(to bottom right, #30273a, #0d92fd);
+    background: #0a356d;
 }
 
 body {
@@ -48,7 +48,7 @@ h5 {
 }
 
 .vertical-timeline-element-date {
-    color: white;
+    color: black;
 }
 
 
@@ -141,8 +141,11 @@ a {
     display: flex;
     width: 100000000%;
     display: flex;
-
+   
     align-items: center;
+
+   
+   
 
 }
 
@@ -199,7 +202,7 @@ input {
 .Continentwrapper {
     text-align: center;
 
-
+   
 }
 
 
@@ -214,14 +217,14 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    justify-content: center;
+    margin-right: 800px;
     cursor: pointer;
     text-colour: black;
 }
 
-/* .alldiseases:hover {
+ .alldiseases:hover {
     background-color: #2196f3;
-} */
+} 
 
 .diseaseList {
 
@@ -245,6 +248,7 @@ input {
   justify-content: space-around;
   color: yellow;
 }
+
 
 .continentList {
 
@@ -273,7 +277,7 @@ input {
     color: yellow;
     display: flex;
     font-size: small;
-
+    background: #0a356d;
     align-items: center;
     flex-direction: column;
 }
@@ -371,8 +375,6 @@ display: table;
     border-radius: 50% !important;
 
 }
-
-.reactgooglegraph-1 {
-    display: relative;
-    left: 500px;
-}
+.reportcomponent{
+ background: #0a356d;
+  }

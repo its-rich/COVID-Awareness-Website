@@ -112,8 +112,11 @@ a {
     border-radius: 0% 0% 15% 0%;
     margin-top: 22%;
     margin-left: 20px;
+}
 
-
+.SearchBar:hover {
+    background-color: #2196f3;
+    opacity: 0.9;
 }
 
 .Box {
@@ -216,17 +219,11 @@ input {
 }
 
 .diseaseList {
-<<<<<<< HEAD
-    display: table;
-    display: flex;
 
-=======
-    
     display: flex;
      background-color: var(--theme-second-color);
      justify-content: space-around;
     border-radius: 15px 15px 15px 15px;
->>>>>>> c9de02ae79821e887ffb9e297e02cea5717a67be
     align-items: center;
     flex-direction: column;
     width: 100%;

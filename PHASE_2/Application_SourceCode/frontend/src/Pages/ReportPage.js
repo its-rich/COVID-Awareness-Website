@@ -8,25 +8,19 @@ class ReportPage extends Component {
         url: ''
     }
 
-
     changeUrl = (e) => {
-        // console.log(e.target.getAttribute("value"));
-        this.props.changeUrl(e.target.getAttribute("value"));
+        this.props.changeUrl('');
     }
 
-    // componentDidMount() {
-    //     this.setState({url: this.props.url})
-    // }
-
     render () {
-        // console.log(this.props.u);
+        let v = this.props.url;
         return (
             <div>
+            <button type="button" onClick={this.changeUrl.bind(this)}>Back</button>
                 {this.props.data.map((doc) => {
                     return (
                         this.props.data.map(function(info, index) {
-                            // console.log(this.state.url);
-                            // if (info.url === this.state.url) {
+                            if (info.url === v) {
                                 return (
                                     <div key={info.url} className='reportDoc'>
                                         <h2>{info.headline}</h2>
@@ -34,7 +28,7 @@ class ReportPage extends Component {
                                         <p>{info.main_text}</p>
                                     </div>
                                 )
-                            // }
+                            }
                         })
                     )
                 })}

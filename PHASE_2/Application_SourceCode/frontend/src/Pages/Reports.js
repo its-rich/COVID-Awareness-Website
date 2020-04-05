@@ -9,13 +9,11 @@ class Reports extends React.Component {
 
     constructor(props) {
         super(props);
-        const u = props.u;
         this.state = {
             data: [],
             report: [],
             url: ''
         }
-        // this.setDoc = this.setDoc.bind(this);
     }
 
     componentDidMount() {
@@ -36,29 +34,6 @@ class Reports extends React.Component {
     changeUrl = (url) => {
         this.setState({url: url});
     }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.url !== this.state.url) {
-            this.state.data.map((doc) => {
-                    this.state.data.map(function(info, index) {
-                        // console.log(this.state.url);
-                        // if (info.url === this.state.url) {
-                        //     this.setState({report: info})
-                        // }
-                    })
-            })
-        }
-    }
-
-    //
-    // setDoc = (e) => {
-    //     this.setState({url: 1})
-    // }
-    //
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.url != this.state.url)
-    //     url = 1
-    // }
 
     render () {
         return (

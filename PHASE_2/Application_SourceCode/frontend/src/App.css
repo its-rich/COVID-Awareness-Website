@@ -293,10 +293,10 @@ input {
 /* .doc {
     height: 100%;
 } */
-/* .reportDocs:hover {
+.reportDocs:hover {
     background-color: #2196f3;
 
-} */
+} 
 
 
 .switch {

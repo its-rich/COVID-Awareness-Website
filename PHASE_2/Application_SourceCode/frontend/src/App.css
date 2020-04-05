@@ -17,7 +17,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--theme-second-color);
+    color: var(--theme-color);
     line-height: 1.4;
     width: 100%;
     height: auto;
@@ -25,10 +25,12 @@ body {
 }
 
 h5 {
-    margin-top: 0;
+    margin-top: 5px;
     margin-bottom: 10px;
     padding: 0;
 }
+
+
 
 .FlexRow {
     display: flex;
@@ -103,14 +105,18 @@ a {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: #2196f3;
+    background-color: #6b6d6f;
+    color: #FEED83;
     opacity: 0.9;
     padding: 15px;
     border-radius: 0% 0% 15% 0%;
-    margin-top: 500px;
+    margin-top: 22%;
     margin-left: 20px;
+}
 
-
+.SearchBar:hover {
+    background-color: #2196f3;
+    opacity: 0.9;
 }
 
 .Box {
@@ -136,11 +142,20 @@ a {
 .continentfield {
     height: 70px;
     display: flex;
+    width: 100000000%;
+    display: flex;
    
-    
-    
-    margin-left: 44.5%;
+    align-items: center;
 
+   
+   
+
+}
+
+.continentfield :hover {
+    background-color: #2196f3;
+    opacity: 0.9;
+     text-colour: black;
 
 }
 
@@ -189,11 +204,14 @@ input {
 
 .Continentwrapper {
     text-align: center;
+
+   
 }
+
 
 .divButtons {
     text-align: center;
-    
+
 }
 
 .alldiseases {
@@ -202,8 +220,9 @@ input {
     display: flex;
     margin: 2px;
     padding: 2px;
-    margin-right: -700px;
+    margin-right: 800px;
     cursor: pointer;
+    text-colour: black;
 }
 
 .alldiseases:hover {
@@ -211,18 +230,63 @@ input {
 }
 
 .diseaseList {
-    display: table;
+
     display: flex;
-    
+     background-color: var(--theme-second-color);
+     justify-content: space-around;
+    border-radius: 15px 15px 15px 15px;
     align-items: center;
     flex-direction: column;
     width: 100%;
+
+    background: linear-gradient(to bottom right, #30273a, #0d92fd);
+  padding: 5px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  resize: none;
+  border:1px solid #30273a;
+  box-shadow: 0 0 10px #8d78a5;
+  border-radius: 15px 15px 15px 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.continentList {
+
+    display: flex;
+     background-color: var(--theme-second-color);
+     justify-content: space-around;
+    border-radius: 15px 15px 15px 15px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    background: linear-gradient(to bottom right, #30273a, #0d92fd);
+  padding: 5px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  resize: none;
+  border:1px solid #30273a;
+  box-shadow: 0 0 10px #8d78a5;
+  border-radius: 15px 15px 15px 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .reportDocs {
     color: black;
-}
+    display: flex;
+    font-size: small;
 
+    align-items: center;
+    flex-direction: column;
+}
+.reportDocs:hover {
+    background-color: #2196f3;
+
+}
 
 
 .switch {
@@ -300,4 +364,3 @@ display: table;
     border-radius: 50% !important;
 
 }
-

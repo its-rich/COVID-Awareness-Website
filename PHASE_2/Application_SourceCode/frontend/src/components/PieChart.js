@@ -18,16 +18,31 @@ class PieChart extends React.Component {
 
     componentDidMount() {
         if (this.props.disease == 'COVID-19') {
-            // let totald = 0;
-            // let totali = 0;
-            // let totalr = 0;
+            let totald = 0;
+            let totali = 0;
+            let totalr = 0;
             // let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
-            // Object.keys(month0.result).map((item, i) => {
-            //     month0.result[item].forEach((c, i) => {
-            //         totali += c.confirmed;
-            //         totald += c.deaths;
-            //         totalr += c.recovered;
+            // tempd = 0;
+            // tempi = 0;
+            // tempr = 0;
+            // Object.keys(month2.result).map((item, i) => {
+            //     let confirm = 0;
+            //     let dead = 0;
+            //     let recover = 0;
+            //     month2.result[item].forEach((c, i) => {
+            //         confirm += c.confirmed;
+            //         dead += c.deaths;
+            //         recover += c.recovered;
             //     });
+            //     if (confirm > tempi) {
+            //         totali += confirm;
+            //     }
+            //     if (dead > tempd) {
+            //         totald += dead;
+            //     }
+            //     if (recover > tempr) {
+            //         totalr += recover;
+            //     }
             // });
             // Object.keys(month1.result).map((item, i) => {
             //     month1.result[item].forEach((c, i) => {

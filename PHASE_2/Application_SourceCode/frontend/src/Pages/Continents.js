@@ -7,7 +7,7 @@ class Continents extends Component {
 
         super(props);
         this.state = {
-            continent: "Asia",
+            continent: "Oceania",
             showDropdown: false,
             country: null,
         };
@@ -78,7 +78,7 @@ class Continents extends Component {
 
         );
         return (
-            <div className="diseaseList">{countryList}</div>
+            <div className="continentList">{countryList}</div>
         );
     }
     SendToCountry = (e) => {

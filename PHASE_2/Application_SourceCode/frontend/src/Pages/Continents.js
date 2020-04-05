@@ -41,12 +41,12 @@ class Continents extends Component {
         return (
 
             <div className="Continentwrapper">
-                <center className="Title"> Country Page </center>
-                <button align="centre" onClick={this.showDropdown}> {this.state.continent} </button>
+                <center className="Title"> <h3>Country Page</h3> </center>
+               <div className="continentfield"> <button align="centre" onClick={this.showDropdown}>  Select Continent</button> </div>
                 {
                     this.state.showDropdown
                         ? (
-                            <div className="dropdown">
+                            <div className="select">
                                 <button onClick={this.changeState}> Europe </button>
                                 <button onClick={this.changeState}> Asia </button>
                                 <button onClick={this.changeState}> South America </button>
@@ -78,7 +78,7 @@ class Continents extends Component {
 
         );
         return (
-            <div className="divButtons">{countryList}</div>
+            <div className="diseaseList">{countryList}</div>
         );
     }
     SendToCountry = (e) => {

@@ -104,13 +104,16 @@ a {
     justify-content: flex-start;
     flex-direction: column;
     background-color: #2196f3;
-    opacity: 0.9;
+    opacity: 0.4;
     padding: 15px;
     border-radius: 0% 0% 15% 0%;
     margin-top: 500px;
     margin-left: 20px;
+}
 
-
+.SearchBar:hover {
+    background-color: #2196f3;
+    opacity: 0.9;
 }
 
 .Box {

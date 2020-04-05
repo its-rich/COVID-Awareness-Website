@@ -60,11 +60,19 @@ class MapContainer extends React.Component {
                 options.resolution = 'countries';
                 if (this.props.dateRange > 201911) {
                     // let url = "";
-                    console.log(this.props.dateRange);
+                    // console.log(this.props.dateRange);
                     if (this.props.dateRange === 201912) {
                         Object.keys(month0.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
+                            if (confirm > totali) {
+                                temp.push(confirm);
+                                totali += confirm;
+                            }
+                            if (dead > totald) {
+                                temp.push(dead);
+                                totald += dead;
+                            }
                             month0.result[item].forEach((c, i) => {
                                 confirm += c.confirmed;
                                 dead += c.deaths;
@@ -73,10 +81,14 @@ class MapContainer extends React.Component {
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
                                 temp.push(getCountry(item));
-                                temp.push(confirm);
-                                temp.push(dead);
-                                totali += confirm;
-                                totald += dead;
+                                if (confirm > totali) {
+                                    temp.push(confirm);
+                                    totali += confirm;
+                                }
+                                if (dead > totald) {
+                                    temp.push(dead);
+                                    totald += dead;
+                                }
                                 world.push(temp);
                                 }
                             }
@@ -93,10 +105,14 @@ class MapContainer extends React.Component {
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
                                 temp.push(getCountry(item));
-                                temp.push(confirm);
-                                temp.push(dead);
-                                totali += confirm;
-                                totald += dead;
+                                if (confirm > totali) {
+                                    temp.push(confirm);
+                                    totali += confirm;
+                                }
+                                if (dead > totald) {
+                                    temp.push(dead);
+                                    totald += dead;
+                                }
                                 world.push(temp);
                                 }
                             }
@@ -113,10 +129,14 @@ class MapContainer extends React.Component {
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
                                 temp.push(getCountry(item));
-                                temp.push(confirm);
-                                temp.push(dead);
-                                totali += confirm;
-                                totald += dead;
+                                if (confirm > totali) {
+                                    temp.push(confirm);
+                                    totali += confirm;
+                                }
+                                if (dead > totald) {
+                                    temp.push(dead);
+                                    totald += dead;
+                                }
                                 world.push(temp);
                                 }
                             }
@@ -133,10 +153,14 @@ class MapContainer extends React.Component {
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
                                 temp.push(getCountry(item));
-                                temp.push(confirm);
-                                temp.push(dead);
-                                totali += confirm;
-                                totald += dead;
+                                if (confirm > totali) {
+                                    temp.push(confirm);
+                                    totali += confirm;
+                                }
+                                if (dead > totald) {
+                                    temp.push(dead);
+                                    totald += dead;
+                                }
                                 world.push(temp);
                                 }
                             }
@@ -153,10 +177,14 @@ class MapContainer extends React.Component {
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
                                 temp.push(getCountry(item));
-                                temp.push(confirm);
-                                temp.push(dead);
-                                totali += confirm;
-                                totald += dead;
+                                if (confirm > totali) {
+                                    temp.push(confirm);
+                                    totali += confirm;
+                                }
+                                if (dead > totald) {
+                                    temp.push(dead);
+                                    totald += dead;
+                                }
                                 world.push(temp);
                                 }
                             }

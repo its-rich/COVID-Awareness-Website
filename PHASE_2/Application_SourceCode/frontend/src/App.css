@@ -377,3 +377,43 @@ display: table;
 .reportcomponent{
  background: #0a356d;
   }
+
+.postcodepage{
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.postcodeTitle{
+    font-family: 'Enriqueta', arial, serif; 
+    color: #5944dd;
+    line-height: 1.25; 
+    margin-left: 150px;
+    margin-right: 0px;
+    font-size: 60px; 
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 75%;
+}
+
+.Button1{
+    background-color: #51e3f7 !important;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+.Button1:hover{
+    opacity: 0.7;
+}
+
+#PostcodeInput{
+    background-color: white;
+    width: 50%;
+}

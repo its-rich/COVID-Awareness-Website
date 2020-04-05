@@ -29,8 +29,8 @@ class Risk extends React.Component {
         return(
             <div className="postcodepage">
                 <div className="postcodeTitle"> COVID-19 Suburb Checker </div>
-                <input></input>
-                <button onClick={this.submit.bind(this)}>submit</button>
+                <input id="PostcodeInput" type="number" value={this.state.postcode} onChange={this.handleChange}></input>
+                <button class="Button Button1" onClick={this.submit.bind(this)}>submit</button>
                 <RiskGraph postcode={this.state.postcode}/>
             </div>
         )

@@ -6,16 +6,15 @@ import cases from '../Data/NSWcovid19.json';
 
 class RiskGraph extends React.Component {
     state = {
-        data: [['Cases','Date'], ['', 0]],
+        data: [['Date','Total Cases'], ['', 0]],
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.postcode != this.props.postcode) {
-            let newData = [['Date','Cases']];
+            let newData = [['Date','Total Cases']];
             var date = new Date(1577836800000);
 
             let i = 0;
-
             cases.forEach((newCase) => {
                 if (newCase.postcode == this.props.postcode){
                     let newDate = new Date(newCase.notification_date);
@@ -27,7 +26,7 @@ class RiskGraph extends React.Component {
                         let temp = [dateString,i];
                         newData.push(temp);
                         date = new Date( date.getTime() + 86400000);
-                        //console.log(temp);
+                        // console.log(temp);
                     }
                     i = i + 1;
 

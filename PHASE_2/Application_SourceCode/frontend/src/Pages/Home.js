@@ -10,21 +10,15 @@ class Home extends React.Component {
         super(props)
         this.state = {
             disease: "",
-            startDate: 199600,
-            endDate: 202100
+            dateRange: 202000,
+            switch: "infected",
+            deaths: 0,
+            infected: 0
         };
     }
 
-    updateStartSlider = (date) => {
-        this.setState({startDate: date});
-    }
-
-    updateEndSlider = (date) => {
-        this.setState({endDate: date});
-    }
-
-    submitHandler = (event) => {
-        alert("Submit done")
+    updateSlider = (date) => {
+        this.setState({dateRange: date});
     }
 
     updateDisease = (disease) => {
@@ -48,12 +42,12 @@ class Home extends React.Component {
         return (
         <div id='mapinteraction'>
             <div id='setmap'>
-
-                <FilterBar disease={this.state.disease} startDate={this.state.startDate} endDate={this.state.endDate} updateDisease={this.updateDisease.bind(this)} updateStartSlider={this.updateStartSlider.bind(this)} updateEndSlider={this.updateEndSlider.bind(this)}/>
-                <MapContainer updateStats={this.updateStats.bind(this)} switch={this.state.switch} startDate={this.state.startDate} disease={this.state.disease} />
+                <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)}/>
+                {/* <FilterBar disease={this.state.disease} dateRange={this.state.dateRange} updateDisease={this.updateDisease.bind(this)} updateStartSlider={this.updateStartSlider.bind(this)}/> */}
+                <MapContainer updateStats={this.updateStats.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} />
             </div>
         </div>
     )};
 }
-// <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)}/>
+
 export default Home;

@@ -18,117 +18,90 @@ class Graph extends React.Component {
             let totald = 0;
             let totali = 0;
             let totalr = 0;
-            let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
+            let confirm = 0;
+            let dead = 0;
+            let recover = 0;
+            let newdata = [['Year', 'Cumulative Fatalities', 'Cumulative Infected', 'Cumulative Recovered']];
             Object.keys(month0.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month0.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Dec 2019', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month1.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month1.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Jan 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month2.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month2.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Feb 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month3.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month3.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Mar 2020', totald, totali, totalr]);
             totald = 0;
             totali = 0;
             totalr = 0;
             Object.keys(month4.result).map((item, i) => {
-                let confirm = 0;
-                let dead = 0;
-                let recover = 0;
+                confirm = 0;
+                dead = 0;
+                recover = 0;
                 month4.result[item].forEach((c, i) => {
-                    confirm += c.confirmed;
-                    dead += c.deaths;
-                    recover += c.recovered;
+                    confirm = c.confirmed;
+                    dead = c.deaths;
+                    recover = c.recovered;
                 });
-                if (confirm > totali) {
-                    totali += confirm;
-                }
-                if (dead > totald) {
-                    totald += dead;
-                }
-                if (recover > totalr) {
-                    totalr += recover;
-                }
+                totald += dead;
+                totali += confirm;
+                totalr += recover;
             });
             newdata.push(['Apr 2019', totald, totali, totalr]);
             this.setState({data: newdata});

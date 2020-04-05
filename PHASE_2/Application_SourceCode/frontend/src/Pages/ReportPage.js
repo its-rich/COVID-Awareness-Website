@@ -16,7 +16,7 @@ class ReportPage extends Component {
         let v = this.props.url;
         return (
             <div>
-            <button className="waves-effect waves-light btn" type="button" onClick={this.changeUrl.bind(this)}>Back</button>
+            <button className="waves-effect waves-light btn" type="button" style={{width:"auto", position: "absolute", right:"100px", top: "100px"}} onClick={this.changeUrl.bind(this)}>Back</button>
                 {this.props.data.map((doc) => {
                     return (
                         this.props.data.map(function(info, index) {

@@ -45,12 +45,12 @@ class CountryPage extends React.Component {
 //        );
 //    }
 
-    
+
     diseases() {
         var listOfDiseases = require("../Data/disease_list.json");
         const diseases = listOfDiseases.map((disease) => {
-            return (<option className="newdiseases" key={disease.name}> 
-                    {disease.name} 
+            return (<option className="newdiseases" key={disease.name}>
+                    {disease.name}
                     </option>
                     );
         });
@@ -69,7 +69,7 @@ class CountryPage extends React.Component {
     render() {
         if (this.state.loading == true) {
 
-        
+
             //Reading Reports
             let reportRef = db.collection('reports')
             //console.log(reportRef);
@@ -96,35 +96,18 @@ class CountryPage extends React.Component {
 
             });
         }
-  
+
         return (
             <div >
-                <p className="Title"> {this.props.country} </p>
-
-                 <div>
-                    <select className="select" defaultValue={'DEFAULT'} onChange={this.setData.bind(this)}>
-                        <option value="DEFAULT" disabled>Select A Disease</option>
-                        {this.diseases()}
-                    </select>
-                 </div>
-                
-                <div>
-                    {this.aust()}
-                    <Graph disease={this.state.disease} country= {this.props.country}/>
-                    <PieChart disease={this.state.disease} switch="dead" country={this.props.country}/>
-                    <PieChart disease={this.state.disease} switch="infected" country={ this.props.country}/>
-                </div>
-                
-                <div className="body">
-                    <p> Latest Reports </p><br/>
-                    {this.reportList}
-                </div>
-
+                <p className="countryTitle"> {this.props.country} </p>
             </div>
-
         );
     }
 
 }
+
+// <Graph disease={this.state.disease} country= {this.props.country}/>
+// <PieChart disease={this.state.disease} switch="dead" country={this.props.country}/>
+// <PieChart disease={this.state.disease} switch="infected" country={ this.props.country}/>
 
 export default (CountryPage);

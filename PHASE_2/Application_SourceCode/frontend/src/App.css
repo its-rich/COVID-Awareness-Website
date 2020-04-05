@@ -400,3 +400,8 @@ display: table;
     margin-left: auto;
     margin-right: auto;
 }
+
+.DiseaseGraph{
+    margin: auto;
+    width: 50%;
+}

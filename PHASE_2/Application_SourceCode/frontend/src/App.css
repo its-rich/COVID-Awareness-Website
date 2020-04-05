@@ -106,7 +106,7 @@ a {
     flex-direction: column;
     background-color: #6b6d6f;
     color: #FEED83;
-    opacity: 0.9;
+    opacity: 0.4;
     padding: 15px;
     border-radius: 0% 0% 15% 0%;
     margin-top: 22%;
@@ -373,32 +373,35 @@ display: table;
     left: 50%;
 
 }
-
-.postcodepage{
+.postcodepage {
     margin: auto;
     width: 100%;
     padding: 10px;
     text-align: center;
 }
 
-.postcodeTitle{
-    font-family: 'Enriqueta', arial, serif;
-    color: #5944dd;
-    line-height: 1.25;
-    margin-left: 150px;
-    margin-right: 0px;
-    font-size: 60px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 75%;
+#in {
+    background-color: white;
+    width: 50%;
 }
 
+.Button1 {
+    background-color: white !important;
+    color: #51e3f7;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
 
+.graph{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-#in{
-    background-color: white;
+.DiseaseGraph{
+    margin: auto;
     width: 50%;
 }

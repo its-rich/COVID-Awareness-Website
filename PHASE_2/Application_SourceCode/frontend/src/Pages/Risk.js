@@ -20,26 +20,28 @@ class Risk extends React.Component {
     handleSubmit= (e) => {
         e.preventDefault();
     }
-    graph() {
-        return (<RiskGraph postcode={this.state.postcode}/>);
+
+    submit = () => {
+
     }
 
     render(){
-
         return(
-            <div className="title">
-                <p> COVID-19 Suburb Checker </p>
-                <form onSubmit={this.handleSubmit}>
-                    <label> Postcode:
-                    <input type="number" value={this.state.postcode} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                {this.graph()}
+            <div className="postcodepage">
+                <div className="postcodeTitle"> COVID-19 Suburb Checker </div>
+                <input></input>
+                <button onClick={this.submit.bind(this)}>submit</button>
+                <RiskGraph postcode={this.state.postcode}/>
             </div>
-
-
         )
     }
 }
+
+// <form onSubmit={this.handleSubmit}>
+//     <label> Postcode:
+//     <input type="number" value={this.state.postcode} onChange={this.handleChange} />
+//     </label>
+//     <input type="submit" value="Submit" />
+// </form>
+
 export default (Risk);

@@ -141,11 +141,11 @@ a {
     display: flex;
     width: 100000000%;
     display: flex;
-   
+
     align-items: center;
 
-   
-   
+
+
 
 }
 
@@ -202,7 +202,7 @@ input {
 .Continentwrapper {
     text-align: center;
 
-   
+
 }
 
 
@@ -224,7 +224,7 @@ input {
 
  .alldiseases:hover {
     background-color: #2196f3;
-} 
+}
 
 .diseaseList {
 
@@ -285,7 +285,7 @@ input {
 .reportDoc {
     color: yellow;
     display: flex;
-    font-size: small;
+    font-size: large;
 
     align-items: center;
     flex-direction: column;

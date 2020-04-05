@@ -72,7 +72,7 @@ class SearchBar extends React.Component {
                 </div>
                 <div id="startDate" className="Box">
                     <div className="FlexRow">
-                        <h5>Since:</h5>
+                        <h5>In:</h5>
                         <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
                     </div>
                     <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>

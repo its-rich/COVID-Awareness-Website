@@ -160,7 +160,6 @@ class Graph extends React.Component {
             <Chart
               width={'500px'}
               height={'300px'}
-              left={'50%'}
               chartType="AreaChart"
               loader={<div>Loading Chart</div>}
               data={this.state.data}

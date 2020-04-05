@@ -270,17 +270,30 @@ input {
 }
 
 .reportDocs {
-    color: black;
+    color: yellow;
     display: flex;
     font-size: small;
 
     align-items: center;
     flex-direction: column;
 }
-.reportDocs:hover {
+
+.reportDoc {
+    color: yellow;
+    display: flex;
+    font-size: small;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+/* .doc {
+    height: 100%;
+} */
+/* .reportDocs:hover {
     background-color: #2196f3;
 
-}
+} */
 
 
 .switch {

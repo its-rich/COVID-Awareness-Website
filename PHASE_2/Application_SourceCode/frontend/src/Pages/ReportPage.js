@@ -25,7 +25,7 @@ class ReportPage extends Component {
                                     <div key={info.url} className='reportDoc'>
                                         <h2>{info.headline}</h2>
                                         <h3>{"Published on " + String(parseISO(info.event_date+"T00:00:00Z")).slice(0,15)}</h3>
-                                        <p>{info.main_text}</p>
+                                        <div className="doc">{info.main_text}</div>
                                     </div>
                                 )
                             }

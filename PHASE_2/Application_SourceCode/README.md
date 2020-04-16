@@ -1,36 +1,22 @@
-# Easy
 
-WHO REPORTS PAGE
-- Show X amount of reports on this page
-- A user can filter by these categories: disease/country/continent
-- A user can search for report(s) using our API
-- Clicking on a specific WHO report will open up the WHO report on a new page or maybe the same
-- This page has word graph of the top 10 commonly used words in the reports they searched for
+# Map that shows diseases over time
+Already done - leave to me Richard
+Needs fine tuning
 
-DISEASE PAGE
-- **Lists all diseases** (DONE)
-- Clicking a disease will lead to a disease specific page
-- Has all figures/graphs (disease specific?) information (Same information as the map in graph form)
+# Map that you can simulate the spread of coronavirus
 
-COUNTRY/CONTINENT PAGE
-- Lists all continents and their countries underneath (DONE, just have to edit css)
-- Clicking a country/continent will lead to a country specific page (DONE)
-- Has all figures/graphs information (Same information as the map in graph form) (In progress)
 
-# Medium
+# Coronavirus Avoider
+- A map of Australia shows all suburbs which have cases and the amount of cases (probably a stronger colour for more cases?)
+- Have an algorithm which will find the path between 2 locations which will ensure the user is least exposed to the virus
+- This path algorithm will be mainly for walking & public transport or specifically for that
+- This map then also shows the hot spots that an infected user may have inputted
 
-HOME PAGE
-- **Slider by year from 1996 to 2021** (DONE)
-- **Moving the slider will dynamically update the map** (DONE)
+# Infected Users System
+- create a login/sign up page
+- save all user data to firestore (name/home address/age/gender/email address/phone number?)
+- user can pinpoint locations they went to on a map -> probably save the lat/long or point?
+- actually create a email "AusGovCOVIDChecker@gmail" or something which will email the users -> so like actually have it email the user on sign up 
 
-ILLNESS CHECKER PAGE
-- Set up so it calls the API
+So areas the user has recently been to or goes to will be known as hot spots (will stay active as an infected area for 3 days)
 
-# Hard
-
-- **Disease data for fatalities** (PARTIALLY DONE)
-- **Disease data for infection** (PARTIALLY DONE)
-- More unique ideas
-- CSS
-- Incorporate finance/stocks over time?
-- Incorporate latest news based on disease (API) ?

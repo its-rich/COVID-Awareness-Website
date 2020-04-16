@@ -197,6 +197,7 @@ class MapContainer extends React.Component {
                     world.push(["", 0, 0])
                 }
             } else {
+                options.resolution = 'continents';
                 numbers.forEach((disease) => {
                     if (disease.disease === this.props.disease) {
                         disease.records.forEach((year, i) => {
@@ -227,6 +228,7 @@ class MapContainer extends React.Component {
                 }
             }
             this.setState({data: world});
+            this.updateStats(totald, totali);
         }
     }
 

@@ -48,23 +48,19 @@ class Continents extends Component {
                 <div class="dropdown">
   
             </div>
-               <div className="continentfield"> <button align="centre" onClick={this.showDropdown}>Select Continent</button> </div>
-                {
-                    this.state.showDropdown
-                        ? (
-                            <div className="select">
-                                <button onClick={this.changeState}> Europe </button>
-                                <button onClick={this.changeState}> Asia </button>
-                                <button onClick={this.changeState}> South America </button>
-                                <button onClick={this.changeState}> North America </button>
-                                <button onClick={this.changeState}> Oceania </button>
-                                <button onClick={this.changeState}> Africa </button>
+         
+ 
+               
+                           <div class="btn-group" role="group" aria-label="Basic example">
+                                <button class = "button1" onClick={this.changeState}> Europe </button>
+                                <button class = "button2" onClick={this.changeState}> Asia </button>
+                                <button class = "button3" onClick={this.changeState}> South America </button>
+                                <button class = "button4" onClick={this.changeState}> North America </button>
+                                <button class = "button5" onClick={this.changeState}> Oceania </button>
+                                <button class = "button6" onClick={this.changeState}> Africa </button>
                             </div>
-                        )
-                        : (
-                            null
-                        )
-                }
+                       
+                
                 <div className="body">
                     <br />
                     {this.countries()}

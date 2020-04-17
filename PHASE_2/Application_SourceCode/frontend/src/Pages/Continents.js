@@ -49,7 +49,7 @@ class Continents extends Component {
   
             </div>
          
- 
+    
                
                            <div class="btn-group" role="group" aria-label="Basic example">
                                 <button class = "button1" onClick={this.changeState}> Europe </button>

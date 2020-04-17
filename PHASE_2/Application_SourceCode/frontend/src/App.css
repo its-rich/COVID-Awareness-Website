@@ -260,44 +260,77 @@ input {
     background-color: #2196f3;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 14px 40px;
-    margin-right: 5%;
+    margin-top: -2%;
+     display:block;
+     position:absolute;
 
 }
 .button2{
     background-color: #2196f3;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 14px 40px;
-    margin-right: 5%;
+    margin-top: 1%;
+     display:block;
+     position:absolute;
 
 }
 .button3{
     background-color: #2196f3;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 14px 40px;
-    margin-right: 5%;
+    margin-top: 4%;
+     display:block;
+     position:absolute;
 
 }
 .button4{
     background-color: #2196f3;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 14px 40px;
-    margin-right: 5%;
+    margin-top: 7%;
+     display:block;
+     position:absolute;
+
 
 }
 .button5{
     background-color: #2196f3;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 14px 40px;
-    margin-right: 5%;
+    margin-top: 10%;
+     display:block;
+     position:absolute;
+
 
 }
 .button6{
     background-color: #2196f3;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 14px 40px;
-    margin-right: 5%;
+    margin-top: 13%;
+     display:block;
+     position:absolute;
+
+
 
 }
+
+.mySidenav a {
+  position: absolute; /* Position them relative to the browser window */
+  left: -80px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px; /* Increase font size */
+  color: white; /* White text color */
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+.mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+
 
 
 .divButtons {

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../App.css';
 import CountryPage from './CountryPage'
 
+
+
 class Continents extends Component {
     constructor(props) {
 
@@ -41,7 +43,11 @@ class Continents extends Component {
         return (
 
             <div className="Continentwrapper">
+                
                 <center className="continentTitle"> <h3>Continents & Countries</h3> </center>
+                <div class="dropdown">
+  
+            </div>
                <div className="continentfield"> <button align="centre" onClick={this.showDropdown}>Select Continent</button> </div>
                 {
                     this.state.showDropdown
@@ -72,7 +78,9 @@ class Continents extends Component {
 
         const countryList = listCountries.map((country) => {
             if (country.continent == this.state.continent) {
-                return (<button onClick={this.SendToCountry}>{country.country}</button>);
+                return (<div className="alldiseases" key={country.country} onClick={this.SendToCountry}>
+               <h4>{country.country}</h4>
+                </div>);
             }}
 
 

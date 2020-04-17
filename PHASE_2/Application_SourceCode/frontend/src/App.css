@@ -13,7 +13,7 @@
     --theme-color: #6754ff;
     --theme-light-color: #ff5e5e;
     --theme-second-color: #ffffff;
-    background: -webkit-gradient(linear, left top, left bottom, from(#30273a), to(#0d92fd)) fixed;
+    background: #eef5f9;
     /* background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8)) fixed; */
 }
 
@@ -112,7 +112,7 @@ a {
     color: #FEED83;
     opacity: 0.4;
     padding: 15px;
-    border-radius: 0% 0% 15% 0%;
+    border-radius: 15% 15% 15% 15%;
     margin-top: 22%;
     margin-left: 20px;
 }

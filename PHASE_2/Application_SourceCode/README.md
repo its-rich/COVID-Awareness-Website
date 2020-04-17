@@ -1,7 +1,9 @@
+admin email: coronavirus.aus.tracker@gmail.com
+admin password: SENG-3011
 
 # Map that shows diseases over time
-Already done - leave to me Richard
-Needs fine tuning
+just needs when you click a country/continent...
+positionings of the graphs
 
 # Map that you can simulate the spread of coronavirus
 
@@ -16,7 +18,6 @@ Needs fine tuning
 - create a login/sign up page
 - save all user data to firestore (name/home address/age/gender/email address/phone number?)
 - user can pinpoint locations they went to on a map -> probably save the lat/long or point?
-- actually create a email "AusGovCOVIDChecker@gmail" or something which will email the users -> so like actually have it email the user on sign up 
+- actually create a email "AusGovCOVIDChecker@gmail" or something which will email the users -> so like actually have it email the user on sign up
 
 So areas the user has recently been to or goes to will be known as hot spots (will stay active as an infected area for 3 days)
-

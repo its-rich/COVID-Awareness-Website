@@ -43,6 +43,10 @@ class MapContainer extends React.Component {
         this.props.updateStats(deaths, infected);
     }
 
+    updateLocation(location) {
+        this.props.updateLocation(location);
+    }
+
     componentDidUpdate(prevState) {
         let world = [['Continent Code', 'Continent', 'Total Infected', 'Total Fatalities']];
         if (this.props.switch !== 'infected') {
@@ -87,7 +91,7 @@ class MapContainer extends React.Component {
                                 }
                             }
                         });
-                        console.log(world);
+                        // console.log(world);
                     } else if (this.props.dateRange >= 202010 && this.props.dateRange < 202020) {
                         Object.keys(month2.result).map((item, i) => {
                             let confirm = 0;
@@ -251,9 +255,12 @@ class MapContainer extends React.Component {
                         const chart = chartWrapper.getChart();
                         const selection = chart.getSelection();
                         if (selection.length !== 0) {
-                            //window.location.href='/diseases' -> when click a continent redirect to the continent page
 
-                            // console.log(this.state.data[selection[0].row + 1][1]);
+                            if (this.props.disease === "COVID-19") {
+                                // this.updateLocation(this.state.data[selection[0].row + 1][0]);
+                            } else {
+                                this.updateLocation(this.state.data[selection[0].row + 1][1]);
+                            }
                         }
                       },
                     },

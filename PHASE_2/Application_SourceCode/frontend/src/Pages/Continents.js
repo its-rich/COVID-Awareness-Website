@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../App.css';
 import CountryPage from './CountryPage'
 
+
+
 class Continents extends Component {
     constructor(props) {
 
@@ -41,24 +43,24 @@ class Continents extends Component {
         return (
 
             <div className="Continentwrapper">
+                
                 <center className="continentTitle"> <h3>Continents & Countries</h3> </center>
-               <div className="continentfield"> <button align="centre" onClick={this.showDropdown}>Select Continent</button> </div>
-                {
-                    this.state.showDropdown
-                        ? (
-                            <div className="select">
-                                <button onClick={this.changeState}> Europe </button>
-                                <button onClick={this.changeState}> Asia </button>
-                                <button onClick={this.changeState}> South America </button>
-                                <button onClick={this.changeState}> North America </button>
-                                <button onClick={this.changeState}> Oceania </button>
-                                <button onClick={this.changeState}> Africa </button>
+                <div class="dropdown">
+  
+            </div>
+         
+    
+               
+                           <div class="btn-group" role="group" aria-label="Basic example">
+                                <button class = "button1" onClick={this.changeState}> Europe </button>
+                                <button class = "button2" onClick={this.changeState}> Asia </button>
+                                <button class = "button3" onClick={this.changeState}> South America </button>
+                                <button class = "button4" onClick={this.changeState}> North America </button>
+                                <button class = "button5" onClick={this.changeState}> Oceania </button>
+                                <button class = "button6" onClick={this.changeState}> Africa </button>
                             </div>
-                        )
-                        : (
-                            null
-                        )
-                }
+                       
+                
                 <div className="body">
                     <br />
                     {this.countries()}
@@ -72,7 +74,9 @@ class Continents extends Component {
 
         const countryList = listCountries.map((country) => {
             if (country.continent == this.state.continent) {
-                return (<button onClick={this.SendToCountry}>{country.country}</button>);
+                return (<div className="alldiseases" key={country.country} onClick={this.SendToCountry}>
+               <h4>{country.country}</h4>
+                </div>);
             }}
 
 

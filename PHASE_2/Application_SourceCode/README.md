@@ -2,7 +2,7 @@ admin email: coronavirus.aus.tracker@gmail.com
 admin password: SENG-3011
 
 # Map that shows diseases over time
-just needs when you click a country/continent...
+coronavirus + days
 positionings of the graphs
 
 # Map that you can simulate the spread of coronavirus

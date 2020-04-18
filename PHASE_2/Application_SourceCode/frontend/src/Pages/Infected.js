@@ -17,6 +17,8 @@ class Infected extends Component {
     render(){
         return (
             <div>
+            
+            <a href="/register" class="btn btn-primary">SignUp</a>
             </div>
         )
     }

@@ -8,6 +8,8 @@ import Infected from './Pages/Infected.js'
 import Home from './Pages/Home.js';
 import Register from './Pages/Register.js';
 import Login from './Pages/SignIn.js';
+import SignIn from './Pages/SignIn.js';
+import SignUp from './Pages/SignUp.js';
 
 function App () {
     return (
@@ -20,6 +22,8 @@ function App () {
                     <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
                     <Route path="/infected" exact component={Infected} />
                     <Route path="/register" exact component ={Register} />
+                    <Route path="/signin" exact component = {SignIn} />
+                    <Route path="/signup" exact component = {SignUp} />
                 </Switch>
             </div>
         </Router>

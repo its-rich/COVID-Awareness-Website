@@ -20,6 +20,7 @@ function App () {
                     <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
                     <Route path="/infected" exact component={Infected} />
                     <Route path="/register" exact component ={Register} />
+                    <Route path="/SignIn" exact component ={Login} />
                 </Switch>
             </div>
         </Router>

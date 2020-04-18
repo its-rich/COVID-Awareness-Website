@@ -19,6 +19,7 @@ class Infected extends Component {
             <div>
             
             <a href="/register" class="btn btn-primary">SignUp</a>
+            <a href="/SignIn" class="btn btn-primary">Login</a>
             </div>
         )
     }

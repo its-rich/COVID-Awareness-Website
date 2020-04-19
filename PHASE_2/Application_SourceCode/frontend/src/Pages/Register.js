@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css';
+import { db } from '../components/Firebase/config.js'
 
 
 class Register extends React.Component
@@ -62,8 +63,16 @@ class Register extends React.Component
 }
 
     handleSubmit(event)
-    {
-    }
+{
+    db.registerUser(this.state).then(_ => {
+        this.setState({ "success" : true });
+    }).catch(e=>{
+        this.setState({ "message" : e.response.message });
+        this.setState({ "success" : false });
+    });
+
+    event.preventDefault();
+}
 
     render()
     {
@@ -83,35 +92,35 @@ class Register extends React.Component
                     User successfully registered
                 </p>}
                 {!this.state.success &&
-<form onSubmit={this.handleSubmit}>
-    <div className="form-group">
-        <label>Username</label>
-        <input type="text" className="form-control" placeholder="Username" name="username" required onChange={this.handleChange} />
-    </div>
-    <div className="form-group">
-        <label>Password</label>
-        <input type="password" className="form-control" placeholder="Password" name="newPassword" required onChange={this.handleChange} />
-    </div>
-    <div className="form-group">
-        <label>First Name</label>
-        <input type="text" className="form-control" placeholder="First Name" name="firstName" onChange={this.handleChange} />
-    </div>
-    <div className="form-group">
-        <label>Last Name</label>
-        <input type="text" className="form-control" placeholder="Last Name" name="lastName" onChange={this.handleChange} />
-    </div>
-    <div className="form-group">
-        <label>Phone Number</label>
-        <input type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" onChange={this.handleChange} />
-    </div>
-    {this.state.securityQuestions.map((item, index) => (
-    <div className="form-group" key={index}>
-        <label>{item.question}</label>
-        <input type="text" className="form-control" data-index={index} placeholder="Answer" required onChange={this.handleArrayChange} />
-    </div>
-    ))}
-    <button type="submit" className="btn btn-primary">Submit</button>
-</form>}
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                        <label>Username</label>
+                        <input type="text" className="form-control" placeholder="Username" name="username" required onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input type="password" className="form-control" placeholder="Password" name="newPassword" required onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>First Name</label>
+                        <input type="text" className="form-control" placeholder="First Name" name="firstName" onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Last Name</label>
+                        <input type="text" className="form-control" placeholder="Last Name" name="lastName" onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" onChange={this.handleChange} />
+                    </div>
+                    {this.state.securityQuestions.map((item, index) => (
+                    <div className="form-group" key={index}>
+                        <label>{item.question}</label>
+                        <input type="text" className="form-control" data-index={index} placeholder="Answer" required onChange={this.handleArrayChange} />
+                    </div>
+                    ))}
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>}
             </div>
         );
     }

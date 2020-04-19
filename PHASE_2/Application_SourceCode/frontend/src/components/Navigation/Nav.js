@@ -12,7 +12,7 @@ function Nav() {
                 <li><Link to='/coronavirus-avoider'>Coronavirus Avoider</Link></li>
                 <li><Link to='/coronavirus-simulator'>Coronavirus Simulator</Link></li>
                 <li><Link to='/infected'>I'm Infected</Link></li>
-                <li><Link to='/register'>Registration</Link></li>
+                
             </ul>
         </nav>
 

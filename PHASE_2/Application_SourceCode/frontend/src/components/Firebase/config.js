@@ -9,8 +9,8 @@ const config = ({
     projectId: "seng3011-api",
     storageBucket: "seng3011-api.appspot.com",
     messagingSenderId: "916531218349",
-    appId: "1:916531218349:web:e7cea42daedc524dcb8324",
-    measurementId: "G-BLMHL9W64E"
+    appId: "1:916531218349:web:971ed15ea423d27ccb8324",
+    measurementId: "G-WE5K4RQ0G2"
 });
 
 firebase.initializeApp(config);

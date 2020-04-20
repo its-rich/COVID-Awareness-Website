@@ -63,4 +63,14 @@ class Home extends React.Component {
 // {this.state.disease !== '' && <PieChart disease={this.state.disease} switch="infected"/>}
 // {this.state.location !== '' && <PieChart disease="COVID-19" switch="infected"/>}
 
+// let strDate = '2020-01-22';
+// let movingDate = new Date(strDate);
+// let endDate = new Date();
+//
+// while (strDate < endDate.toISOString().slice(0,10)) {
+//     strDate = movingDate.toISOString().slice(0,10);
+//     console.log(strDate);
+//     movingDate.setDate(movingDate.getDate() + 1);
+// }
+
 export default Home;

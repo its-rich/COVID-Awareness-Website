@@ -8,10 +8,10 @@ class SearchBar extends React.Component {
         this.props.updateDisease(e.target.value);
         if (e.target.value === "COVID-19") {
             let input = document.getElementById('DateRange');
-            input.setAttribute('min', '201912');
-            input.setAttribute('max', '202100');
+            input.setAttribute('min', '20200000');
+            input.setAttribute('max', '20210000');
             let dates = document.getElementById('dates');
-            this.props.updateSlider(201900)
+            this.props.updateSlider(20200000)
             dates.textContent = Math.floor(this.props.dateRange / 100) + " - " + this.decimalToMonth((this.props.dateRange % 100) / 100);
         } else {
             let input = document.getElementById('DateRange');
@@ -53,6 +53,7 @@ class SearchBar extends React.Component {
     };
 
     render() {
+        console.log(this.props.dateRange);
         let item = data.map(disease =>
                 <option key={disease.disease}>
                 {disease.disease}

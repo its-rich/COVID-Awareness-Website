@@ -17,7 +17,20 @@ const SignUp = () => {
     setEmail("");
     setPassword("");
     setDisplayName("");
+    sendSignInLinkToEmail(email);
   };
+  const sendSignInLinkToEmail = (emai) => {
+   
+
+auth.currentUser.sendEmailVerification().then(function() {
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
+      
+
+  };
+
   const onChangeHandler = event => {
     const { name, value } = event.currentTarget;
     if (name === "userEmail") {

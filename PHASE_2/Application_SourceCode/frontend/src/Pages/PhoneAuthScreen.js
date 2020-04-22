@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../components/Firebase/config.js";
+import firebase from "../components/Firebase/config.js";
+
 
 class PhoneAuthScreen extends React.Component {
   state = {
@@ -12,13 +13,6 @@ class PhoneAuthScreen extends React.Component {
 
   // appVerifier = new auth.RecaptchaVerifier('recaptcha-container');
 
-  recaptchaVerifier = new auth.RecaptchaVerifier('sign-in-button', {
-    'size': 'invisible',
-    'callback': function(response) {
-      // reCAPTCHA solved, allow signInWithPhoneNumber.
-      this.handleSendCode();
-    }
-  });
 
    
 
@@ -41,10 +35,11 @@ class PhoneAuthScreen extends React.Component {
 
   handleSendCode = () => {
     // Request to send OTP
-    console.log("sendcode " + this.state.phone, this.appVerifier)
+    let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    console.log("sendcode " + this.state.phone, recaptcha)
     if (this.validatePhoneNumber()) {
-      auth
-        .signInWithPhoneNumber(this.state.phone, this.appVerifier)
+      firebase.auth()
+        .signInWithPhoneNumber(this.state.phone, recaptcha)
         .then(confirmResult => {
           this.setState({ confirmResult })
         })
@@ -74,6 +69,7 @@ class PhoneAuthScreen extends React.Component {
       confirmResult
         .confirm(verificationCode)
         .then(user => {
+          console.log(user)
           this.setState({ userId: user.uid })
           alert(`Verified! ${user.uid}`)
         })
@@ -90,7 +86,7 @@ class PhoneAuthScreen extends React.Component {
     return (
       <div className="mt-8 text-black">
         <input
-          type="email"
+          type="text"
           className="my-1 p-1 w-full"
           name="verificationCode"
           value = {this.state.verificationCode}
@@ -101,6 +97,7 @@ class PhoneAuthScreen extends React.Component {
         <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {this.handleVerifyCode}>
           Verify Code
         </button>
+        <div id="phone-sign-in-recaptcha"></div>
       </div>
     )
   }
@@ -115,6 +112,7 @@ class PhoneAuthScreen extends React.Component {
         <h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
         <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
           {/* {error !== null && <div className = "py-4 bg-red-600 w-full text-black text-center mb-3">{error}</div>} */}
+          <div id="recaptcha-container"></div>
           <form className="text-black">
             <label htmlFor="phone" className="block">
               Phone Number:
@@ -124,7 +122,7 @@ class PhoneAuthScreen extends React.Component {
               type="text"
               className="my-1 p-1 w-full"
               name="phone"
-              // value = {this.state.phone}
+              value = {this.state.phone}
               placeholder="E.g: +61401234567"
               id="phone"
               onChange = {(event) => this.onChangeHandler(event)}
@@ -137,6 +135,11 @@ class PhoneAuthScreen extends React.Component {
             }>
             {this.state.confirmResult ? 'Change Phone Number' : 'Send Code'}
             </button>
+            {this.state.confirmResult
+              ? this.renderConfirmationCodeView()
+              : null
+            }
+            
           </form>
         </div>
       </div>

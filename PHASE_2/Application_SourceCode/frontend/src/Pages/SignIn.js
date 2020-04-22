@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { signInWithGoogle, auth } from "../components/Firebase/config.js";
+import firebase from "../components/Firebase/config.js";
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({prompt: 'select_account'});
+const signInWithGoogle = () => firebase.auth.signInWithPopup(provider);
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -11,6 +15,7 @@ const SignIn = () => {
                 event.preventDefault();
                 console.log("submit");
                 console.log(email, password);
+                let auth = firebase.auth();
                 auth.signInWithEmailAndPassword(email, password).catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
@@ -18,6 +23,7 @@ const SignIn = () => {
                     alert(errorMessage);
                 });
     };
+
 
       const onChangeHandler = (event) => {
           const {name, value} = event.currentTarget;

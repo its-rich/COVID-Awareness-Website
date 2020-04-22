@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../components/Firebase/config.js";
+import firebase from "../components/Firebase/config.js";
 
 const PasswordReset = () => {
     const [email, setEmail] = useState('');
@@ -8,7 +8,7 @@ const PasswordReset = () => {
     const [error, setError] = useState(null);
     const sendResetEmail = event => {
         event.preventDefault();
-        auth
+        firebase.auth()
           .sendPasswordResetEmail(email)
           .then(() => {
             setEmailHasBeenSent(true);

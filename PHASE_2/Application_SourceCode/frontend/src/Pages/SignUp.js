@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../components/Firebase/config.js";
+import firebase from "../components/Firebase/config.js";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +9,7 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const createUserWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
-    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);

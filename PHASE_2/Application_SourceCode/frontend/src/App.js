@@ -9,7 +9,7 @@ import Infected from './Pages/Infected.js'
 import Home from './Pages/Home.js';
 import SignIn from './Pages/SignIn.js';
 import SignUp from './Pages/SignUp.js';
-import { auth } from "./components/Firebase/config.js";
+import firebase from "./components/Firebase/config.js";
 import PasswordReset from './Pages/PasswordReset.js';
 import PhoneAuthScreen from './Pages/PhoneAuthScreen.js';
 
@@ -24,6 +24,7 @@ class App extends React.Component {
     unsubscribeFromAuth = null;
 
     componentDidMount() {
+        let auth = firebase.auth();
         this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
             this.setState({ currentUser: user });
             console.log(this.state.currentUser);

@@ -11,6 +11,7 @@ import SignIn from './Pages/SignIn.js';
 import SignUp from './Pages/SignUp.js';
 import { auth } from "./components/Firebase/config.js";
 import PasswordReset from './Pages/PasswordReset.js';
+import PhoneAuthScreen from './Pages/PhoneAuthScreen.js';
 
 class App extends React.Component {
     constructor(){
@@ -47,6 +48,7 @@ class App extends React.Component {
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
+                            <Route path="/phone" exact component = {PhoneAuthScreen} />
                         </Switch>
                     </div>
                 </Router>
@@ -64,6 +66,7 @@ class App extends React.Component {
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
                             <Route path="/passwordReset" exact component = {PasswordReset} />
+                            <Route path="/phone" exact component = {PhoneAuthScreen} />
                         </Switch>
                     </div>
                 </Router>

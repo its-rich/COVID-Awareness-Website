@@ -19,7 +19,7 @@ const SignUp = () => {
     setDisplayName("");
     sendSignInLinkToEmail(email);
   };
-  const sendSignInLinkToEmail = (emai) => {
+  const sendSignInLinkToEmail = (email) => {
    
 
 auth.currentUser.sendEmailVerification().then(function() {

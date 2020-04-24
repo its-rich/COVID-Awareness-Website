@@ -14,6 +14,7 @@ function Nav() {
                 <li><Link to='/reports'>WHO Reports</Link></li>
                 <li><Link to='/latestnews'>Latest News</Link></li>
                 <li><Link to='/risk'>Check Yourself</Link></li>
+                <li><Link to='/simulator'>Simulate</Link></li>
             </ul>
         </nav>
 

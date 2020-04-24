@@ -9,6 +9,7 @@ import Reports from './Pages/Reports.js';
 import News from './Pages/News.js';
 import Risk from './Pages/Risk.js';
 import SocialDistancing from './Pages/SocialDistancing.js';
+import Simulator from './Pages/Simulator.js';
 
 function App () {
     return (
@@ -23,6 +24,7 @@ function App () {
                     <Route path="/latestnews" exact component={News} />
                     <Route path="/risk" exact component={Risk} />
                     <Route path="/socialDistancing" exact component={SocialDistancing} />
+                    <Route path="/Simulator" exact component={Simulator} />
                 </Switch>
             </div>
         </Router>

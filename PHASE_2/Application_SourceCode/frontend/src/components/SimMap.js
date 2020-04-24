@@ -9,34 +9,9 @@ class SimMap extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            infectionSim: new InfectionSimulation(),
-            dateOffset: props.dateOffset,
+            infectionSim: new InfectionSimulation()
         }
     }
-
-    update = () => {
-        this.state.infectionSim.setFrame(this.state.dateOffset);
-    }
-
-    Map = () =>(
-        <div style={{height: '85vh'}}>
-            <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik" }}
-                defaultZoom={5}
-                defaultCenter={{lat: -25.2744, lng: 133.7751}}
-
-                // The circles
-                onGoogleApiLoaded={({map, maps}) => {
-                    this.state.infectionSim.init(map);
-                    this.state.infectionSim.getCurrentFrame().forEach((item) => item.draw());
-                }}
-
-                // This shouldn't have to be here
-                onClick={this.update}
-                
-            />
-        </div>
-    );
 
     static defaultProps = {
         center: {
@@ -46,10 +21,41 @@ class SimMap extends Component {
         zoom: 4.5
     };
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.currentDateOffset < this.props.currentDateOffset) {
+            this.state.infectionSim.nextFrame();
+        } else if (prevProps.currentDateOffset > this.props.currentDateOffset && prevProps.currentDateOffset > 0) {
+            console.log('a');
+            this.state.infectionSim.previousFrame();
+        }
+    }
+
     render() {
         return (
             <div style={{ width: '100%' }}>
-                <this.Map />
+            <div style={{height: '85vh'}}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: "AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik" }}
+                    defaultZoom={5}
+                    defaultCenter={{lat: -25.2744, lng: 133.7751}}
+                    yesIWantToUseGoogleMapApiInternals
+                    // The circles
+                    onGoogleApiLoaded={({map, maps}) => {
+
+                        map.addListener('click', (mapsMouseEvent) => {
+                            let lat = mapsMouseEvent.latLng.toString().split(',')[0].replace('(', '');
+                            lat = parseInt(lat);
+                            let long = mapsMouseEvent.latLng.toString().split(',')[1].replace(')', '').replace(' ', '');
+                            long = parseInt(long);
+                            this.state.infectionSim.newmarker(lat, long, 0.5, map)
+                        });
+                    }}
+
+                    // This shouldn't have to be here
+                    // onClick={this.update}
+
+                />
+            </div>
             </div>
         );
     }

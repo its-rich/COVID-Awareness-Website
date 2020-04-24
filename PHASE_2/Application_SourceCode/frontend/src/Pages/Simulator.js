@@ -22,13 +22,12 @@ class Simulator extends Component {
         this.setState({dateOffset: offset});
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <SimController dateOffsetCallback={this.setDateOffset} />
                 <SimMap currentDateOffset={this.state.dateOffset} />
             </div>
-            
         )
     }
 }

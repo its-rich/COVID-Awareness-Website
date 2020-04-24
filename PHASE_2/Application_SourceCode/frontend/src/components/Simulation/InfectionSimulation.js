@@ -6,11 +6,9 @@ export default class InfectedSimulation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chance: 0.5,
-            severity: 20,
+            severity: 2,
             currentFrame: 0,
             map: null,
-
             Frames: [],
         }
     }
@@ -18,7 +16,12 @@ export default class InfectedSimulation extends Component {
     init(map) {
         this.state.map = map;
         // Add the initial data (atm one circle in the center of Australia)
-        this.state.Frames.push( [new InfectedArea(-25.2744, 133.7751, 100, this.map)] );
+        this.state.Frames.push( [new InfectedArea(-25.2744, 133.7751, 0.5, 100, this.state.map)] );
+    }
+
+    newmarker(lat, long, chance, map) {
+        this.state.map = map;
+        this.state.Frames.push([new InfectedArea(lat, long, chance, 100, map)]);
     }
 
     loadNextFrame() {
@@ -28,9 +31,9 @@ export default class InfectedSimulation extends Component {
         // For each circle in the last frame... add more circles
         lastFrame.forEach((item) => {
             for (let i = 0; i < this.state.severity; i++) {
-                if (item.update(this.state.chance)) {
+                if (item.update()) {
                     let latlng = item.getSpread(0.1);
-                    nextFrame.push(new InfectedArea(latlng.lat, latlng.long, 100, this.state.map));
+                    nextFrame.push(new InfectedArea(latlng.lat, latlng.long, item.chance, 100, this.state.map));
                 }
             }
             // Put the original circle back in
@@ -47,7 +50,8 @@ export default class InfectedSimulation extends Component {
     nextFrame() {
         if (this.state.currentFrame + 1 == this.state.Frames.length) {
             this.loadNextFrame();
-            this.setState({currentFrame: this.state.currentFrame + 1});
+            // this.setState({currentFrame: this.state.currentFrame + 1});
+            this.state.currentFrame = this.state.currentFrame + 1;
         }
     }
 

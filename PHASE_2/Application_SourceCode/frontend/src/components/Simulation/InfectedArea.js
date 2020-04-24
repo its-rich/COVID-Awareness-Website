@@ -1,8 +1,9 @@
 export default class InfectedArea {
-    
-    constructor(lat, long, population, map) {
+
+    constructor(lat, long, chance, population, map) {
         this.lat = lat;
         this.long = long;
+        this.chance = chance;
         this.population = population;
         // TODO: population is unused atm, also some sort of lifespan must be added, probs set to 14 days
 
@@ -15,14 +16,14 @@ export default class InfectedArea {
             fillOpacity: 0.3,
             map,
             center: {lat: this.lat, lng: this.long},
-            radius: this.population,
+            radius: population,
         });
     }
 
     // boolean, update is like a question
-    update(probability) {
+    update() {
         let chance = Math.random();
-        return (chance < probability);
+        return (chance < this.chance);
     }
 
     // get a new point on the map close to this one
@@ -31,7 +32,7 @@ export default class InfectedArea {
     }
 
     spread(radius) {
-        console.log((Math.random() - 0.5) * radius);
+        // console.log((Math.random() - 0.5) * radius);
         return (Math.random() - 0.5) * radius;
     }
 

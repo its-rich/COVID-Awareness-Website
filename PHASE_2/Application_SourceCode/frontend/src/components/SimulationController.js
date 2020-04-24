@@ -17,13 +17,13 @@ class SimController extends React.Component {
 
     incrementDate() {
         this.setState({currentDateOffset: this.state.currentDateOffset + 1 });
-        this.state.dateOffsetCallback(this.state.currentDateOffset);
+        this.state.dateOffsetCallback(this.state.currentDateOffset  + 1);
     }
 
     decrementDate() {
         if (this.state.currentDateOffset > 0) {
             this.setState({currentDateOffset: this.state.currentDateOffset - 1 });
-            this.state.dateOffsetCallback(this.state.currentDateOffset);
+            this.state.dateOffsetCallback(this.state.currentDateOffset  - 1);
         }
     }
 

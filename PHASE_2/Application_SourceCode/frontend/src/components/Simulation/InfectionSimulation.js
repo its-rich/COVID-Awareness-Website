@@ -28,6 +28,11 @@ export default class InfectedSimulation extends Component {
         let lastFrame = this.state.Frames[this.state.Frames.length - 1];
         let nextFrame = [];
 
+        lastFrame.forEach((item) => {
+            // Put the original circle back in
+            nextFrame.push(item);
+        });
+
         // For each circle in the last frame... add more circles
         lastFrame.forEach((item) => {
             for (let i = 0; i < this.state.severity; i++) {
@@ -36,15 +41,29 @@ export default class InfectedSimulation extends Component {
                     nextFrame.push(new InfectedArea(latlng.lat, latlng.long, item.chance, 100, this.state.map));
                 }
             }
-            // Put the original circle back in
-            nextFrame.push(item);
         });
         // Add the new frame
         this.state.Frames.push(nextFrame);
     }
 
     previousFrame() {
-        if (this.state.currentFrame > 0) { this.setState({currentFrame: this.state.currentFrame - 1}) }
+        if (this.state.currentFrame >= 1) {
+            let lastFrame = this.state.Frames[this.state.Frames.length - 1];
+            let start = this.state.Frames[this.state.Frames.length - 2].length
+            lastFrame.forEach((item, i) => {
+                if (i >= start) {
+                    item.circle.setMap(null);
+                }
+            });
+            this.state.Frames.pop()
+            this.state.currentFrame -= 1;
+            // this.setState({currentFrame: this.state.currentFrame - 1})
+        } else {
+            this.state.Frames[0].forEach((item) => {
+                item.circle.setMap(null);
+            });
+            this.state.Frames.pop()
+        }
     }
 
     nextFrame() {
@@ -55,15 +74,18 @@ export default class InfectedSimulation extends Component {
         }
     }
 
-    setFrame(newFrame) {
-        while (newFrame >= this.state.Frames.length) {
-            this.loadNextFrame();
+    safetyDelete() {
+        if (this.state.currentFrame == 0) {
+            this.state.Frames.forEach((item, i) => {
+                item[i].circle.setMap(null);
+            });
+            this.state.Frames.pop()
+            this.state.currentFrame -= 1;
         }
-        this.setState({currentFrame: newFrame});
     }
 
     getCurrentFrame() {
-        return this.state.Frames[this.state.currentFrame];
+        return this.state.currentFrame;
     }
 
     // Haversine formula + https://stackoverflow.com/questions/639695/how-to-convert-latitude-or-longitude-to-meters

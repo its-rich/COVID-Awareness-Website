@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import firebase from "../components/Firebase/config.js";
 
 const SignUp = () => {
+  let auth = firebase.auth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [error, setError] = useState(null);
   const createUserWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
-    firebase.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);

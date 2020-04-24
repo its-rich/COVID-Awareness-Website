@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Nav from './components/Navigation/Nav.js';
+import NavIn from './components/Navigation/NavIn.js';
 import './App.css';
 import VirusAvoider from './Pages/VirusAvoider.js';
 import VirusSimulator from './Pages/VirusSimulator.js'
 import Infected from './Pages/Infected.js'
 import Home from './Pages/Home.js';
+import SignIn from './Pages/SignIn.js';
 import SignUp from './Pages/SignUp.js';
 import firebase from "./components/Firebase/config.js";
 import PasswordReset from './Pages/PasswordReset.js';
@@ -20,6 +22,7 @@ class App extends React.Component {
     }
 
     unsubscribeFromAuth = null;
+    auth = firebase.auth();
 
     componentDidMount() {
         let auth = firebase.auth();

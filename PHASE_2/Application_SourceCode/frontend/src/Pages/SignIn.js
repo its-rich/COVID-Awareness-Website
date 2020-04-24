@@ -5,6 +5,7 @@ import firebase from "../components/Firebase/config.js";
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({prompt: 'select_account'});
 const signInWithGoogle = () => firebase.auth.signInWithPopup(provider);
+let auth = firebase.auth();
 
 const SignIn = (props) => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const SignIn = (props) => {
                 event.preventDefault();
                 console.log("submit");
                 console.log(email, password);
-                let auth = firebase.auth();
+        
                 auth.signInWithEmailAndPassword(email, password).catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;

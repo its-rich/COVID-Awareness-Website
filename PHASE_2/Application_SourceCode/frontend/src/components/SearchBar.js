@@ -14,10 +14,8 @@ class SearchBar extends React.Component {
             let input = document.getElementById('DateRange');
             input.setAttribute('min', '202000');
             input.setAttribute('max', '202365');
-            let dates = document.getElementById('dates');
             this.props.updateSlider(202000);
             let date = String(new Date("2020-01-01")).slice(4,15);
-            dates.textContent = date;
             date = new Date("2020-01-01").toISOString().slice(0,10)
             this.props.updateISO(date);
             this.setState({iso: date})
@@ -39,7 +37,6 @@ class SearchBar extends React.Component {
     updateSlider(e) {
         this.props.updateSlider(e.target.value);
         if (this.props.disease === "COVID-19") {
-            let dates = document.getElementById('dates');
             let strDate = '2020-01-01';
             let movingDate = new Date(strDate);
             let endDate = new Date('2021-01-01');
@@ -55,7 +52,6 @@ class SearchBar extends React.Component {
                 i++;
             }
             let date = String(movingDate).slice(4,15);
-            dates.textContent = date;
             this.props.updateISO(strDate);
             this.setState({iso: date})
         }
@@ -71,7 +67,28 @@ class SearchBar extends React.Component {
             header.textContent = "Infected / Year";
         }
     }
-    
+
+    changeDate(e) {
+        let date = e.target.value;
+        date = new Date(date);
+        // let strDate = '2020-01-01';
+        // let movingDate = new Date(strDate);
+        // let i = 0;
+        // if (date.toISOString().slice(0,10) < strDate) {
+        //     return;
+        // }
+        // while (strDate != date.toISOString().slice(0,10)) {
+        //     strDate = movingDate.toISOString().slice(0,10);
+        //     movingDate.setDate(movingDate.getDate() + 1);
+        //     i++;
+        // }
+        // this.props.updateSlider(202000 + i);
+        date.getDate();
+        date = String(date).slice(4,15);
+        this.props.updateISO(date);
+        this.setState({iso: date});
+    }
+
     render() {
         let item = data.map(disease =>
                 <option key={disease.disease}>
@@ -106,13 +123,6 @@ class SearchBar extends React.Component {
                         {item}
                     </select>
                 </div>
-                <div id="startDate" className="Box">
-                    <div className="FlexRow">
-                        <h5>In:</h5>
-                        <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
-                    </div>
-                    <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
-                </div>
                 {this.state.iso === '' && <div id="mapstats" className="Box">
                     <h5>{String(this.props.dateRange).slice(0,4)} Stats</h5>
                     <h5>Total Infected: {this.props.infected}</h5>
@@ -128,5 +138,13 @@ class SearchBar extends React.Component {
         )
     };
 }
+
+// {this.props.disease !== 'COVID-19' && <div id="startDate" className="Box">
+//     <div className="FlexRow">
+//         <h5>In:</h5>
+//         <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
+//     </div>
+//     <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
+// </div>}
 
 export default SearchBar;

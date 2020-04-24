@@ -110,9 +110,10 @@ a {
     flex-direction: column;
     background-color: #6b6d6f;
     color: #FEED83;
+    font-size: x-large;
     opacity: 0.4;
     padding: 15px;
-    border-radius: 15% 15% 15% 15%;
+    border-radius: 10% 10% 10% 10%;
     margin-top: 22%;
     margin-left: 20px;
 }
@@ -182,17 +183,22 @@ a {
 .browser-default {
     height: 40px;
     display: flex;
+    color: black;
+    font-size: large;
     justify-content: space-between;
     flex-direction: row;
     background-color: var(--theme-second-color);
 }
+
 .select {
     height: 70px;
     display: flex;
+    color: black;
     justify-content: space-between;
     flex-direction: column;
-    
+
 }
+
 .continentfield {
     height: 200px;
     display: flex;

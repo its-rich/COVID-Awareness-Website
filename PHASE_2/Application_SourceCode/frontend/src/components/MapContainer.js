@@ -212,7 +212,7 @@ class MapContainer extends React.Component {
                 }
             }
             this.setState({data: world});
-            this.updateStats(totald, totali);
+            this.updateStats(totald.toLocaleString(), totali.toLocaleString());
         }
     }
 

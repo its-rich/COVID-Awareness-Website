@@ -63,7 +63,18 @@ class PieChart extends React.Component {
                                 }
                             });
                         });
-
+                        let count = 0;
+                        let found = false;
+                        for (var index of newdata) {
+                            if (index[0] == continents[a]) {
+                                count ++;
+                                found = true;
+                                break
+                            }
+                        }
+                        if (found) {
+                            newdata.splice(count, 1);
+                        }
                         if (totali !== 0 && this.props.switch === 'infected') {
                             let temp;
                             temp = [continents[a], totali];
@@ -81,7 +92,7 @@ class PieChart extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.disease !== this.props.disease) {
+        if (prevProps.disease !== this.props.disease || prevProps.switch !== this.props.switch) {
             if (this.props.disease == 'COVID-19') {
                 let totald = 0;
                 let totali = 0;
@@ -128,7 +139,18 @@ class PieChart extends React.Component {
                                     }
                                 });
                             });
-
+                            let count = 0;
+                            let found = false;
+                            for (var index of newdata) {
+                                if (index[0] == continents[a]) {
+                                    count ++;
+                                    found = true;
+                                    break
+                                }
+                            }
+                            if (found) {
+                                newdata.splice(count, 1);
+                            }
                             if (totali !== 0 && this.props.switch === 'infected') {
                                 let temp;
                                 temp = [continents[a], totali];
@@ -152,7 +174,7 @@ class PieChart extends React.Component {
             <div className="col s12 m4">
             <div className="card">
                 <Chart
-                    width={'400px'}
+                    width={'460px'}
                     height={'300px'}
                     chartType="PieChart"
                     loader={<div>Loading Chart</div>}

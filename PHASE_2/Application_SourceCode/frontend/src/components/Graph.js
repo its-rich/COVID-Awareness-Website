@@ -251,7 +251,7 @@ class Graph extends React.Component {
             <div className="col s12 m4">
             <div className="card">
                 <Chart
-                  width={'400px'}
+                  width={'460px'}
                   height={'300px'}
                   chartType="AreaChart"
                   loader={<div>Loading Chart</div>}

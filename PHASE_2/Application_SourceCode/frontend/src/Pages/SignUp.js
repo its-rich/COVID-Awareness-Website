@@ -26,12 +26,12 @@ const SignUp = () => {
         console.log("  Provider-specific UID: " + profile.uid);
         console.log("  Name: " + profile.displayName);
         console.log("  Email: " + profile.email);
-        sendSignInLinkToEmail(profile.email);
+        // sendSignInLinkToEmail(profile.email);
         console.log("  Photo URL: " + profile.photoURL);
       });
     }
     //sendSignInLinkToEmail(email);
-    
+
     //sendSignInLinkToEmail(email);
   };
   const sendSignInLinkToEmail = (email) => {
@@ -44,7 +44,7 @@ auth.sendPasswordResetEmail(email).then(function() {
 }).catch(function(error) {
   // An error happened.
 });
-      
+
 
   };
   const updateuser = (email) => {
@@ -57,7 +57,7 @@ user.sendEmailVerification().then(function() {
   // An error happened.
 });
 
-      
+
 
   };
 
@@ -121,7 +121,7 @@ user.sendEmailVerification().then(function() {
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);
-              
+
               sendSignInLinkToEmail(email);
             }}
           >
@@ -133,8 +133,8 @@ user.sendEmailVerification().then(function() {
         <button
           className="bg-red-500 hover:bg-red-600 w-full py-2 text-white"
           onClick={event => {
-              
-              
+
+
               sendSignInLinkToEmail(email);
             }}
         >
@@ -142,7 +142,7 @@ user.sendEmailVerification().then(function() {
         </button>
         <p className="text-center my-3">
           Already have an account?{" "}
-          <Link to="/signin" className="text-blue-500 hover:text-blue-600">
+          <Link to="/infected" className="text-blue-500 hover:text-blue-600">
             Sign in here
           </Link>
         </p>

@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar';
 import Graph from '../components/Graph'
 import PieChart from '../components/PieChart';
 import LocationChart from '../components/LocationChart';
+import month1 from '../Data/2020-01-01_2020-02-01.json';
 
 class Home extends React.Component {
 
@@ -16,7 +17,8 @@ class Home extends React.Component {
             switch: "infected",
             deaths: 0,
             infected: 0,
-            loc: ""
+            loc: "",
+            iso: ''
         };
     }
 
@@ -28,6 +30,10 @@ class Home extends React.Component {
     updateDisease = (disease) => {
         this.setState({disease: disease});
         this.setState({loc: ''});
+    }
+
+    updateISO = (iso) => {
+        this.setState({iso: iso})
     }
 
     updateSwitch = (state) => {
@@ -50,11 +56,11 @@ class Home extends React.Component {
         return (
         <div id='mapinteraction'>
             <div id='setmap'>
-                <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)}/>
-                <MapContainer updateStats={this.updateStats.bind(this)} updateLocation={this.updateLocation.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} />
+                <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)} updateISO={this.updateISO.bind(this)}/>
+                <MapContainer updateStats={this.updateStats.bind(this)} updateLocation={this.updateLocation.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} iso={this.state.iso} />
                 {this.state.disease !== '' && <Graph disease={this.state.disease}/>}
-                {this.state.disease !== '' && <PieChart disease={this.state.disease} switch="dead"/>}
-                {this.state.loc !== '' && <LocationChart disease={this.state.disease} loc={this.state.loc} dateRange={this.state.dateRange}/>}
+                {this.state.disease !== '' && <PieChart disease={this.state.disease} switch={this.state.switch}/>}
+                {this.state.loc !== '' && <LocationChart disease={this.state.disease} loc={this.state.loc} dateRange={this.state.dateRange} iso={this.state.iso} />}
             </div>
         </div>
     )};
@@ -63,14 +69,27 @@ class Home extends React.Component {
 // {this.state.disease !== '' && <PieChart disease={this.state.disease} switch="infected"/>}
 // {this.state.location !== '' && <PieChart disease="COVID-19" switch="infected"/>}
 
-// let strDate = '2020-01-22';
-// let movingDate = new Date(strDate);
+let strDate = '2020-01-22';
+let movingDate = new Date(strDate);
 // let endDate = new Date();
-//
-// while (strDate < endDate.toISOString().slice(0,10)) {
-//     strDate = movingDate.toISOString().slice(0,10);
-//     console.log(strDate);
-//     movingDate.setDate(movingDate.getDate() + 1);
-// }
+let endDate = new Date('2020-01-31');
+
+while (strDate < endDate.toISOString().slice(0,10)) {
+    strDate = movingDate.toISOString().slice(0,10);
+    // console.log(String(movingDate).slice(0,15));
+    // Object.keys(month1.result).map((item, i) => {
+    //     for (var c of month1.result[item]) {
+    //         if (c.date == strDate) {
+    //             console.log(c.date);
+    //             break;
+    //         }
+    //     }
+    //     // month1.result[item].forEach((c, i) => {
+    //     //     console.log(c.date);
+    //     // });
+    // });
+    // console.log(strDate);
+    movingDate.setDate(movingDate.getDate() + 1);
+}
 
 export default Home;

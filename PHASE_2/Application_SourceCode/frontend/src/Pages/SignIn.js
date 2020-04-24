@@ -6,11 +6,11 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({prompt: 'select_account'});
 const signInWithGoogle = () => firebase.auth.signInWithPopup(provider);
 
-const SignIn = () => {
+const SignIn = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const signInWithEmailAndPasswordHandler = 
+    const signInWithEmailAndPasswordHandler =
             (event,email, password) => {
                 event.preventDefault();
                 console.log("submit");
@@ -21,7 +21,9 @@ const SignIn = () => {
                     var errorMessage = error.message;
                     console.log(errorCode, "+", errorMessage);
                     alert(errorMessage);
+                    return false;
                 });
+                return true;
     };
 
 
@@ -35,6 +37,25 @@ const SignIn = () => {
             setPassword(value);
           }
       };
+
+    const normalSignIn = (event) => {
+        event.preventDefault();
+        auth.signInWithEmailAndPassword(email, password)
+        .then((result) => {
+            props.updateEmail(auth.currentUser.email)
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+        // props.updateEmail(auth.currentUser.email)
+    }
+
+    // const googleSignIn = () => {
+    //     signInWithGoogle;
+    //     auth().onAuthStateChanged(function(user) {
+    //         if (user) {
+    //     props.updateEmail('changed')
+    // }
 
   return (
     <div className="mt-8 text-black">
@@ -66,7 +87,7 @@ const SignIn = () => {
             id="userPassword"
             onChange = {(event) => onChangeHandler(event)}
           />
-          <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
+          <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
             Sign in
           </button>
         </form>

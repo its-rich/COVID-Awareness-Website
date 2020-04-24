@@ -60,20 +60,20 @@ class MapContainer extends React.Component {
             let totali = 0;
             if (this.props.disease === 'COVID-19') {
                 world = [['Country', 'Total Infected', 'Total Fatalities']];
-                // options.resolution = 'countries';
                 options.resolution = 'countries';
-                if (this.props.dateRange > 201911) {
-                    // let url = "";
-                    // console.log(this.props.dateRange);
-                    if (this.props.dateRange === 201912) {
-                    } else if (this.props.dateRange >= 202000 && this.props.dateRange < 202010) {
+
+                if (this.props.dateRange >= 202021) {
+                    if (this.props.dateRange < 202031) {
                         Object.keys(month1.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
-                            month1.result[item].forEach((c, i) => {
-                                confirm = c.confirmed;
-                                dead = c.deaths;
-                            });
+                            for (var data of month1.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    break;
+                                }
+                            }
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
@@ -91,15 +91,17 @@ class MapContainer extends React.Component {
                                 }
                             }
                         });
-                        // console.log(world);
-                    } else if (this.props.dateRange >= 202010 && this.props.dateRange < 202020) {
+                    } else if (this.props.dateRange < 202060) {
                         Object.keys(month2.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
-                            month2.result[item].forEach((c, i) => {
-                                confirm = c.confirmed;
-                                dead = c.deaths;
-                            });
+                            for (var data of month2.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    break;
+                                }
+                            }
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
@@ -117,14 +119,17 @@ class MapContainer extends React.Component {
                                 }
                             }
                         });
-                    } else if (this.props.dateRange >= 202020 && this.props.dateRange < 202030) {
+                    } else if (this.props.dateRange < 202091) {
                         Object.keys(month3.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
-                            month3.result[item].forEach((c, i) => {
-                                confirm = c.confirmed;
-                                dead = c.deaths;
-                            });
+                            for (var data of month3.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    break;
+                                }
+                            }
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
@@ -142,14 +147,17 @@ class MapContainer extends React.Component {
                                 }
                             }
                         });
-                    } else if (this.props.dateRange >= 202030 && this.props.dateRange < 202040) {
+                    } else if (this.props.dateRange < 202121) {
                         Object.keys(month4.result).map((item, i) => {
                             let confirm = 0;
                             let dead = 0;
-                            month4.result[item].forEach((c, i) => {
-                                confirm = c.confirmed;
-                                dead = c.deaths;
-                            });
+                            for (var data of month4.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    break;
+                                }
+                            }
                             let temp = [];
                             if (getCountry(item) !== undefined ) {
                                 if (confirm !== 0 || dead !== 0) {
@@ -167,38 +175,10 @@ class MapContainer extends React.Component {
                                 }
                             }
                         });
-                    } else {
-                        world.push(["", 0, 0])
                     }
-                    // fetch('https://covidapi.info/api/v1/global/timeseries/2020-01-01/2020-02-01')
-                    // .then(resp => resp.json())
-                    // .then(json => {
-                    //     // console.log(json);
-                    //     Object.keys(json.result).forEach(i => {
-                    //         let confirm = 0;
-                    //         let dead = 0;
-                    //         json.result[i].forEach((item, c) => {
-                    //             confirm += item.confirmed;
-                    //             dead += item.deaths;
-                    //         });
-                    //         let temp = [];
-                    //         if (getCountry(i) !== undefined ) {
-                    //             if (confirm !== 0 || dead !== 0) {
-                    //             // temp.push(getISO2(i));
-                    //             temp.push(getCountry(i));
-                    //             temp.push(confirm);
-                    //             // temp.push(dead);
-                    //             world.push(temp);
-                    //             }
-                    //         }
-                    //     })
-                    // });
-                    // ddd.result.forEach((item) => {
-                    //     console.log(item);
-                    // });
-                    // console.log(ddd.result);
-                } else {
-                    world.push(["", 0, 0])
+                }
+                if (world.length <= 2) {
+                    world.push(["", 0, 0]);
                 }
             } else {
                 options.resolution = 'continents';
@@ -232,7 +212,7 @@ class MapContainer extends React.Component {
                 }
             }
             this.setState({data: world});
-            this.updateStats(totald, totali);
+            this.updateStats(totald.toLocaleString(), totali.toLocaleString());
         }
     }
 
@@ -257,7 +237,7 @@ class MapContainer extends React.Component {
                         if (selection.length !== 0) {
 
                             if (this.props.disease === "COVID-19") {
-                                // this.updateLocation(this.state.data[selection[0].row + 1][0]);
+                                this.updateLocation(this.state.data[selection[0].row + 1][0]);
                             } else {
                                 this.updateLocation(this.state.data[selection[0].row + 1][1]);
                             }

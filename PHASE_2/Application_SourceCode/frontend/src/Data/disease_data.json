@@ -1139,13 +1139,19 @@
                 "2020": [
                     {
                         "continent": "Africa",
-                        "infected": 102,
+                        "infected": 105,
                         "dead": 56
                     }
                 ]
             },
             {
-                "2021": []
+                "2021": [
+                    {
+                        "continent": "Africa",
+                        "infected": 30,
+                        "dead": 14
+                    }
+                ]
             }
         ]
     }

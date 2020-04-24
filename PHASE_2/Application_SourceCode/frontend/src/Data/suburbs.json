@@ -1,0 +1,866 @@
+[
+    {
+        "location": "Stonnington",
+        "infected": 87
+    },
+    {
+        "location": "Banyule",
+        "infected": 83
+    },
+    {
+        "location": "Melbourne",
+        "infected": 67
+    },
+    {
+        "location": "Greater Geelong",
+        "infected": 63
+    },
+    {
+        "location": "Boroondara",
+        "infected": 61
+    },
+    {
+        "location": "Mornington Peninsula",
+        "infected": 60
+    },
+    {
+        "location": "Casey",
+        "infected": 53
+    },
+    {
+        "location": "Moreland",
+        "infected": 51
+    },
+    {
+        "location": "Glen Eira",
+        "infected": 46
+    },
+    {
+        "location": "Port Phillip",
+        "infected": 46
+    },
+    {
+        "location": "Monash",
+        "infected": 45
+    },
+    {
+        "location": "Hume",
+        "infected": 37
+    },
+    {
+        "location": "Frankston",
+        "infected": 36
+    },
+    {
+        "location": "Moonee Valley",
+        "infected": 36
+    },
+    {
+        "location": "Darebin",
+        "infected": 34
+    },
+    {
+        "location": "Brimbank",
+        "infected": 33
+    },
+    {
+        "location": "Bayside",
+        "infected": 30
+    },
+    {
+        "location": "Interstate",
+        "infected": 30
+    },
+    {
+        "location": "Manningham",
+        "infected": 29
+    },
+    {
+        "location": "Wyndham",
+        "infected": 28
+    },
+    {
+        "location": "Kingston",
+        "infected": 25
+    },
+    {
+        "location": "Yarra",
+        "infected": 25
+    },
+    {
+        "location": "Whitehorse",
+        "infected": 22
+    },
+    {
+        "location": "Whittlesea",
+        "infected": 22
+    },
+    {
+        "location": "Nillumbik",
+        "infected": 21
+    },
+    {
+        "location": "Yarra Ranges",
+        "infected": 21
+    },
+    {
+        "location": "Melton",
+        "infected": 18
+    },
+    {
+        "location": "Greater Dandenong",
+        "infected": 14
+    },
+    {
+        "location": "Cardinia",
+        "infected": 13
+    },
+    {
+        "location": "Hobsons Bay",
+        "infected": 13
+    },
+    {
+        "location": "Knox",
+        "infected": 12
+    },
+    {
+        "location": "Maroondah",
+        "infected": 11
+    },
+    {
+        "location": "Moira",
+        "infected": 11
+    },
+    {
+        "location": "Greater Shepparton",
+        "infected": 10
+    },
+    {
+        "location": "Maribyrnong",
+        "infected": 10
+    },
+    {
+        "location": "Surf Coast",
+        "infected": 10
+    },
+    {
+        "location": "Wellington",
+        "infected": 10
+    },
+    {
+        "location": "Ballarat",
+        "infected": 9
+    },
+    {
+        "location": "Greater Bendigo",
+        "infected": 9
+    },
+    {
+        "location": "Mitchell",
+        "infected": 9
+    },
+    {
+        "location": "Latrobe",
+        "infected": 7
+    },
+    {
+        "location": "Macedon Ranges",
+        "infected": 7
+    },
+    {
+        "location": "Overseas",
+        "infected": 7
+    },
+    {
+        "location": "Mount Alexander",
+        "infected": 6
+    },
+    {
+        "location": "Baw Baw",
+        "infected": 5
+    },
+    {
+        "location": "Mildura",
+        "infected": 5
+    },
+    {
+        "location": "South Gippsland",
+        "infected": 5
+    },
+    {
+        "location": "Warrnambool",
+        "infected": 5
+    },
+    {
+        "location": "Bass Coast",
+        "infected": 4
+    },
+    {
+        "location": "Benalla",
+        "infected": 3
+    },
+    {
+        "location": "Horsham",
+        "infected": 3
+    },
+    {
+        "location": "Loddon",
+        "infected": 3
+    },
+    {
+        "location": "Mansfield",
+        "infected": 3
+    },
+    {
+        "location": "Northern Grampians",
+        "infected": 3
+    },
+    {
+        "location": "Swan Hill",
+        "infected": 3
+    },
+    {
+        "location": "Campaspe",
+        "infected": 2
+    },
+    {
+        "location": "Hepburn",
+        "infected": 2
+    },
+    {
+        "location": "Southern Grampians",
+        "infected": 2
+    },
+    {
+        "location": "Strathbogie",
+        "infected": 2
+    },
+    {
+        "location": "Wangaratta",
+        "infected": 2
+    },
+    {
+        "location": "Ararat",
+        "infected": 1
+    },
+    {
+        "location": "Central Goldfields",
+        "infected": 1
+    },
+    {
+        "location": "Corangamite",
+        "infected": 1
+    },
+    {
+        "location": "East Gippsland",
+        "infected": 1
+    },
+    {
+        "location": "Gannawarra",
+        "infected": 1
+    },
+    {
+        "location": "Glenelg",
+        "infected": 1
+    },
+    {
+        "location": "Golden Plains",
+        "infected": 1
+    },
+    {
+        "location": "Moorabool",
+        "infected": 1
+    },
+    {
+        "location": "Moyne",
+        "infected": 1
+    },
+    {
+        "location": "Murrindindi",
+        "infected": 1
+    },
+    {
+        "location": "West Wimmera",
+        "infected": 1
+    },
+    {
+        "location": "Wodonga",
+        "infected": 1
+    },
+    {
+        "location": "Yarriambiack",
+        "infected": 1
+    },
+    {
+        "location": "Brisbane",
+        "infected": 406
+    },
+    {
+        "location": "Bundaberg",
+        "infected": 13
+    },
+    {
+        "location": "Cairns",
+        "infected": 24
+    },
+    {
+        "location": "Cassowary Coast",
+        "infected": 2
+    },
+    {
+        "location": "Charters Towers",
+        "infected": 1
+    },
+    {
+        "location": "Douglas",
+        "infected": 1
+    },
+    {
+        "location": "Fraser Coast",
+        "infected": 10
+    },
+    {
+        "location": "Gladstone",
+        "infected": 1
+    },
+    {
+        "location": "Gold Coast",
+        "infected": 189
+    },
+    {
+        "location": "Gympie",
+        "infected": 4
+    },
+    {
+        "location": "Hinchinbrook",
+        "infected": 1
+    },
+    {
+        "location": "Ipswich",
+        "infected": 27
+    },
+    {
+        "location": "Livingstone",
+        "infected": 1
+    },
+    {
+        "location": "Lockyer Valley",
+        "infected": 1
+    },
+    {
+        "location": "Logan",
+        "infected": 43
+    },
+    {
+        "location": "Mackay",
+        "infected": 9
+    },
+    {
+        "location": "Mareeba",
+        "infected": 2
+    },
+    {
+        "location": "Moreton Bay",
+        "infected": 94
+    },
+    {
+        "location": "Noosa",
+        "infected": 15
+    },
+    {
+        "location": "North Burnett",
+        "infected": 1
+    },
+    {
+        "location": "Redland",
+        "infected": 20
+    },
+    {
+        "location": "Rockhampton",
+        "infected": 6
+    },
+    {
+        "location": "Scenic Rim",
+        "infected": 4
+    },
+    {
+        "location": "Somerset",
+        "infected": 3
+    },
+    {
+        "location": "South Burnett",
+        "infected": 2
+    },
+    {
+        "location": "Southern Downs",
+        "infected": 1
+    },
+    {
+        "location": "Sunshine Coast",
+        "infected": 71
+    },
+    {
+        "location": "Tablelands",
+        "infected": 4
+    },
+    {
+        "location": "Toowoomba",
+        "infected": 37
+    },
+    {
+        "location": "Townsville",
+        "infected": 22
+    },
+    {
+        "location": "Western Downs",
+        "infected": 2
+    },
+    {
+        "location": "Whitsunday",
+        "infected": 6
+    },
+    {
+        "location": "Belconnen",
+        "infected": 13
+    },
+    {
+        "location": "East Canberra",
+        "infected": 2
+    },
+    {
+        "location": "Gungahlin",
+        "infected": 17
+    },
+    {
+        "location": "Molonglo",
+        "infected": 1
+    },
+    {
+        "location": "North Canberra",
+        "infected": 11
+    },
+    {
+        "location": "South Canberra",
+        "infected": 17
+    },
+    {
+        "location": "Tuggeranong",
+        "infected": 23
+    },
+    {
+        "location": "Uriarra",
+        "infected": 1
+    },
+    {
+        "location": "Weston Creek",
+        "infected": 7
+    },
+    {
+        "location": "Wooden Valley",
+        "infected": 12
+    },
+    {
+        "location": "Burwood",
+        "infected": 8
+    },
+    {
+        "location": "Parramatta",
+        "infected": 45
+    },
+    {
+        "location": "Ku-ring-gai",
+        "infected": 69
+    },
+    {
+        "location": "Randwick",
+        "infected": 85
+    },
+    {
+        "location": "Armidale Regional",
+        "infected": 4
+    },
+    {
+        "location": "Sydney",
+        "infected": 158
+    },
+    {
+        "location": "Hornsby",
+        "infected": 54
+    },
+    {
+        "location": "Fairfield",
+        "infected": 30
+    },
+    {
+        "location": "Waverley",
+        "infected": 181
+    },
+    {
+        "location": "Bayside",
+        "infected": 65
+    },
+    {
+        "location": "The Hills Shire",
+        "infected": 61
+    },
+    {
+        "location": "Canterbury-Bankstown",
+        "infected": 89
+    },
+    {
+        "location": "Ryde",
+        "infected": 66
+    },
+    {
+        "location": "North Sydney",
+        "infected": 48
+    },
+    {
+        "location": "Sutherland Shire",
+        "infected": 113
+    },
+    {
+        "location": "Penrith",
+        "infected": 102
+    },
+    {
+        "location": "Northern Beaches",
+        "infected": 154
+    },
+    {
+        "location": "Goulburn Mulwaree",
+        "infected": 9
+    },
+    {
+        "location": "Inner West",
+        "infected": 72
+    },
+    {
+        "location": "Cumberland",
+        "infected": 66
+    },
+    {
+        "location": "Mid-Coast",
+        "infected": 37
+    },
+    {
+        "location": "Blue Mountains",
+        "infected": 22
+    },
+    {
+        "location": "Woollahra",
+        "infected": 92
+    },
+    {
+        "location": "Blacktown",
+        "infected": 107
+    },
+    {
+        "location": "Liverpool",
+        "infected": 49
+    },
+    {
+        "location": "Willoughby",
+        "infected": 22
+    },
+    {
+        "location": "Canada Bay",
+        "infected": 24
+    },
+    {
+        "location": "Lane Cove",
+        "infected": 38
+    },
+    {
+        "location": "Orange",
+        "infected": 10
+    },
+    {
+        "location": "Central Coast",
+        "infected": 116
+    },
+    {
+        "location": "Hunters Hill",
+        "infected": 22
+    },
+    {
+        "location": "Hawkesbury",
+        "infected": 25
+    },
+    {
+        "location": "Camden",
+        "infected": 38
+    },
+    {
+        "location": "Campbelltown",
+        "infected": 34
+    },
+    {
+        "location": "Mosman",
+        "infected": 42
+    },
+    {
+        "location": "Coffs Harbour",
+        "infected": 14
+    },
+    {
+        "location": "Georges River",
+        "infected": 59
+    },
+    {
+        "location": "Cessnock",
+        "infected": 24
+    },
+    {
+        "location": "Wingecarribee",
+        "infected": 24
+    },
+    {
+        "location": "Byron",
+        "infected": 16
+    },
+    {
+        "location": "Wollongong",
+        "infected": 52
+    },
+    {
+        "location": "Lake Macquarie",
+        "infected": 57
+    },
+    {
+        "location": "Kiama",
+        "infected": 7
+    },
+    {
+        "location": "Newcastle",
+        "infected": 55
+    },
+    {
+        "location": "Shoalhaven",
+        "infected": 32
+    },
+    {
+        "location": "Maitland",
+        "infected": 33
+    },
+    {
+        "location": "Bathurst Regional",
+        "infected": 9
+    },
+    {
+        "location": "Tweed",
+        "infected": 15
+    },
+    {
+        "location": "Shellharbour",
+        "infected": 21
+    },
+    {
+        "location": "Dungog",
+        "infected": 5
+    },
+    {
+        "location": "Clarence Valley",
+        "infected": 8
+    },
+    {
+        "location": "Liverpool Plains",
+        "infected": 2
+    },
+    {
+        "location": "Port Stephens",
+        "infected": 34
+    },
+    {
+        "location": "Strathfield",
+        "infected": 13
+    },
+    {
+        "location": "Bega Valley",
+        "infected": 9
+    },
+    {
+        "location": "Tamworth Regional",
+        "infected": 13
+    },
+    {
+        "location": "Queanbeyan-Palerang Regional",
+        "infected": 10
+    },
+    {
+        "location": "Eurobodalla",
+        "infected": 10
+    },
+    {
+        "location": "Warrumbungle Shire",
+        "infected": 2
+    },
+    {
+        "location": "Port Macquarie-Hastings",
+        "infected": 26
+    },
+    {
+        "location": "Albury",
+        "infected": 8
+    },
+    {
+        "location": "Ballina",
+        "infected": 9
+    },
+    {
+        "location": "Lismore",
+        "infected": 5
+    },
+    {
+        "location": "Blayney",
+        "infected": 3
+    },
+    {
+        "location": "Tenterfield",
+        "infected": 3
+    },
+    {
+        "location": "Inverell",
+        "infected": 3
+    },
+    {
+        "location": "Lithgow",
+        "infected": 3
+    },
+    {
+        "location": "Kempsey",
+        "infected": 4
+    },
+    {
+        "location": "Nambucca",
+        "infected": 3
+    },
+    {
+        "location": "Singleton",
+        "infected": 3
+    },
+    {
+        "location": "Dubbo Regional",
+        "infected": 5
+    },
+    {
+        "location": "Mid-Western Regional",
+        "infected": 6
+    },
+    {
+        "location": "Wagga Wagga",
+        "infected": 10
+    },
+    {
+        "location": "Federation",
+        "infected": 8
+    },
+    {
+        "location": "Cabonne",
+        "infected": 5
+    },
+    {
+        "location": "Griffith",
+        "infected": 3
+    },
+    {
+        "location": "Cootamundra-Gundagai Regional",
+        "infected": 2
+    },
+    {
+        "location": "Greater Hume Shire",
+        "infected": 3
+    },
+    {
+        "location": "Wollondilly",
+        "infected": 2
+    },
+    {
+        "location": "Narromine",
+        "infected": 1
+    },
+    {
+        "location": "Muswellbrook",
+        "infected": 1
+    },
+    {
+        "location": "Snowy Monaro Regional",
+        "infected": 6
+    },
+    {
+        "location": "Upper Hunter Shire",
+        "infected": 1
+    },
+    {
+        "location": "Glen Innes Severn",
+        "infected": 2
+    },
+    {
+        "location": "Weddin",
+        "infected": 1
+    },
+    {
+        "location": "Yass Valley",
+        "infected": 6
+    },
+    {
+        "location": "Warren",
+        "infected": 1
+    },
+    {
+        "location": "Murrumbidgee",
+        "infected": 3
+    },
+    {
+        "location": "Bellingen",
+        "infected": 1
+    },
+    {
+        "location": "Upper Lachlan Shire",
+        "infected": 4
+    },
+    {
+        "location": "Hay",
+        "infected": 1
+    },
+    {
+        "location": "Richmond Valley",
+        "infected": 1
+    },
+    {
+        "location": "Broken Hill",
+        "infected": 2
+    },
+    {
+        "location": "Narrandera",
+        "infected": 1
+    },
+    {
+        "location": "Berrigan",
+        "infected": 5
+    },
+    {
+        "location": "Uralla",
+        "infected": 1
+    },
+    {
+        "location": "Hilltops",
+        "infected": 2
+    },
+    {
+        "location": "Gunnedah",
+        "infected": 1
+    },
+    {
+        "location": "Coonamble",
+        "infected": 1
+    },
+    {
+        "location": "Parkes",
+        "infected": 1
+    },
+    {
+        "location": "Moree Plains",
+        "infected": 1
+    }
+]

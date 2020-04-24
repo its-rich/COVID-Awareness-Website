@@ -4,21 +4,35 @@ import Draggable from 'react-draggable';
 
 class SearchBar extends React.Component {
 
+    state = {
+        iso: ''
+    }
+
     updateDisease(e) {
         this.props.updateDisease(e.target.value);
         if (e.target.value === "COVID-19") {
             let input = document.getElementById('DateRange');
-            input.setAttribute('min', '201912');
-            input.setAttribute('max', '202100');
+            input.setAttribute('min', '202000');
+            input.setAttribute('max', '202365');
             let dates = document.getElementById('dates');
-            this.props.updateSlider(201900)
-            dates.textContent = Math.floor(this.props.dateRange / 100) + " - " + this.decimalToMonth((this.props.dateRange % 100) / 100);
+            this.props.updateSlider(202000);
+            let date = String(new Date("2020-01-01")).slice(4,15);
+            dates.textContent = date;
+            date = new Date("2020-01-01").toISOString().slice(0,10)
+            this.props.updateISO(date);
+            this.setState({iso: date})
+
         } else {
+            if (this.props.dateRange > 202100) {
+                this.props.updateSlider(202100);
+            }
             let input = document.getElementById('DateRange');
+            this.props.updateISO("");
             input.setAttribute('min', '199600');
             input.setAttribute('max', '202100');
             let dates = document.getElementById('dates');
             dates.textContent = Math.floor(this.props.dateRange / 100);
+            this.setState({iso: ""})
         }
     }
 
@@ -26,7 +40,24 @@ class SearchBar extends React.Component {
         this.props.updateSlider(e.target.value);
         if (this.props.disease === "COVID-19") {
             let dates = document.getElementById('dates');
-            dates.textContent = Math.floor(this.props.dateRange / 100) + " - " + this.decimalToMonth((this.props.dateRange % 100) / 100);
+            let strDate = '2020-01-01';
+            let movingDate = new Date(strDate);
+            let endDate = new Date('2021-01-01');
+            let day = String(e.target.value).slice(3,6)
+            day = parseInt(day);
+            let i = 0;
+            while (strDate < endDate.toISOString().slice(0,10)) {
+                strDate = movingDate.toISOString().slice(0,10);
+                if (i == day) {
+                    break;
+                }
+                movingDate.setDate(movingDate.getDate() + 1);
+                i++;
+            }
+            let date = String(movingDate).slice(4,15);
+            dates.textContent = date;
+            this.props.updateISO(strDate);
+            this.setState({iso: date})
         }
     }
 
@@ -40,18 +71,7 @@ class SearchBar extends React.Component {
             header.textContent = "Infected / Year";
         }
     }
-
-    // 0 <= NUM <= 1   !!!!
-    decimalToMonth(num) {
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        return months[Math.floor(num * 12)];
-    }
-
-    eventLogger = (e: MouseEvent, data: Object) => {
-        console.log('Event: ', e);
-        console.log('Data: ', data);
-    };
-
+    
     render() {
         let item = data.map(disease =>
                 <option key={disease.disease}>
@@ -93,11 +113,16 @@ class SearchBar extends React.Component {
                     </div>
                     <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
                 </div>
-                <div id="mapstats" className="Box">
+                {this.state.iso === '' && <div id="mapstats" className="Box">
                     <h5>{String(this.props.dateRange).slice(0,4)} Stats</h5>
                     <h5>Total Infected: {this.props.infected}</h5>
                     <h5>Total Fatalities: {this.props.deaths}</h5>
-                </div>
+                </div>}
+                {this.state.iso !== '' && <div id="mapstats" className="Box">
+                    <h5>{this.state.iso} Stats</h5>
+                    <h5>Total Infected: {this.props.infected}</h5>
+                    <h5>Total Fatalities: {this.props.deaths}</h5>
+                </div>}
             </div>
             </Draggable>
         )

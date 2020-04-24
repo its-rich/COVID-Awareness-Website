@@ -17,74 +17,67 @@ class LocationChart extends React.Component {
         if (this.props.loc !== '') {
             let newdata = [['Condition', 'Degrees']];
             if (this.props.disease == 'COVID-19') {
-                let totald = 0;
-                let totali = 0;
-                let totalr = 0;
-                // let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
-                // tempd = 0;
-                // tempi = 0;
-                // tempr = 0;
-                // Object.keys(month2.result).map((item, i) => {
-                //     let confirm = 0;
-                //     let dead = 0;
-                //     let recover = 0;
-                //     month2.result[item].forEach((c, i) => {
-                //         confirm += c.confirmed;
-                //         dead += c.deaths;
-                //         recover += c.recovered;
-                //     });
-                //     if (confirm > tempi) {
-                //         totali += confirm;
-                //     }
-                //     if (dead > tempd) {
-                //         totald += dead;
-                //     }
-                //     if (recover > tempr) {
-                //         totalr += recover;
-                //     }
-                // });
-                // Object.keys(month1.result).map((item, i) => {
-                //     month1.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                // Object.keys(month2.result).map((item, i) => {
-                //     month2.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                // Object.keys(month3.result).map((item, i) => {
-                //     month3.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                Object.keys(month4.result).map((item, i) => {
-                    let confirm = 0;
-                    let dead = 0;
-                    let recover = 0;
-                    if (getCountry(item) !== undefined && getCountry(item) === this.props.loc) {
-                        month4.result[item].forEach((c, i) => {
-                            // c.date ===
-                            confirm = c.confirmed;
-                            dead = c.deaths;
-                            recover = c.recovered;
-                        });
-                        totald += dead;
-                        totali += confirm;
-                        totalr += recover;
-                    }
-                });
-                newdata.push(['Total Infected', totali]);
-                newdata.push(['Total Fatalities', totald]);
-                newdata.push(['Total Recovered', totalr])
-                this.setState({data: newdata});
+                let confirm = 0;
+                let dead = 0;
+                let recovered = 0;
+                if (this.props.dateRange < 202031) {
+                    Object.keys(month1.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month1.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                } else if (this.props.dateRange < 202060) {
+                    Object.keys(month2.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month2.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                } else if (this.props.dateRange < 202091) {
+                    Object.keys(month3.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month3.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                } else if (this.props.dateRange < 202121) {
+                    Object.keys(month4.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month4.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                }
 
+                newdata.push(['Total Infected', confirm]);
+                newdata.push(['Total Fatalities', dead]);
+                newdata.push(['Total Recovered', recovered])
+                this.setState({data: newdata});
             } else {
                 numbers.forEach((disease) => {
                     if (disease.disease === this.props.disease) {
@@ -122,71 +115,66 @@ class LocationChart extends React.Component {
         if (prevProps.loc !== this.props.loc) {
             let newdata = [['Condition', 'Degrees']];
             if (this.props.disease == 'COVID-19') {
-                let totald = 0;
-                let totali = 0;
-                let totalr = 0;
-                // let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
-                // tempd = 0;
-                // tempi = 0;
-                // tempr = 0;
-                // Object.keys(month2.result).map((item, i) => {
-                //     let confirm = 0;
-                //     let dead = 0;
-                //     let recover = 0;
-                //     month2.result[item].forEach((c, i) => {
-                //         confirm += c.confirmed;
-                //         dead += c.deaths;
-                //         recover += c.recovered;
-                //     });
-                //     if (confirm > tempi) {
-                //         totali += confirm;
-                //     }
-                //     if (dead > tempd) {
-                //         totald += dead;
-                //     }
-                //     if (recover > tempr) {
-                //         totalr += recover;
-                //     }
-                // });
-                // Object.keys(month1.result).map((item, i) => {
-                //     month1.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                // Object.keys(month2.result).map((item, i) => {
-                //     month2.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                // Object.keys(month3.result).map((item, i) => {
-                //     month3.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                Object.keys(month4.result).map((item, i) => {
-                    let confirm = 0;
-                    let dead = 0;
-                    let recover = 0;
-                    month4.result[item].forEach((c, i) => {
-                        confirm = c.confirmed;
-                        dead = c.deaths;
-                        recover = c.recovered;
+                let confirm = 0;
+                let dead = 0;
+                let recovered = 0;
+                if (this.props.dateRange < 202031) {
+                    Object.keys(month1.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month1.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
                     });
-                    totald += dead;
-                    totali += confirm;
-                    totalr += recover;
-                });
-                newdata.push(['Total Infected', totali]);
-                newdata.push(['Total Fatalities', totald]);
-                newdata.push(['Total Recovered', totalr])
+                } else if (this.props.dateRange < 202060) {
+                    Object.keys(month2.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month2.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                } else if (this.props.dateRange < 202091) {
+                    Object.keys(month3.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month3.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                } else if (this.props.dateRange < 202121) {
+                    Object.keys(month4.result).map((item, i) => {
+                        if (getCountry(item) !== undefined && getCountry(item) == this.props.loc) {
+                            for (var data of month4.result[item]) {
+                                if (data.date === this.props.iso) {
+                                    confirm = data.confirmed;
+                                    dead = data.deaths;
+                                    recovered = data.recovered;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                }
+                newdata.push(['Total Infected', confirm]);
+                newdata.push(['Total Fatalities', dead]);
+                newdata.push(['Total Recovered', recovered])
                 this.setState({data: newdata});
-
             } else {
                 numbers.forEach((disease) => {
                     if (disease.disease === this.props.disease) {
@@ -221,11 +209,10 @@ class LocationChart extends React.Component {
     }
 
     render() {
-        // console.log(this.state.data);
         return (
             <div className="row">
             <div className="col s12 m4">
-            <div className="card">
+            {this.props.disease !== 'COVID-19' && <div className="card">
                 <Chart
                     width={'400px'}
                     height={'300px'}
@@ -237,7 +224,20 @@ class LocationChart extends React.Component {
                     }}
                     rootProps={{ 'data-testid': '1' }}
                 />
-            </div>
+            </div>}
+            {this.props.disease === 'COVID-19' && <div className="card">
+                <Chart
+                    width={'400px'}
+                    height={'300px'}
+                    chartType="PieChart"
+                    loader={<div>Loading Chart</div>}
+                    data={this.state.data}
+                    options={{
+                        title: this.props.disease + "'s impact in " + this.props.loc + " as of " + this.props.iso,
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                />
+            </div>}
             </div>
             </div>
         )

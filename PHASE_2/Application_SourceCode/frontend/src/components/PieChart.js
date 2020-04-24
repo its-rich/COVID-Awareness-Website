@@ -22,50 +22,7 @@ class PieChart extends React.Component {
             let totali = 0;
             let totalr = 0;
             let newdata = [['Situation', 'Count']]
-            // let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
-            // tempd = 0;
-            // tempi = 0;
-            // tempr = 0;
-            // Object.keys(month2.result).map((item, i) => {
-            //     let confirm = 0;
-            //     let dead = 0;
-            //     let recover = 0;
-            //     month2.result[item].forEach((c, i) => {
-            //         confirm += c.confirmed;
-            //         dead += c.deaths;
-            //         recover += c.recovered;
-            //     });
-            //     if (confirm > tempi) {
-            //         totali += confirm;
-            //     }
-            //     if (dead > tempd) {
-            //         totald += dead;
-            //     }
-            //     if (recover > tempr) {
-            //         totalr += recover;
-            //     }
-            // });
-            // Object.keys(month1.result).map((item, i) => {
-            //     month1.result[item].forEach((c, i) => {
-            //         totali += c.confirmed;
-            //         totald += c.deaths;
-            //         totalr += c.recovered;
-            //     });
-            // });
-            // Object.keys(month2.result).map((item, i) => {
-            //     month2.result[item].forEach((c, i) => {
-            //         totali += c.confirmed;
-            //         totald += c.deaths;
-            //         totalr += c.recovered;
-            //     });
-            // });
-            // Object.keys(month3.result).map((item, i) => {
-            //     month3.result[item].forEach((c, i) => {
-            //         totali += c.confirmed;
-            //         totald += c.deaths;
-            //         totalr += c.recovered;
-            //     });
-            // });
+            this.setState({option: "'s Overall Statistics Worldwide"});
             Object.keys(month4.result).map((item, i) => {
                 let confirm = 0;
                 let dead = 0;
@@ -130,50 +87,7 @@ class PieChart extends React.Component {
                 let totali = 0;
                 let totalr = 0;
                 let newdata = [['Situation', 'Count']]
-                // let newdata = [['Year', 'Fatalities', 'Infected', 'Recovered']];
-                // tempd = 0;
-                // tempi = 0;
-                // tempr = 0;
-                // Object.keys(month2.result).map((item, i) => {
-                //     let confirm = 0;
-                //     let dead = 0;
-                //     let recover = 0;
-                //     month2.result[item].forEach((c, i) => {
-                //         confirm += c.confirmed;
-                //         dead += c.deaths;
-                //         recover += c.recovered;
-                //     });
-                //     if (confirm > tempi) {
-                //         totali += confirm;
-                //     }
-                //     if (dead > tempd) {
-                //         totald += dead;
-                //     }
-                //     if (recover > tempr) {
-                //         totalr += recover;
-                //     }
-                // });
-                // Object.keys(month1.result).map((item, i) => {
-                //     month1.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                // Object.keys(month2.result).map((item, i) => {
-                //     month2.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
-                // Object.keys(month3.result).map((item, i) => {
-                //     month3.result[item].forEach((c, i) => {
-                //         totali += c.confirmed;
-                //         totald += c.deaths;
-                //         totalr += c.recovered;
-                //     });
-                // });
+                this.setState({option: "'s Overall Statistics Worldwide"});
                 Object.keys(month4.result).map((item, i) => {
                     let confirm = 0;
                     let dead = 0;

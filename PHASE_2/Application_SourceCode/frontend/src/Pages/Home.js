@@ -75,30 +75,4 @@ class Home extends React.Component {
     )};
 }
 
-// {this.state.disease !== '' && <PieChart disease={this.state.disease} switch="infected"/>}
-// {this.state.location !== '' && <PieChart disease="COVID-19" switch="infected"/>}
-
-let strDate = '2020-01-22';
-let movingDate = new Date(strDate);
-// let endDate = new Date();
-let endDate = new Date('2020-01-31');
-
-while (strDate < endDate.toISOString().slice(0,10)) {
-    strDate = movingDate.toISOString().slice(0,10);
-    // console.log(String(movingDate).slice(0,15));
-    // Object.keys(month1.result).map((item, i) => {
-    //     for (var c of month1.result[item]) {
-    //         if (c.date == strDate) {
-    //             console.log(c.date);
-    //             break;
-    //         }
-    //     }
-    //     // month1.result[item].forEach((c, i) => {
-    //     //     console.log(c.date);
-    //     // });
-    // });
-    // console.log(strDate);
-    movingDate.setDate(movingDate.getDate() + 1);
-}
-
 export default Home;

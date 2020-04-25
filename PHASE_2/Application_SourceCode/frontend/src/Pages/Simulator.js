@@ -32,7 +32,7 @@ class Simulator extends Component {
     }
 
     setLockdown = () => {
-        if (this.state.lockdown !== false) {
+        if (this.state.lockdown === false) {
             this.setState({lockdown: true});
         } else {
             this.setState({lockdown: false});

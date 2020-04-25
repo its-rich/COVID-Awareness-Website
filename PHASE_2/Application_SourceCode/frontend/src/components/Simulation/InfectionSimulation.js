@@ -61,17 +61,42 @@ export default class InfectedSimulation extends Component {
         });
 
         // Add the new frame
-        this.state.Frames.push(nextFrame);
 
-        // if (type === 'CURE') {
+        if (type === 'CURE') {
         // console.log(this.state.Frames);
-        //     lastFrame = this.state.Frames[this.state.Frames.length - 1];
-        //     lastFrame.forEach((item) => {
-        //         if (Math.random() > 0.5) {
-        //             item.circle.setMap(null)
-        //             this.state.Frames[this.state.Frames.length - 1].splice(item, 1);
-        //         }
-        //     });
+            let array = []
+            lastFrame = this.state.Frames[this.state.Frames.length - 1];
+            lastFrame.forEach((item) => {
+                if (Math.random() > 0.1) {
+                    lastFrame.splice(item, 1);
+                }
+            });
+
+            for (let i = 0; i <= this.state.Frames.length; i++) {
+                this.state.Frames[i].forEach((item) => {
+                    item.circle.setMap(null);
+                });
+                this.state.Frames.shift()
+            }
+            console.log(this.state.Frames.length);
+            // console.log(this.state.Frames);
+            this.state.currentFrame = this.state.Frames.length - 2;
+            //
+            // if (this.state.Frames.length === 0) {
+            //     return;
+            // }
+            //
+            // this.state.Frames[0].forEach((item) => {
+            //     item.circle.setMap(this.state.map);
+            // });
+
+            // console.log(this.state.Frames);
+
+
+
+
+
+
         //     console.log(this.state.Frames);
             // for (let i = 0; i < this.state.Frames.length; i++) {
             //     this.state.Frames[i].forEach((item) => {
@@ -108,7 +133,9 @@ export default class InfectedSimulation extends Component {
             //     }
             // }
             // console.log(this.state.Frames);
-        // }
+        } else {
+            this.state.Frames.push(nextFrame);
+        }
     }
 
     previousFrame() {
@@ -139,8 +166,8 @@ export default class InfectedSimulation extends Component {
         if (this.state.currentFrame + 1 == this.state.Frames.length) {
             if (type === 'LOCK') {
                 this.loadNextFrame('LOCK');
-            } else if (type == 'CURE') {
-                this.loadNextFrame('CURE');
+            } else if (type === 'CURE') {
+                this.loadNextFrame('LOCK');
             } else {
                 this.loadNextFrame();
             }
@@ -160,6 +187,8 @@ export default class InfectedSimulation extends Component {
     }
 
     getInfectionCount() {
+        console.log(this.state.Frames);
+        console.log(this.state.currentFrame);
         if (this.state.Frames.length > 0) {
             return this.state.Frames[this.state.currentFrame].length;
         }

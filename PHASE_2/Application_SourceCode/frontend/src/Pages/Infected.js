@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SignIn from './SignIn.js'
-import { auth } from "../components/Firebase/config.js";
+import firebase from "../components/Firebase/config.js";
 import '../App.css';
 
 class Infected extends Component {
@@ -20,7 +20,8 @@ class Infected extends Component {
         return (
             <div>
             {this.state.email === null && <SignIn updateEmail={this.updateEmail.bind(this)}/> }
-
+            {this.state.email === "coronavirus.aus.tracker@gmail.com"}
+            {this.state.email !== null}
             </div>
         )
     }

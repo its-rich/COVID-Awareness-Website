@@ -12,7 +12,7 @@ const NavIn = ({currentUser}) => (
             <li><Link to='/coronavirus-simulator'>Coronavirus Simulator</Link></li>
             <li><Link to='/infected'>I'm Infected</Link></li>
             <li><Link to='/profile'>My Profile</Link></li>
-            <li><Link className="option" onClick={() => firebase.auth().signOut()}>SIGN OUT</Link></li>
+            <li><Link to='/' className="option" onClick={() => firebase.auth().signOut()}>Sign Out</Link></li>
         </ul>
     </nav>
 )

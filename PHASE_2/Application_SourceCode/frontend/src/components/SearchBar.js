@@ -90,7 +90,6 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        console.log(this.props.dateRange);
         let item = data.map(disease =>
                 <option key={disease.disease}>
                 {disease.disease}
@@ -124,13 +123,20 @@ class SearchBar extends React.Component {
                         {item}
                     </select>
                 </div>
-                <div id="startDate" className="Box">
+                {this.props.disease !== 'COVID-19' && <div id="startDate" className="Box">
                 <div id="move" className="FlexRow">
                     <h5>In:</h5>
                     <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
                 </div>
                 <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
-                </div>
+                </div>}
+                {this.props.disease === 'COVID-19' && <div id="startDate" className="Box">
+                    <div className="FlexRow">
+                        <h5>In:</h5>
+                        <h5 id="dates">{this.state.iso}</h5>
+                    </div>
+                    <input key='slider' type="range" min="202000" max="202365" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
+                </div>}
                 {this.state.iso === '' && <div id="move" className="Box">
                     <h5>{String(this.props.dateRange).slice(0,4)} Stats</h5>
                     <h5>Total Infected: {this.props.infected}</h5>

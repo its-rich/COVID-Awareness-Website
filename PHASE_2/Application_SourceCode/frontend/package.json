@@ -11,14 +11,9 @@
     "bootstrap": "^4.4.1",
     "create-react-class": "^15.6.3",
     "date-fns": "^2.11.1",
-<<<<<<< HEAD
-    "firebase": "^7.14.1",
-    "google-maps-react": "^2.0.2",
-=======
     "firebase": "^7.14.2",
     "google-map-react": "^1.1.7",
     "google-maps-react": "^2.0.6",
->>>>>>> simulator
     "google-trends-api": "^4.9.0",
     "here-maps-react": "^1.1.0",
     "jquery": "^3.4.1",
@@ -34,13 +29,10 @@
     "react-dom": "^16.13.1",
     "react-draggable": "^4.2.0",
     "react-google-charts": "^3.0.15",
-<<<<<<< HEAD
     "react-native": "^0.62.2",
     "react-native-cli": "^2.0.1",
     "react-native-web": "^0.12.2",
-=======
     "react-google-maps": "^9.4.5",
->>>>>>> simulator
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-vertical-timeline-component": "^2.5.0",

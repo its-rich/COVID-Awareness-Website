@@ -1,8 +1,23 @@
 import React, { Component } from "react";
 import UpdateField from "../components/UpdateField.js";
+import firebase from '../components/Firebase/config.js'
+
+const db = firebase.firestore();
 
 export default class Profile extends Component {
+
     render() {
+        // db.collection('diseases').where('diseases', 'array-contains', 'coronavirus').get()
+        //     .then(snapshot => {
+        //         if (snapshot.empty) {
+        //             console.log('No matching documents.');
+        //             return
+        //         }
+        //         console.log(snapshot.size); // count total amount -> don't use this
+        //         // snapshot.forEach(doc => {
+        //         //     console.log(doc.data().diseases.length);
+        //         // });
+        //     })
         return (
             <div className="mt-8 text-black">
                 <h1 className="text-3xl mb-2 text-center font-bold">My Profile</h1>

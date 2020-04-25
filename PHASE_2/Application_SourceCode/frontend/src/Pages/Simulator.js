@@ -17,6 +17,7 @@ class Simulator extends Component {
             numberInfected: 0,
             lockdown: false,
             reset: false,
+            cure: false,
             locations: 0
         }
     }
@@ -39,6 +40,14 @@ class Simulator extends Component {
         }
     }
 
+    setCure = () => {
+        if (this.state.cure === false) {
+            this.setState({cure: true});
+        } else {
+            this.setState({cure: false});
+        }
+    }
+
     setReset = () => {
         if (this.state.reset === false) {
             this.setState({reset: true});
@@ -58,7 +67,7 @@ class Simulator extends Component {
     render() {
         return (
             <div>
-                <SimController dateOffsetCallback={this.setDateOffset} locations={this.state.locations} setReset={this.setReset.bind(this)} numberInfected={this.state.numberInfected} setLockdown={this.setLockdown.bind(this)} />
+                <SimController dateOffsetCallback={this.setDateOffset} locations={this.state.locations} setReset={this.setReset.bind(this)} numberInfected={this.state.numberInfected} setLockdown={this.setLockdown.bind(this)} setCure={this.setCure.bind(this)} />
                 <SimMap currentDateOffset={this.state.dateOffset} setLocations={this.setLocations.bind(this)} setReset={this.setReset.bind(this)} reset={this.state.reset} infectedCallback={this.setNumberInfected} infectionCount={this.state.numberInfected} lockdown={this.state.lockdown}/>
             </div>
         )

@@ -56,6 +56,10 @@ class SimMap extends Component {
                 total += this.state.infectionSim[i].getInfectionCount();
             }
         }
+
+        // if (this.props.lockdown && this.state.infectionCount === total) {
+        //     console.log(3);
+        // }
         this.state.infectedCallback(total);
     }
 
@@ -104,6 +108,7 @@ class SimMap extends Component {
             this.state.infectionSim.map((item) => {
                 if (this.props.lockdown) {
                     item.nextFrame('LOCK');
+                    this.state.city= -1;
                 } else {
                     item.nextFrame();
                 }

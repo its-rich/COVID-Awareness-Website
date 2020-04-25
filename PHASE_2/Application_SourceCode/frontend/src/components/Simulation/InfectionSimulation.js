@@ -25,7 +25,7 @@ export default class InfectedSimulation extends Component {
     }
 
     loadNextFrame(type) {
-        console.log("Loading frame " + this.state.Frames.length);
+        // console.log("Loading frame " + this.state.Frames.length);
         if (this.state.Frames.length === 0) return;
         let lastFrame = this.state.Frames[this.state.Frames.length - 1];
         let nextFrame = [];
@@ -187,8 +187,8 @@ export default class InfectedSimulation extends Component {
     }
 
     getInfectionCount() {
-        console.log(this.state.Frames);
-        console.log(this.state.currentFrame);
+        // console.log(this.state.Frames);
+        // console.log(this.state.currentFrame);
         if (this.state.Frames.length > 0) {
             return this.state.Frames[this.state.currentFrame].length;
         }

@@ -3,11 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Nav from './components/Navigation/Nav.js';
 import NavIn from './components/Navigation/NavIn.js';
 import './App.css';
-import VirusAvoider from './Pages/VirusAvoider.js';
-import VirusSimulator from './Pages/VirusSimulator.js'
+import Simulator from './Pages/Simulator.js'
 import Infected from './Pages/Infected.js'
 import Home from './Pages/Home.js';
-<<<<<<< HEAD
 import SignIn from './Pages/SignIn.js';
 import SignUp from './Pages/SignUp.js';
 import firebase from "./components/Firebase/config.js";
@@ -30,8 +28,8 @@ class App extends React.Component {
         let auth = firebase.auth();
         this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
             this.setState({ currentUser: user });
-            console.log(this.state.currentUser);
-            console.log("Changed");
+            // console.log(this.state.currentUser);
+            // console.log("Changed");
         });
     }
 
@@ -47,7 +45,7 @@ class App extends React.Component {
                         <NavIn />
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
+                            <Route path="/coronavirus-simulator" exact component={Simulator} />
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
@@ -64,7 +62,7 @@ class App extends React.Component {
                         <Nav />
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
+                            <Route path="/coronavirus-simulator" exact component={Simulator} />
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
@@ -78,32 +76,6 @@ class App extends React.Component {
 
 
     }
-=======
-import Reports from './Pages/Reports.js';
-import News from './Pages/News.js';
-import Risk from './Pages/Risk.js';
-import SocialDistancing from './Pages/SocialDistancing.js';
-import Simulator from './Pages/Simulator.js';
-
-function App () {
-    return (
-        <Router>
-            <div className="App">
-                <Nav />
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/diseases" exact component={Diseases} />
-                    <Route path="/continents" exact component={Continents} />
-                    <Route path="/reports" exact component={Reports} />
-                    <Route path="/latestnews" exact component={News} />
-                    <Route path="/risk" exact component={Risk} />
-                    <Route path="/socialDistancing" exact component={SocialDistancing} />
-                    <Route path="/Simulator" exact component={Simulator} />
-                </Switch>
-            </div>
-        </Router>
-    );
->>>>>>> simulator
 }
 
 export default App

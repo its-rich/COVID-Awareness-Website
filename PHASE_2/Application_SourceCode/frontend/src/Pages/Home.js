@@ -20,7 +20,6 @@ class Home extends React.Component {
             loc: "",
             iso: ''
         };
-        this.paymentForm = null;
     }
 
     updateSlider = (date) => {

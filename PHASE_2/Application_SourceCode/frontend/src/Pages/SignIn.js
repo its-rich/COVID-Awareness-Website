@@ -4,7 +4,7 @@ import firebase from "../components/Firebase/config.js";
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({prompt: 'select_account'});
-const signInWithGoogle = () => firebase.auth.signInWithPopup(provider);
+const signInWithGoogle = () => firebase.auth().signInWithPopup(provider);
 let auth = firebase.auth();
 
 const SignIn = (props) => {
@@ -14,13 +14,13 @@ const SignIn = (props) => {
     const signInWithEmailAndPasswordHandler =
             (event,email, password) => {
                 event.preventDefault();
-                console.log("submit");
-                console.log(email, password);
-        
+                // console.log("submit");
+                // console.log(email, password);
+
                 auth.signInWithEmailAndPassword(email, password).catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
-                    console.log(errorCode, "+", errorMessage);
+                    // console.log(errorCode, "+", errorMessage);
                     alert(errorMessage);
                     return false;
                 });
@@ -46,17 +46,21 @@ const SignIn = (props) => {
             props.updateEmail(auth.currentUser.email)
         })
         .catch((error) => {
-            console.log(error.message);
+            alert(error.message);
         });
         // props.updateEmail(auth.currentUser.email)
     }
 
-    // const googleSignIn = () => {
-    //     signInWithGoogle;
-    //     auth().onAuthStateChanged(function(user) {
-    //         if (user) {
-    //     props.updateEmail('changed')
-    // }
+    const googleSignIn = () => {
+        signInWithGoogle()
+        .then(() => {
+        auth.onAuthStateChanged(function(user) {
+            if (user) {
+                props.updateEmail('changed')
+            }
+        });
+        })
+    }
 
   return (
     <div className="mt-8 text-black">
@@ -67,6 +71,7 @@ const SignIn = (props) => {
           <label htmlFor="userEmail" className="block">
             Email:
           </label>
+          <div>
           <input
             type="email"
             className="my-1 p-1 w-full"
@@ -76,6 +81,7 @@ const SignIn = (props) => {
             id="userEmail"
             onChange = {(event) => onChangeHandler(event)}
           />
+          </div>
           <label htmlFor="userPassword" className="block">
             Password:
           </label>
@@ -88,13 +94,13 @@ const SignIn = (props) => {
             id="userPassword"
             onChange = {(event) => onChangeHandler(event)}
           />
-          <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
+          <button style={{width: "50%", marginLeft: "25%"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
             Sign in
           </button>
         </form>
         <p className="text-center my-3">or</p>
-        <button
-          className="bg-red-500 hover:bg-red-600 w-full py-2 text-white" onClick={signInWithGoogle}>
+        <button style={{width: "50%", marginLeft: "25%"}}
+          className="bg-red-500 hover:bg-red-600 w-full py-2 text-white" onClick={googleSignIn}>
           Sign in with Google
         </button>
         <p className="text-center my-3">

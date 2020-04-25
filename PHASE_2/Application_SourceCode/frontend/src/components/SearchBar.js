@@ -99,16 +99,16 @@ class SearchBar extends React.Component {
         return (
             <Draggable
                 axis="both"
-                handle="#keyTerm"
-                defaultPosition={{x: 0, y: 0}}
+                handle="#move"
+                defaultPosition={{x: 0, y: -100}}
                 position={null}
                 grid={[1, 1]}
                 scale={1}
                 onStart={this.handleStart}
                 onDrag={this.handleDrag}
                 onStop={this.handleStop}>
-            <div className="SearchBar">
-                <div id="keyTerm" className="Box">
+            <div className="SearchBar" id="move">
+                <div className="Box">
                     <div className="FlexRow">
                         <h5 id='switchmap'>Infected/Year</h5>
                         <label className="switch">
@@ -123,6 +123,13 @@ class SearchBar extends React.Component {
                         <option key="COVID-19">COVID-19</option>
                         {item}
                     </select>
+                </div>
+                <div id="startDate" className="Box">
+                <div className="FlexRow">
+                    <h5>In:</h5>
+                    <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
+                </div>
+                <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
                 </div>
                 {this.state.iso === '' && <div id="mapstats" className="Box">
                     <h5>{String(this.props.dateRange).slice(0,4)} Stats</h5>
@@ -141,11 +148,11 @@ class SearchBar extends React.Component {
 }
 
 // {this.props.disease !== 'COVID-19' && <div id="startDate" className="Box">
-//     <div className="FlexRow">
-//         <h5>In:</h5>
-//         <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
-//     </div>
-//     <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
+    // <div className="FlexRow">
+    //     <h5>In:</h5>
+    //     <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
+    // </div>
+    // <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
 // </div>}
 
 export default SearchBar;

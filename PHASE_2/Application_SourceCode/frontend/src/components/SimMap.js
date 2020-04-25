@@ -97,6 +97,7 @@ class SimMap extends Component {
                         this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-35.2809, 149.1300, 0.9, this.state.map);
                     }
                     this.state.city = -1;
+                    this.props.setLocations(this.state.infectionSim.length);
                 }
             }
 
@@ -127,6 +128,7 @@ class SimMap extends Component {
                     }
                 })
                 this.setState({infectionSim: []});
+                this.props.setLocations(0);
             }
         } else if (prevState.long !== this.state.long) {
             let lat = this.state.lat
@@ -182,13 +184,14 @@ class SimMap extends Component {
 
             let map = this.state.map;
             this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(this.state.lat, this.state.long, chance, map);
+            this.props.setLocations(this.state.infectionSim.length);
         }
     }
 
     render() {
         return (
-            <div style={{ width: '100%' }}>
-            <div style={{height: '85vh'}}>
+            <div style={{ width: '100%'}}>
+            <div style={{height: '91vh'}}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik" }}
                     defaultZoom={5}

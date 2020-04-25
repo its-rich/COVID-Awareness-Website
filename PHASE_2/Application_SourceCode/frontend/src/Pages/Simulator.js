@@ -16,7 +16,8 @@ class Simulator extends Component {
             dateOffset: 0,
             numberInfected: 0,
             lockdown: false,
-            reset: false
+            reset: false,
+            locations: 0
         }
     }
 
@@ -31,7 +32,7 @@ class Simulator extends Component {
     }
 
     setLockdown = () => {
-        if (this.state.lockdown == false) {
+        if (this.state.lockdown !== false) {
             this.setState({lockdown: true});
         } else {
             this.setState({lockdown: false});
@@ -43,19 +44,22 @@ class Simulator extends Component {
             this.setState({reset: true});
             this.setState({dateOffset: 0});
             this.setState({numberInfected: 0});
+            this.setState({locations: 0});
             this.setState({lockdown: false});
         } else {
             this.setState({reset: false});
         }
     }
 
-
+    setLocations = (v) => {
+        this.setState({locations: v});
+    }
 
     render() {
         return (
             <div>
-                <SimController dateOffsetCallback={this.setDateOffset} setReset={this.setReset.bind(this)} numberInfected={this.state.numberInfected} setLockdown={this.setLockdown.bind(this)}/>
-                <SimMap currentDateOffset={this.state.dateOffset} setReset={this.setReset.bind(this)} reset={this.state.reset} infectedCallback={this.setNumberInfected} infectionCount={this.state.numberInfected} lockdown={this.state.lockdown}/>
+                <SimController dateOffsetCallback={this.setDateOffset} locations={this.state.locations} setReset={this.setReset.bind(this)} numberInfected={this.state.numberInfected} setLockdown={this.setLockdown.bind(this)} />
+                <SimMap currentDateOffset={this.state.dateOffset} setLocations={this.setLocations.bind(this)} setReset={this.setReset.bind(this)} reset={this.state.reset} infectedCallback={this.setNumberInfected} infectionCount={this.state.numberInfected} lockdown={this.state.lockdown}/>
             </div>
         )
     }

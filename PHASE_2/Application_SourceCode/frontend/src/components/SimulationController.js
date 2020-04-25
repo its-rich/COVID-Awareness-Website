@@ -49,7 +49,7 @@ class SimController extends React.Component {
             <Draggable
             axis="both"
             handle="#move"
-            defaultPosition={{x: 0, y: 0}}
+            defaultPosition={{x: 0, y: -100}}
             position={null}
             grid={[1, 1]}
             scale={1}
@@ -59,13 +59,10 @@ class SimController extends React.Component {
         <div className="SearchBar" id="move">
         <h6 style={this.statisticStyle}> Day: {this.state.currentDateOffset} </h6>
         <h6 style={this.statisticStyle}> Number Infected: {this.props.numberInfected} </h6>
-        <nav className="FlewRow" style={{height: "40px", width: "100%", justifyContent: "center", backgroundColor: "transparent", boxShadow: "none", WebkitBoxShadow: "none"}}>
-            <ul className="right FlexRow noselect" style={{verticalAlign: "center", lineHeight: "40px", height: "40px"}}>
-                <li><a id="backwards" onClick={this.decrementDate.bind(this)}> Previous Day </a> </li>
-                <li><a id="forwards" onClick={this.incrementDate.bind(this)}> Next Day </a> </li>
-            </ul>
-        </nav>
-        <input type="button" value="Initiate Lockdown" onClick={this.setLockdown.bind(this)}/>
+        <h6 style={this.statisticStyle}> Active Locations: {this.props.locations} </h6>
+        <input type="button" className="" id="backwards" onClick={this.decrementDate.bind(this)} value="Previous Day"/>
+        <input type="button" className="" id="forwards" onClick={this.incrementDate.bind(this)} value="Next Day"/>
+        <input type="button" className="button-orange" value="Initiate Lockdown" onClick={this.setLockdown.bind(this)}/>
         <input type="button" value="Reset Simulation" onClick={this.setReset.bind(this)}/>
         </div>
         </Draggable>

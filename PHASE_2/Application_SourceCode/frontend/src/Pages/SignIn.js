@@ -104,7 +104,8 @@ const SignIn = (props) => {
           Sign in with Google
         </button>
         <p className="text-center my-3">
-          Don't have an account?{" "}
+          <Link to="/phone" className="text-blue-500 hover:text-blue-600">Sign in with Mobile</Link>
+          <br />Don't have an account?{" "}
           <Link to="signUp" className="text-blue-500 hover:text-blue-600">
             Sign up here
           </Link>{" "}

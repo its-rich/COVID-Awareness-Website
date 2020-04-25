@@ -71,21 +71,24 @@ class SearchBar extends React.Component {
     changeDate(e) {
         let date = e.target.value;
         date = new Date(date);
-        // let strDate = '2020-01-01';
-        // let movingDate = new Date(strDate);
-        // let i = 0;
-        // if (date.toISOString().slice(0,10) < strDate) {
-        //     return;
-        // }
-        // while (strDate != date.toISOString().slice(0,10)) {
-        //     strDate = movingDate.toISOString().slice(0,10);
-        //     movingDate.setDate(movingDate.getDate() + 1);
-        //     i++;
-        // }
-        // this.props.updateSlider(202000 + i);
+
+        let strDate = '2020-01-01';
+        let movingDate = new Date(strDate);
+        let i = 0;
+        if (date.toISOString().slice(0,10) < strDate) {
+            return;
+        }
+        while (strDate != date.toISOString().slice(0,10)) {
+            strDate = movingDate.toISOString().slice(0,10);
+            movingDate.setDate(movingDate.getDate() + 1);
+            i++;
+        }
+        this.props.updateSlider(202000 + i);
+
         date.getDate();
+        this.props.updateISO(date.toISOString().slice(0,10));
         date = String(date).slice(4,15);
-        this.props.updateISO(date);
+        this.props.updateFlag();
         this.setState({iso: date});
     }
 
@@ -115,8 +118,10 @@ class SearchBar extends React.Component {
                         <span className="slider round"></span>
                         </label>
                     </div>
-
+                    <div className="FlexRow">
                     <h5>Disease:</h5>
+                    <input style={{width: "145px", color: "white"}} type="date" onChange={this.changeDate.bind(this)} className="input-field col s6" min="2020-01-01" max="2021-01-01"/>
+                    </div>
                     <select className="browser-default" id="diseaseSelect" defaultValue={'DEFAULT'} onChange={this.updateDisease.bind(this)}>
                         <option value="DEFAULT" disabled>Select A Disease</option>
                         <option key="COVID-19">COVID-19</option>

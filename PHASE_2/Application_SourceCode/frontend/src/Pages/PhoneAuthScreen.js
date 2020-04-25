@@ -14,11 +14,11 @@ class PhoneAuthScreen extends React.Component {
   // appVerifier = new auth.RecaptchaVerifier('recaptcha-container');
 
 
-   
+
 
   onChangeHandler = (event) => {
     const {name, value} = event.currentTarget;
-    console.log(name, value)
+    // console.log(name, value)
 
     if(name === 'phone') {
       this.setState({phone: value});
@@ -36,7 +36,7 @@ class PhoneAuthScreen extends React.Component {
   handleSendCode = () => {
     // Request to send OTP
     let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    console.log("sendcode " + this.state.phone, recaptcha)
+    // console.log("sendcode " + this.state.phone, recaptcha)
     if (this.validatePhoneNumber()) {
       firebase.auth()
         .signInWithPhoneNumber(this.state.phone, recaptcha)
@@ -46,7 +46,7 @@ class PhoneAuthScreen extends React.Component {
         .catch(error => {
           alert(error.message)
 
-          console.log(error)
+          // console.log(error)
         })
     } else {
       alert('Invalid Phone Number')
@@ -59,7 +59,7 @@ class PhoneAuthScreen extends React.Component {
 
   confirmedNumber = () => {
     this.setState({ confirmResult: true })
-    console.log("confirmed")
+    // console.log("confirmed")
   }
 
   handleVerifyCode = () => {
@@ -69,13 +69,13 @@ class PhoneAuthScreen extends React.Component {
       confirmResult
         .confirm(verificationCode)
         .then(user => {
-          console.log(user)
+          // console.log(user)
           this.setState({ userId: user.uid })
           alert(`Verified! ${user.uid}`)
         })
         .catch(error => {
           alert(error.message)
-          console.log(error)
+          // console.log(error)
         })
     } else {
       alert('Please enter a 6 digit OTP code.')
@@ -106,10 +106,10 @@ class PhoneAuthScreen extends React.Component {
 
   render() {
 
-    
+
     return (
       <div className="mt-8 text-black">
-        <h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
+        <h1 className="text-3xl mb-2 text-center font-bold">Sign In With Mobile</h1>
         <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
           {/* {error !== null && <div className = "py-4 bg-red-600 w-full text-black text-center mb-3">{error}</div>} */}
           <div id="recaptcha-container"></div>
@@ -127,8 +127,8 @@ class PhoneAuthScreen extends React.Component {
               id="phone"
               onChange = {(event) => this.onChangeHandler(event)}
             />
-            <button type="button" className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" 
-              onClick={e => 
+            <button type="button" className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+              onClick={e =>
                 this.state.confirmResult
                   ? this.changePhoneNumber()
                   : this.handleSendCode()
@@ -139,7 +139,7 @@ class PhoneAuthScreen extends React.Component {
               ? this.renderConfirmationCodeView()
               : null
             }
-            
+
           </form>
         </div>
       </div>
@@ -147,6 +147,6 @@ class PhoneAuthScreen extends React.Component {
 
 
   }
-  
+
 };
 export default PhoneAuthScreen;

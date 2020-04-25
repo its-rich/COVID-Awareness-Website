@@ -25,6 +25,9 @@ class SimController extends React.Component {
     }
 
     decrementDate() {
+        if (this.props.cure) {
+            return;
+        }
         if (this.state.currentDateOffset > 0) {
             this.setState({currentDateOffset: this.state.currentDateOffset - 1 });
             this.state.dateOffsetCallback(this.state.currentDateOffset  - 1);
@@ -68,8 +71,10 @@ class SimController extends React.Component {
         <input type="button" style={{width: "50%", margin: "10px"}} className="btn waves-effect waves-light black" id="backwards" onClick={this.decrementDate.bind(this)} value="Previous Day"/>
         <input type="button" style={{width: "40%"}} className="btn waves-effect waves-light black" id="forwards" onClick={this.incrementDate.bind(this)} value="Next Day"/>
         </table>
-        <input type="button" style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light red" value="Initiate Lockdown" onClick={this.setLockdown.bind(this)}/>
-        <input type="button" style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light green" value="Introduce Cure" onClick={this.setCure.bind(this)}/>
+        { this.props.lockdown === false && <input type="button" style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light red" value="Initiate Lockdown" onClick={this.setLockdown.bind(this)}/> }
+        { this.props.lockdown === true && <input type="button" style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light red" value="End Lockdown" onClick={this.setLockdown.bind(this)}/> }
+        { this.props.cure === false && <input type="button" style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light green" value="Introduce Cure" onClick={this.setCure.bind(this)}/> }
+        { this.props.cure === true && <input type="button" style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light green" value="Destroy Cure" onClick={this.setCure.bind(this)}/> }
         <input type="button"  style={{width: "75%", margin: "10px"}} className="btn waves-effect waves-light blue" value="Reset Simulation" onClick={this.setReset.bind(this)}/>
         </div>
         </Draggable>

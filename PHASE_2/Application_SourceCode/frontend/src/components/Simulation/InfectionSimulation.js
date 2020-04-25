@@ -162,11 +162,42 @@ export default class InfectedSimulation extends Component {
         }
     }
 
+    cureFrame() {
+        if (this.state.currentFrame >= 1) {
+            let lastFrame = this.state.Frames[this.state.Frames.length - 1];
+            let start = this.state.Frames[this.state.Frames.length - 2].length
+            lastFrame.forEach((item, i) => {
+                if (i >= start) {
+                    if (Math.random() > 0.3) {
+                        item.circle.setMap(null);
+                        // item.circle.setVisible(false);
+                        lastFrame.splice(item, 1);
+                        console.log(item);
+                    }
+                }
+            });
+            console.log(this.state.Frames);
+            if (start === lastFrame.length) {
+                this.state.Frames.pop();
+                this.state.currentFrame -= 1;
+            }
+            // console.log(this.state.Frames);
+            // this.setState({currentFrame: this.state.currentFrame - 1})
+        } else {
+            this.state.Frames.forEach((item, i) => {
+                item[i].circle.setMap(null);
+                this.state.Frames.pop()
+            });
+        }
+
+        if (this.state.currentFrame >= this.state.Frames.length) {
+            this.state.currentFrame = this.state.Frames.length - 1;
+        }
+    }
+
     nextFrame(type) {
         if (this.state.currentFrame + 1 == this.state.Frames.length) {
             if (type === 'LOCK') {
-                this.loadNextFrame('LOCK');
-            } else if (type === 'CURE') {
                 this.loadNextFrame('LOCK');
             } else {
                 this.loadNextFrame();

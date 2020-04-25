@@ -7,6 +7,7 @@ import VirusAvoider from './Pages/VirusAvoider.js';
 import VirusSimulator from './Pages/VirusSimulator.js'
 import Infected from './Pages/Infected.js'
 import Home from './Pages/Home.js';
+<<<<<<< HEAD
 import SignIn from './Pages/SignIn.js';
 import SignUp from './Pages/SignUp.js';
 import firebase from "./components/Firebase/config.js";
@@ -77,6 +78,32 @@ class App extends React.Component {
 
 
     }
+=======
+import Reports from './Pages/Reports.js';
+import News from './Pages/News.js';
+import Risk from './Pages/Risk.js';
+import SocialDistancing from './Pages/SocialDistancing.js';
+import Simulator from './Pages/Simulator.js';
+
+function App () {
+    return (
+        <Router>
+            <div className="App">
+                <Nav />
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/diseases" exact component={Diseases} />
+                    <Route path="/continents" exact component={Continents} />
+                    <Route path="/reports" exact component={Reports} />
+                    <Route path="/latestnews" exact component={News} />
+                    <Route path="/risk" exact component={Risk} />
+                    <Route path="/socialDistancing" exact component={SocialDistancing} />
+                    <Route path="/Simulator" exact component={Simulator} />
+                </Switch>
+            </div>
+        </Router>
+    );
+>>>>>>> simulator
 }
 
 export default App

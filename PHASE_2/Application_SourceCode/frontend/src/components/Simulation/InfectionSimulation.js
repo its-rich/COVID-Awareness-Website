@@ -13,6 +13,8 @@ export default class InfectedSimulation extends Component {
         }
     }
 
+    
+
     init(map) {
         this.state.map = map;
         // Add the initial data (atm one circle in the center of Australia)
@@ -25,6 +27,8 @@ export default class InfectedSimulation extends Component {
     }
 
     loadNextFrame() {
+        console.log("Loading frame " + this.state.Frames.length);
+        if (this.state.Frames.length === 0) return;
         let lastFrame = this.state.Frames[this.state.Frames.length - 1];
         let nextFrame = [];
 
@@ -64,6 +68,10 @@ export default class InfectedSimulation extends Component {
             });
             this.state.Frames.pop()
         }
+
+        if (this.state.currentFrame >= this.state.Frames.length) {
+            this.setState({currentFrame: this.state.Frames.length - 1});
+        }
     }
 
     nextFrame() {
@@ -82,6 +90,10 @@ export default class InfectedSimulation extends Component {
             this.state.Frames.pop()
             this.state.currentFrame -= 1;
         }
+    }
+
+    getInfectionCount() {
+        return this.state.Frames[this.state.currentFrame].length
     }
 
     getCurrentFrame() {

@@ -34,7 +34,9 @@ class SimMap extends Component {
             infectionSim: [],
             lat: '',
             long: '',
-            map: ''
+            map: '',
+            infectedCallback: props.infectedCallback,
+            infectionCount: props.infectionCount,
         }
     }
 
@@ -45,6 +47,15 @@ class SimMap extends Component {
         },
         zoom: 4.5
     };
+
+    passNumberInfected() {
+        let total = 0
+        for (let i = 0; i < this.state.infectionSim.length; i++) {
+            total += this.state.infectionSim[i].getInfectionCount();
+        }
+        console.log(total);
+        this.state.infectedCallback(total);
+    }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.currentDateOffset < this.props.currentDateOffset) {
@@ -76,49 +87,44 @@ class SimMap extends Component {
             let chance = 0
 
             // Sydney
-            let dist = distance(lat, long, -33.8688, long = 151.2093, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let SYDdist = distance(lat, long, -33.8688, long = 151.2093, "K");
+            SYDdist = Math.floor(SYDdist);
 
             // Melbourne
-            dist = distance(lat, long, -37.8136, long = 144.9631, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let MELdist = distance(lat, long, -37.8136, long = 144.9631, "K");
+            MELdist = Math.floor(MELdist);
 
             // Perth
-            dist = distance(lat, long, -31.9505, long = 115.8605, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let PERdist = distance(lat, long, -31.9505, long = 115.8605, "K");
+            PERdist = Math.floor(PERdist);
 
             // Brisbane
-            dist = distance(lat, long, -27.4698, long = 153.0251, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let BRIdist = distance(lat, long, -27.4698, long = 153.0251, "K");
+            BRIdist = Math.floor(BRIdist);
 
             // Adelaide
-            dist = distance(lat, long, -34.9285, long = 138.6007, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let ADEdist = distance(lat, long, -34.9285, long = 138.6007, "K");
+            ADEdist = Math.floor(ADEdist);
 
             // Cairns
-            dist = distance(lat, long, -16.9186, long = 145.7781, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let CAIdist = distance(lat, long, -16.9186, long = 145.7781, "K");
+            CAIdist = Math.floor(CAIdist);
 
             // Darwin
-            dist = distance(lat, long, -12.4634, long = 130.8456, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let DARdist = distance(lat, long, -12.4634, long = 130.8456, "K");
+            DARdist = Math.floor(DARdist);
 
             // Canberra
-            dist = distance(lat, long, -35.2809, long = 149.1300, "K");
-            dist = Math.floor(dist);
-            console.log(dist);
+            let CANdist = distance(lat, long, -35.2809, long = 149.1300, "K");
+            CANdist = Math.floor(CANdist);
 
-            console.log('');
+            chance = Math.min(SYDdist,MELdist,PERdist,BRIdist,ADEdist,CAIdist,DARdist,CANdist);
+            // Change chance according to distance from city
+            chance = 1 - chance / 1400;
+            console.log(chance);
 
-            let map = this.state.map
-            this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(this.state.lat, this.state.long, 0.5, map)
+            let map = this.state.map;
+            this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(this.state.lat, this.state.long, chance, map);
         }
     }
 
@@ -136,19 +142,16 @@ class SimMap extends Component {
 
                         map.addListener('click', (mapsMouseEvent) => {
                             let lat = mapsMouseEvent.latLng.toString().split(',')[0].replace('(', '');
-                            lat = parseInt(lat);
+                            lat = Number(lat);
                             let long = mapsMouseEvent.latLng.toString().split(',')[1].replace(')', '').replace(' ', '');
-                            long = parseInt(long);
+                            long = Number(long);
                             this.setState({map: map});
                             this.setState({lat: lat});
                             this.state.infectionSim.push(new InfectionSimulation());
                             this.setState({long: long});
+                            this.passNumberInfected();
                         });
                     }}
-
-                    // This shouldn't have to be here
-                    // onClick={this.update}
-
                 />
             </div>
             </div>

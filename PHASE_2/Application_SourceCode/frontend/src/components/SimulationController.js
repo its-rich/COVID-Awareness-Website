@@ -8,6 +8,7 @@ class SimController extends React.Component {
         this.state = {
             dateOffsetCallback: this.props.dateOffsetCallback,
             currentDateOffset: 0,
+            numberInfected: this.props.numberInfected,
         }
     }
 
@@ -27,13 +28,23 @@ class SimController extends React.Component {
         }
     }
 
+    statisticStyle = {
+        overflow: "hidden", whiteSpace: "nowrap", color: "white", width: "100%"
+    }
+
     render() {
         return (
-            <div className="FlexRow" style={{width: "100%", paddingLeft: "20px", paddingRight: "20px", backgroundColor: "#FFFFFF", }}>
-                <input type="date" />
-                <input id="backwards" type="button" value="Back" onClick={this.decrementDate.bind(this)} />
-                <input id="forwards" type="button" value="Forward" onClick={this.incrementDate.bind(this)} />
-                <input key='slider' type="range" min="202000" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
+            <div className="FlexRow" style={{width: "100%", lineHeight: "40px", height: "40px", paddingLeft: "20px", paddingRight: "20px", backgroundColor: "#3A3A3A", }}>
+                <div className="FlexRow" style={{width: "500px", lineHeight: "40px", height: "40px", paddingLeft: "20px", paddingRight: "20px", backgroundColor: "#3A3A3A", }}>
+                <h6 style={this.statisticStyle}> Day: {this.state.currentDateOffset} </h6>
+                <h6 style={this.statisticStyle}> Number Infected: {this.state.numberInfected} </h6>
+                </div>
+                <nav className="FlewRow" style={{height: "40px", width: "100%", justifyContent: "center", backgroundColor: "transparent", boxShadow: "none", WebkitBoxShadow: "none"}}>
+                    <ul className="right FlexRow noselect" style={{verticalAlign: "center", lineHeight: "40px", height: "40px"}}>
+                        <li><a id="backwards" onClick={this.decrementDate.bind(this)}> Previous Day </a> </li>
+                        <li><a id="forwards" onClick={this.incrementDate.bind(this)}> Next Day </a> </li>
+                    </ul>
+                </nav>
             </div>
         )
     };

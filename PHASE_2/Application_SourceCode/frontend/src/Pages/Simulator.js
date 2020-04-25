@@ -14,6 +14,7 @@ class Simulator extends Component {
         this.state = {
             // The amount of days away from "today"
             dateOffset: 0,
+            numberInfected: 0,
         }
     }
 
@@ -22,11 +23,16 @@ class Simulator extends Component {
         this.setState({dateOffset: offset});
     }
 
+    // Function that the SimMap uses to change number infected
+    setNumberInfected = (numberInfected) => {
+        this.setState({numberInfected});
+    }
+
     render() {
         return (
             <div>
-                <SimController dateOffsetCallback={this.setDateOffset} />
-                <SimMap currentDateOffset={this.state.dateOffset} />
+                <SimController dateOffsetCallback={this.setDateOffset} numberInfected={this.state.numberInfected} />
+                <SimMap currentDateOffset={this.state.dateOffset} infectedCallback={this.setNumberInfected} infectionCount={this.state.numberInfected} />
             </div>
         )
     }

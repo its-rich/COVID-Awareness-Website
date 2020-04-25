@@ -32,7 +32,7 @@ class App extends React.Component {
             console.log("Changed");
         });
     }
-      
+
     componentWillUnmount() {
         this.unsubscribeFromAuth();
     }
@@ -45,7 +45,6 @@ class App extends React.Component {
                         <NavIn />
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/coronavirus-avoider" exact component={VirusAvoider} />
                             <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
@@ -62,7 +61,6 @@ class App extends React.Component {
                         <Nav />
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/coronavirus-avoider" exact component={VirusAvoider} />
                             <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
@@ -74,7 +72,7 @@ class App extends React.Component {
                 </Router>
             );
         }
-        
+
 
     }
 }

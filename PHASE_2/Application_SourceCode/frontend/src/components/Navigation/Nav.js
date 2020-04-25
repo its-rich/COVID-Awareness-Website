@@ -9,7 +9,6 @@ const Nav = ({currentUser}) => (
         </div>
         <ul className="right">
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/coronavirus-avoider'>Coronavirus Avoider</Link></li>
             <li><Link to='/coronavirus-simulator'>Coronavirus Simulator</Link></li>
             <li><Link to='/infected'>I'm Infected</Link></li>
         </ul>

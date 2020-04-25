@@ -107,8 +107,8 @@ class SearchBar extends React.Component {
                 onStart={this.handleStart}
                 onDrag={this.handleDrag}
                 onStop={this.handleStop}>
-            <div className="SearchBar" id="move">
-                <div className="Box">
+            <div className="SearchBar">
+                <div id="move" className="Box">
                     <div className="FlexRow">
                         <h5 id='switchmap'>Infected/Year</h5>
                         <label className="switch">
@@ -125,18 +125,18 @@ class SearchBar extends React.Component {
                     </select>
                 </div>
                 <div id="startDate" className="Box">
-                <div className="FlexRow">
+                <div id="move" className="FlexRow">
                     <h5>In:</h5>
                     <h5 id="dates">{Math.floor(this.props.dateRange / 100)}</h5>
                 </div>
                 <input key='slider' type="range" min="199600" max="202100" defaultValue="202000" className="yearslider" id="DateRange" onChange={this.updateSlider.bind(this)}/>
                 </div>
-                {this.state.iso === '' && <div id="mapstats" className="Box">
+                {this.state.iso === '' && <div id="move" className="Box">
                     <h5>{String(this.props.dateRange).slice(0,4)} Stats</h5>
                     <h5>Total Infected: {this.props.infected}</h5>
                     <h5>Total Fatalities: {this.props.deaths}</h5>
                 </div>}
-                {this.state.iso !== '' && <div id="mapstats" className="Box">
+                {this.state.iso !== '' && <div id="move" className="Box">
                     <h5>{this.state.iso} Stats</h5>
                     <h5>Total Infected: {this.props.infected}</h5>
                     <h5>Total Fatalities: {this.props.deaths}</h5>

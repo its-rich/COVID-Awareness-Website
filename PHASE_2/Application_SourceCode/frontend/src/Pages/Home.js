@@ -57,11 +57,6 @@ class Home extends React.Component {
         return (
         <div id='mapinteraction'>
             <div id='setmap'>
-                <a href="#" class="reveal_graphs" onclick="openForm()">&#8249;</a>
-                <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                </form>
-                </div>
                 <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)} updateISO={this.updateISO.bind(this)}/>
                 <MapContainer updateStats={this.updateStats.bind(this)} updateLocation={this.updateLocation.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} iso={this.state.iso} />
                 {this.state.disease !== '' && <Graph disease={this.state.disease}/>}

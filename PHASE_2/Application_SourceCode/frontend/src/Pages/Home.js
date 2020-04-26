@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';	
+import * as Scroll from 'react-scroll';
 import '../App.css';
 import MapContainer from '../components/MapContainer';
 import SearchBar from '../components/SearchBar';

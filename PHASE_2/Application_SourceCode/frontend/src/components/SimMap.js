@@ -37,6 +37,7 @@ class SimMap extends Component {
             long: '',
             map: '',
             city: -1,
+            cities: [],
             infectedCallback: props.infectedCallback,
             infectionCount: props.infectionCount,
             message: 0,
@@ -156,6 +157,35 @@ class SimMap extends Component {
                     this.setState({new: true});
                 }
             }
+
+            if (this.passNumberInfected() > 400 && this.state.cities.length !== 8) {
+                if (Math.random() > 0.5) {
+                    let index1 = Math.floor(Math.random() * 8);
+                    while (this.state.cities.indexOf(index1) !== -1) {
+                        index1 = Math.floor(Math.random() * 8);
+                    }
+                    this.state.infectionSim.push(new InfectionSimulation());
+                    if (index1 ===  0) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-33.8688, 151.2093, 0.9, this.state.map);
+                    } else if (index1 ===  1) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-37.8136, 144.9631, 0.9, this.state.map);
+                    } else if (index1 ===  2) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-31.9505, 115.8605, 0.9, this.state.map);
+                    } else if (index1 ===  3) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-27.4698, 153.0251, 0.9, this.state.map);
+                    } else if (index1 ===  4) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-34.9285, 138.6007, 0.9, this.state.map);
+                    } else if (index1 ===  5) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-16.9186, 145.7781, 0.9, this.state.map);
+                    } else if (index1 ===  6) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-12.4634, 130.8456, 0.9, this.state.map);
+                    } else if (index1 ===  7) {
+                        this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-35.2809, 149.1300, 0.9, this.state.map);
+                    }
+                    this.state.cities.push(index1);
+                    this.setState({new: true});
+                }
+            }
             let start = this.passNumberInfected();
             this.state.infectionSim.map((item, i) => {
                 if (this.props.lockdown) {
@@ -265,6 +295,7 @@ class SimMap extends Component {
 
             chance = Math.min(SYDdist,MELdist,PERdist,BRIdist,ADEdist,CAIdist,DARdist,CANdist, NOwhere);
             this.state.city = city.indexOf(chance);
+            this.state.cities.push(city.indexOf(chance));
 
             // Change chance according to distance from city
             chance = 1 - chance / 1400;

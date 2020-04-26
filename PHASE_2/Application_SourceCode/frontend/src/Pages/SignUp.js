@@ -9,7 +9,18 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const createUserWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((result) => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                firebase.firestore().collection('users').doc(auth.currentUser.uid).set({
+                    uid: user.uid,
+                    email_address: auth.currentUser.email
+                }, {merge: true});
+            }
+        });
+    })
+    .catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
@@ -106,7 +117,7 @@ user.sendEmailVerification().then(function() {
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);
-              
+
               // sendSignInLinkToEmail(email);
             }}
           >

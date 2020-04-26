@@ -48,7 +48,7 @@ const PasswordReset = () => {
                 />
                     <button style={{width: "50%", marginLeft: "25%", marginTop: "20px"}} class="w-full bg-blue-400 text-white py-3" onClick = {(event) => {sendResetEmail(event, email)}}>Send me a reset link</button>
                 </form>
-                    <a class="my-2 text-blue-700 hover:text-blue-800 text-center block" href="/signin">← back to sign in page</a>
+                    <a class="my-2 text-blue-700 hover:text-blue-800 text-center block" href="/infected">← back to sign in page</a>
             </div>
         </div>
     </div>

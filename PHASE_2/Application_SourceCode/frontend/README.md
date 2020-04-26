@@ -5,6 +5,8 @@ And Install Firebase!<br />
 ### npm install firebase --save
 Install to apply draggable feature
 ### npm install react-draggable
+Install sliding side panel feature
+### npm i --save react react-dom react-sliding-pane
 
 <br />
 <br />

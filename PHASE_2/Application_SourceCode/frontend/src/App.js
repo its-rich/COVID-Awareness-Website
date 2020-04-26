@@ -28,7 +28,7 @@ class App extends React.Component {
         let auth = firebase.auth();
         this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
             this.setState({ currentUser: user });
-            console.log(this.state.currentUser);
+            // console.log(this.state.currentUser);
             // console.log("Changed");
         });
     }

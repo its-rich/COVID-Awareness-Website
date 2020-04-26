@@ -75,20 +75,22 @@ class SimMap extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.lockdown === false && this.props.lockdown) {
-            this.setState({alert: <AlertModal message1="Lockdown Initiated!" message2="New cases should slowly reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+            this.setState({alert: <AlertModal message1="Total Lockdown Initiated!" message2="New cases should slowly reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
         } else if (prevProps.lockdown && this.props.lockdown === false) {
-            this.setState({alert: <AlertModal message1="Lockdown Ended!" message2="People should start to get infected again!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+            this.setState({alert: <AlertModal message1="Total Lockdown Ended!" message2="People should start to get infected again!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
         } else if (prevProps.cure === false && this.props.cure) {
             this.setState({alert: <AlertModal message1="Cure Discovered!" message2="Cases should start to reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
         } else if (prevProps.cure && this.props.cure === false) {
             this.setState({alert: <AlertModal message1="Cure Destroyed!" message2="People should start to get infected again!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
         } else if (this.state.message == 14) {
-            this.setState({alert: <AlertModal message1="Lockdown Successful!" message2="No new cases have emerged after 2 weeks!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
+            this.setState({alert: <AlertModal message1="Total Lockdown Successful!" message2="No new cases have emerged after 2 weeks!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
             this.state.message += 1;
         } else if (this.state.new) {
             this.setState({alert: <AlertModal message1="New Location Infected!" message2={"There are now " + this.state.infectionSim.length + " locations with coronavirus"} color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
             this.state.new = false;
         }
+
+        // this.setState({alert: <AlertModal message1="Lockdown Has Neutralised Coronavirus!" message2="Cases should start to reduce!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
 
         if (this.props.reset) {
             this.state.infectionSim.map((item) => {
@@ -104,7 +106,8 @@ class SimMap extends Component {
             this.state.city= -1;
             this.state.message = 0;
             this.props.setReset();
-        } else if (this.state.message > 15 && this.props.lockdown && prevProps.currentDateOffset < this.props.currentDateOffset) {
+        } else if (this.state.message >= 15 && this.props.lockdown && prevProps.currentDateOffset < this.props.currentDateOffset) {
+            let start = this.passNumberInfected();
             this.props.setLockdownCure();
             this.state.infectionSim.map((item, i) => {
                 item.previousFrame();
@@ -115,6 +118,14 @@ class SimMap extends Component {
                 }
             })
             let end = this.passNumberInfected();
+            if (start > end && this.state.lat !== 0) {
+                this.setState({alert: <AlertModal message1="Lockdown Has Obstructed Coronavirus!" message2="Cases should start to reduce!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
+                this.state.lat = 0;
+            }
+            if (end === 0 && this.state.long !== 0) {
+                this.setState({alert: <AlertModal message1="Australia Is Cured!" message2="Coronavirus Successfully Neutralised!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
+                this.state.long = 0;
+            }
             this.state.infectedCallback(end);
             this.props.setNewCases(0);
         } else if (prevProps.currentDateOffset < this.props.currentDateOffset) {
@@ -155,6 +166,10 @@ class SimMap extends Component {
                     if (item.getCurrentFrame() <= 0) {
                         item.safetyDelete();
                         this.state.infectionSim.splice(i, 1);
+                    }
+                    if (this.passNumberInfected() === 0 && this.state.lat !== 0) {
+                        this.setState({alert: <AlertModal message1="Australia Is Cured!" message2="Coronavirus Successfully Neutralised!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
+                        this.state.lat = 0;
                     }
                 } else {
                     item.nextFrame();

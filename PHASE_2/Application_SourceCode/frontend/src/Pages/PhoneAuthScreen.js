@@ -93,7 +93,7 @@ class PhoneAuthScreen extends React.Component {
           id="verificationCode"
           onChange = {(event) => this.onChangeHandler(event)}
         />
-        <button className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {this.handleVerifyCode}>
+        <button style={{width: "20%", marginLeft: "40%"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {this.handleVerifyCode}>
           Verify Code
         </button>
         <div id="phone-sign-in-recaptcha"></div>

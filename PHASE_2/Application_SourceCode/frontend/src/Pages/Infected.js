@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SignIn from './SignIn.js'
 import Latest from './Latest.js'
+import Summary from './Summary.js'
 import firebase from "../components/Firebase/config.js";
 import '../App.css';
 
@@ -26,20 +27,13 @@ class Infected extends Component {
         return (
             <div>
             {this.state.uid === undefined && <SignIn updateUID={this.updateUID.bind(this)}/> }
-            {this.state.uid !== undefined  && <Latest uid={this.state.uid}/>}
-
+            {this.state.uid !== undefined  && this.state.uid !== "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Latest uid={this.state.uid}/>}
+            {this.state.uid !== undefined  && this.state.uid === "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Summary/>}
             </div>
         )
     }
 }
-// {this.state.email === undefined && <SignIn updateEmail={this.updateEmail.bind(this)}/> }
-// {this.state.email === "coronavirus.aus.tracker@gmail.com"}
-// {this.state.email !== undefined  && <Latest email={this.state.email}/>}
 
-// auth.onAuthStateChanged(user => {
-//     if (user) {
-//         this.setState({email: user.email})
-//     }
-// });
+
 
 export default Infected;

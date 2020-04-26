@@ -172,11 +172,11 @@ export default class InfectedSimulation extends Component {
                         item.circle.setMap(null);
                         // item.circle.setVisible(false);
                         lastFrame.splice(item, 1);
-                        console.log(item);
+                        // console.log(item);
                     }
                 }
             });
-            console.log(this.state.Frames);
+            // console.log(this.state.Frames);
             if (start === lastFrame.length) {
                 this.state.Frames.pop();
                 this.state.currentFrame -= 1;

@@ -90,7 +90,7 @@ user.sendEmailVerification().then(function() {
             id="userEmail"
             onChange={event => onChangeHandler(event)}
           />
-          <label htmlFor="userPassword" className="block">
+          <label htmlFor="userPassword" className="block" style={{marginTop: "25px"}}>
             Password:
           </label>
           <input
@@ -106,7 +106,7 @@ user.sendEmailVerification().then(function() {
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);
-
+              
               // sendSignInLinkToEmail(email);
             }}
           >

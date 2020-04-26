@@ -129,8 +129,8 @@ export default class Latest extends Component {
                 if (doc.data().locations !== undefined) {
                     this.setState({locations: doc.data().locations});
                 }
-                if (doc.data().contact_name !== undefined) {
-                    this.setState({contact_name: doc.data().contact_name});
+                if (doc.data().contact_names !== undefined) {
+                    this.setState({contact_name: doc.data().contact_names});
                 }
                 if (doc.data().contact_phone !== undefined) {
                     this.setState({contact_phone: doc.data().contact_phone});
@@ -145,7 +145,6 @@ export default class Latest extends Component {
     }
 
     render() {
-
         return (
             <div className="mt-8 text-black">
               <h1 style={{margin: 20}} className="text-3xl mb-2 text-center font-bold">People I Have Come Into Contact With</h1>
@@ -162,7 +161,7 @@ export default class Latest extends Component {
                     required
                   />
                   </div>
-                  <label htmlFor="userPassword" className="block">
+                  <label htmlFor="userPassword" className="block" style={{marginTop: "25px"}}>
                     Email Address:
                   </label>
                   <input
@@ -173,7 +172,7 @@ export default class Latest extends Component {
                     id="contact2"
                     required
                   />
-                  <label htmlFor="userPassword" className="block">
+                  <label htmlFor="userPassword" className="block" style={{marginTop: "25px"}}>
                     Phone Number:
                   </label>
                   <input
@@ -183,9 +182,9 @@ export default class Latest extends Component {
                     id="contact3"
                     required
                   />
-                  <ul>
+                  <ul style={{marginTop: "25px"}}>
                   {this.state.contact_email.map((contact, i) => {
-                          return (<option key={contact}>
+                          return (<option key={contact} style={{marginTop: "10px"}}>
                           {this.state.contact_name[i]} | {contact} | {this.state.contact_phone[i]}
                           </option>)})}
                   </ul>
@@ -216,7 +215,7 @@ export default class Latest extends Component {
                   </div>
                   <ul>
                   {this.state.symptoms.map(symptom =>{
-                          return (<option key={symptom}>
+                          return (<option key={symptom} style={{marginTop: "10px"}}>
                           {symptom}
                           </option>)})}
                   </ul>
@@ -246,7 +245,7 @@ export default class Latest extends Component {
                   </div>
                   <ul>
                   {this.state.locations.map(location => {
-                          return (<option key={location}>
+                          return (<option key={location} style={{marginTop: "10px"}}>
                           {location}
                           </option>)})}
                   </ul>

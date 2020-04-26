@@ -100,12 +100,12 @@ const SignIn = (props) => {
             id="userPassword"
             onChange = {(event) => onChangeHandler(event)}
           />
-          <button style={{width: "50%", marginLeft: "25%", marginTop: "30px"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
+          <button style={{width: "15%", marginLeft: "42.5%", marginTop: "30px"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
             Sign in
           </button>
         </form>
         <p className="text-center my-3">or</p>
-        <button style={{width: "50%", marginLeft: "25%"}}
+        <button style={{width: "30%", marginLeft: "35%"}}
           className="bg-red-500 hover:bg-red-600 w-full py-2 text-white" onClick={googleSignIn}>
           Sign in with Google
         </button>

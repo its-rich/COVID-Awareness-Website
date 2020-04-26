@@ -122,15 +122,15 @@ export default class Profile extends Component {
         return (
             <div className="mt-8 text-black">
                 <h1 style={{margin: 20}} className="text-3xl mb-2 text-center font-bold">My Profile</h1>
-                <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8" style={{marginBottom: "50px"}}>
+                <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8" style={{marginBottom: "50px", borderWidth: "3px", borderColor: "grey"}}>
                     <form className="text-black">
                     { this.state.first === '' && <div>
                         <label className="block">
                             First Name
                         </label>
                         <div className="FlexRow">
-                            <input id="first" placeholder=''/>
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setFirstName(e)}>
+                            <input id="first" placeholder='' required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setFirstName(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -141,9 +141,6 @@ export default class Profile extends Component {
                         </label>
                         <div className="FlexRow">
                             <input id="first" value={this.state.first} disabled/>
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setFirstName(e)} disabled>
-                                Confirm Change
-                            </button>
                         </div>
                     </div>}
                     { this.state.last === '' && <div>
@@ -151,8 +148,8 @@ export default class Profile extends Component {
                             Last Name
                         </label>
                         <div className="FlexRow">
-                            <input id="last" placeholder='' />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setLastName(e)}>
+                            <input id="last" placeholder='' required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setLastName(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -163,9 +160,6 @@ export default class Profile extends Component {
                         </label>
                         <div className="FlexRow">
                             <input id="last" value={this.state.last} disabled/>
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setLastName(e)} disabled>
-                                Confirm Change
-                            </button>
                         </div>
                     </div>}
                     <div>
@@ -174,9 +168,6 @@ export default class Profile extends Component {
                         </label>
                         <div className="FlexRow">
                             <input id="email" value={this.state.email} disabled/>
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setEmail(e)} disabled>
-                                Confirm Change
-                            </button>
                         </div>
                     </div>
                     { this.state.num === '' &&  <div>
@@ -184,8 +175,8 @@ export default class Profile extends Component {
                             Contact Number
                         </label>
                         <div className="FlexRow">
-                            <input id="num" placeholder='E.g: 0412 345 678' />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setNum(e)}>
+                            <input id="num" type="tel" placeholder='E.g: 0412 345 678' required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setNum(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -195,8 +186,8 @@ export default class Profile extends Component {
                             Contact Number
                         </label>
                         <div className="FlexRow">
-                            <input id="num" defaultValue={this.state.num} />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setNum(e)}>
+                            <input id="num" type="tel" defaultValue={this.state.num} required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setNum(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -206,8 +197,8 @@ export default class Profile extends Component {
                             Home Address
                         </label>
                         <div className="FlexRow">
-                            <input id="home" placeholder='E.g: 123 Smith Street, Suburb' />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setHome(e)}>
+                            <input id="home" placeholder='E.g: 123 Smith Street, Suburb' required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setHome(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -217,8 +208,8 @@ export default class Profile extends Component {
                             Home Address
                         </label>
                         <div className="FlexRow">
-                            <input id="home" value={this.state.home} />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setHome(e)}>
+                            <input id="home" value={this.state.home} required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setHome(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -228,8 +219,8 @@ export default class Profile extends Component {
                             Date of Birth
                         </label>
                         <div className="FlexRow">
-                            <input id="dob" type="date" min="1920-01-01" max="2020-04-27"/>
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setDOB(e)}>
+                            <input id="dob" type="date" min="1920-01-01" max="2020-04-27" required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setDOB(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -240,9 +231,6 @@ export default class Profile extends Component {
                         </label>
                         <div className="FlexRow">
                             <input id="dob" value={this.state.dob} type="date" min="1920-01-01" max="2020-04-27" disabled/>
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setDOB(e)} disabled>
-                                Confirm Change
-                            </button>
                         </div>
                     </div>}
                     { this.state.sex === '' && <div>
@@ -251,7 +239,7 @@ export default class Profile extends Component {
                         </label>
                         <div className="FlexRow">
                             <input id="sex" />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setSex(e)}>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setSex(e)}>
                                 Confirm Change
                             </button>
                         </div>
@@ -261,8 +249,8 @@ export default class Profile extends Component {
                             Sex/Gender
                         </label>
                         <div className="FlexRow">
-                            <input id="sex" value={this.state.sex} />
-                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "50%", height: "50%"}} onClick={(e) => this.setSex(e)}>
+                            <input id="sex" value={this.state.sex} required/>
+                            <button className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white" style={{width: "40%", height: "50%", marginLeft: "10px"}} onClick={(e) => this.setSex(e)}>
                                 Confirm Change
                             </button>
                         </div>

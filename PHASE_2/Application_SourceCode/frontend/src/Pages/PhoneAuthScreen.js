@@ -126,7 +126,7 @@ class PhoneAuthScreen extends React.Component {
               id="phone"
               onChange = {(event) => this.onChangeHandler(event)}
             />
-            <button style={{width: "50%", marginLeft: "25%", marginTop: "20px"}} type="button" className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+            <button style={{width: "20%", marginLeft: "40%", marginTop: "20px"}} type="button" className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
               onClick={e =>
                 this.state.confirmResult
                   ? this.changePhoneNumber()

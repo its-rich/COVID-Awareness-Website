@@ -74,8 +74,10 @@ class SimMap extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.lockdown === false && this.props.lockdown) {
-            this.setState({alert: <AlertModal message1="Total Lockdown Initiated!" message2="New cases should slowly reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+
+        if (this.props.reset) {
+        } else if (prevProps.lockdown === false && this.props.lockdown) {
+            this.setState({alert: <AlertModal message1="Lockdown Initiated!" message2="New cases should slowly reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
         } else if (prevProps.lockdown && this.props.lockdown === false) {
             this.setState({alert: <AlertModal message1="Total Lockdown Ended!" message2="People should start to get infected again!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
         } else if (prevProps.cure === false && this.props.cure) {

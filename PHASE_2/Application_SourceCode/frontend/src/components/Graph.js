@@ -103,7 +103,7 @@ class Graph extends React.Component {
                 totali += confirm;
                 totalr += recover;
             });
-            newdata.push(['Apr 2019', totald, totali, totalr]);
+            newdata.push(['Apr 2020', totald, totali, totalr]);
             this.setState({data: newdata});
         } else {
             numbers.forEach((disease) => {
@@ -219,7 +219,7 @@ class Graph extends React.Component {
                     totali += confirm;
                     totalr += recover;
                 });
-                newdata.push(['Apr 2019', totald, totali, totalr]);
+                newdata.push(['Apr 2020', totald, totali, totalr]);
                 this.setState({data: newdata});
             } else {
                 numbers.forEach((disease) => {

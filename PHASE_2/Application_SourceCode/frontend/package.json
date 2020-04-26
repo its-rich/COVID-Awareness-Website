@@ -23,7 +23,7 @@
     "moment": "^2.24.0",
     "moment-range": "^3.1.1",
     "popper.js": "^1.16.1",
-    "react": "^16.11.0",
+    "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-calendar-heatmap": "^1.8.1",
     "react-datepicker": "^2.14.1",

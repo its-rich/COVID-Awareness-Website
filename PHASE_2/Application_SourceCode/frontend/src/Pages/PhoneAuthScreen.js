@@ -66,18 +66,18 @@ class PhoneAuthScreen extends React.Component {
     // e.preventDefault()
     // Request for OTP verification
     const { confirmResult, verificationCode } = this.state
-    alert("verify code")
+    // alert("verify code")
     if (verificationCode.length == 6) {
       confirmResult
         .confirm(verificationCode)
         .then(user => {
-          console.log(user)
+          // console.log(user)
           this.setState({ userId: user.uid })
-          alert(`Verified! ${user.uid}`)
+          // alert(`Verified! ${user.uid}`)
         })
         .catch(error => {
-          alert(error.message)
-          console.log(error)
+          // alert(error.message)
+          // console.log(error)
         })
     } else {
       alert('Please enter a 6 digit OTP code.')

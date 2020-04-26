@@ -186,7 +186,7 @@ export default class Summary extends Component {
     render() {
         return (
             <div>
-            <h1 style={{margin: 30, color: "black"}} className="text-3xl mb-2 text-center font-bold">{this.state.new} New Cases Since Last Login</h1>
+            <h1 style={{margin: 30, color: "black"}} className="text-3xl mb-2 text-center font-bold">{this.state.new} New Reported Cases Since Last Login</h1>
             <table className="centered" style={{color: "black", width: "95%", marginTop: "25px", marginLeft: "2.5%", border: "1px solid #e2e8f0"}}>
         <thead>
           <tr>
@@ -204,7 +204,7 @@ export default class Summary extends Component {
         </tbody>
       </table>
 
-      <h1 style={{margin: 30, color: "black", marginTop: "60px"}} className="text-3xl mb-2 text-center font-bold">Cases By Location</h1>
+      <h1 style={{margin: 30, color: "black", marginTop: "60px"}} className="text-3xl mb-2 text-center font-bold">Reported Cases By Location</h1>
       <table className="centered" style={{color: "black", width: "95%", marginTop: "25px", marginLeft: "2.5%", marginBottom: "70px", border: "1px solid #e2e8f0"}}>
       <thead>
         <tr>

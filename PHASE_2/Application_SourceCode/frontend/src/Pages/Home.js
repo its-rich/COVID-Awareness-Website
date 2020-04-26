@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Scroll from 'react-scroll';
 import '../App.css';
 import MapContainer from '../components/MapContainer';
 import SearchBar from '../components/SearchBar';
@@ -51,6 +52,8 @@ class Home extends React.Component {
 
     updateLocation = (location) => {
         this.setState({loc: location});
+        // Scroll Down to the graphs
+        Scroll.animateScroll.scrollToBottom();
     }
 
     updateFlag = () => {
@@ -67,9 +70,11 @@ class Home extends React.Component {
             <div id='setmap'>
                 <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)} updateISO={this.updateISO.bind(this)} updateFlag={this.updateFlag.bind(this)}/>
                 <MapContainer updateStats={this.updateStats.bind(this)} updateLocation={this.updateLocation.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} iso={this.state.iso} flag={this.state.flag} updateFlag={this.updateFlag.bind(this)} />
-                {this.state.disease !== '' && <Graph disease={this.state.disease}/>}
-                {this.state.disease !== '' && <PieChart disease={this.state.disease} switch={this.state.switch}/>}
-                {this.state.loc !== '' && <LocationChart disease={this.state.disease} loc={this.state.loc} dateRange={this.state.dateRange} iso={this.state.iso} />}
+                <div className="FlexRow">
+                    {this.state.disease !== '' && <Graph disease={this.state.disease}/>}
+                    {this.state.disease !== '' && <PieChart disease={this.state.disease} switch={this.state.switch}/>}
+                    {this.state.loc !== '' && <LocationChart disease={this.state.disease} loc={this.state.loc} dateRange={this.state.dateRange} iso={this.state.iso} />}
+                </div>
             </div>
         </div>
     )};

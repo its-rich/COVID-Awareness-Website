@@ -1,22 +1,14 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-import React from 'react';
-import * as Scroll from 'react-scroll';
->>>>>>> 2ca26140d77b51e5ff2c5fd21b8225bc68a0123d
 import '../App.css';
 import MapContainer from '../components/MapContainer';
 import SearchBar from '../components/SearchBar';
 import Graph from '../components/Graph'
 import PieChart from '../components/PieChart';
 import LocationChart from '../components/LocationChart';
-<<<<<<< HEAD
 import SlidingPane from 'react-sliding-pane';
 import Modal from 'react-modal';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 import month1 from '../Data/2020-01-01_2020-02-01.json';
-=======
->>>>>>> 2ca26140d77b51e5ff2c5fd21b8225bc68a0123d
 
 class Home extends React.Component {
 
@@ -30,11 +22,7 @@ class Home extends React.Component {
             infected: 0,
             loc: "",
             iso: '',
-<<<<<<< HEAD
             isPaneOpen: false
-=======
-            flag: false
->>>>>>> 2ca26140d77b51e5ff2c5fd21b8225bc68a0123d
         };
     }
 

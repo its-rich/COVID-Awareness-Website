@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import MapContainer from '../components/MapContainer';
 import SearchBar from '../components/SearchBar';
 import Graph from '../components/Graph'
 import PieChart from '../components/PieChart';
 import LocationChart from '../components/LocationChart';
+import SlidingPane from 'react-sliding-pane';
+import Modal from 'react-modal';
+import 'react-sliding-pane/dist/react-sliding-pane.css';
 import month1 from '../Data/2020-01-01_2020-02-01.json';
 
 class Home extends React.Component {
@@ -18,7 +21,8 @@ class Home extends React.Component {
             deaths: 0,
             infected: 0,
             loc: "",
-            iso: ''
+            iso: '',
+            isPaneOpen: false
         };
         this.paymentForm = null;
     }
@@ -53,20 +57,34 @@ class Home extends React.Component {
         this.setState({loc: location});
     }
 
+    componentDidMount() {
+        Modal.setAppElement(this.el);
+    }
+
     render() {
         return (
-        <div id='mapinteraction'>
-            <div id='setmap'>
-                <a href="#" class="reveal_graphs" onclick="openForm()">&#8249;</a>
-                <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                </form>
+        <div ref={ref => this.el = ref}>
+            <div id='mapinteraction'>
+                <div id='setmap'>
+                    <button class="reveal_graphs" onClick={() => this.setState({ isPaneOpen: true })}>&#8249;</button>
+
+                    <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)} updateISO={this.updateISO.bind(this)}/>
+                    <MapContainer updateStats={this.updateStats.bind(this)} updateLocation={this.updateLocation.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} iso={this.state.iso} />
+                    <SlidingPane
+                    className='some-custom-class'
+                    overlayClassName='some-custom-overlay-class'
+                    isOpen={ this.state.isPaneOpen }
+                    title='Graphs of chosen disease'
+                    width='45%'
+                    onRequestClose={ () => {
+                        // triggered on "<" on left top click or on outside click
+                        this.setState({ isPaneOpen: false });
+                    } }>
+                        {this.state.disease !== '' && <Graph disease={this.state.disease}/>}
+                        {this.state.disease !== '' && <PieChart disease={this.state.disease} switch={this.state.switch}/>}
+                        {this.state.loc !== '' && <LocationChart disease={this.state.disease} loc={this.state.loc} dateRange={this.state.dateRange} iso={this.state.iso} />}
+                    </SlidingPane>
                 </div>
-                <SearchBar infected={this.state.infected} deaths={this.state.deaths} switch={this.state.switch} disease={this.state.disease} dateRange={this.state.dateRange} updateSwitch={this.updateSwitch.bind(this)} updateDisease={this.updateDisease.bind(this)} updateSlider={this.updateSlider.bind(this)} updateISO={this.updateISO.bind(this)}/>
-                <MapContainer updateStats={this.updateStats.bind(this)} updateLocation={this.updateLocation.bind(this)} switch={this.state.switch} dateRange={this.state.dateRange} disease={this.state.disease} iso={this.state.iso} />
-                {this.state.disease !== '' && <Graph disease={this.state.disease}/>}
-                {this.state.disease !== '' && <PieChart disease={this.state.disease} switch={this.state.switch}/>}
-                {this.state.loc !== '' && <LocationChart disease={this.state.disease} loc={this.state.loc} dateRange={this.state.dateRange} iso={this.state.iso} />}
             </div>
         </div>
     )};

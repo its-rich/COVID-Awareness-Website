@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import firebase from "../components/Firebase/config.js";
 
 const provider = new firebase.auth.GoogleAuthProvider();

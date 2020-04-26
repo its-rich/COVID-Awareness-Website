@@ -111,7 +111,8 @@ a {
 }
 
 .SearchBar {
-    height: 350px;
+    cursor: move;
+    height: 368px;
     width: 300px;
     z-index: 1;
     position: fixed;
@@ -124,7 +125,7 @@ a {
     font-size: x-large;
     opacity: 0.4;
     padding: 15px;
-    border-radius: 10% 10% 10% 10%;
+    border-radius: 3% 3% 3% 3%;
     margin-top: 22%;
     margin-left: 20px;
 }

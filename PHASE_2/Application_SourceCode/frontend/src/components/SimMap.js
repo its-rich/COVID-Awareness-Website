@@ -158,7 +158,7 @@ class SimMap extends Component {
                 }
             }
 
-            if (this.passNumberInfected() > 400 && this.state.cities.length !== 8) {
+            if (this.props.lockdown === false && this.props.cure === false && this.passNumberInfected() > 400 && this.state.cities.length !== 8 && this.state.city !== -1) {
                 if (Math.random() > 0.5) {
                     let index1 = Math.floor(Math.random() * 8);
                     while (this.state.cities.indexOf(index1) !== -1) {

@@ -142,7 +142,7 @@ class PhoneAuthScreen extends React.Component {
             }
 
           </form>
-          <a class="my-2 text-blue-700 hover:text-blue-800 text-center block" href="/infected">← back to sign in page</a>
+          <a class="my-2 text-blue-700 hover:text-blue-800 text-center block" href="infected">← back to sign in page</a>
         </div>
       </div>
     );

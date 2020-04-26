@@ -164,7 +164,6 @@ export default class Summary extends Component {
         return this.state.email.map((item, i) => {
             return (
                 <tr key={item}>
-                  <td>{item}</td>
                   <td>{this.state.name[i]}</td>
                   <td>{this.state.email[i]}</td>
                   <td>{this.state.phone[i]}</td>

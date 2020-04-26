@@ -41,11 +41,12 @@ class PhoneAuthScreen extends React.Component {
         .signInWithPhoneNumber(this.state.phone, recaptcha)
         .then(confirmResult => {
           this.setState({ confirmResult })
+          // console.log(confirmResult)
         })
         .catch(error => {
           alert(error.message)
 
-          // console.log(error)
+          console.log(error)
         })
     } else {
       alert('Invalid Phone Number')
@@ -61,20 +62,21 @@ class PhoneAuthScreen extends React.Component {
     // console.log("confirmed")
   }
 
-  handleVerifyCode = () => {
+  handleVerifyCode = (e) => {
+    e.preventDefault()
     // Request for OTP verification
     const { confirmResult, verificationCode } = this.state
     if (verificationCode.length == 6) {
       confirmResult
         .confirm(verificationCode)
         .then(user => {
-          // console.log(user)
+          console.log(user)
           this.setState({ userId: user.uid })
           alert(`Verified! ${user.uid}`)
         })
         .catch(error => {
           alert(error.message)
-          // console.log(error)
+          console.log(error)
         })
     } else {
       alert('Please enter a 6 digit OTP code.')
@@ -93,7 +95,7 @@ class PhoneAuthScreen extends React.Component {
           id="verificationCode"
           onChange = {(event) => this.onChangeHandler(event)}
         />
-        <button style={{width: "20%", marginLeft: "40%"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {this.handleVerifyCode}>
+        <button style={{width: "20%", marginLeft: "40%"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {e=>this.handleVerifyCode}>
           Verify Code
         </button>
         <div id="phone-sign-in-recaptcha"></div>

@@ -3,6 +3,7 @@ import GoogleMapReact, {  } from 'google-map-react';
 import InfectionSimulation from './Simulation/InfectionSimulation.js';
 import InfectedArea from './Simulation/InfectedArea.js';
 import { parseTwoDigitYear } from 'moment';
+import AlertModal from "../components/AlertModal.js";
 
 function distance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 === lat2) && (lon1 === lon2)) {
@@ -38,7 +39,8 @@ class SimMap extends Component {
             city: -1,
             infectedCallback: props.infectedCallback,
             infectionCount: props.infectionCount,
-            message: 0
+            message: 0,
+            alert: <></>,
         }
     }
 
@@ -49,6 +51,10 @@ class SimMap extends Component {
         },
         zoom: 4.5
     };
+
+    resetModal() {
+        this.setState({alert: <></>});
+    }
 
     passNumberInfected() {
         let total = 0
@@ -68,8 +74,10 @@ class SimMap extends Component {
 
     componentDidUpdate(prevProps, prevState) {
 
-        if (this.state.message === 6) {
-            alert('No new cases have emerged after 6 days! Lockdown Successful!');
+        if (this.state.message == 6) {
+            
+            //alert('No new cases have emerged after 6 days! Lockdown Successful!');
+            this.setState({alert: <AlertModal message="No new cases have emerged after 6 days! Lockdown Successful!" color="#FFAAAA" reset={this.resetModal.bind(this)}></AlertModal>});
             this.state.message += 1;
         }
 
@@ -227,31 +235,32 @@ class SimMap extends Component {
     render() {
         return (
             <div style={{ width: '100%'}}>
-            <div style={{height: '91vh'}}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik" }}
-                    defaultZoom={5}
-                    defaultCenter={{lat: -25.2744, lng: 133.7751}}
-                    yesIWantToUseGoogleMapApiInternals
-                    // The circles
-                    onGoogleApiLoaded={({map, maps}) => {
+                {this.state.alert}
+                <div style={{height: '91vh'}}>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: "AIzaSyCjSUC-_0E6FBLFZzt0QdznZqy3ItrWeik" }}
+                        defaultZoom={5}
+                        defaultCenter={{lat: -25.2744, lng: 133.7751}}
+                        yesIWantToUseGoogleMapApiInternals
+                        // The circles
+                        onGoogleApiLoaded={({map, maps}) => {
 
-                        map.addListener('click', (mapsMouseEvent) => {
-                            let lat = mapsMouseEvent.latLng.toString().split(',')[0].replace('(', '');
-                            lat = Number(lat);
-                            let long = mapsMouseEvent.latLng.toString().split(',')[1].replace(')', '').replace(' ', '');
-                            long = Number(long);
-                            // this.setState({map: map});
-                            // this.setState({lat: lat});
-                            this.state.map = map;
-                            this.state.lat = lat;
-                            this.state.infectionSim.push(new InfectionSimulation());
-                            this.setState({long: long});
-                            this.passNumberInfected();
-                        });
-                    }}
-                />
-            </div>
+                            map.addListener('click', (mapsMouseEvent) => {
+                                let lat = mapsMouseEvent.latLng.toString().split(',')[0].replace('(', '');
+                                lat = Number(lat);
+                                let long = mapsMouseEvent.latLng.toString().split(',')[1].replace(')', '').replace(' ', '');
+                                long = Number(long);
+                                // this.setState({map: map});
+                                // this.setState({lat: lat});
+                                this.state.map = map;
+                                this.state.lat = lat;
+                                this.state.infectionSim.push(new InfectionSimulation());
+                                this.setState({long: long});
+                                this.passNumberInfected();
+                            });
+                        }}
+                    />
+                </div>
             </div>
         );
     }

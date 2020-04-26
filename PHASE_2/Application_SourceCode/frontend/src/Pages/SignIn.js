@@ -43,8 +43,9 @@ const SignIn = (props) => {
         event.preventDefault();
         auth.signInWithEmailAndPassword(email, password)
         .then((result) => {
-            props.updateEmail(auth.currentUser.email)
-            firebase.firestore().collection('users').doc(auth.currentUser.email).set({
+            props.updateUID(auth.currentUser.uid)
+            firebase.firestore().collection('users').doc(auth.currentUser.uid).set({
+                uid: auth.currentUser.uid,
                 email_address: auth.currentUser.email
             }, {merge: true});
         })
@@ -59,8 +60,9 @@ const SignIn = (props) => {
         .then(() => {
             auth.onAuthStateChanged((user) => {
                 if (user) {
-                    props.updateEmail(user.email)
-                    firebase.firestore().collection('users').doc(auth.currentUser.email).set({
+                    props.updateUID(user.uid)
+                    firebase.firestore().collection('users').doc(auth.currentUser.uid).set({
+                        uid: user.uid,
                         email_address: auth.currentUser.email
                     }, {merge: true});
                 }

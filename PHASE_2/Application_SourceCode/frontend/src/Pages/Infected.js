@@ -9,6 +9,7 @@ class Infected extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            uid: this.props.uid,
             email: this.props.email
         }
     }
@@ -17,11 +18,15 @@ class Infected extends Component {
         this.setState({email: email});
     }
 
+    updateUID = (uid) => {
+        this.setState({uid: uid});
+    }
+
     render() {
         return (
             <div>
-            {this.state.email === undefined && <SignIn updateEmail={this.updateEmail.bind(this)}/> }
-            {this.state.email !== undefined  && <Latest email={this.state.email}/>}
+            {this.state.uid === undefined && <SignIn updateUID={this.updateUID.bind(this)}/> }
+            {this.state.uid !== undefined  && <Latest uid={this.state.uid}/>}
 
             </div>
         )

@@ -8,6 +8,7 @@ export default class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            uid: props.uid,
             first: "",
             last: "",
             email: props.email,
@@ -61,9 +62,13 @@ export default class Profile extends Component {
     }
 
     componentDidMount() {
-        db.collection('users').doc(this.state.email).get()
+        db.collection('users').doc(this.state.uid).get()
         .then(doc => {
             if (!doc.exists) {
+                db.collection('users').doc(this.state.uid).set({
+                    uid: this.state.uid,
+                    email_address: this.state.email
+                })
             } else {
                 if (doc.data().first_name !== undefined) {
                     this.setState({first: doc.data().first_name});
@@ -91,27 +96,27 @@ export default class Profile extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.first !== this.state.first) {
-            db.collection('users').doc(this.state.email).set({
+            db.collection('users').doc(this.state.uid).set({
                 first_name: this.state.first
             }, {merge: true});
         } else if (prevState.last !== this.state.last) {
-            db.collection('users').doc(this.state.email).set({
+            db.collection('users').doc(this.state.uid).set({
                 last_name: this.state.last
             }, {merge: true});
         } else if (prevState.num !== this.state.num) {
-            db.collection('users').doc(this.state.email).set({
+            db.collection('users').doc(this.state.uid).set({
                 phone_number: this.state.num
             }, {merge: true});
         } else if (prevState.home !== this.state.home) {
-            db.collection('users').doc(this.state.email).set({
+            db.collection('users').doc(this.state.uid).set({
                 home_address: this.state.home
             }, {merge: true});
         } else if (prevState.dob !== this.state.dob) {
-            db.collection('users').doc(this.state.email).set({
+            db.collection('users').doc(this.state.uid).set({
                 date_of_birth: this.state.dob
             }, {merge: true});
         } else if (prevState.sex !== this.state.sex) {
-            db.collection('users').doc(this.state.email).set({
+            db.collection('users').doc(this.state.uid).set({
                 gender: this.state.sex
             }, {merge: true});
         }

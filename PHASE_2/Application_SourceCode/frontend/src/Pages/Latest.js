@@ -33,7 +33,7 @@ export default class Latest extends Component {
         this.setState({contact_name: arr1});
         this.setState({contact_phone: arr3});
         this.setState({contact_email: arr2});
-        db.collection('users').doc(this.props.email).set({
+        db.collection('users').doc(this.props.uid).set({
             contact_names: arr1,
             contact_email: arr2,
             contact_phone: arr3
@@ -57,7 +57,7 @@ export default class Latest extends Component {
         this.setState({contact_name: arr1});
         this.setState({contact_phone: arr3});
         this.setState({contact_email: arr2});
-        db.collection('users').doc(this.props.email).set({
+        db.collection('users').doc(this.props.uid).set({
             contact_names: arr1,
             contact_email: arr2,
             contact_phone: arr3
@@ -73,7 +73,7 @@ export default class Latest extends Component {
         }
         arr.push(input.value);
         this.setState({symptoms: arr})
-        db.collection('users').doc(this.props.email).set({
+        db.collection('users').doc(this.props.uid).set({
             symptoms: arr
         }, {merge: true});
     }
@@ -86,7 +86,7 @@ export default class Latest extends Component {
             arr.splice(input.value, 1);
         }
         this.setState({symptoms: arr})
-        db.collection('users').doc(this.props.email).set({
+        db.collection('users').doc(this.props.uid).set({
             symptoms: arr
         }, {merge: true});
     }
@@ -100,7 +100,7 @@ export default class Latest extends Component {
         }
         arr.push(input.value);
         this.setState({home: arr})
-        db.collection('users').doc(this.props.email).set({
+        db.collection('users').doc(this.props.uid).set({
             locations: arr
         }, {merge: true});
     }
@@ -113,13 +113,13 @@ export default class Latest extends Component {
             arr.splice(input.value, 1);
         }
         this.setState({home: arr})
-        db.collection('users').doc(this.props.email).set({
+        db.collection('users').doc(this.props.uid).set({
             locations: arr
         }, {merge: true});
     }
 
     componentDidMount() {
-        db.collection('users').doc(this.props.email).get()
+        db.collection('users').doc(this.props.uid).get()
         .then(doc => {
             if (!doc.exists) {
             } else {

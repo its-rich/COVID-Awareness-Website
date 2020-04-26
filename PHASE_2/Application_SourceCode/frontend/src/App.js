@@ -28,7 +28,7 @@ class App extends React.Component {
         let auth = firebase.auth();
         this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
             this.setState({ currentUser: user });
-            // console.log(this.state.currentUser);
+            console.log(this.state.currentUser);
             // console.log("Changed");
         });
     }
@@ -46,10 +46,10 @@ class App extends React.Component {
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/coronavirus-simulator" exact component={Simulator} />
-                            <Route path="/infected" render={(props) => <Infected email={this.state.currentUser.email} />} />
+                            <Route path="/infected" render={(props) => <Infected uid={this.state.currentUser.uid} email={this.state.currentUser.email} />} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
-                            <Route path="/profile" render={(props) => <Profile email={this.state.currentUser.email} />}/>
+                            <Route path="/profile" render={(props) => <Profile uid={this.state.currentUser.uid} email={this.state.currentUser.email} />}/>
                             <Route path="/phone" exact component = {PhoneAuthScreen} />
                         </Switch>
                     </div>

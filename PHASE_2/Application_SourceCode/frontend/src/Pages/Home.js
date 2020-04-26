@@ -6,7 +6,6 @@ import SearchBar from '../components/SearchBar';
 import Graph from '../components/Graph'
 import PieChart from '../components/PieChart';
 import LocationChart from '../components/LocationChart';
-import month1 from '../Data/2020-01-01_2020-02-01.json';
 
 class Home extends React.Component {
 

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import firebase from "../components/Firebase/config.js";
 
 const provider = new firebase.auth.GoogleAuthProvider();
@@ -44,6 +44,9 @@ const SignIn = (props) => {
         auth.signInWithEmailAndPassword(email, password)
         .then((result) => {
             props.updateEmail(auth.currentUser.email)
+            firebase.firestore().collection('users').doc(auth.currentUser.email).set({
+                email_address: auth.currentUser.email
+            }, {merge: true});
         })
         .catch((error) => {
             alert(error.message);
@@ -54,17 +57,20 @@ const SignIn = (props) => {
     const googleSignIn = () => {
         signInWithGoogle()
         .then(() => {
-        auth.onAuthStateChanged(function(user) {
-            if (user) {
-                props.updateEmail('changed')
-            }
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    props.updateEmail(user.email)
+                    firebase.firestore().collection('users').doc(auth.currentUser.email).set({
+                        email_address: auth.currentUser.email
+                    }, {merge: true});
+                }
+            });
         });
-        })
     }
 
   return (
     <div className="mt-8 text-black">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
+      <h1 style={{margin: 20}} className="text-3xl mb-2 text-center font-bold">Sign In</h1>
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && <div className = "py-4 bg-red-600 w-full text-black text-center mb-3">{error}</div>}
         <form className="text-black">
@@ -94,7 +100,7 @@ const SignIn = (props) => {
             id="userPassword"
             onChange = {(event) => onChangeHandler(event)}
           />
-          <button style={{width: "50%", marginLeft: "25%"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
+          <button style={{width: "50%", marginLeft: "25%", marginTop: "30px"}} className="bg-green-400 hover:bg-green-500 w-full py-2 text-white" onClick = {(event) => {normalSignIn(event)}}>
             Sign in
           </button>
         </form>

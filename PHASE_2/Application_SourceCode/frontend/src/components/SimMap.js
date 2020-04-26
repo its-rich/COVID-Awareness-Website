@@ -6,7 +6,7 @@ import { parseTwoDigitYear } from 'moment';
 import AlertModal from "../components/AlertModal.js";
 
 function distance(lat1, lon1, lat2, lon2, unit) {
-    if ((lat1 == lat2) && (lon1 == lon2)) {
+    if ((lat1 === lat2) && (lon1 === lon2)) {
         return 0;
     }
     else {
@@ -21,8 +21,8 @@ function distance(lat1, lon1, lat2, lon2, unit) {
         dist = Math.acos(dist);
         dist = dist * 180/Math.PI;
         dist = dist * 60 * 1.1515;
-        if (unit=="K") { dist = dist * 1.609344 }
-        if (unit=="N") { dist = dist * 0.8684 }
+        if (unit==="K") { dist = dist * 1.609344 }
+        if (unit==="N") { dist = dist * 0.8684 }
         return dist;
     }
 }
@@ -155,7 +155,7 @@ class SimMap extends Component {
                     item.safetyDelete();
                 }
             })
-            if (this.props.currentDateOffset == 0) {
+            if (this.props.currentDateOffset === 0) {
                 this.state.infectionSim.map((item) => {
                     if (item.getCurrentFrame() !== 0) {
                         item.safetyDelete();
@@ -221,7 +221,7 @@ class SimMap extends Component {
             // Change chance according to distance from city
             chance = 1 - chance / 1400;
 
-            if (this.state.city == 8 ) {
+            if (this.state.city === 8 ) {
                 chance = 0.0001;
                 this.state.city = -1;
             }

@@ -70,7 +70,7 @@ user.sendEmailVerification().then(function() {
 
   return (
     <div className="mt-8 text-black">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
+      <h1 style={{margin: 20}} className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && (
           <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
@@ -102,7 +102,7 @@ user.sendEmailVerification().then(function() {
             id="userPassword"
             onChange={event => onChangeHandler(event)}
           />
-          <button style={{width: "50%", marginLeft: "25%"}}
+          <button style={{width: "50%", marginLeft: "25%", marginTop: "30px"}}
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);

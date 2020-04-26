@@ -7,10 +7,6 @@ class Simulator extends Component {
 
     constructor(props) {
         super(props)
-
-        // Probs good to store the actual date
-        let today = new Date();
-
         this.state = {
             // The amount of days away from "today"
             dateOffset: 0,

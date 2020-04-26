@@ -118,10 +118,13 @@ class SearchBar extends React.Component {
                         <span className="slider round"></span>
                         </label>
                     </div>
-                    <div className="FlexRow">
+                    {this.props.disease !== 'COVID-19' && <div className="FlexRow">
+                    <h5>Disease:</h5>
+                    </div>}
+                    {this.props.disease === 'COVID-19' && <div className="FlexRow">
                     <h5>Disease:</h5>
                     <input style={{width: "145px", color: "white"}} type="date" onChange={this.changeDate.bind(this)} className="input-field col s6" min="2020-01-01" max="2021-01-01"/>
-                    </div>
+                    </div>}
                     <select className="browser-default" id="diseaseSelect" defaultValue={'DEFAULT'} onChange={this.updateDisease.bind(this)}>
                         <option value="DEFAULT" disabled>Select A Disease</option>
                         <option key="COVID-19">COVID-19</option>

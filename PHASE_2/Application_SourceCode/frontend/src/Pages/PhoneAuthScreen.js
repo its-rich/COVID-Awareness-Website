@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import firebase from "../components/Firebase/config.js";
 
 
@@ -109,7 +108,7 @@ class PhoneAuthScreen extends React.Component {
 
     return (
       <div className="mt-8 text-black">
-        <h1 className="text-3xl mb-2 text-center font-bold">Sign In With Mobile</h1>
+        <h1 style={{margin: 20}} className="text-3xl mb-2 text-center font-bold">Sign In With Mobile</h1>
         <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
           {/* {error !== null && <div className = "py-4 bg-red-600 w-full text-black text-center mb-3">{error}</div>} */}
           <div id="recaptcha-container"></div>
@@ -127,7 +126,7 @@ class PhoneAuthScreen extends React.Component {
               id="phone"
               onChange = {(event) => this.onChangeHandler(event)}
             />
-            <button type="button" className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+            <button style={{width: "50%", marginLeft: "25%", marginTop: "20px"}} type="button" className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
               onClick={e =>
                 this.state.confirmResult
                   ? this.changePhoneNumber()
@@ -141,6 +140,7 @@ class PhoneAuthScreen extends React.Component {
             }
 
           </form>
+          <a class="my-2 text-blue-700 hover:text-blue-800 text-center block" href="/signin">← back to sign in page</a>
         </div>
       </div>
     );

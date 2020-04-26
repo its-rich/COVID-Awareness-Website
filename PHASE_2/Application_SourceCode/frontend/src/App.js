@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Nav from './components/Navigation/Nav.js';
 import NavIn from './components/Navigation/NavIn.js';
 import './App.css';
@@ -37,8 +37,8 @@ class App extends React.Component {
         this.unsubscribeFromAuth();
     }
 
-    render(){
-        if(this.state.currentUser) {
+    render() {
+        if (this.state.currentUser) {
             return (
                 <Router>
                     <div className="App">
@@ -46,16 +46,16 @@ class App extends React.Component {
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/coronavirus-simulator" exact component={Simulator} />
-                            <Route path="/infected" exact component={Infected} />
+                            <Route path="/infected" render={(props) => <Infected email={this.state.currentUser.email} />} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
-                            <Route path="/profile" exact component = {Profile} />
+                            <Route path="/profile" render={(props) => <Profile email={this.state.currentUser.email} />}/>
                             <Route path="/phone" exact component = {PhoneAuthScreen} />
                         </Switch>
                     </div>
                 </Router>
             );
-        } else{
+        } else {
             return (
                 <Router>
                     <div className="App">

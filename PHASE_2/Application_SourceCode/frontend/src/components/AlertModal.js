@@ -20,7 +20,7 @@ export default class AlertModal extends Component {
     timeout() {
         if (this.state.timer === false) {
             this.state.timer = true;
-            window.setTimeout(this.off.bind(this), 5000);
+            window.setTimeout(this.off.bind(this), this.props.timer);
         }
     }
 
@@ -37,8 +37,7 @@ export default class AlertModal extends Component {
                 <div className="Alert">
                     <Draggable
                         axis="both"
-                        handle="#move"
-                        defaultPosition={{x: 350, y: 50}}
+                        defaultPosition={{x: 20, y: 50}}
                         position={null}
                         style={{zIndex: "10", height: "0", padding: "0", margin: "0"}}
                         grid={[1, 1]}
@@ -46,10 +45,12 @@ export default class AlertModal extends Component {
                         onStart={this.handleStart}
                         onDrag={this.handleDrag}
                         onStop={this.handleStop}>
-                        
-                        <div className={this.state.visibility} style={{backgroundColor: this.state.color, color: "white", padding: "10px", borderRadius: "3px", width: "300px",}}>
+
+                        <div className={this.state.visibility} style={{textAlign: "center", backgroundColor: this.state.color, color: "white", padding: "10px", borderRadius: "3px", width: "300px",}}>
                         <p>
-                            {this.state.message}
+                            {this.props.message1}
+                            <br/>
+                            {this.props.message2}
                         </p>
                         </div>
                     </Draggable>

@@ -21,7 +21,7 @@ class Infected extends Component {
         return (
             <div>
             {this.state.email === undefined && <SignIn updateEmail={this.updateEmail.bind(this)}/> }
-            {this.state.email !== undefined  && <Latest email={this.state.email}/>}
+            {this.state.email !== undefined && this.state.email !== "coronavirus.aus.tracker@gmail.com" && <Latest email={this.state.email}/>}
 
             </div>
         )

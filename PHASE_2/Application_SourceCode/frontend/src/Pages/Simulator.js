@@ -14,7 +14,8 @@ class Simulator extends Component {
             lockdown: false,
             reset: false,
             cure: false,
-            locations: 0
+            newCases: 0,
+            lcure: false
         }
     }
 
@@ -32,6 +33,7 @@ class Simulator extends Component {
         if (this.state.lockdown === false) {
             this.setState({lockdown: true});
         } else {
+            this.setState({lcure: false});
             this.setState({lockdown: false});
         }
     }
@@ -49,7 +51,7 @@ class Simulator extends Component {
             this.setState({reset: true});
             this.setState({dateOffset: 0});
             this.setState({numberInfected: 0});
-            this.setState({locations: 0});
+            this.setState({newCases: 0});
             this.setState({lockdown: false});
             this.setState({cure: false});
         } else {
@@ -57,21 +59,29 @@ class Simulator extends Component {
         }
     }
 
-    setLocations = (v) => {
-        this.setState({locations: v});
+    setLockdownCure = () => {
+        if (this.state.lcure === false) {
+            this.setState({lcure: true});
+        } else {
+            this.setState({lcure: false});
+        }
+    }
+
+    setNewCases = (v) => {
+        this.setState({newCases: v})
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.state.cure && this.state.numberInfected === 0) {
-            alert("All carriers of Coronavirus in Australia have been cured!")
+        if (this.state.cure && this.state.numberInfected === 0 && this.state.dateOffset !== 0) {
+            // alert("All carriers of Coronavirus in Australia have been cured!")
         }
     }
 
     render() {
         return (
             <div>
-                <SimController dateOffsetCallback={this.setDateOffset} locations={this.state.locations} setReset={this.setReset.bind(this)} numberInfected={this.state.numberInfected} setLockdown={this.setLockdown.bind(this)} setCure={this.setCure.bind(this)} lockdown={this.state.lockdown} cure={this.state.cure}/>
-                <SimMap currentDateOffset={this.state.dateOffset} setLocations={this.setLocations.bind(this)} setReset={this.setReset.bind(this)} reset={this.state.reset} infectedCallback={this.setNumberInfected} infectionCount={this.state.numberInfected} lockdown={this.state.lockdown} cure={this.state.cure}/>
+                <SimController dateOffsetCallback={this.setDateOffset} setReset={this.setReset.bind(this)} numberInfected={this.state.numberInfected} setLockdown={this.setLockdown.bind(this)} setCure={this.setCure.bind(this)} lockdown={this.state.lockdown} cure={this.state.cure} newCases={this.state.newCases} lcure={this.state.lcure}/>
+                <SimMap currentDateOffset={this.state.dateOffset} setReset={this.setReset.bind(this)} reset={this.state.reset} infectedCallback={this.setNumberInfected} infectionCount={this.state.numberInfected} lockdown={this.state.lockdown} cure={this.state.cure} setNewCases={this.setNewCases.bind(this)} setLockdownCure={this.setLockdownCure.bind(this)}/>
             </div>
         )
     }

@@ -40,7 +40,8 @@ class SimMap extends Component {
             infectedCallback: props.infectedCallback,
             infectionCount: props.infectionCount,
             message: 0,
-            alert: <></>,
+            new: false,
+            alert: <AlertModal message1="Infect a location with Coronavirus!" message2="Click anywhere in Australia!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>,
         }
     }
 
@@ -69,24 +70,32 @@ class SimMap extends Component {
         } else if (this.props.lockdown && this.props.infectionCount !== total) {
             this.setState({message: 0})
         }
-        this.state.infectedCallback(total);
+        return total;
     }
 
     componentDidUpdate(prevProps, prevState) {
-
-        if (this.state.message == 6) {
-            
-            //alert('No new cases have emerged after 6 days! Lockdown Successful!');
-            this.setState({alert: <AlertModal message="No new cases have emerged after 6 days! Lockdown Successful!" color="#FFAAAA" reset={this.resetModal.bind(this)}></AlertModal>});
+        if (prevProps.lockdown === false && this.props.lockdown) {
+            this.setState({alert: <AlertModal message1="Lockdown Initiated!" message2="New cases should slowly reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+        } else if (prevProps.lockdown && this.props.lockdown === false) {
+            this.setState({alert: <AlertModal message1="Lockdown Ended!" message2="People should start to get infected again!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+        } else if (prevProps.cure === false && this.props.cure) {
+            this.setState({alert: <AlertModal message1="Cure Discovered!" message2="Cases should start to reduce!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+        } else if (prevProps.cure && this.props.cure === false) {
+            this.setState({alert: <AlertModal message1="Cure Destroyed!" message2="People should start to get infected again!" color="#6b6d6f" timer={4000} reset={this.resetModal.bind(this)}></AlertModal>});
+        } else if (this.state.message == 14) {
+            this.setState({alert: <AlertModal message1="Lockdown Successful!" message2="No new cases have emerged after 2 weeks!" color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
             this.state.message += 1;
+        } else if (this.state.new) {
+            this.setState({alert: <AlertModal message1="New Location Infected!" message2={"There are now " + this.state.infectionSim.length + " locations with coronavirus"} color="#6b6d6f" timer={9000} reset={this.resetModal.bind(this)}></AlertModal>});
+            this.state.new = false;
         }
 
         if (this.props.reset) {
             this.state.infectionSim.map((item) => {
                 while (item.getCurrentFrame() > 0) {
                     item.previousFrame();
-                    item.safetyDelete();
                 }
+                item.safetyDelete();
             })
             this.state.infectionSim = [];
             this.state.lat = '';
@@ -95,6 +104,18 @@ class SimMap extends Component {
             this.state.city= -1;
             this.state.message = 0;
             this.props.setReset();
+        } else if (this.state.message > 15) {
+            this.props.setLockdownCure();
+            this.state.infectionSim.map((item, i) => {
+                item.previousFrame();
+                this.state.city= -1;
+                if (item.getCurrentFrame() <= 0) {
+                    item.safetyDelete();
+                    this.state.infectionSim.splice(i, 1);
+                }
+            })
+            let end = this.passNumberInfected();
+            this.state.infectedCallback(end);
         } else if (prevProps.currentDateOffset < this.props.currentDateOffset) {
             // this.state.infectionSim.nextFrame();
             if (this.state.city !== -1) {
@@ -118,10 +139,10 @@ class SimMap extends Component {
                         this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(-35.2809, 149.1300, 0.9, this.state.map);
                     }
                     this.state.city = -1;
-                    this.props.setLocations(this.state.infectionSim.length);
+                    this.setState({new: true});
                 }
             }
-
+            let start = this.passNumberInfected();
             this.state.infectionSim.map((item, i) => {
                 if (this.props.lockdown) {
                     item.nextFrame('LOCK');
@@ -133,28 +154,37 @@ class SimMap extends Component {
                     if (item.getCurrentFrame() <= 0) {
                         item.safetyDelete();
                         this.state.infectionSim.splice(i, 1);
-                        if (this.state.infectionSim.length > 0) {
-                            this.props.setLocations(this.state.infectionSim.length - 1);
-                        } else {
-                            this.props.setLocations(0);
-                        }
                     }
                 } else {
                     item.nextFrame();
                 }
             })
-            this.passNumberInfected();
+            let end = this.passNumberInfected();
+            if (end > start) {
+                this.props.setNewCases(end - start);
+            } else {
+                this.props.setNewCases(0);
+            }
+            this.state.infectedCallback(end);
         } else if (prevProps.currentDateOffset > this.props.currentDateOffset && this.props.currentDateOffset >= 0) {
             // console.log(this.props.currentDateOffset);
+            let start = this.passNumberInfected();
+            let end = 0;
             this.state.infectionSim.map((item) => {
                 if (item.getCurrentFrame() > 0) {
                     item.previousFrame();
-                    this.passNumberInfected();
+                    end = this.passNumberInfected();
+                    this.state.infectedCallback(end);
                 }
                 if (item.getCurrentFrame() === 0) {
                     item.safetyDelete();
                 }
             })
+            if (end > start) {
+                this.props.setNewCases(end - start);
+            } else {
+                this.props.setNewCases(0);
+            }
             if (this.props.currentDateOffset === 0) {
                 this.state.infectionSim.map((item) => {
                     if (item.getCurrentFrame() !== 0) {
@@ -163,7 +193,7 @@ class SimMap extends Component {
                     }
                 })
                 this.setState({infectionSim: []});
-                this.props.setLocations(0);
+                this.props.setNewCases(0);
             }
         } else if (prevState.long !== this.state.long) {
             let lat = this.state.lat
@@ -228,7 +258,7 @@ class SimMap extends Component {
 
             let map = this.state.map;
             this.state.infectionSim[this.state.infectionSim.length - 1].newmarker(this.state.lat, this.state.long, chance, map);
-            this.props.setLocations(this.state.infectionSim.length);
+            this.setState({new: true});
         }
     }
 
@@ -254,9 +284,16 @@ class SimMap extends Component {
                                 // this.setState({lat: lat});
                                 this.state.map = map;
                                 this.state.lat = lat;
+                                let start = this.passNumberInfected();
                                 this.state.infectionSim.push(new InfectionSimulation());
                                 this.setState({long: long});
-                                this.passNumberInfected();
+                                let end = this.passNumberInfected();
+                                if (end > start) {
+                                    this.props.setNewCases(end - start);
+                                } else {
+                                    this.props.setNewCases(0)
+                                }
+                                this.state.infectedCallback(end);
                             });
                         }}
                     />

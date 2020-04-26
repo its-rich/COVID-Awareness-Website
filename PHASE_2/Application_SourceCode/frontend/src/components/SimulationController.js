@@ -1,5 +1,4 @@
 import React from 'react';
-import DatePicker from './DatePicker.js';
 import Draggable from 'react-draggable';
 
 class SimController extends React.Component {

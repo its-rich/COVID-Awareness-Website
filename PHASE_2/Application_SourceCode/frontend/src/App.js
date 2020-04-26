@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Nav from './components/Navigation/Nav.js';
 import NavIn from './components/Navigation/NavIn.js';
 import './App.css';
@@ -49,7 +49,7 @@ class App extends React.Component {
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
-                            <Route path="/profile" exact component = {Profile} />
+                            <Route path="/profile" render={(props) => <Profile email={this.state.currentUser.email} />}/>
                             <Route path="/phone" exact component = {PhoneAuthScreen} />
                         </Switch>
                     </div>

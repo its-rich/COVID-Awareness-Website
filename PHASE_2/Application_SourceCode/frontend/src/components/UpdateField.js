@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class UpdateFeild extends React.Component {
+export default class UpdateField extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -51,7 +51,7 @@ export default class UpdateFeild extends React.Component {
                 <div className="FlexRow">
                     {input}
                     {button}
-                    
+
                 </div>
             </div>
         )

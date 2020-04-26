@@ -47,7 +47,7 @@ class MapContainer extends React.Component {
         this.props.updateLocation(location);
     }
 
-    componentDidUpdate(prevState) {
+    componentDidUpdate(prevProps) {
         let world = [['Continent Code', 'Continent', 'Total Infected', 'Total Fatalities']];
         if (this.props.switch !== 'infected') {
             world = [['Continent Code', 'Continent', 'Total Fatalities', 'Total Infected']];
@@ -55,7 +55,10 @@ class MapContainer extends React.Component {
         } else {
             options.colorAxis = {colors: ['#ffcccb', 'red']};
         }
-        if (prevState.disease !== this.props.disease || prevState.dateRange !== this.props.dateRange || prevState.switch !== this.props.switch) {
+        if (prevProps.disease !== this.props.disease || prevProps.dateRange !== this.props.dateRange || prevProps.switch !== this.props.switch || this.props.flag) {
+            if (this.props.flag) {
+                this.props.updateFlag();
+            }
             let totald = 0;
             let totali = 0;
             if (this.props.disease === 'COVID-19') {

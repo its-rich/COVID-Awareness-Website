@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SignIn from './SignIn.js'
-import { auth } from "../components/Firebase/config.js";
+import Latest from './Latest.js'
+import Summary from './Summary.js'
+import firebase from "../components/Firebase/config.js";
 import '../App.css';
 
 class Infected extends Component {
@@ -8,7 +10,8 @@ class Infected extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: null
+            uid: this.props.uid,
+            email: this.props.email
         }
     }
 
@@ -16,20 +19,21 @@ class Infected extends Component {
         this.setState({email: email});
     }
 
+    updateUID = (uid) => {
+        this.setState({uid: uid});
+    }
+
     render() {
         return (
             <div>
-            {this.state.email === null && <SignIn updateEmail={this.updateEmail.bind(this)}/> }
-
+            {this.state.uid === undefined && <SignIn updateUID={this.updateUID.bind(this)}/> }
+            {this.state.uid !== undefined  && this.state.uid !== "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Latest uid={this.state.uid}/>}
+            {this.state.uid !== undefined  && this.state.uid === "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Summary/>}
             </div>
         )
     }
 }
 
-// auth.onAuthStateChanged(user => {
-//     if (user) {
-//         this.setState({email: user.email})
-//     }
-// });
+
 
 export default Infected;

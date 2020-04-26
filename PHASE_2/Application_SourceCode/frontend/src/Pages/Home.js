@@ -1,14 +1,22 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React from 'react';
+import * as Scroll from 'react-scroll';
+>>>>>>> 2ca26140d77b51e5ff2c5fd21b8225bc68a0123d
 import '../App.css';
 import MapContainer from '../components/MapContainer';
 import SearchBar from '../components/SearchBar';
 import Graph from '../components/Graph'
 import PieChart from '../components/PieChart';
 import LocationChart from '../components/LocationChart';
+<<<<<<< HEAD
 import SlidingPane from 'react-sliding-pane';
 import Modal from 'react-modal';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 import month1 from '../Data/2020-01-01_2020-02-01.json';
+=======
+>>>>>>> 2ca26140d77b51e5ff2c5fd21b8225bc68a0123d
 
 class Home extends React.Component {
 
@@ -22,9 +30,12 @@ class Home extends React.Component {
             infected: 0,
             loc: "",
             iso: '',
+<<<<<<< HEAD
             isPaneOpen: false
+=======
+            flag: false
+>>>>>>> 2ca26140d77b51e5ff2c5fd21b8225bc68a0123d
         };
-        this.paymentForm = null;
     }
 
     updateSlider = (date) => {
@@ -55,6 +66,16 @@ class Home extends React.Component {
 
     updateLocation = (location) => {
         this.setState({loc: location});
+        // Scroll Down to the graphs
+        Scroll.animateScroll.scrollToBottom();
+    }
+
+    updateFlag = () => {
+        if (this.state.flag === false) {
+            this.setState({flag: true});
+        } else {
+            this.setState({flag: false});
+        }
     }
 
     componentDidMount() {
@@ -88,32 +109,6 @@ class Home extends React.Component {
             </div>
         </div>
     )};
-}
-
-// {this.state.disease !== '' && <PieChart disease={this.state.disease} switch="infected"/>}
-// {this.state.location !== '' && <PieChart disease="COVID-19" switch="infected"/>}
-
-let strDate = '2020-01-22';
-let movingDate = new Date(strDate);
-// let endDate = new Date();
-let endDate = new Date('2020-01-31');
-
-while (strDate < endDate.toISOString().slice(0,10)) {
-    strDate = movingDate.toISOString().slice(0,10);
-    // console.log(String(movingDate).slice(0,15));
-    // Object.keys(month1.result).map((item, i) => {
-    //     for (var c of month1.result[item]) {
-    //         if (c.date == strDate) {
-    //             console.log(c.date);
-    //             break;
-    //         }
-    //     }
-    //     // month1.result[item].forEach((c, i) => {
-    //     //     console.log(c.date);
-    //     // });
-    // });
-    // console.log(strDate);
-    movingDate.setDate(movingDate.getDate() + 1);
 }
 
 export default Home;

@@ -30,6 +30,7 @@ h5 {
     margin-top: 5px;
     margin-bottom: 10px;
     padding: 0;
+    color: white;
 }
 
 
@@ -70,6 +71,16 @@ a {
     background-color: var(--theme-second-color);
 }
 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+
 .Title {
     display: flex;
     justify-content: center;
@@ -100,7 +111,8 @@ a {
 }
 
 .SearchBar {
-    height: 350px;
+    cursor: move;
+    height: 368px;
     width: 300px;
     z-index: 1;
     position: fixed;
@@ -113,10 +125,11 @@ a {
     font-size: x-large;
     opacity: 0.4;
     padding: 15px;
-    border-radius: 10% 10% 10% 10%;
+    border-radius: 3% 3% 3% 3%;
     margin-top: 22%;
     margin-left: 20px;
 }
+
 .SearchBar:hover {
     background-color: #6b6d6f;
     opacity: 0.9;
@@ -170,6 +183,31 @@ a {
     opacity: 0.9;
 }
 
+.Alert {
+    pointer-events: none;
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: transparent;
+    color: #FEED83;
+    font-size: x-large;
+    border-radius: 3% 3% 3% 3%;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
 .Box {
     margin-bottom: 5px;
     width: 100%;
@@ -212,18 +250,6 @@ a {
     opacity: 0.9;
      text-colour: black;
 
-}
-
-Button {
-    background-color: var(--theme-second-color);
-    color: black;
-    border: 2px solid var(--theme-color);
-    width: 200px;
-    font-size: large;
-}
-
-Button:hover {
-    cursor: pointer;
 }
 
 input {
@@ -438,7 +464,7 @@ input {
     position: relative !important;
     display: inline-block !important;
     width: 60px !important;
-    height: 34px !important;
+    height: 30px !important;
   }
 
   .switch input {
@@ -450,8 +476,8 @@ input {
   .slider {
     position: absolute !important;
     cursor: pointer !important;
-    top: 0 !important;
-    left: 0px !important;
+    top: 10 !important;
+    left: -10px !important;
     right: 0px !important;
     bottom: 0 !important;
     background-color: #ccc !important;
@@ -572,7 +598,7 @@ display: table;
     text-align: center;
     z-index:2;
   }
-  
+
   .reveal_graphs:hover {
     background-color: #ddd;
     color: black;

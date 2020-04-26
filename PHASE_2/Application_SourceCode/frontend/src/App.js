@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Nav from './components/Navigation/Nav.js';
 import NavIn from './components/Navigation/NavIn.js';
 import './App.css';
-import VirusAvoider from './Pages/VirusAvoider.js';
-import VirusSimulator from './Pages/VirusSimulator.js'
+import Simulator from './Pages/Simulator.js'
 import Infected from './Pages/Infected.js'
 import Home from './Pages/Home.js';
 import SignIn from './Pages/SignIn.js';
@@ -29,8 +28,8 @@ class App extends React.Component {
         let auth = firebase.auth();
         this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
             this.setState({ currentUser: user });
-            console.log(this.state.currentUser);
-            console.log("Changed");
+            // console.log(this.state.currentUser);
+            // console.log("Changed");
         });
     }
 
@@ -38,32 +37,32 @@ class App extends React.Component {
         this.unsubscribeFromAuth();
     }
 
-    render(){
-        if(this.state.currentUser) {
+    render() {
+        if (this.state.currentUser) {
             return (
                 <Router>
                     <div className="App">
                         <NavIn />
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
-                            <Route path="/infected" exact component={Infected} />
+                            <Route path="/coronavirus-simulator" exact component={Simulator} />
+                            <Route path="/infected" render={(props) => <Infected uid={this.state.currentUser.uid} email={this.state.currentUser.email} />} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />
-                            <Route path="/profile" exact component = {Profile} />
+                            <Route path="/profile" render={(props) => <Profile uid={this.state.currentUser.uid} email={this.state.currentUser.email} />}/>
                             <Route path="/phone" exact component = {PhoneAuthScreen} />
                         </Switch>
                     </div>
                 </Router>
             );
-        } else{
+        } else {
             return (
                 <Router>
                     <div className="App">
                         <Nav />
                         <Switch>
                             <Route path="/" exact component={Home} />
-                            <Route path="/coronavirus-simulator" exact component={VirusSimulator} />
+                            <Route path="/coronavirus-simulator" exact component={Simulator} />
                             <Route path="/infected" exact component={Infected} />
                             <Route path="/signin" exact component = {SignIn} />
                             <Route path="/signup" exact component = {SignUp} />

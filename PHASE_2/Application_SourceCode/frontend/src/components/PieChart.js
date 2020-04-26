@@ -1,11 +1,6 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
 import numbers from '../Data/disease_data.json';
-import {getCountry, getISO2} from '../Data/CountryConverter';
-import month0 from '../Data/2019-12-01_2020-01-01.json';
-import month1 from '../Data/2020-01-01_2020-02-01.json';
-import month2 from '../Data/2020-02-01_2020-03-01.json';
-import month3 from '../Data/2020-03-01_2020-04-01.json';
 import month4 from '../Data/2020-04-01_2020-05-01.json';
 
 const continents = ['Asia', 'Africa', 'North & South America', 'Oceania', 'Asia', 'Europe'];
@@ -17,7 +12,7 @@ class PieChart extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.disease == 'COVID-19') {
+        if (this.props.disease === 'COVID-19') {
             let totald = 0;
             let totali = 0;
             let totalr = 0;
@@ -66,7 +61,7 @@ class PieChart extends React.Component {
                         let count = 0;
                         let found = false;
                         for (var index of newdata) {
-                            if (index[0] == continents[a]) {
+                            if (index[0] === continents[a]) {
                                 count ++;
                                 found = true;
                                 break
@@ -93,7 +88,7 @@ class PieChart extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.disease !== this.props.disease || prevProps.switch !== this.props.switch) {
-            if (this.props.disease == 'COVID-19') {
+            if (this.props.disease === 'COVID-19') {
                 let totald = 0;
                 let totali = 0;
                 let totalr = 0;
@@ -142,7 +137,7 @@ class PieChart extends React.Component {
                             let count = 0;
                             let found = false;
                             for (var index of newdata) {
-                                if (index[0] == continents[a]) {
+                                if (index[0] === continents[a]) {
                                     count ++;
                                     found = true;
                                     break
@@ -171,7 +166,7 @@ class PieChart extends React.Component {
     render() {
         return (
             <div className="row">
-            <div className="col s12 m4">
+            <div className="col s12 m4" style={{width: "100%"}}>
             <div className="card">
                 <Chart
                     width={'460px'}

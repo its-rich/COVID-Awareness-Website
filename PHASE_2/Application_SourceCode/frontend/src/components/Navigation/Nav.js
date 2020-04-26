@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../Firebase/config.js';
 
 const Nav = ({currentUser}) => (
     <nav className="nav-wrapper grey darken-3">
@@ -14,11 +13,6 @@ const Nav = ({currentUser}) => (
         </ul>
     </nav>
 )
-
-
-
-
-
 
 export default Nav;
 

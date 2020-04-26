@@ -211,7 +211,7 @@ class LocationChart extends React.Component {
     render() {
         return (
             <div className="row">
-            <div className="col s12 m4">
+            <div className="col s12 m4" style={{width: "100%"}}>
             {this.props.disease !== 'COVID-19' && <div className="card">
                 <Chart
                     width={'400px'}

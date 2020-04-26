@@ -248,7 +248,7 @@ class Graph extends React.Component {
     render() {
         return (
             <div className="row">
-            <div className="col s12 m4">
+            <div className="col s12 m4" style={{width: "100%"}}>
             <div className="card">
                 <Chart
                   width={'460px'}

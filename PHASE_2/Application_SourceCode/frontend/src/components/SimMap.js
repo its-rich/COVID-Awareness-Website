@@ -67,7 +67,7 @@ class SimMap extends Component {
 
         if (this.props.lockdown && this.props.infectionCount === total) {
             this.setState({message: this.state.message + 1})
-        } else if (this.props.lockdown && this.props.infectionCount !== total) {
+        } else if (this.props.lockdown && this.props.infectionCount !== total && this.state.message < 14) {
             this.setState({message: 0})
         }
         return total;
@@ -104,7 +104,7 @@ class SimMap extends Component {
             this.state.city= -1;
             this.state.message = 0;
             this.props.setReset();
-        } else if (this.state.message > 15) {
+        } else if (this.state.message > 15 && this.props.lockdown && prevProps.currentDateOffset < this.props.currentDateOffset) {
             this.props.setLockdownCure();
             this.state.infectionSim.map((item, i) => {
                 item.previousFrame();
@@ -116,6 +116,7 @@ class SimMap extends Component {
             })
             let end = this.passNumberInfected();
             this.state.infectedCallback(end);
+            this.props.setNewCases(0);
         } else if (prevProps.currentDateOffset < this.props.currentDateOffset) {
             // this.state.infectionSim.nextFrame();
             if (this.state.city !== -1) {

@@ -10,13 +10,14 @@ export default class InfectedArea {
 
         this.circle = new window.google.maps.Circle({
             strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
+            strokeOpacity: 1,
             strokeWeight: 2,
             fillColor: '#FF0000',
-            fillOpacity: 0.3,
+            fillOpacity: 1,
             map,
             center: {lat: this.lat, lng: this.long},
             radius: population,
+            editable: false
         });
     }
 

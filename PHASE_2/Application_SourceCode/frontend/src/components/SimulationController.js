@@ -55,7 +55,7 @@ class SimController extends React.Component {
             <Draggable
             axis="both"
             handle="#move"
-            defaultPosition={{x: 0, y: -100}}
+            defaultPosition={{x: 0, y: -318}}
             position={null}
             grid={[1, 1]}
             scale={1}

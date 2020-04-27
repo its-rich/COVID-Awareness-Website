@@ -113,8 +113,10 @@ class SimMap extends Component {
             let start = this.passNumberInfected();
             this.props.setLockdownCure();
             this.state.infectionSim.map((item, i) => {
+                if (item.getCurrentFrame() > 0) {
                 item.previousFrame();
                 this.state.city= -1;
+                }
                 if (item.getCurrentFrame() <= 0) {
                     item.safetyDelete();
                     this.state.infectionSim.splice(i, 1);

@@ -27,7 +27,7 @@ class Infected extends Component {
         return (
             <div>
             {this.state.uid === undefined && <SignIn updateUID={this.updateUID.bind(this)}/> }
-            {this.state.uid !== undefined  && this.state.uid !== "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Latest uid={this.state.uid}/>}
+            {this.state.uid !== undefined  && this.state.uid !== "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Latest uid={this.state.uid} email={this.state.email}/>}
             {this.state.uid !== undefined  && this.state.uid === "a8Cr03JSL4TAgSFlk57XiRZ5DCk1" && <Summary uid={this.state.uid}/>}
             </div>
         )

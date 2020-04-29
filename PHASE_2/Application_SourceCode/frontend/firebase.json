@@ -9,7 +9,14 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+  ],
+  "headers": [
+      {"source": "/src/serviceWorker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}]}
+  ],
+  "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    } ]
   },
   "functions": {
     "predeploy": [

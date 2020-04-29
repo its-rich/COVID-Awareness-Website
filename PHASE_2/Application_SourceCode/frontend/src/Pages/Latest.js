@@ -122,6 +122,10 @@ export default class Latest extends Component {
         db.collection('users').doc(this.props.uid).get()
         .then(doc => {
             if (!doc.exists) {
+                db.collection('users').doc(this.props.uid).set({
+                    uid: this.props.uid,
+                    email_address: this.props.email
+                })
             } else {
                 if (doc.data().symptoms !== undefined) {
                     this.setState({symptoms: doc.data().symptoms});

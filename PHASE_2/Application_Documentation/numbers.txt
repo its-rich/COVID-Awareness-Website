@@ -1,0 +1,1175 @@
+2015
+total 0
+deaths 0
+
+2013
+total 0
+deaths 30
+
+2013
+total 0
+deaths 30
+
+2013
+total 0
+deaths 30
+
+2013
+total 0
+deaths 30
+
+2013
+total 0
+deaths 31
+
+2013
+total 0
+deaths 33
+
+2013
+total 0
+deaths 34
+
+2013
+total 0
+deaths 38
+
+2013
+total 0
+deaths 38
+
+2013
+total 0
+deaths 39
+
+2013
+total 0
+deaths 40
+
+2013
+total 0
+deaths 42
+
+2013
+total 0
+deaths 44
+
+2013
+total 0
+deaths 45
+
+2013
+total 0
+deaths 45
+
+2013
+total 0
+deaths 45
+
+2013
+total 0
+deaths 45
+
+2013
+total 0
+deaths 45
+
+2013
+total 0
+deaths 46
+
+2013
+total 0
+deaths 46
+
+2013
+total 0
+deaths 49
+
+2013
+total 0
+deaths 49
+
+2013
+total 0
+deaths 50
+
+2013
+total 0
+deaths 52
+
+2013
+total 0
+deaths 54
+
+2013
+total 0
+deaths 58
+
+2013
+total 0
+deaths 58
+
+2013
+total 0
+deaths 58
+
+2013
+total 0
+deaths 60
+
+2013
+total 0
+deaths 60
+
+2013
+total 0
+deaths 62
+
+2013
+total 0
+deaths 62
+
+2013
+total 0
+deaths 63
+
+2013
+total 0
+deaths 64
+
+2013
+total 0
+deaths 64
+
+2013
+total 0
+deaths 64
+
+2013
+total 0
+deaths 64
+
+2013
+total 0
+deaths 66
+
+2013
+total 0
+deaths 66
+
+2013
+total 0
+deaths 68
+
+2013
+total 0
+deaths 68
+
+2013
+total 0
+deaths 71
+
+2013
+total 0
+deaths 71
+
+2013
+total 0
+deaths 71
+
+2013
+total 0
+deaths 72
+
+2013
+total 0
+deaths 74
+
+2014
+total 0
+deaths 74
+
+2014
+total 0
+deaths 75
+
+2014
+total 0
+deaths 77
+
+2014
+total 0
+deaths 79
+
+2018
+total 0
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 1
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 2
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2018
+total 0
+deaths 740
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2018
+total 0
+deaths 0
+
+2019
+total 16
+deaths 0
+
+2019
+total 24
+deaths 0
+
+2014
+total 2
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2017
+total 1955
+deaths 0
+
+2019
+total 0
+deaths 0
+
+2020
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 3
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 2
+deaths 0
+
+2015
+total 45
+deaths 3
+
+2015
+total 42
+deaths 4
+
+2015
+total 46
+deaths 5
+
+2015
+total 59
+deaths 4
+
+2015
+total 78
+deaths 6
+
+2015
+total 188
+deaths 17
+
+2015
+total 182
+deaths 19
+
+2015
+total 178
+deaths 24
+
+2015
+total 184
+deaths 27
+
+2015
+total 187
+deaths 31
+
+2015
+total 183
+deaths 33
+
+2015
+total 186
+deaths 33
+
+2015
+total 188
+deaths 33
+
+2015
+total 186
+deaths 35
+
+2015
+total 186
+deaths 36
+
+2015
+total 186
+deaths 36
+
+2015
+total 186
+deaths 36
+
+2015
+total 0
+deaths 36
+
+2014
+total 31
+deaths 8
+
+2014
+total 20
+deaths 12
+
+2014
+total 0
+deaths 0
+
+2014
+total 1
+deaths 3
+
+2014
+total 5
+deaths 4
+
+2014
+total 0
+deaths 4
+
+2014
+total 0
+deaths 4
+
+2014
+total 0
+deaths 1
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 4
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 14
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 5
+
+2015
+total 0
+deaths 5
+
+2015
+total 0
+deaths 3
+
+2015
+total 0
+deaths 2
+
+2015
+total 0
+deaths 2
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 2
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 4
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 3
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 6
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 2
+
+2015
+total 0
+deaths 3
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 1
+
+2015
+total 0
+deaths 2
+
+2016
+total 0
+deaths 2
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 3
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 2
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 1
+
+2016
+total 0
+deaths 6
+
+2016
+total 0
+deaths 3
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 1
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 1
+
+2016
+total 0
+deaths 2
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 6
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 12
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 24
+deaths 0
+
+2017
+total 36
+deaths 0
+
+2018
+total 20
+deaths 0
+
+2018
+total 2072
+deaths 0
+
+2018
+total 32
+deaths 10
+
+2018
+total 0
+deaths 0
+
+2018
+total 0
+deaths 0
+
+2018
+total 0
+deaths 0
+
+2019
+total 0
+deaths 0
+
+2019
+total 14
+deaths 0
+
+2017
+total 26
+deaths 0
+
+2017
+total 25
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2016
+total 0
+deaths 0
+
+2019
+total 39
+deaths 0
+
+2019
+total 87
+deaths 10
+
+2019
+total 144
+deaths 0
+
+2019
+total 117
+deaths 13
+
+2019
+total 0
+deaths 0
+
+2019
+total 14
+deaths 0
+
+2019
+total 3
+deaths 1
+
+2019
+total 5
+deaths 0
+
+2019
+total 3
+deaths 0
+
+2019
+total 2
+deaths 0
+
+2019
+total 20
+deaths 0
+
+2019
+total 0
+deaths 0
+
+2020
+total 13
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2019
+total 88
+deaths 0
+
+2020
+total 89
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2015
+total 0
+deaths 0
+
+2016
+total 0
+deaths 1
+
+2016
+total 0
+deaths 0
+
+2017
+total 81
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2017
+total 0
+deaths 0
+
+2018
+total 0
+deaths 0
+
+2020
+total 91
+deaths 0
+
+2018
+total 0
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2014
+total 0
+deaths 79
+
+2014
+total 0
+deaths 80
+
+2014
+total 0
+deaths 81
+
+2014
+total 0
+deaths 82
+
+2014
+total 0
+deaths 82
+
+2014
+total 0
+deaths 83
+
+2014
+total 0
+deaths 84
+
+2014
+total 0
+deaths 84
+
+2014
+total 0
+deaths 85
+
+2014
+total 0
+deaths 86
+
+2014
+total 0
+deaths 88
+
+2014
+total 0
+deaths 92
+
+2014
+total 0
+deaths 92
+
+2014
+total 0
+deaths 92
+
+2014
+total 0
+deaths 93
+
+2014
+total 0
+deaths 93
+
+2014
+total 0
+deaths 93
+
+2014
+total 0
+deaths 93
+
+2014
+total 0
+deaths 93
+
+2014
+total 138
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2014
+total 0
+deaths 171
+
+2014
+total 58
+deaths 173
+
+2014
+total 41
+deaths 181
+
+2014
+total 17
+deaths 193
+
+2014
+total 17
+deaths 193
+
+2014
+total 17
+deaths 193
+
+2014
+total 0
+deaths 0
+
+2014
+total 2
+deaths 0
+
+2014
+total 1953
+deaths 114
+
+2014
+total 0
+deaths 0
+
+2014
+total 0
+deaths 38
+
+2014
+total 0
+deaths 0
+
+2014
+total 882
+deaths 34
+
+2014
+total 3
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2014
+total 0
+deaths 0
+
+2014
+total 0
+deaths 3
+
+2013
+total 0
+deaths 27
+
+2020
+total 164
+deaths 0
+
+2020
+total 0
+deaths 0
+
+2013
+total 0
+deaths 32

@@ -36,7 +36,10 @@
   A fully functional API with full swagger documentation and an API logs website to display the success of a request. All       testing conducted on the API and the final API architecture decisions fully detailed.
 
   ## Deliverable 3 - Week 8
-  Demo
+  1st Demo Due. A working front end which incorporates our and existing APIs to create a unique website, while also explaining the stack, purpose and target audience of our website.
 
-  ## Deliverable 4 - Week 10
-  Final Product
+  ## Deliverable 4 - Week 11
+  Final Demo Due. A finalised and refined version of our website.
+  
+  ## Deliverable 4 - Week 11
+  Final Report Due.

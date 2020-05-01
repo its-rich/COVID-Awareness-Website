@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Request.method!=GET
-`curl -s "https://asia-northeast1-seng3011-api.cloudfunctions.net/report?start_date=2019-03-14T12:00:00&end_date=2019-03-14T12:00:00&key=coronavirus&location=China" -H "Accept:application/json" -o results.txt`
+`curl -X POST -s "https://asia-northeast1-seng3011-api.cloudfunctions.net/report?start_date=2019-03-14T12:00:00&end_date=2019-03-14T12:00:00&key=coronavirus&location=China" -H "Accept:application/json" -o results.txt`
 
 # cp results.txt expected9.txt
 python3 jsoncmp.py expected9.txt

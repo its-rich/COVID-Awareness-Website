@@ -1,69 +1,35 @@
+# What is this?
+A web application that displays the impact of well known diseases on geographical locations since their initial outbreak. It also simulates how coronavirus can spread across Australia. 
 
-# Project Outline
-The theme of this project was to create an API that scraps the latest diseases outbreak reports from the World Health Organisation and then use it in a meaningful way by creating our own website.
+# How can I access it?
+https://seng3011-api.web.app/
 
-Both the website & the API are hosted on Firebase.
-
-The API was written in Python and the website was written using ReactJS.
-
-Website link: https://diseasesovertime.com/
-
-Website features:
-* Visually display a variety of diseases and the amount of people they have infected or killed within since 1996
+# Features
+* Visually display a variety of diseases and the amount of people they have infected or killed within since 1996 (based on data scraped from [WHO's Disease Outbreak News](https://www.who.int/csr/don/archive/year/2020/en/))
 * Provides a coronavirus tracking system for Australians infected by coronavirus to provide their details
 	* Completed before the COVIDSafe app existed 
 	* A lot less invasive than the COVIDSafe app
-* A coronavirus simulator which will visually display the how COVID can spread in Australia based on the data from John Hopkins Coronavirus API
+* A coronavirus simulator which will visually display the how COVID can spread in Australia (based on the data from an [API](https://github.com/backtrackbaba/covid-api) that uses the dataset from John Hopkins' University)
 	* Visually expresses the impact of an uncontrolled virus
 	* Visually shows the effects of a lockdown
 	* Visually indicates how effective a vaccine can be
 	* Note it can only handle showing up to 30,000 cases
 
-# Project Details
-A full write up of the work completed for this project can be found in the **Reports** repository.
+# Stack
+The frontend was developed using ReactJS and is hosted on a Firebase server while the API is a Google Cloud Function written in Python.
 
-## SENG3011_Emperor_Augustus-
-  The designing and implementation of an automated system to monitor epidemics and disease outbreaks    
+# Where can I find the code?
+Source code for the frontend: 
+* [Repo](https://github.com/its-rich/COVID-Awareness-Website/tree/master/PHASE_2/Application_SourceCode/frontend)
 
-  ## Team Name
-  Emperor_Augustus
+Source code for the API/Google Cloud Function:
+* [API](https://asia-northeast1-seng3011-api.cloudfunctions.net/report)
+* [API File](https://github.com/its-rich/COVID-Awareness-Website/blob/master/PHASE_1/API_SourceCode/api.py)
+* [API Logs](https://asia-northeast1-seng3011-api.cloudfunctions.net/logs)
+* [API Logs File](https://github.com/its-rich/COVID-Awareness-Website/blob/master/PHASE_1/API_SourceCode/logs.py)
 
-  ## Members:
-         Hangi (Paul) Park   
-         Augustine Hyunwoo Lee
-         Patrick Church
-         Jack Callander
-         Richard Liu
-         Negar (Niki) Bolourchi
+Source code for WHO Disease Outbreak News Webscraper:
+* [File](https://github.com/its-rich/COVID-Awareness-Website/blob/master/PHASE_1/API_SourceCode/crawler.py)
 
-  ## Mentor
-  Ben Delaney
-
-  ## API Link
-  https://asia-northeast1-seng3011-api.cloudfunctions.net/report
-
-  ## API Documentation - Swagger Link
-  https://app.swaggerhub.com/apis-docs/nikibl22/API/3.0.0
-
-  ## API Logs Link
-  https://asia-northeast1-seng3011-api.cloudfunctions.net/logs
-
-  ## Deliverable 1 - Week 3
-  Design Details & Management Information Due.
-  An outline of the entire project fully analysed and thought out in preparation for the development of the API, and later the website.
-
-  ## Deliverable 2 - Week 5
-  Working API Endpoint & Swagger Documentation Due.
-
-  ## Deliverable 2 - Week 6
-  API Documentation/Implementation & API Testing Due.
-  A fully functional API with full swagger documentation and an API logs website to display the success of a request. All       testing conducted on the API and the final API architecture decisions fully detailed.
-
-  ## Deliverable 3 - Week 8
-  1st Demo Due. A working front end which incorporates our and existing APIs to create a unique website, while also explaining the stack, purpose and target audience of our website.
-
-  ## Deliverable 4 - Week 11
-  Final Demo Due. A finalised and refined version of our website.
-  
-  ## Deliverable 4 - Week 11
-  Final Report Due.
+# Project Report
+* [Final Report.pdf](https://github.com/its-rich/COVID-Awareness-Website/blob/master/Reports/Final%20Report.pdf)

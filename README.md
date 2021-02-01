@@ -26,6 +26,7 @@ Source code for the API/Google Cloud Function:
 * API 
     * [Link to API](https://asia-northeast1-seng3011-api.cloudfunctions.net/report)
     * [Link to api.py](https://github.com/its-rich/COVID-Awareness-Website/blob/master/PHASE_1/API_SourceCode/api.py)
+    * [Link to API Docs on SwaggerHub](https://app.swaggerhub.com/apis-docs/nikibl22/API/3.0.0#/report/findPetsByStatus)
 * Custom API Logs
     * [Link to API Logs](https://asia-northeast1-seng3011-api.cloudfunctions.net/logs)
     * [Link to logs.py](https://github.com/its-rich/COVID-Awareness-Website/blob/master/PHASE_1/API_SourceCode/logs.py)
